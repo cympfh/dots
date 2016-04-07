@@ -3,6 +3,7 @@ alias -s hs='runghc'
 alias -s coffee='coffee'
 alias -s js='node'
 alias -s py='python'
+alias -s rb='ruby'
 alias -s dot='dot -Tpng'
 
 # alias
