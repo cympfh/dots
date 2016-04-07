@@ -1,0 +1,4 @@
+ccd() {
+  cd $1
+  screen -X chdir $PWD
+}

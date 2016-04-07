@@ -1,0 +1,16 @@
+[user]
+  name = cympfh
+  email = cympfh@gmail.com
+  ui = color
+[push]
+  default = current
+[alias]
+  cl = clone
+  pl = pull
+  ps = push
+  st = status
+  df = diff
+  cm = commit -m
+  ad = add -A .
+[color]
+  ui = true

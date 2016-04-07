@@ -1,0 +1,154 @@
+# i3 config file (v4)
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod4
+
+# font for window titles. ISO 10646 = Unicode
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+#font pango:Consolas, Mono, DejaVu Sans Mono 12
+font pango:FontAwesome, Mono, DejaVu Sans Mono 12
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec /usr/bin/terminator
+
+# kill focused window
+bindsym $mod+Q kill
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec dmenu_run
+
+new_window none
+new_float normal
+bindsym $mod+b border toggle
+
+# change focus
+bindsym $mod+Tab focus left
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+H move left
+bindsym $mod+Shift+J move down
+bindsym $mod+Shift+K move up
+bindsym $mod+Shift+L move right
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# configuration file
+bindsym $mod+Shift+C reload
+bindsym $mod+Shift+R restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+E exit
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+  bindsym h resize shrink width 10 px or 10 ppt
+  bindsym j resize grow height 10 px or 10 ppt
+  bindsym k resize shrink height 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt
+
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# move workspace between monitors
+bindsym $mod+m move workspace to output left
+
+# PrintScreen to take a screenshot
+bindsym Print exec gnome-screenshot -f /home/cympfh/Pictures/hoge.jpg
+
+# screen lock
+bindsym $mod+Escape exec /home/cympfh/bin/lock
+
+# start up start
+# exec nm-applet
+exec dropbox start
+exec bash ~/.fehbg
+setxkbmap us -option ctrl:nocaps
+exec fcitx &
+exec bash ~/.xinitrc
+
+# Window split
+bindsym $mod+v split v
+bindsym $mod+shift+v split h
+
+# specific application
+for_window [class="feh"] floating enable, border normal
+for_window [class="mplayer"] floating enable, border normal
+for_window [class="mplayer2"] floating enable, border normal
+for_window [class="MPlayer"] floating enable, border normal
+for_window [class="Wine"] floating enable, border normal
+for_window [class= "Xfce4-notifyd"] floating enable, border none
+for_window [class= "Firefox Preferences"] floating enable, border none
+for_window [class="Tk"] floating enable, border normal
+for_window [class="avplay"] floating enable, border normal
+for_window [class="Display.im6"] floating enable, border normal
+
+# default colors:
+#  colors {
+#    background #000000
+#    statusline #00A5FF #that neon blue
+#    separator #666666
+#
+#    #                   border bground fground
+#    focused_workspace  #4c7899 #285577 #ffffff
+#    active_workspace   #333333 #5f676a #ffffff # focuesd but in another monitor
+#    inactive_workspace #333333 #222222 #888888
+#    urgent_workspace   #2f343a #900000 #ffffff
+#  }
+
+bar {
+  colors {
+    background #000000
+    statusline #00A5FF
+    separator #666666
+
+    # border background foreground
+    focused_workspace  #000000 #000000 #ffffff
+    active_workspace   #000000 #000000 #dddddd
+    inactive_workspace #000000 #000000 #888888
+    urgent_workspace   #000000 #900000 #ffffff
+  }
+  position bottom
+  status_command $HOME/dots/i3/bar.coffee
+}
+# vim: set ft=conf:

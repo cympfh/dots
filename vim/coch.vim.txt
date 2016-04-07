@@ -1,0 +1,275 @@
+scriptencoding utf-8
+
+" 17, 39 行目は書き換えの必要あり．
+" 39行目は、板のタイトルとURLを交互に書いたテキストファイル
+
+" Cochの起動コマンド
+com! Coch :call s:Init2ch()
+com! -nargs=1 NG :call <SID>AddtoNGs("<args>")
+
+" グローバル変数
+let t:boardlist = []
+let t:board_idx = 0
+let t:threadlist = []
+let t:thread_idx = 0
+let g:coch_name = ""
+let g:ngs = {}
+let g:PREFIX = "~/Dropbox/Pictures/coch"
+" 画像の保存先
+
+fun! s:Init2ch()
+    let t:boardlist = []
+    let t:board_idx = 0
+    let t:threadlist = []
+    let t:thread_idx = 0
+    set fenc=utf-8
+    set nowrap
+    set ambiwidth=single
+    call s:BoardList()
+endfun
+
+fun! s:AddtoNGs(id)
+    let g:ngs[a:id] = 1
+    echo "Add ".a:id." to g:ngs"
+endfun
+
+fun! s:BoardList()
+    exe Conv("edit! Coch")
+
+    let fname =  "/home/cympfh/Dropbox/txt/thread.txt"
+    echo "loading ".fname
+    let t:boardlist = readfile(fname)
+    echo "finish load"
+
+    echo "drawing.."
+    %delete
+    call setline(1, "ThreadList (cocoa/thread.txt)")
+    let i = 0
+    while i < len(t:boardlist)
+        call setline(i/2 + 2, t:boardlist[i])
+        let i+= 2
+    endwhile
+
+    echo "keymapping.."
+    nnoremap <buffer> <silent> <CR> :call <SID>OpenBoard(line(".") - 2)<CR>
+
+    redraw
+endfun
+
+fun! s:OpenBoard(idx)
+
+    if a:idx < 0
+        return
+    endif
+    
+    let t:board_idx = a:idx
+
+    let url = t:boardlist[t:board_idx * 2 + 1]."subject.txt"
+    echo "connect to ".url
+    let curlcmd = "curl -s ".url
+    let t:threadlist = split(Conv(system(curlcmd)), "[\n<]")
+    let t:threadlist = map(t:threadlist, 'substitute(v:val, ">", "", "")')
+    echo "success"
+
+    echo "drawing.."
+    %delete
+    call setline(1, "Thread List")
+    let i = 1
+    while i < len(t:threadlist)
+        call setline((i + 1) / 2, t:threadlist[i])
+        let i += 2
+    endwhile
+    echo "finish draw"
+
+    echo "keymapping..."
+    nnoremap <buffer> <silent> <CR> :call <SID>OpenThread(line(".") - 1)<CR>
+    nnoremap <buffer> <silent> <BS> :call <SID>BoardList()<CR>
+    nnoremap <buffer> <silent> r :call <SID>OpenBoard(t:board_idx)<CR>
+
+    redraw
+endfun
+
+fun! s:OpenThread(idx)
+    let t:thread_idx = a:idx
+    echo "loading ".t:threadlist[a:idx * 2 + 1]
+
+    let url = t:boardlist[t:board_idx * 2 + 1]."dat/". t:threadlist[a:idx * 2]
+    echo "connect to ".url
+    let curlcmd = "curl -s ".url
+    let body = split(Conv(system(curlcmd)), "[\r\n]")
+    echo "success"
+
+    echo "drawing.."
+    %delete
+    let i = 0
+    let buf = []
+    while i < len(body)
+        let txt = body[i]
+        let txt = substitute(txt, "<b>", "", "g")
+        let txt = substitute(txt, "</b>", "", "g")
+        let txt = substitute(txt, "</a>", "", "g")
+        let txt = substitute(txt, "<a.\\{-}>", "", "g")
+
+        let j = match(txt, "ID:")
+        let j = match(txt, " ", j)
+
+        let name = txt[0 : j]
+        let line = substitute(name, "<> ", "","g")
+        let line = substitute(line, "<><>", " ","g")
+        " NG check
+        let id = strpart(line, stridx(line, "ID:")+3)
+        if has_key(g:ngs, id)
+            let i += 1
+            continue
+        endif
+        call add(buf, (i+1). ": ". line)
+
+        let txt = txt[j : ]
+        let mes = split(txt, "<br>")
+
+        for line in mes
+            let line = substitute(line, "<>", "","g")
+            let line = DecodeURI_sub(line)
+            let k = match(line, " *$")
+            if k > 0
+                let line = line[: k - 1]
+            endif
+            call add(buf, line)
+        endfor
+
+        call add(buf, "")
+        let i += 1
+    endwhile
+    call setline(2, buf)
+    call setline(1, "http://".join(split(t:boardlist[t:board_idx * 2 + 1], "/")[2:3], "/test/read.cgi/"). "/". split(t:threadlist[a:idx * 2], ".dat")[0]."/")
+
+    nnoremap <buffer> <CR> <NOP>
+    nnoremap <buffer> <silent> <BS> :call <SID>OpenBoard(t:board_idx)<CR>
+    nnoremap <buffer> <silent> r :call <SID>OpenThread(t:thread_idx)<CR>
+    nnoremap <buffer> <silent> <S-n> :call <SID>NextThread()<CR>
+    nnoremap <buffer> <silent> <S-w> :call <SID>WriteTextTrim()<CR>
+    vnoremap <buffer> <silent> <S-w> :call <SID>VWriteTextTrim()<CR>
+    nnoremap <buffer> <silent> <S-s> :call <SID>SaveFile()<CR>
+
+    redraw
+    normal G
+endfun
+
+fun! s:SaveFile()
+    let line = getline(".")
+    let s_idx = match(line, "http")
+    if s_idx < 0
+        let line = substitute(line, "ttp", "http", "g")
+        let s_idx = match(line, "http")
+    endif
+    let e_idx = max([match(line, ".jpg")+4, match(line, ".png")+4, match(line, ".gif")+4, match(line, ".jpeg")+5, match(line, ".JPG")+4, match(line, ".GIF")+4])
+    let fname = line[s_idx : e_idx]
+    exe "!wget " . fname . " -P " . g:PREFIX . " &"
+endfun
+
+fun! s:NextThread()
+    let t = t:threadlist[t:thread_idx * 2 + 1]
+    call s:OpenBoard(t:board_idx)
+    let k = match(t, "[1234567890１２３４５６７８９０]")
+    if k > 0 | let t = t[0 : k - 1] | endif
+    normal G
+    exe "/".t
+endfun
+
+fun! s:WriteTextTrim()
+    let str = getline(".")
+    let str = EncodeURI_sub(str)
+    let str = Conv2(str)
+    call s:WriteThread(str)
+endfun
+fun! s:VWriteTextTrim() range
+    let str = ""
+    for line in getline(a:firstline, a:lastline)
+        let line2 = line
+        let line2 = EncodeURI_sub(line2)
+        let line2 = Conv2(line2)
+        let str .= line2 . "%0A"
+    endfor
+    call s:WriteThread(str)
+endfun
+
+fun! s:WriteThread(str)
+    let str = a:str
+
+    let cookiefile = "/home/cympfh/.vim/cookie.txt"
+    let buf = split(t:boardlist[t:board_idx * 2 + 1], "/")
+    let url = "http://". buf[2]. "/test/bbs.cgi"
+    let bbs = buf[3]
+    let key = split(t:threadlist[t:thread_idx * 2], ".dat")[0]
+
+    let curlcmd = "curl -# -v -c ".cookiefile." -b ".cookiefile
+    let curlcmd .= " -d MESSAGE=\"".str."\""
+    let curlcmd .= " -d mail=sage"
+    let curlcmd .= " -d FROM=" . g:coch_name
+    let curlcmd .= " -d sid="
+    let curlcmd .= " -d key=".key
+    let curlcmd .= " -d bbs=".bbs
+    let curlcmd .= " -d den=bo"
+    let curlcmd .= " -d submit="
+
+    let curlcmd .= " -d time=1 -e ".url." ".url
+
+    echo "curlcmd = " . curlcmd
+
+    let res = Conv(system(curlcmd))
+
+    if res =~ "2ch_X:cookie"
+        let i = match(res, "name=time")
+        let i = match(res, "value", i)
+        let j = match(res, ">", i)
+        let time = res[ i + 6 : j - 1]
+        let time = time - 10000
+        echo "time = ".time
+        let i = match(res, "key", j)
+        let i = match(res, "name", i)
+        let j = match(res, "value", i)
+            let yuki = res[i + 6 : j - 3]
+        let i = match(res, ">", j)
+            let akari = res[j + 7 : i - 2]
+
+        let curlcmd .= " -d time=".time." -d ".yuki."=".akari." -e ".url." ".url
+        let curlcmd = substitute(curlcmd, "\r", "", "g")
+        let curlcmd = substitute(curlcmd, "\n", " ", "g")
+        let res = Conv(system(curlcmd))
+    endif
+
+    echo res
+endfun
+
+
+fun! Conv(str)
+    return iconv(a:str, "sjis", "utf-8")
+endfun
+
+fun! Conv2(str)
+    return iconv(a:str, "utf-8", "sjis")
+endfun
+
+fun! EncodeURI_nkf(str)
+    return = system("echo ".a:str."|nkf -wMQ|tr = %")
+endfun
+
+fun! EncodeURI_sub(line)
+    let line = a:line
+    let line = substitute(line, " ", "%20", "g")
+    let line = substitute(line, ">", "%26gt;", "g")
+    let line = substitute(line, "<", "%26lt;", "g")
+    let line = substitute(line, "～", "%26#12316", "g")
+
+    return line
+endfun
+
+fun! DecodeURI_sub(line)
+    let line = a:line
+    let line = substitute(line, "&gt;", ">","g")
+    let line = substitute(line, "&lt;", "<","g")
+    let line = substitute(line, "&quot;", "\"","g")
+
+    return line
+endfun
+

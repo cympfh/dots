@@ -1,0 +1,52 @@
+# Escape Key
+escape ^kk
+
+# to use 256 colors
+defbce on 
+term screen-256color
+shell zsh
+termcapinfo xterm*|screen* Co#256:pa#32767:AB=\E[48;5;%dm:AF=\E[38;5;%dm
+
+vbell off
+autodetach on
+startup_message off
+msgwait 5
+msgminwait 1
+defscrollback 30000
+mousetrack off
+
+# colors
+sorendition '=B dd'
+# hardstatus ignore
+# hardstatus alwayslastline '%{= dK}%-w%{=b dc}%n %t%{-}%+w%= %{= Y}%0`'
+# backtick 0 10 10 $HOME/bin/backtic
+# hardstatus alwayslastline '%-w%{=b dw}%n %t%{-}%+w %= %m/%d %c:%s'
+hardstatus alwayslastline '%-w%{=b dw}%n %t%{-}%+w'
+caption always '%{=b dc}%n%{= dd} %{ub dc}%t'
+
+# resize
+bind < resize -1
+bind > resize +1
+bind H resize -5
+bind L resize +5
+
+# mov
+bind ^h focus left
+bind ^j focus down
+bind ^k focus up
+bind ^l focus right
+bind h focus left
+bind j focus down
+bind k focus up
+bind l focus right
+
+# command!
+bind t screen
+
+# layout
+layout new 0
+layout new 1
+layout select 0
+bind ! layout next
+
+# vim: set ft=screen:
