@@ -18,13 +18,13 @@ set synmaxcol=200
 set rtp+=~/.vim/Vundle.vim/
 call vundle#rc()
 
-source ~/dots/vim/keymap.vim
-" source ~/dots/vim/appearance.light.vim
-source ~/dots/vim/appearance.dark.vim
-source ~/dots/vim/prg.vim
-source ~/dots/vim/procon.vim
-source ~/dots/vim/eng.vim
-source ~/dots/vim/misc.vim
+source ~/.dots/vim/keymap.vim
+" source ~/.dots/vim/appearance.light.vim
+source ~/.dots/vim/appearance.dark.vim
+source ~/.dots/vim/prg.vim
+source ~/.dots/vim/procon.vim
+source ~/.dots/vim/eng.vim
+source ~/.dots/vim/misc.vim
 
 if has('mac')
   set cryptmethod=blowfish2

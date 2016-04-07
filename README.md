@@ -1,4 +1,4 @@
 # dot dot dot
 
-## ~/dots
+## ~/.dots
 

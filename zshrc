@@ -8,15 +8,15 @@ setopt correct
 setopt nonomatch
 export EDITOR=/usr/bin/vim
 
-source ~/dots/sh/path.sh
-source ~/dots/sh/prompt.sh
-source ~/dots/sh/dict.sh
-source ~/dots/sh/alias.sh
-source ~/dots/sh/calendar.sh
-source ~/dots/sh/history.sh
-source ~/dots/sh/screen.sh
-source ~/dots/sh/interpreter.sh
-source ~/dots/sh/syntax-hightlight.sh
+source ~/.dots/sh/path.sh
+source ~/.dots/sh/prompt.sh
+source ~/.dots/sh/dict.sh
+source ~/.dots/sh/alias.sh
+source ~/.dots/sh/calendar.sh
+source ~/.dots/sh/history.sh
+source ~/.dots/sh/screen.sh
+source ~/.dots/sh/interpreter.sh
+source ~/.dots/sh/syntax-hightlight.sh
 
 function id3pic {
   eyeD3 --add-image=$1:FRONT_COVER $2

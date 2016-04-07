@@ -28,7 +28,7 @@ else
   let g:syntastic_cpp_compiler_options = ' -std=c++11 '
 endif
 au FileType cpp set cindent
-au FileType cpp set dictionary+=~/dots/vim/dict/cpp
+au FileType cpp set dictionary+=~/.dots/vim/dict/cpp
 au FileType cpp nn <buffer> <leader>g :!g++ -O3 -o %:r.exe -std=c++11 %<cr>
 au FileType cpp nn <buffer> <leader>r :!time ./%:r.exe<cr>
 au FileType cpp nn <buffer> <leader>t :!time ./%:r.exe <input<cr>
@@ -57,7 +57,7 @@ au FileType lisp nn <buffer> <leader>r :!time clisp %<cr>
 
 " Dot
 au FileType dot ino <C-l> ->
-au FileType dot set dictionary+=~/dots/vim/dict/dot
+au FileType dot set dictionary+=~/.dots/vim/dict/dot
 
 function! CompileDot()
   if getline(1) =~ "blockdiag"
@@ -116,7 +116,7 @@ au FileType haskell nn <buffer> <leader>r :!./%:r.exe<cr>
 au FileType haskell nn <buffer> <leader>t :!./%:r.exe <input<cr>
 au FileType haskell nn <buffer> <leader><leader>r :!ghc -O3 ./% -o %:r.exe; ./%:r.exe<cr>
 au FileType haskell nn <buffer> <leader><leader>t :!ghc -O3 ./% -o %:r.exe; ./%:r.exe <input<cr>
-au FileType haskell set dictionary+=~/dots/vim/dict/haskell
+au FileType haskell set dictionary+=~/.dots/vim/dict/haskell
 
 " Hot Cocoa Lisp
 au BufRead,BufNewFile *.hcl set filetype=hcl
@@ -150,7 +150,7 @@ au BufRead,BufNewFile *.kt set filetype=kotlin
 let g:tex_conceal = ''
 au BufRead,BufNewFile *.tex set filetype=tex
 au FileType tex set makeprg=make
-au FileType tex so ~/dots/vim/tex.vim
+au FileType tex so ~/.dots/vim/tex.vim
 au FileType tex nn <buffer> <leader>g :!platex % && dvipdfmx %:r.dvi<cr>
 fun! s:open_pdf(name)
   if has('mac')
@@ -173,7 +173,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'kannokanno/previm'
 Bundle 'tyru/open-browser.vim'
-au FileType markdown so ~/dots/vim/tex.vim
+au FileType markdown so ~/.dots/vim/tex.vim
 
 " Scheme
 au FileType scheme nn <buffer> <leader>r :!rlwrap gosh -l ./%<cr>
