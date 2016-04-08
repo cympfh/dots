@@ -21,6 +21,6 @@ noremap <F1> <nop>
 " tab
 "
 noremap d <nop>
-noremap dd :tabclose<cr>
+noremap x :tabclose<cr>
 noremap <c-s-p> :tabmove -1<cr>
 noremap <c-s-n> :tabmove +1<cr>
