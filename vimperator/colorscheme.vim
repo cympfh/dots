@@ -4,8 +4,8 @@ hi StatusLine color:#ddf; background:#333;
 hi CmdLine color:#ddf; background:#333;
 
 " SmartCompletions
-hi CompTitle color:#fdd; background:#111; font-weight:bold; opacity:0.7;
-hi CompResult color:#ddf; background:#111; font-size:17px; opacity:0.7;
-hi Filter color:#fff; font-weight:bold; font-size:20px;
+hi CompTitle color:#fff; background:#111; opacity:0.7;
+hi CompResult color:#ddf; background:#111; font-size:14px; opacity:0.7;
+hi Filter color:#fff; font-weight:bold; font-size:17px;
 hi CompItem[selected] color:#111; background:#ddd;
-hi CompDesc color:#afa; background:#111; fotn-size:18px;
+hi CompDesc color:#afa; background:#111; fotn-size:14px;
