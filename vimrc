@@ -25,6 +25,9 @@ source ~/.dots/vim/prg.vim
 source ~/.dots/vim/procon.vim
 source ~/.dots/vim/eng.vim
 source ~/.dots/vim/misc.vim
+if exists('~/.dots/vim/hatena.vim')
+  source ~/.dots/vim/hatena.vim
+endif
 
 if has('mac')
   set cryptmethod=blowfish2
