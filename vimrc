@@ -29,9 +29,7 @@ if exists('~/.dots/vim/hatena.vim')
   source ~/.dots/vim/hatena.vim
 endif
 
-if has('mac')
-  set cryptmethod=blowfish2
-end
+set cryptmethod=blowfish2
 set fencs=utf8,euc-jp,sjis,cp932,default,latin1
 
 filetype plugin indent on
