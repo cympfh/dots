@@ -1,2 +1,4 @@
-CALENDAR_HOME=~/Dropbox/calendar/
-alias c='calendar -f ~/Dropbox/calendar/index.calendar --color'
+CALENDAR_HOME=~/git/mycal
+function c {
+  calendar -f $CALENDAR_HOME/index.calendar --color
+}
