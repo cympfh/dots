@@ -112,7 +112,7 @@ cal = do ->
 twitter = do ->
   time = -1
   res = "@twitter"
-  twurl = "#{HOME}/git/twurl/bin/twurl"
+  twurl = "#{HOME}/Tools/twurl/bin/twurl"
   ->
     time = (time + 1) % 8
     if time is 0
