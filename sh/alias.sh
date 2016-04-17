@@ -25,8 +25,12 @@ alias g='git'
 alias chmox='chmod +x'
 alias screen='ssh-agent screen'
 
-function mkcd() {
+function mkcd {
   mkdir "$1" && cd "$1"
+}
+
+function bf {
+  cat > ~/.vim/.bf
 }
 
 # alias vi='vim --servername A'
