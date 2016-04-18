@@ -230,6 +230,6 @@ Bundle 'derekwyatt/vim-scala'
 let g:syntastic_scala_checkers = ['fsc']
 au BufRead,BufNewFile *.scala set filetype=scala
 au FileType scala set makeprg=make
-au FileType scala nn <buffer> <leader>r :!scala -deprecation %<cr>
-au FileType scala nn <buffer> <leader>t :!scala -deprecation % <input<cr>
+au FileType scala nn <buffer> <leader>r :!scala -feature -deprecation %<cr>
+au FileType scala nn <buffer> <leader>t :!scala -feature -deprecation % <input<cr>
 
