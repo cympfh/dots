@@ -6,7 +6,7 @@ case $( uname -s ) in
     alias l='ls --color'
     alias ls='ls --color'
     alias ll='ls -lh --color'
-    alias mplayer='mplayer -vo x11 -zoom -af scaletempo -speed 1.05'
+    alias mplayer='mplayer -vo x11 -zoom -af scaletempo -speed 1.05 -correct-pts'
     alias z='zathura'
     alias mozc-tool='/usr/lib/mozc/mozc_tool --mode=config_dialog'
     ;;
