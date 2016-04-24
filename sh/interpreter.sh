@@ -16,3 +16,5 @@ alias -s png='feh'
 alias -s gif='feh'
 alias -s jpg='feh'
 
+# Mac
+alias -s app='open'
