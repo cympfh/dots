@@ -126,7 +126,7 @@ au FileType hcl nn <buffer> <leader>r :!hcl -nu %<cr>
 au BufRead,BufNewFile *.j  set filetype=j
 au FileType j   nn <buffer> <leader>r :!j %<cr>
 
-" JavaScript (Node.js)
+" JavaScript (Node.js) (ECMAScript)
 Bundle 'pangloss/vim-javascript'
 let g:syntastic_javascript_checkers = ['jslint']
 let g:syntastic_javascript_jslint_args = '--stupid --sloppy --browser --devel --forin --node --vars --indent=2 --plusplus'
