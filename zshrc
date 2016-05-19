@@ -3,7 +3,8 @@ bindkey -v
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
-autoload -Uz compinit && compinit
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
 setopt correct
 setopt nonomatch
 export EDITOR=$( which vim )
