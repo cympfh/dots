@@ -184,9 +184,9 @@ au FileType ocaml nn <buffer> <leader>g :!ocamlopt -o %:r.exe str.cmxa %<cr>
 au FileType ocaml nn <buffer> <leader>r :!time ./%:r.exe<cr>
 au FileType ocaml nn <buffer> <leader>t :!time ./%:r.exe <input<cr>
 
-" Python
-au FileType python nn <buffer> <leader>r :!time python3 %<cr>
-au FileType python nn <buffer> <leader>t :!time python3 % <input<cr>
+" Python (pyenv is recommended)
+au FileType python nn <buffer> <leader>r :!time python %<cr>
+au FileType python nn <buffer> <leader>t :!time python % <input<cr>
 
 " R
 au FileType r nn <buffer> <leader>r :!time Rscript ./%<cr>
