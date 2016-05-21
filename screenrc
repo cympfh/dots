@@ -47,6 +47,8 @@ bind t screen
 layout new 0
 layout new 1
 layout select 0
-bind ! layout next
+bind n layout next
+
+bind ! redisplay
 
 # vim: set ft=screen:
