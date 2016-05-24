@@ -46,7 +46,13 @@ bind t screen
 # layout
 layout new 0
 layout new 1
+layout remove 2
+layout remove 3
+layout remove 4
+layout remove 5
+layout remove 6
 layout select 0
+bind ^n layout next
 bind n layout next
 
 bind ! redisplay
