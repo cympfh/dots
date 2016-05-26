@@ -105,7 +105,15 @@ au FileType go nn <buffer> <leader>r :!./%:r.exe<cr>
 au BufRead,BufNewFile *.gp set filetype=gnuplot
 au BufRead,BufNewFile *.plt set filetype=gnuplot
 au FileType gnuplot nn <buffer> <leader>g :!gnuplot %<cr>
-au FileType gnuplot nn <buffer> <leader>r :!feh $(cat %\|grep output\|awk '{print $3}'\|tr -d '"'\|tr -d "'") & <cr>
+fun! OpenGPImage()
+  let f=system("cat ".expand("%")."|grep output|awk '{print $3}'|tr -d '\"'|tr -d \"'\"")
+  if has('mac')
+    exec ":!open " . f
+  else
+    exec ":!feh " . f
+  endif
+endfun
+au FileType gnuplot nn <buffer> <leader>r :call OpenGPImage()<cr>
 
 
 " Haskell
