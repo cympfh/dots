@@ -193,6 +193,7 @@ au FileType ocaml nn <buffer> <leader>r :!time ./%:r.exe<cr>
 au FileType ocaml nn <buffer> <leader>t :!time ./%:r.exe <input<cr>
 
 " Python (pyenv is recommended)
+let g:syntastic_python_checkers = ['flake8']
 au FileType python nn <buffer> <leader>r :!time python %<cr>
 au FileType python nn <buffer> <leader>t :!time python % <input<cr>
 
