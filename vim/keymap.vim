@@ -47,10 +47,3 @@ nn mk :make!<cr>
 nn mc :!make clean<cr>
 nn mt :!make test<cr>
 nnoremap ! :!
-
-" my buffer
-"
-nnoremap <c-b> :r ~/.vim/.bf<cr>
-inoremap <c-b> <c-r>=readfile($HOME . '/.vim/.bf')<cr>
-vnoremap <c-b> :w! ~/.vim/.bf<cr>
-
