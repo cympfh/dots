@@ -1,0 +1,51 @@
+# misc
+setopt histignorealldups sharehistory
+bindkey -v
+autoload -Uz compinit && compinit -i
+setopt correct
+setopt nonomatch
+export EDITOR=$( which vim )
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.zsh_history
+PROMPT="
+%F{red}%*%f %F{yellow}%~%f
+   "
+
+# alias
+alias vi=$EDITOR
+alias l='ls --color'
+alias ls='ls --color'
+alias ll='ls -lh --color'
+
+alias -s py='python'
+
+# PATH
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+eval "$(pyenv init -)"
+export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/local/bin
+export PATH=$PATH:/usr/local/cuda-7.0/bin
+
+# GNU screen
+case $TERM in
+  screen-256color-bce)
+    preexec() {
+      echo -ne "\ek$1\e\\"
+    }
+    precmd() {
+      #echo -ne "\ek$(basename $SHELL)\e\\"
+      echo -ne "\ek$(pwd|sed -e 's#/home/[^/]*#~#' -e 's#/Users/[^/]*#~#')\e\\"
+    }
+    ;;
+esac
+
+if [ $TERM = "screen-256color-bce" ]; then
+  echo -ne "\ek$(pwd|sed -e 's#/home/[^/]*#~#' -e 's#/Users/[^/]*#~#')\e\\"
+fi
