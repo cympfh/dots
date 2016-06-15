@@ -75,24 +75,6 @@ kwmc config split-ratio 0.5
 # New splits become the left leaf-node
 kwmc config spawn left
 
-# Add custom tiling rules for applications that
-# does not get tiled by Kwm by default.
-# This is because some applications do not have the
-# AXWindowRole and AXStandardWindowSubRole
-kwmc config add-role AXDialog iTerm2
-
-# The following commands create rules that
-# blacklists an application from Kwms tiling
-#
-# kwmc rule owner="Steam" properties={float="true"}
-# kwmc rule owner="Photoshop" properties={float="true"}
-
-# The following command creates a rule that
-# captures an application to the given screen,
-# if the screen exists.
-#
-# kwmc rule owner="iTunes" properties={display="1"}
-
 # Enable border for focused window
 kwmc config focused-border on
 kwmc config focused-border size 2
@@ -114,22 +96,23 @@ kwmc config prefix-border radius 6
 ########  My Keybinds ########
 
 # Set Space Tiling Mode To BSP
-kwmc bind cmd+ctrl-a space -t bsp
+# kwmc bind cmd+ctrl-a space -t bsp
 
 # Set Space Tiling Mode To Monocle
-kwmc bind cmd+ctrl-s space -t monocle
+# kwmc bind cmd+ctrl-s space -t monocle
 
 # Set Space Tiling Mode To Floating
-kwmc bind cmd+ctrl-d space -t float
+# kwmc bind cmd+ctrl-d space -t float
 
 # Rotate Window-Tree By 90* (Clockwise)
-kwmc bind cmd+ctrl-r tree rotate 90
+# kwmc bind cmd+ctrl-r tree rotate 90
 
 # Modify Container
-kwmc bind prefix-s window -c split-mode toggle
+# kwmc bind prefix-s window -c split-mode toggle
 kwmc bind prefix-h window -c reduce 0.05
 kwmc bind prefix-l window -c expand 0.05
 
+# Fullscreen toggle
 kwmc bind alt-f window -z fullscreen
 
 # Give Focus To Window
@@ -144,17 +127,12 @@ kwmc bind alt+shift-j window -s south
 kwmc bind alt+shift-k window -s north
 kwmc bind alt+shift-l window -s east
 
-## doesnt work!!!
 # Give Focus To Screen
-#kwmc bind cmd+alt-1 display -f 0
-#kwmc bind cmd+alt-2 display -f 1
-#kwmc bind cmd+alt-3 display -f 2
-
-## !! doesnt work!!!
-# Move Focused Window To Screen
-# kwmc bind ctrl+alt-1 window -m display 0
-# kwmc bind ctrl+alt-2 window -m display 1
-# kwmc bind ctrl+alt-3 window -m display 2
+kwmc bind alt-1 display -f 0
+kwmc bind alt-2 display -f 1
+# Move
+kwmc bind alt+shift-1 window -m display 0
+kwmc bind alt+shift-2 window -m display 1
 
 # Autowrite
 # kwmc bind cmd-7 write \
