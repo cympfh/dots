@@ -36,3 +36,9 @@ function fehbg {
 function sprunge {
   curl -F "sprunge=<-" http://sprunge.us
 }
+
+function loop {
+  W=$1
+  shift 1
+  while :; do $@; sleep $W; done
+}
