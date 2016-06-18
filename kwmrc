@@ -1,39 +1,11 @@
-#
 # cp /usr/local/Cellar/kwm/2.2.0/kwmrc
-#
 
-# Commands prefixed with 'kwmc' will call
-# local functions corresponding to the
-# kwmc syntax.
+kwmc config prefix-key ctrl-s
+kwmc config prefix-global off
+kwmc config prefix-timeout 0.75
 
-# To run a system command, use the prefix
-# 'sys' and then the requested command
-# e.g 'sys mvim' would open macvim
-
-# Read file and execute commands as
-# if they were written inside kwmrc.
-
-# include filename
-
-# e.g: bind-commands in a separate file called 'binds'
-# include binds
-
-# Create variables that can be used in the below commands.
-# Variables are in file-scope and must be defined before
-# they can be used. Re-definition is also possible.
-# Variable names can not contain whitespace, where as
-# the value can.
-
-# define variable value
-
-# e.g: create a variable for the hyper-key
-# define hyper cmd+ctrl+alt+shift
-# kwmc bind hyper-h window -f west
-
-# Set default values for screen padding
+# padding for containers
 kwmc config padding 30 10 10 10
-
-# Set default values for container gaps
 kwmc config gap 15 15
 
 # Default tiling mode for Kwm (bsp | monocle | float | off)
@@ -41,15 +13,6 @@ kwmc config tiling bsp
 
 # Let Kwm listen for hotkeys
 kwmc config hotkeys on
-
-# Set prefix for Kwms hotkeys
-kwmc config prefix-key ctrl-s
-
-# Prefix is not applied globally
-kwmc config prefix-global off
-
-# Time in seconds, before prefix must be re-activated
-kwmc config prefix-timeout 0.75
 
 # Automatically float windows that fail to resize
 kwmc config float-non-resizable on
@@ -93,24 +56,10 @@ kwmc config prefix-border size 2
 kwmc config prefix-border color FF458588
 kwmc config prefix-border radius 6
 
-########  My Keybinds ########
-
-# Set Space Tiling Mode To BSP
-# kwmc bind cmd+ctrl-a space -t bsp
-
-# Set Space Tiling Mode To Monocle
-# kwmc bind cmd+ctrl-s space -t monocle
-
-# Set Space Tiling Mode To Floating
-# kwmc bind cmd+ctrl-d space -t float
-
-# Rotate Window-Tree By 90* (Clockwise)
-# kwmc bind cmd+ctrl-r tree rotate 90
-
-# Modify Container
-# kwmc bind prefix-s window -c split-mode toggle
-kwmc bind prefix-h window -c reduce 0.05
-kwmc bind prefix-l window -c expand 0.05
+# modify split
+kwmc bind prefix-r window -c split-mode toggle
+kwmc bind prefix-h window -c reduce 0.08
+kwmc bind prefix-l window -c expand 0.08
 
 # Fullscreen toggle
 kwmc bind alt-f window -z fullscreen
@@ -130,11 +79,10 @@ kwmc bind alt+shift-l window -s east
 # Give Focus To Screen
 kwmc bind alt-1 display -f 0
 kwmc bind alt-2 display -f 1
-# Move
+
+# Swap Fucused Window between Screens
 kwmc bind alt+shift-1 window -m display 0
 kwmc bind alt+shift-2 window -m display 1
 
-# Autowrite
-# kwmc bind cmd-7 write \
-# kwmc bind cmd-8 write {
-# kwmc bind cmd-9 write }
+# launcher
+kwmc bind alt-return sys open -na $HOME/Tools/iTerm2-2_9/iTerm.app
