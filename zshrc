@@ -25,10 +25,6 @@ function id3pic {
   eyeD3 --add-image=$1:FRONT_COVER $2
 }
 
-function fuck {
-  sudo apt-get update && sudo apt-get -y upgrade && echo donedonedone
-}
-
 function fehbg {
   feh --bg-fill `find $PWD/* | shuf | tail -1`
 }
@@ -41,4 +37,12 @@ function loop {
   W=$1
   shift 1
   while :; do $@; sleep $W; done
+}
+
+function fuck {
+  if which apt-get; then
+    sudo apt-get update && sudo apt-get -y upgrade
+  fi
+  eval $(ssh-agent)
+  ssh-add ~/.ssh/id_rsa
 }
