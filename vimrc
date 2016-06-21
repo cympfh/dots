@@ -12,6 +12,8 @@ set mouse=
 set list listchars=tab:»-
 let mapleader="-"
 set synmaxcol=200
+set undodir=~/.vim/undo
+set undofile
 
 "" Bundle git@github.com:gmarik/Vundle.vim.git
 "
