@@ -21,8 +21,8 @@ sorendition '=B dd'
 # hardstatus alwayslastline '%{= dK}%-w%{=b dc}%n %t%{-}%+w%= %{= Y}%0`'
 # backtick 0 10 10 $HOME/bin/backtic
 # hardstatus alwayslastline '%-w%{=b dw}%n %t%{-}%+w %= %m/%d %c:%s'
-hardstatus alwayslastline '%-w%{=b dK}%n %t%{-}%+w'
-caption always '%{=b dc}%n %{ub dc}%t'
+hardstatus alwayslastline '%-w%{=b dY}%n %t%{-}%+w'
+caption always '%{b dy}%n %{bu dy}%t'
 
 # resize
 bind < resize -1
