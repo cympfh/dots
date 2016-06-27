@@ -14,7 +14,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 PROMPT="
-%F{red}%*%f %F{yellow}%~%f
+%F{red}%*%f %F{yellow}${HOST}:%~%f
    "
 
 # alias
@@ -28,7 +28,7 @@ alias -s py='python'
 # PATH
 export PYENV_ROOT=$HOME/.pyenv
 export PATH=$PYENV_ROOT/bin:$PATH
-eval "$(pyenv init -)"
+[ -d ~/.pyenv ] && eval "$(pyenv init -)"
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/local/bin
 export PATH=$PATH:/usr/local/cuda-7.0/bin

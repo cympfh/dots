@@ -6,7 +6,7 @@ kwmc config prefix-timeout 0.75
 
 # padding for containers
 kwmc config padding 30 10 10 10
-kwmc config gap 15 15
+kwmc config gap 10 10
 
 # Default tiling mode for Kwm (bsp | monocle | float | off)
 kwmc config tiling bsp
