@@ -26,4 +26,4 @@ fi
 # node w/ nodebrew
 # curl -L git.io/nodebrew | perl - setup
 export PATH=$HOME/.nodebrew/current/bin:$PATH
-export PATH=$HOME/node_modules/.bin/electron:$PATH
+export PATH=$HOME/node_modules/.bin:$PATH
