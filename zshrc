@@ -40,9 +40,9 @@ function loop {
 }
 
 function fuck {
-  if which apt-get; then
-    sudo apt-get update && sudo apt-get -y upgrade
-  fi
+  # if which apt-get; then
+  #   sudo apt-get update && sudo apt-get -y upgrade
+  # fi
   eval $(ssh-agent)
   ssh-add ~/.ssh/id_rsa
 }
