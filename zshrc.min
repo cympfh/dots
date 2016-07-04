@@ -22,6 +22,7 @@ alias vi=$EDITOR
 alias l='ls --color'
 alias ls='ls --color'
 alias ll='ls -lh --color'
+alias g='git'
 
 alias -s py='python'
 
