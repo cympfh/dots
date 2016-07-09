@@ -176,6 +176,19 @@ au FileType lua nn <buffer> <leader>t :!time luajit % <input<cr>
 
 " Markdown
 au BufRead,BufNewFile *.md set filetype=markdown
+let g:markdown_fenced_languages = [
+\ 'css',
+\ 'javascript',
+\ 'js=javascript',
+\ 'json=javascript',
+\ 'coffee',
+\ 'haskell',
+\ 'ocaml',
+\ 'sh',
+\ 'bash=sh',
+\ 'python',
+\ 'cpp'
+\]
 let g:vim_markdown_math=1
 Bundle 'godlygeek/tabular'
 Bundle 'plasticboy/vim-markdown'

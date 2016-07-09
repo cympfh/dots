@@ -11,9 +11,8 @@ set timeout ttimeoutlen=100
 set mouse=
 set list listchars=tab:»-
 let mapleader="-"
-set synmaxcol=200
-set undodir=~/.vim/undo
-set undofile
+set colorcolumn=80 synmaxcol=200
+set undodir=~/.vim/undo undofile
 
 "" Bundle git@github.com:gmarik/Vundle.vim.git
 "
@@ -21,15 +20,11 @@ set rtp+=~/.vim/Vundle.vim/
 call vundle#rc()
 
 source ~/.dots/vim/keymap.vim
-" source ~/.dots/vim/appearance.light.vim
-source ~/.dots/vim/appearance.dark.vim
 source ~/.dots/vim/prg.vim
 source ~/.dots/vim/procon.vim
 source ~/.dots/vim/eng.vim
+source ~/.dots/vim/statusline.vim
 source ~/.dots/vim/misc.vim
-if exists('~/.dots/vim/hatena.vim')
-  source ~/.dots/vim/hatena.vim
-endif
 
 set cryptmethod=blowfish2
 set fencs=utf8,euc-jp,sjis,cp932,default,latin1
