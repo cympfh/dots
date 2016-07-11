@@ -1,5 +1,4 @@
 colorscheme slate
-set cursorline
 syntax on
 
 hi ColorColumn   ctermbg=8
