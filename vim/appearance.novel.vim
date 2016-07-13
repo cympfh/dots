@@ -4,6 +4,7 @@ syntax on
 hi ColorColumn   ctermbg=8
 hi Comment       ctermfg=210
 hi CursorLineNr  cterm=bold ctermfg=198
+hi Define        cterm=bold ctermfg=3
 hi LineNr        cterm=NONE ctermfg=239
 hi Number        cterm=NONE ctermfg=4
 hi Operator      cterm=bold ctermfg=196                             
