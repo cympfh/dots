@@ -22,4 +22,4 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=$HOME/node_modules/.bin:$PATH
 
 # Python
-export PATH=$HOME/anaconda/bin
+export PATH=$HOME/anaconda/bin:$PATH
