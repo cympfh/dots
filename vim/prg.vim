@@ -210,9 +210,11 @@ au BufRead,BufNewFile *.pig set filetype=pig
 Bundle "vim-scripts/pig.vim"
 
 " Python (pyenv is recommended)
+Bundle 'hdima/python-syntax'
 let g:syntastic_python_checkers = ['flake8']
 au FileType python nn <buffer> <leader>r :!time python %<cr>
 au FileType python nn <buffer> <leader>t :!time python % <input<cr>
+
 
 " R
 au FileType r nn <buffer> <leader>r :!time Rscript ./%<cr>
