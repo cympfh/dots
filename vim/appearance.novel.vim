@@ -1,7 +1,7 @@
 colorscheme slate
 syntax on
 
-hi ColorColumn   ctermbg=8
+hi ColorColumn   ctermfg=0 ctermbg=white
 hi Comment       ctermfg=210
 hi CursorLineNr  cterm=bold ctermfg=198
 hi Define        cterm=bold ctermfg=3
@@ -16,4 +16,3 @@ hi Typedef       cterm=NONE ctermfg=30
 hi htmlH1        cterm=bold,underline ctermfg=40
 hi htmlH2        cterm=bold ctermfg=31
 hi htmlH3        cterm=bold ctermfg=110
-
