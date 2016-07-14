@@ -1,0 +1,5 @@
+# vim: set ft=screen
+
+sorendition '= dd'
+hardstatus alwayslastline '%-w%{=b dR}%n %t%{-}%+w'
+caption always '%{b dR}%n %{bu dR}%t'
