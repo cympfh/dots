@@ -23,3 +23,7 @@ export PATH=$HOME/node_modules/.bin:$PATH
 
 # Python
 export PATH=$HOME/anaconda/bin:$PATH
+export PATH=$HOME/anaconda3/bin:$PATH
+
+# Rust, cargo
+export PATH=$HOME/.cargo/bin:$PATH
