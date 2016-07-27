@@ -27,3 +27,7 @@ export PATH=$HOME/anaconda3/bin:$PATH
 
 # Rust, cargo
 export PATH=$HOME/.cargo/bin:$PATH
+
+# CUDA
+export CUDA_PATH=/usr/local/cuda
+export PATH=$CUDA_PATH/bin:$PATH
