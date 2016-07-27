@@ -263,3 +263,6 @@ au FileType scheme nn <buffer> <leader>t :!rlwrap gosh ./% <input<cr>
 
 " TypeScript
 Bundle 'leafgarland/typescript-vim'
+
+" YAML (yaml, yml)
+au FileType yaml set tabstop=2 shiftwidth=2 softtabstop=2
