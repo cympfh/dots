@@ -196,10 +196,6 @@ Bundle 'kannokanno/previm'
 Bundle 'tyru/open-browser.vim'
 au FileType markdown so ~/.dots/vim/tex.vim
 
-" Scheme
-au FileType scheme nn <buffer> <leader>r :!rlwrap gosh -l ./%<cr>
-au FileType scheme nn <buffer> <leader>t :!rlwrap gosh ./% <input<cr>
-
 " OCaml
 au FileType ocaml nn <buffer> <leader>g :!ocamlopt -o %:r.exe str.cmxa %<cr>
 au FileType ocaml nn <buffer> <leader>r :!time ./%:r.exe<cr>
@@ -210,7 +206,7 @@ au BufRead,BufNewFile *.pig set filetype=pig
 Bundle "vim-scripts/pig.vim"
 
 " Python (pyenv is recommended)
-Bundle 'hdima/python-syntax'
+" Bundle 'hdima/python-syntax'
 let g:syntastic_python_checkers = ['flake8']
 au FileType python nn <buffer> <leader>r :!time python %<cr>
 au FileType python nn <buffer> <leader>t :!time python % <input<cr>
@@ -261,3 +257,9 @@ au FileType scala set makeprg=make
 au FileType scala nn <buffer> <leader>r :!scala -feature -deprecation %<cr>
 au FileType scala nn <buffer> <leader>t :!scala -feature -deprecation % <input<cr>
 
+" Scheme
+au FileType scheme nn <buffer> <leader>r :!rlwrap gosh -l ./%<cr>
+au FileType scheme nn <buffer> <leader>t :!rlwrap gosh ./% <input<cr>
+
+" TypeScript
+Bundle 'leafgarland/typescript-vim'

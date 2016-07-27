@@ -4,7 +4,7 @@ set number ruler showcmd incsearch nohlsearch showmatch
 set autoindent smartindent
 set modeline modelines=2 history=50
 set foldlevel=100 foldmethod=marker
-set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 set backspace=start,indent,eol
 set wildmode=longest,list,full
 set timeout ttimeoutlen=100
