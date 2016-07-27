@@ -11,3 +11,5 @@ EOM
 cat <<EOM > ~/.zshrc
 source ~/.dots/zshrc
 EOM
+
+cp ~/.dots/gitconfig ~/.gitconfig

@@ -12,5 +12,7 @@
   df = diff
   cm = commit -m
   ad = add -A .
+  br = branch
+  ch = checkout
 [color]
   ui = true
