@@ -10,6 +10,8 @@ case $TERM in
     ;;
 esac
 
-if [ $TERM = "screen-256color-bce" ]; then
-  echo -ne "\ek$(pwd|sed -e 's#/home/[^/]*#~#' -e 's#/Users/[^/]*#~#')\e\\"
-fi
+case "$TERM" in
+    screen-* )
+        echo -ne "\ek$(pwd|sed -e 's#/home/[^/]*#~#' -e 's#/Users/[^/]*#~#')\e\\"
+        ;;
+esac
