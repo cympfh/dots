@@ -1,4 +1,4 @@
-#!/usr/bin/env coffee
+#!/usr/bin/coffee
 
 fs   = require 'fs'
 http = require 'http'
