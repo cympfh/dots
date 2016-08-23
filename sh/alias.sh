@@ -29,8 +29,23 @@ function mkcd {
   mkdir "$1" && cd "$1"
 }
 
-function bf {
-  cat > ~/.vim/.bf
+function id3pic {
+  eyeD3 --add-image=$1:FRONT_COVER $2
 }
 
-# alias vi='vim --servername A'
+function fehbg {
+  feh --bg-fill `find $PWD/* | shuf | tail -1`
+}
+
+function sprunge {
+  curl -F "sprunge=<-" http://sprunge.us
+}
+
+function fuck {
+  eval $(ssh-agent)
+  ssh-add ~/.ssh/id_rsa
+}
+
+function kiru {
+    ps aux | grep "$1" | grep -v grep | awk '{print "kill -9", $2}'
+}
