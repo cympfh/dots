@@ -11,7 +11,7 @@ set timeout ttimeoutlen=100
 set mouse=
 set list listchars=tab:»-
 let mapleader="-"
-set colorcolumn=80 synmaxcol=200
+set colorcolumn=100 synmaxcol=200
 set undodir=~/.vim/undo undofile
 
 "" Bundle git@github.com:gmarik/Vundle.vim.git
