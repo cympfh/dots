@@ -11,8 +11,10 @@
   st = status
   df = diff
   cm = commit -m
-  ad = add -A .
+  ad = add
   br = branch
   ch = checkout
 [color]
   ui = true
+[credential]
+  helper = osxkeychain
