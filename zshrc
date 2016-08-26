@@ -15,7 +15,6 @@ source ~/.dots/sh/path.sh
 source ~/.dots/sh/prompt.sh
 source ~/.dots/sh/dict.sh
 source ~/.dots/sh/alias.sh
-source ~/.dots/sh/alias.sh
 source ~/.dots/sh/calendar.sh
 source ~/.dots/sh/history.sh
 source ~/.dots/sh/screen.sh
