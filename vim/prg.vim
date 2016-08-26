@@ -201,6 +201,10 @@ au FileType ocaml nn <buffer> <leader>g :!ocamlopt -o %:r.exe str.cmxa %<cr>
 au FileType ocaml nn <buffer> <leader>r :!time ./%:r.exe<cr>
 au FileType ocaml nn <buffer> <leader>t :!time ./%:r.exe <input<cr>
 
+" Octave
+au BufRead,BufNewFile *.m set filetype=octave
+Bundle 'jvirtanen/vim-octave.git'
+
 " Pig (pig)
 au BufRead,BufNewFile *.pig set filetype=pig
 Bundle "vim-scripts/pig.vim"
