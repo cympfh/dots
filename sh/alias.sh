@@ -41,11 +41,22 @@ function sprunge {
   curl -F "sprunge=<-" http://sprunge.us
 }
 
+# fuck the ssh
 function fuck {
   eval $(ssh-agent)
   ssh-add ~/.ssh/id_rsa
 }
 
+# kill the processes (pgrep)
 function kiru {
     ps aux | grep "$1" | grep -v grep | awk '{print "kill -9", $2}'
+}
+
+# kill the docker
+function kiru-containers() {
+    docker ps -f status=exited | awk 'NR>1{print "docker rm",$1 }'
+}
+
+function kiru-images() {
+   docker images | grep '<none>' | awk '{print "docker rmi", $3}'
 }
