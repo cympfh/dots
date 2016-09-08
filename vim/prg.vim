@@ -196,6 +196,16 @@ Bundle 'kannokanno/previm'
 Bundle 'tyru/open-browser.vim'
 au FileType markdown so ~/.dots/vim/tex.vim
 
+function! OpenHTML()
+    if has('mac')
+      :!open %:r.html
+    else
+      :!firefox %:r.html
+    endif
+endfun
+au FileType markdown nn <buffer> <leader>g :!pandoc --mathjax -o ./%:r.html %<cr>
+au FileType markdown nn <buffer> <leader>r :call OpenHTML()<cr>
+
 " OCaml
 au FileType ocaml nn <buffer> <leader>g :!ocamlopt -o %:r.exe str.cmxa %<cr>
 au FileType ocaml nn <buffer> <leader>r :!time ./%:r.exe<cr>
