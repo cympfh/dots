@@ -203,7 +203,7 @@ function! OpenHTML()
       :!firefox %:r.html
     endif
 endfun
-au FileType markdown nn <buffer> <leader>g :!pandoc --mathjax -o ./%:r.html %<cr>
+au FileType markdown nn <buffer> <leader>g :!pandoc -s --mathjax -o ./%:r.html %<cr>
 au FileType markdown nn <buffer> <leader>r :call OpenHTML()<cr>
 
 " OCaml
