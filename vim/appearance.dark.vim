@@ -17,4 +17,3 @@ hi htmlH2        cterm=bold ctermfg=1
 hi htmlH3        cterm=NONE ctermfg=1
 hi htmlLink      cterm=NONE ctermfg=213
 hi Special       cterm=NONE ctermfg=184 " TeX の数式モード
-hi SpecialKey    cterm=NONE ctermfg=254  " :help listchars

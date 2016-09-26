@@ -9,7 +9,7 @@ set backspace=start,indent,eol
 set wildmode=longest,list,full
 set timeout ttimeoutlen=100
 set mouse=
-set list listchars=tab:;_,trail:@
+set list listchars=tab:;_,trail:-
 let mapleader="-"
 set colorcolumn=100 synmaxcol=200
 set undodir=~/.vim/undo undofile
