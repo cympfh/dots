@@ -25,6 +25,10 @@ alias g='git'
 alias chmox='chmod +x'
 alias screen='ssh-agent screen'
 
+alias :e='vim'
+alias :q='exit'
+alias :wq='exit'
+
 function mkcd {
   mkdir "$1" && cd "$1"
 }
