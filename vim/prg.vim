@@ -249,7 +249,11 @@ function! CompileRust()
 endfunction
 function! RunRust(k)
   if expand('%') == 'src/main.rs'
-    :!time cargo run
+      if a:k == 0
+        :!time cargo run
+      else
+        :!time cargo run < ./input
+      endif
   elseif a:k == 0
     :!time ./%:r.exe
   else
