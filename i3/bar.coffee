@@ -14,6 +14,11 @@ Color =
   gray:   '#888888'
   blue:   '#aaffff'
 
+
+################################################################
+# date
+################################################################
+
 futa = (x) -> if x < 10 then ('0' + x) else x
 
 ofday = (w) ->
@@ -29,6 +34,10 @@ date = ->
   min = futa now.getMinutes()
   sec = futa now.getSeconds()
   "#{y}/#{m}/#{d}(#{w}) #{hr}:#{min}:#{sec}"
+
+################################################################
+# battery
+################################################################
 
 battery = do ->
   time = 0
@@ -54,6 +63,10 @@ battery = do ->
         color = colr
     [result, color]
 
+################################################################
+# tenki
+################################################################
+
 k2c = (k) -> (Math.floor (k - 273.15) * 10) / 10
 
 tenki_icon = (msg) ->
@@ -72,7 +85,7 @@ tenki = do ->
   #   My account is cympfh:h********
   #   and my API key is cc78d27e7519b67719a1121d90e67426
   #   below url contains "example" API key
-  url = 'http://api.openweathermap.org/data/2.5/weather?id=1850147&appid=bd82977b86bf27fb59a04b61b657fb6f'
+  url = 'http://api.openweathermap.org/data/2.5/weather?id=1850147&appid=cc78d27e7519b67719a1121d90e67426'
   update = ->
     http.get url, (res) ->
       data = ''
@@ -91,7 +104,30 @@ tenki = do ->
       do update
     return result
 
-process.on 'uncaughtException', (->)
+################################################################
+# memo
+################################################################
+
+memo = do ->
+    cache = ''
+    memo_file = '/tmp/memo'
+    update = ->
+        if fs.existsSync '/tmp/memo'
+            fs.readFile memo_file, 'utf-8', (err, data) ->
+                return if err
+                lines = data.trim().split('\n')
+                cache = lines[lines.length - 1]
+        else
+            cache = ''
+        setTimeout update, 1000
+    do update
+    ->
+        cache
+
+
+################################################################
+# calendar
+################################################################
 
 cal = do ->
   time = 0
@@ -109,6 +145,10 @@ cal = do ->
     time = (time + 1) % 30
     "#{icon}  #{result}"
 
+################################################################
+# twitter
+################################################################
+
 twitter = do ->
   time = -1
   res = "@twitter"
@@ -120,6 +160,12 @@ twitter = do ->
         throw err if err
         res = '@' + out.trim()
     return res
+
+################################################################
+# Entry
+################################################################
+
+process.on 'uncaughtException', (->)
 
 do ->
   console.log '{"version":1}'
@@ -137,16 +183,13 @@ do ->
 
   iter = (interval) ->
     line = []
-    #line.push show cal(), Color.white, {min_width:1000}
-    line.push show tenki()
-    # line.push show ' '
+    line.push show memo(), Color.pink
+    line.push show tenki(), Color.gray
     do ->
       res = battery()
       if res[1]
         line.push show res[0], res[1]
-        # line.push show ' '
     line.push show date(), Color.white
-    # line.push show ' '
     line.push show twitter(), Color.blue
 
     console.log '%j,', line
