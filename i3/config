@@ -18,7 +18,7 @@ bindsym $mod+Return exec /usr/bin/terminator
 bindsym $mod+Q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+space exec dmenu_run
 
 new_window none
 new_float normal
@@ -41,10 +41,10 @@ bindsym $mod+Shift+L move right
 bindsym $mod+f fullscreen
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+a floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus mode_toggle
 
 # switch to workspace
 bindsym $mod+1 workspace 1
