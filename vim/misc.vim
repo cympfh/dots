@@ -10,7 +10,7 @@ nmap <Leader>c <Plug>(caw:hatpos:toggle)
 vmap <Leader>c <Plug>(caw:hatpos:toggle)
 
 " Syntastic
-Bundle 'scrooloose/syntastic.git'
+Bundle 'vim-syntastic/syntastic'
 let g:syntastic_mode_map = {
       \ 'mode': 'active',
       \ 'active_filetypes': [],
