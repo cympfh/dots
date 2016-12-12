@@ -45,3 +45,8 @@ function get-branch-status {
     fi
     echo "${color}${res}"
 }
+
+TMOUT=1
+TRAPALRM() {
+    zle reset-prompt
+}
