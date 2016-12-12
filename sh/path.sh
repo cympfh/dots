@@ -16,14 +16,14 @@ case $( uname ) in
     ;;
 esac
 
+# Python
+export PYENV_ROOT="$HOME/.pyenv"
+[ -d $PYENV_ROOT ] && eval "$(pyenv init -)"
+
 # node w/ nodebrew
 # curl -L git.io/nodebrew | perl - setup
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=$HOME/node_modules/.bin:$PATH
-
-# Python
-export PATH=$HOME/anaconda/bin:$PATH
-export PATH=$HOME/anaconda3/bin:$PATH
 
 # Rust, cargo
 export PATH=$HOME/.cargo/bin:$PATH
