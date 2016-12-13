@@ -1,3 +1,11 @@
+""" Tools
+"
+" Lint checker
+Bundle 'w0rp/ale'
+
+""" Languages
+"
+
 " Makefile
 setlocal expandtab
 au FileType make,calendar setlocal noexpandtab
@@ -21,12 +29,6 @@ au FileType c nn <buffer> <leader>t :!time ./%:r.exe < ./input<cr>
 
 " C++
 Bundle 'octol/vim-cpp-enhanced-highlight'
-if has('mac')
-  let g:syntastic_cpp_compiler = 'g++'
-  let g:syntastic_cpp_compiler_options = ' -std=c++11 '
-else
-  let g:syntastic_cpp_compiler_options = ' -std=c++11 '
-endif
 au FileType cpp set cindent
 au FileType cpp set dictionary+=~/.dots/vim/dict/cpp
 au FileType cpp nn <buffer> <leader>g :!g++ -O3 -o %:r.exe -std=c++11 %<cr>
@@ -46,7 +48,6 @@ au FileType clojure nn <buffer> <leader>t :!time clojure % < ./input<cr>
 " Coffee
 Bundle 'kchmck/vim-coffee-script'
 au BufRead,BufNewFile *.coffee set filetype=coffee
-let g:syntastic_coffee_checkers = ['coffee']
 au FileType coffee set makeprg=make
 au FileType coffee ino <C-l> ->
 au FileType coffee nn <buffer> <leader>r :!time coffee %<cr>
@@ -136,8 +137,6 @@ au FileType j   nn <buffer> <leader>r :!j %<cr>
 
 " JavaScript (Node.js) (ECMAScript)
 Bundle 'pangloss/vim-javascript'
-let g:syntastic_javascript_checkers = ['jslint']
-let g:syntastic_javascript_jslint_args = '--stupid --sloppy --browser --devel --forin --node --vars --indent=2 --plusplus'
 au FileType javascript ino <c-f> function
 au FileType javascript nn <buffer> <leader>r :!time node %<cr>
 au FileType javascript nn <buffer> <leader>h :!time node --use-strict --harmony %<cr>
@@ -220,9 +219,6 @@ au BufRead,BufNewFile *.pig set filetype=pig
 Bundle "vim-scripts/pig.vim"
 
 " Python (pyenv is recommended)
-" Bundle 'hdima/python-syntax'
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args = '--max-line-length=120'
 au FileType python ino <C-l> ->
 au FileType python command! Isort :!isort %
 au FileType python nn <buffer> <leader>r :!time python %<cr>
@@ -235,6 +231,7 @@ au FileType r nn <buffer> <leader>r :!time Rscript ./%<cr>
 " Ruby
 au FileType ruby nn <buffer> <leader>r :!time ruby ./%<cr>
 au FileType ruby nn <buffer> <leader>t :!time ruby ./% <input<cr>
+au FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " Rust
 " Bundle "wting/rust.vim"
@@ -272,7 +269,6 @@ au FileType rust nn <buffer> <leader><leader>r :call BothRust()<cr>
 
 " Scala
 Bundle 'derekwyatt/vim-scala'
-let g:syntastic_scala_checkers = ['fsc']
 au BufRead,BufNewFile *.scala set filetype=scala
 au FileType scala set makeprg=make
 au FileType scala nn <buffer> <leader>r :!scala -feature -deprecation %<cr>
