@@ -1,7 +1,7 @@
 SPROMPT="correct %R to %r? (Yes, No, Abort, Edit) "
 
 PROMPT="
-%(?.%F{198}.%F{226})%*%f %F{220}${HOST}:%~%f
+%(?.%F{red}.%F{226})%*%f %F{yellow}${HOST}:%~%f
    "
 
 # shows git/branch
