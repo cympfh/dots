@@ -18,6 +18,7 @@ esac
 
 # Python
 export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$HOME/.pyenv/bin:$PATH"
 [ -d $PYENV_ROOT ] && eval "$(pyenv init -)"
 
 # node w/ nodebrew
