@@ -1,7 +1,9 @@
-""" Tools
-"
 " Lint checker
+"
 Bundle 'w0rp/ale'
+let g:ale_linters = {
+            \ 'python': ['flake8']
+            \ }
 
 """ Languages
 "
