@@ -1,5 +1,11 @@
 set laststatus=2
-let &stl="%<%f %m%r%h%w%y%="
+let &stl="%<%f %m%r%h%w%y"  " filename modified readonly help write filetype
 
-let &stl.=" %{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}"
+let &stl.="%="  " padding
+
+let g:ale_statusline_format = ['[Error: %d]', '[Warning: %d]', '']
+let &stl.=" %{ALEGetStatusLine()}"
+
+let &stl.=" [%{&fenc!=''?&fenc:&enc}]"
+let &stl.=" [%{&fileformat}]"
 let &stl.=" %l/%L:%c"
