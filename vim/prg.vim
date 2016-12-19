@@ -2,6 +2,8 @@
 "
 " Lint checker
 Bundle 'w0rp/ale'
+" PrettyInterpreter
+Bundle 'metakirby5/codi.vim'
 
 """ Languages
 "
