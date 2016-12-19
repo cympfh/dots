@@ -1,9 +1,14 @@
-""" Tools
-"
 " Lint checker
+"
 Bundle 'w0rp/ale'
+<<<<<<< HEAD
 " PrettyInterpreter
 Bundle 'metakirby5/codi.vim'
+=======
+let g:ale_linters = {
+            \ 'python': ['flake8']
+            \ }
+>>>>>>> 36eecc37cccb052ddd0f44945d03334feb605037
 
 """ Languages
 "
