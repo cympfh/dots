@@ -1,14 +1,11 @@
-SPROMPT="correct %R to %r? (Yes, No, Abort, Edit) "
+setopt prompt_subst
+autoload -U colors; colors
 
+SPROMPT="correct %R to %r? (Yes, No, Abort, Edit) "
 PROMPT="
-%(?.%F{red}.%F{226})%*%f %F{yellow}${HOST}:%~%f
+%(?.%F{red}.%F{226})%*%f %F{yellow}${HOST}:%~%f \`branch-status-check\`
    "
 
-# shows git/branch
-RPROMPT=$'`branch-status-check`'
-setopt prompt_subst
-
-autoload -U colors; colors
 function branch-status-check {
     local prefix branchname suffix
     if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
