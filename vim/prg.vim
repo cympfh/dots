@@ -233,6 +233,10 @@ au FileType python nn <buffer> <leader>t :!time python % <input<cr>
 " R
 au FileType r nn <buffer> <leader>r :!time Rscript ./%<cr>
 
+" Raml
+au BufRead,BufNewFile *.raml set filetype=raml
+Bundle 'IN3D/vim-raml'
+
 " Ruby
 au FileType ruby nn <buffer> <leader>r :!time ruby ./%<cr>
 au FileType ruby nn <buffer> <leader>t :!time ruby ./% <input<cr>
