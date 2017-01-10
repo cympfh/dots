@@ -42,6 +42,10 @@ au FileType cpp nn <buffer> <leader>t :!time ./%:r.exe <input<cr>
 au FileType cpp nm <buffer> <leader><leader>r <leader>g<leader>r
 au FileType cpp nm <buffer> <leader><leader>t <leader>g<leader>t
 
+" Calendar
+au BufRead,BufNewFile *.calendar set filetype=calendar
+au FileType calendar set noexpandtab
+
 " Clojure
 Bundle 'tpope/vim-fireplace'
 Bundle 'guns/vim-clojure-static'
