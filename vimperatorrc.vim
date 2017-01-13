@@ -1,4 +1,4 @@
-set titlestring=🐈
+set titlestring=
 set nohlsearch
 set defsearch=google
 set gui=none,tabs,menu

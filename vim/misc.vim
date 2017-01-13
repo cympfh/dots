@@ -7,3 +7,6 @@ Bundle 'mattn/webapi-vim'
 Bundle "tyru/caw.vim"
 nmap <Leader>c <Plug>(caw:hatpos:toggle)
 vmap <Leader>c <Plug>(caw:hatpos:toggle)
+
+" Filer
+Bundle 'justinmk/vim-dirvish'
