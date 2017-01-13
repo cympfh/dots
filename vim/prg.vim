@@ -211,7 +211,7 @@ function! OpenHTML()
       :!firefox %:r.html
     endif
 endfun
-au FileType markdown nn <buffer> <leader>g :!pandoc -s --mathjax -o ./%:r.html %<cr>
+au FileType markdown nn <buffer> <leader>g :!pandoc -s --mathjax -o %:r.html %<cr>
 au FileType markdown nn <buffer> <leader>r :call OpenHTML()<cr>
 
 " OCaml
@@ -242,8 +242,8 @@ au BufRead,BufNewFile *.raml set filetype=raml
 Bundle 'IN3D/vim-raml'
 
 " Ruby
-au FileType ruby nn <buffer> <leader>r :!time ruby ./%<cr>
-au FileType ruby nn <buffer> <leader>t :!time ruby ./% <input<cr>
+au FileType ruby nn <buffer> <leader>r :!time ruby %<cr>
+au FileType ruby nn <buffer> <leader>t :!time ruby % <input<cr>
 au FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " Rust
@@ -263,12 +263,12 @@ function! RunRust(k)
       if a:k == 0
         :!time cargo run
       else
-        :!time cargo run < ./input
+        :!time cargo run < input
       endif
   elseif a:k == 0
     :!time ./%:r.exe
   else
-    :!time ./%:r.exe < ./input
+    :!time ./%:r.exe < input
   endif
 endfunction
 function! BothRust()
