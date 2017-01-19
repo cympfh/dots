@@ -1,21 +1,21 @@
 [user]
-  name = cympfh
-  email = cympfh@gmail.com
-  ui = color
+    ui = color
+    name = whoami
+    email = whose@mail.ai
 [push]
-  default = current
+    default = current
 [alias]
-  cl = clone
-  pl = pull
-  ps = push
-  st = status
-  df = diff
-  cm = commit -m
-  ad = add
-  br = branch
-  ch = checkout
-  lg = log --oneline --decorate --graph --all
+    cl = clone
+    pl = pull
+    ps = push
+    st = status
+    df = diff
+    cm = commit -m
+    ad = add
+    br = branch
+    ch = checkout
+    lg = log --oneline --decorate --graph --all
 [color]
-  ui = true
+    ui = true
 [credential]
-  helper = osxkeychain
+    helper = osxkeychain
