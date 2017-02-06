@@ -6,7 +6,8 @@ let g:ale_linters = {
             \ 'python': ['flake8']
             \ }
 " PrettyInterpreter
-Bundle 'metakirby5/codi.vim'
+" Bundle 'metakirby5/codi.vim'
+Bundle 'cympfh/codi.vim'
 
 """ Languages
 "
