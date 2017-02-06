@@ -35,12 +35,13 @@ endif
 
 " file browser (hint: use <C-o> and <C-i>)
 "
-nnoremap B :buffers<cr>:buffer 
-" nnoremap gn :tabedit <c-r>=expand('<cfile>')<cr><cr>
-nnoremap gn :tabedit <c-r><c-a><cr><cr>
+nnoremap B :buffers<cr>:buffer
 set splitright splitbelow
-nnoremap gs :split <c-r><c-a><cr><cr>
-nnoremap gv :vsplit <c-r><c-a><cr><cr>
+" nnoremap gs :split <c-r><c-a><cr><cr>
+" nnoremap gv :vsplit <c-r><c-a><cr><cr>
+nnoremap gn :tabedit <c-r>=expand('<cfile>')<cr><cr>
+nnoremap gs :split <c-r>=expand('<cfile>')<cr><cr>
+nnoremap gv :vsplit <c-r>=expand('<cfile>')<cr><cr>
 
 nnoremap <left> :N<cr>
 nnoremap <right> :n<cr>
