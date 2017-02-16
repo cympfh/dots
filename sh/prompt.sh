@@ -32,7 +32,7 @@ function get-branch-status {
         color='%{'${fg[green]}'%}'
     elif [[ $output =~ "[\n]?\?\? " ]]; then
         res='?:' # Untracked
-        color='%{'${fg[yellow]}'%}'
+        color='%{'${fg[red]}'%}'
     elif [[ $output =~ "[\n]? M " ]]; then
         res='M:' # Modified
         color='%{'${fg[red]}'%}'
