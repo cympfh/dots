@@ -57,4 +57,4 @@ nn mc :!make clean<cr>
 nn mt :!make test<cr>
 nnoremap ! :!
 
-nn <leader>a :vim /\%1l/ ##<cr>:copen<cr>
+nn <leader>a :vim /\%1l/ *<cr>:copen<cr>
