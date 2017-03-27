@@ -17,7 +17,8 @@ case "$TERM" in
 esac
 
 screen-x() {
-    SCREENNAME=$(screen -ls | grep '^\t' | sed 's/^\t//g' | peco)
+    TAB=$(printf '\t')
+    SCREENNAME=$(screen -ls | grep "^${TAB}" | sed 's/^\t//g' | peco)
     if [ "${SCREENNAME}" ]; then
         SCREENNAME=$(echo "${SCREENNAME}" | sed 's/\t.*//g')
         echo -ne "\033]0;${SCREENNAME}\007"
