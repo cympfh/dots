@@ -1,7 +1,6 @@
 Bundle 'h1mesuke/vim-alignta'
 Bundle 'yegappan/mru'
-Bundle 'itchyny/screensaver.vim'
-Bundle 'mattn/webapi-vim'
+Bundle 'renamer.vim'
 
 " comment out
 Bundle "tyru/caw.vim"

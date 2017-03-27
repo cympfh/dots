@@ -7,6 +7,10 @@ nn <cr> <cr>
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
 
+" split tab
+nn ( <C-w><
+nn ) <C-w>>
+
 " operate tab
 nnoremap <s-t> :tabnew<cr>
 nnoremap <c-p> gT
@@ -40,8 +44,8 @@ set splitright splitbelow
 " nnoremap gs :split <c-r><c-a><cr><cr>
 " nnoremap gv :vsplit <c-r><c-a><cr><cr>
 nnoremap gn :tabedit <c-r>=expand('<cfile>')<cr><cr>
-nnoremap gs :split <c-r>=expand('<cfile>')<cr><cr>
-nnoremap gv :vsplit <c-r>=expand('<cfile>')<cr><cr>
+" nnoremap gs :split <c-r>=expand('<cfile>')<cr><cr>
+" nnoremap gv :vsplit <c-r>=expand('<cfile>')<cr><cr>
 
 nnoremap <left> :N<cr>
 nnoremap <right> :n<cr>
@@ -53,4 +57,4 @@ nn mc :!make clean<cr>
 nn mt :!make test<cr>
 nnoremap ! :!
 
-nn <leader>a :vim /\%1l/ ##<cr>:copen<cr>
+nn <leader>a :vim /\%1l/ *<cr>:copen<cr>
