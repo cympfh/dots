@@ -14,7 +14,7 @@
     ad = add
     br = branch
     ch = checkout
-    lg = log --decorate --graph
+    lg = log --oneline --graph --decorate --branches
 [color]
     ui = true
 [credential]
