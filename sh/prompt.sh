@@ -3,7 +3,7 @@ autoload -U colors; colors
 
 SPROMPT="correct %R to %r? (Yes, No, Abort, Edit) "
 PROMPT="
-%(?.%F{red}.%F{226})%T%f %F{yellow}${HOST}:%~%f:\`branch-status\`
+%(?.%F{red}.%F{226})%T%f %F{yellow}${HOST}%F{245}:%F{yellow}%~%F{245}:%f\`branch-status\`%f
    "
 
 function branch-status {
@@ -14,7 +14,7 @@ function branch-status {
     else
         statuscolor="%F{red}"
     fi
-    echo "$statuscolor$branchname%f"
+    echo "$statuscolor$branchname"
 }
 
 TMOUT=5
