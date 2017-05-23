@@ -227,6 +227,7 @@ Bundle 'jvirtanen/vim-octave.git'
 " Pig (pig)
 au BufRead,BufNewFile *.pig set filetype=pig
 Bundle "vim-scripts/pig.vim"
+au FileType pig nn <buffer> <leader>r :!time pig -x local %<cr>
 
 " Python (pyenv is recommended)
 au FileType python ino <C-l> ->

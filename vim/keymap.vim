@@ -47,8 +47,8 @@ nnoremap gn :tabedit <c-r>=expand('<cfile>')<cr><cr>
 " nnoremap gs :split <c-r>=expand('<cfile>')<cr><cr>
 " nnoremap gv :vsplit <c-r>=expand('<cfile>')<cr><cr>
 
-nnoremap <left> :N<cr>
-nnoremap <right> :n<cr>
+" nnoremap <left> :N<cr>
+" nnoremap <right> :n<cr>
 
 " prg
 "
@@ -58,3 +58,5 @@ nn mt :!make test<cr>
 nnoremap ! :!
 
 nn <leader>a :vim /\%1l/ *<cr>:copen<cr>
+nn <left> :cprev<cr>
+nn <right> :cnext<cr>

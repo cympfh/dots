@@ -3,47 +3,21 @@ autoload -U colors; colors
 
 SPROMPT="correct %R to %r? (Yes, No, Abort, Edit) "
 PROMPT="
-%(?.%F{red}.%F{226})%*%f %F{yellow}${HOST}:%~%f \`branch-status-check\`
+%(?.%F{red}.%F{226})%T%f %F{yellow}${HOST}%F{245}:%F{yellow}%~%F{245}:%f\`branch-status\`%f
    "
 
-function branch-status-check {
-    local prefix branchname suffix
-    if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
-        return
-    fi
-    branchname=`get-branch-name`
-    if [[ -z $branchname ]]; then
-        return
-    fi
-    status_color=`get-branch-status` #色だけ返ってくる
-    suffix='%{'${reset_color}'%}'
-    echo "${status_color}${branchname}${suffix}"
-}
-
-function get-branch-name {
-    echo `git rev-parse --abbrev-ref HEAD 2> /dev/null`
-}
-
-function get-branch-status {
-    local res color
-    output=`git status --short 2> /dev/null`
-    if [ -z "$output" ]; then
-        res=':' # status Clean
-        color='%{'${fg[green]}'%}'
-    elif [[ $output =~ "[\n]?\?\? " ]]; then
-        res='?:' # Untracked
-        color='%{'${fg[red]}'%}'
-    elif [[ $output =~ "[\n]? M " ]]; then
-        res='M:' # Modified
-        color='%{'${fg[red]}'%}'
+function branch-status {
+    branchname=$(git branch 2>/dev/null | grep '*' | sed 's/\* //')
+    # status color
+    if [ -z "$(git status --short 2>/dev/null)" ]; then
+        statuscolor="%F{yellow}"
     else
-        res='A:' # Added to commit
-        color='%{'${fg[cyan]}'%}'
+        statuscolor="%F{red}"
     fi
-    echo "${color}${res}"
+    echo "$statuscolor$branchname"
 }
 
-TMOUT=1
+TMOUT=5
 TRAPALRM() {
     zle reset-prompt
 }
