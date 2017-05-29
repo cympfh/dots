@@ -15,6 +15,7 @@
     br = branch
     ch = checkout
     lg = log --oneline --graph --decorate --branches
+    cp = cherry-pick
 [color]
     ui = true
 [credential]
