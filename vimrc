@@ -22,6 +22,7 @@ call vundle#rc()
 
 source ~/.dots/vim/keymap.vim
 source ~/.dots/vim/prg.vim
+source ~/.dots/vim/ctags.vim
 source ~/.dots/vim/procon.vim
 source ~/.dots/vim/eng.vim
 source ~/.dots/vim/statusline.vim
