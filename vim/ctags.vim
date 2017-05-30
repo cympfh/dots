@@ -1,4 +1,5 @@
 Bundle 'majutsushi/tagbar'
+set tags=tags,.git/tags
 
 " https://github.com/majutsushi/tagbar/wiki
 let g:tagbar_type_rust = {
