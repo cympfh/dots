@@ -142,6 +142,10 @@ au FileType haskell set dictionary+=~/.dots/vim/dict/haskell
 au BufRead,BufNewFile *.hcl set filetype=hcl
 au FileType hcl nn <buffer> <leader>r :!hcl -nu %<cr>
 
+" Hy
+Bundle 'cympfh/vim-hy'
+au FileType hy nn <buffer> <leader>r :!time hy %<cr>
+
 " J
 au BufRead,BufNewFile *.j  set filetype=j
 au FileType j   nn <buffer> <leader>r :!j %<cr>
