@@ -17,7 +17,7 @@ function branch-status {
     echo "$statuscolor$branchname"
 }
 
-TMOUT=5
+TMOUT=15
 TRAPALRM() {
     zle reset-prompt
 }

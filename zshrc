@@ -20,3 +20,5 @@ source ~/.dots/sh/history.sh
 source ~/.dots/sh/screen.sh
 source ~/.dots/sh/interpreter.sh
 source ~/.dots/sh/syntax-hightlight.sh
+
+export ANSIBLE_NOCOWS=1

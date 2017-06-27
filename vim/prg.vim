@@ -3,7 +3,8 @@
 "Linter
 Bundle 'w0rp/ale'
 let g:ale_linters = {
-            \ 'python': ['flake8']
+            \ 'python': ['flake8'],
+            \ 'cpp': ['gcc']
             \ }
 " PrettyInterpreter
 " Bundle 'metakirby5/codi.vim'
