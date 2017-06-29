@@ -206,8 +206,7 @@ let g:markdown_fenced_languages = [
 let g:vim_markdown_math=1
 Bundle 'godlygeek/tabular'
 Bundle 'plasticboy/vim-markdown'
-Bundle 'kannokanno/previm'
-Bundle 'tyru/open-browser.vim'
+Bundle 'euclio/vim-markdown-composer'
 au FileType markdown so ~/.dots/vim/tex.vim
 
 function! OpenHTML()
