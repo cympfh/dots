@@ -15,10 +15,13 @@ let mapleader="-"
 set colorcolumn=100 synmaxcol=200
 set undodir=~/.vim/undo undofile
 
-"" Bundle git@github.com:gmarik/Vundle.vim.git
 "
-set rtp+=~/.vim/Vundle.vim/
-call vundle#rc()
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/Vundle.vim
+"
+set nocompatible
+filetype off
+set rtp+=~/.vim/Vundle.vim
+call vundle#begin()
 
 source ~/.dots/vim/keymap.vim
 source ~/.dots/vim/prg.vim
@@ -28,7 +31,8 @@ source ~/.dots/vim/eng.vim
 source ~/.dots/vim/statusline.vim
 source ~/.dots/vim/misc.vim
 
+call vundle#end()
+filetype plugin indent on
+
 set cryptmethod=blowfish2
 set fencs=utf8,euc-jp,sjis,cp932,default,latin1
-
-filetype plugin indent on

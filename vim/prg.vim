@@ -1,14 +1,11 @@
 " Lint checker
 "
 "Linter
-Bundle 'w0rp/ale'
+Plugin 'w0rp/ale'
 let g:ale_linters = {
             \ 'python': ['flake8'],
             \ 'cpp': ['gcc']
             \ }
-" PrettyInterpreter
-" Bundle 'metakirby5/codi.vim'
-Bundle 'cympfh/codi.vim'
 
 """ Languages
 "
@@ -35,7 +32,7 @@ au FileType c nn <buffer> <leader>r :!time ./%:r.exe<cr>
 au FileType c nn <buffer> <leader>t :!time ./%:r.exe < ./input<cr>
 
 " C++
-Bundle 'octol/vim-cpp-enhanced-highlight'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 au FileType cpp set cindent
 au FileType cpp set dictionary+=~/.dots/vim/dict/cpp
 au FileType cpp nn <buffer> <leader>g :!g++ -O3 -o %:r.exe -std=c++11 %<cr>
@@ -49,15 +46,15 @@ au BufRead,BufNewFile *.calendar set filetype=calendar
 au FileType calendar set noexpandtab
 
 " Clojure
-Bundle 'tpope/vim-fireplace'
-Bundle 'guns/vim-clojure-static'
-Bundle 'guns/vim-clojure-highlight'
+Plugin 'tpope/vim-fireplace'
+Plugin 'guns/vim-clojure-static'
+Plugin 'guns/vim-clojure-highlight'
 au BufRead,BufNewFile *.clj set filetype=clojure
 au FileType clojure nn <buffer> <leader>r :!time clojure %<cr>
 au FileType clojure nn <buffer> <leader>t :!time clojure % < ./input<cr>
 
 " Coffee
-Bundle 'kchmck/vim-coffee-script'
+Plugin 'kchmck/vim-coffee-script'
 au BufRead,BufNewFile *.coffee set filetype=coffee
 au FileType coffee set makeprg=make
 au FileType coffee ino <C-l> ->
@@ -102,7 +99,7 @@ au FileType dot nn <buffer> <leader>r :call OpenDot()<cr>
 au BufRead,BufNewFile *.fs set filetype=fsharp
 
 " Go
-Bundle 'jnwhiteh/vim-golang'
+Plugin 'jnwhiteh/vim-golang'
 let g:gofmt_command = "gofmt -tabs=false -tabwidth=2"
 set runtimepath+=$GOROOT/misc/vim
 exe "set rtp+=" . globpath($GOPATH, "src/github.com/nsf/gocode/vim")
@@ -129,7 +126,7 @@ au FileType gnuplot nn <buffer> <leader>r :call OpenGPImage()<cr>
 
 
 " Haskell
-Bundle 'kana/vim-filetype-haskell'
+Plugin 'kana/vim-filetype-haskell'
 au FileType haskell ino <C-l> ->
 au FileType haskell nn <buffer> <leader>g :!ghc -O3 ./% -o %:r.exe<cr>
 au FileType haskell nn <buffer> <leader>r :!./%:r.exe<cr>
@@ -143,7 +140,7 @@ au BufRead,BufNewFile *.hcl set filetype=hcl
 au FileType hcl nn <buffer> <leader>r :!hcl -nu %<cr>
 
 " Hy
-Bundle 'cympfh/vim-hy'
+Plugin 'cympfh/vim-hy'
 au FileType hy nn <buffer> <leader>r :!time hy %<cr>
 
 " J
@@ -151,20 +148,20 @@ au BufRead,BufNewFile *.j  set filetype=j
 au FileType j   nn <buffer> <leader>r :!j %<cr>
 
 " JavaScript (Node.js) (ECMAScript)
-Bundle 'pangloss/vim-javascript'
+Plugin 'pangloss/vim-javascript'
 au FileType javascript ino <c-f> function
 au FileType javascript nn <buffer> <leader>r :!time node %<cr>
 au FileType javascript nn <buffer> <leader>h :!time node --use-strict --harmony %<cr>
 au FileType javascript nn <buffer> <leader>t :!node % <input<cr>
 
 " Julia
-Bundle 'JuliaLang/julia-vim'
+Plugin 'JuliaLang/julia-vim'
 au BufRead,BufNewFile *.jl set filetype=julia
 au FileType julia nn <buffer> <leader>r :!time julia %<cr>
 au FileType julia nn <buffer> <leader>t :!time julia % <input<cr>
 
 " Kotlin
-Bundle 'udalov/kotlin-vim'
+Plugin 'udalov/kotlin-vim'
 au BufRead,BufNewFile *.kt set filetype=kotlin
 
 " LaTeX (latex)
@@ -204,8 +201,8 @@ let g:markdown_fenced_languages = [
 \ 'cpp'
 \]
 let g:vim_markdown_math=1
-Bundle 'godlygeek/tabular'
-Bundle 'plasticboy/vim-markdown'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 au FileType markdown so ~/.dots/vim/tex.vim
 
 function! MarkdownPreviewOutputPath()
@@ -237,11 +234,11 @@ au FileType ocaml nn <buffer> <leader>t :!time ./%:r.exe <input<cr>
 
 " Octave
 au BufRead,BufNewFile *.m set filetype=octave
-Bundle 'jvirtanen/vim-octave.git'
+Plugin 'jvirtanen/vim-octave.git'
 
 " Pig (pig)
 au BufRead,BufNewFile *.pig set filetype=pig
-Bundle "vim-scripts/pig.vim"
+Plugin 'vim-scripts/pig.vim'
 au FileType pig nn <buffer> <leader>r :!time pig -x local %<cr>
 
 " Python (pyenv is recommended)
@@ -256,7 +253,7 @@ au FileType r nn <buffer> <leader>r :!time Rscript ./%<cr>
 
 " Raml
 au BufRead,BufNewFile *.raml set filetype=raml
-Bundle 'IN3D/vim-raml'
+Plugin 'IN3D/vim-raml'
 
 " Ruby
 au FileType ruby nn <buffer> <leader>r :!time ruby %<cr>
@@ -265,7 +262,7 @@ au FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " Rust
 " Bundle "wting/rust.vim"
-Bundle 'rust-lang/rust.vim'
+Plugin 'rust-lang/rust.vim'
 au BufRead,BufNewFile *.rs set filetype=rust
 au FileType rust ino <C-l> ->
 function! CompileRust()
@@ -298,7 +295,7 @@ au FileType rust nn <buffer> <leader>t :call RunRust(1)<cr>
 au FileType rust nn <buffer> <leader><leader>r :call BothRust()<cr>
 
 " Scala
-Bundle 'derekwyatt/vim-scala'
+Plugin 'derekwyatt/vim-scala'
 au BufRead,BufNewFile *.scala set filetype=scala
 au FileType scala set makeprg=make
 au FileType scala nn <buffer> <leader>r :!scala -feature -deprecation %<cr>
@@ -309,7 +306,7 @@ au FileType scheme nn <buffer> <leader>r :!rlwrap gosh -l ./%<cr>
 au FileType scheme nn <buffer> <leader>t :!rlwrap gosh ./% <input<cr>
 
 " TypeScript
-Bundle 'leafgarland/typescript-vim'
+Plugin 'leafgarland/typescript-vim'
 
 " YAML (yaml, yml)
 au FileType yaml set tabstop=2 shiftwidth=2 softtabstop=2

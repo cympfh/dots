@@ -1,4 +1,4 @@
-Bundle 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'
 set tags=tags,.git/tags
 
 " https://github.com/majutsushi/tagbar/wiki
