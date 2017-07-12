@@ -16,12 +16,13 @@ set colorcolumn=100 synmaxcol=200
 set undodir=~/.vim/undo undofile
 
 "
-" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/Vundle.vim
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 "
 set nocompatible
 filetype off
-set rtp+=~/.vim/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
 
 source ~/.dots/vim/keymap.vim
 source ~/.dots/vim/prg.vim
