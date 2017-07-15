@@ -37,6 +37,7 @@ endif
 
 " prg
 "
+nn M :make 
 nn mk :make!<cr>
 nn mc :!make clean<cr>
 nn mt :!make test<cr>

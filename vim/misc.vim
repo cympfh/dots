@@ -1,11 +1,11 @@
-Bundle 'h1mesuke/vim-alignta'
-Bundle 'yegappan/mru'
-Bundle 'renamer.vim'
+Plugin 'h1mesuke/vim-alignta'
+Plugin 'yegappan/mru'
+Plugin 'renamer.vim'
 
 " comment out
-Bundle "tyru/caw.vim"
+Plugin 'tyru/caw.vim'
 nmap <Leader>c <Plug>(caw:hatpos:toggle)
 vmap <Leader>c <Plug>(caw:hatpos:toggle)
 
 " Filer
-Bundle 'justinmk/vim-dirvish'
+Plugin 'justinmk/vim-dirvish'
