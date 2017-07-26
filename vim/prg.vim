@@ -201,8 +201,8 @@ let g:markdown_fenced_languages = [
 \ 'cpp'
 \]
 let g:vim_markdown_math=1
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+Bundle 'godlygeek/tabular'
+Bundle 'plasticboy/vim-markdown'
 au FileType markdown so ~/.dots/vim/tex.vim
 
 function! MarkdownPreviewOutputPath()
