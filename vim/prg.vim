@@ -201,31 +201,16 @@ let g:markdown_fenced_languages = [
 \ 'cpp'
 \]
 let g:vim_markdown_math=1
-Bundle 'godlygeek/tabular'
-Bundle 'plasticboy/vim-markdown'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 au FileType markdown so ~/.dots/vim/tex.vim
 
-function! MarkdownPreviewOutputPath()
-    return "/tmp/" . expand('%:s?.*/??:s?\..*??') . ".html"
-endfun
-
-function! MarkdownPreviewCompile()
-    :write
-    let s:out = MarkdownPreviewOutputPath()
-    exec ":! pandoc -s -t html5 --mathjax " . expand('%') . " -o " . s:out
-endfun
-
-function! MarkdownPreviewBrowserOpen()
-    call MarkdownPreviewCompile()
-    let s:out = MarkdownPreviewOutputPath()
-    if has('mac')
-        :silent exec "!open " . s:out
-    else
-        :silent exec "!firefox " . s:out
-    endif
-endfun
-au FileType markdown nn <buffer> <leader>w :call MarkdownPreviewCompile()<cr><cr>
-au FileType markdown nn <buffer> <leader>W :call MarkdownPreviewBrowserOpen()<cr><cr>
+Plugin 'kannokanno/previm'
+if has('mac')
+    let g:previm_open_cmd = 'open'
+else
+    let g:previm_open_cmd = 'firefox'
+endif
 
 " OCaml
 au FileType ocaml nn <buffer> <leader>g :!ocamlopt -o %:r.exe str.cmxa %<cr>
