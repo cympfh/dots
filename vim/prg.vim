@@ -277,6 +277,7 @@ au FileType rust nn <buffer> <leader>g :call CompileRust()<cr>
 au FileType rust nn <buffer> <leader>r :call RunRust(0)<cr>
 au FileType rust nn <buffer> <leader>t :call RunRust(1)<cr>
 au FileType rust nn <buffer> <leader><leader>r :call BothRust()<cr>
+au FileType rust let g:ale_linters = {'rust': ['rustc']}
 
 "" Racer (https://github.com/racer-rust/vim-racer)
 Plugin 'racer-rust/vim-racer'
