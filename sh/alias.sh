@@ -42,7 +42,14 @@ function fehbg {
 }
 
 function sprunge {
-  curl -F "sprunge=<-" http://sprunge.us
+    curl -F "sprunge=<-" http://sprunge.us
+}
+
+function clbin {
+    curl -F 'clbin=<-' https://clbin.com
+}
+function clbin-img {
+    curl -F "clbin=@$1" https://clbin.com
 }
 
 # fuck the ssh
