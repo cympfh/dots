@@ -13,6 +13,6 @@ source ~/.dots/zshrc
 EOM
 
 [ -d ~/.i3 ] || mkdir ~/.i3
-cp ~/.dots/i3/* ~/.i3
+cp ~/.dots/i3/config ~/.i3
 
 cp ~/.dots/gitconfig ~/.gitconfig
