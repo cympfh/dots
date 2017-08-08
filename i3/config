@@ -149,6 +149,6 @@ bar {
     urgent_workspace   #000000 #900000 #ffffff
   }
   position bottom
-  status_command $HOME/.dots/i3/bar.coffee
+  status_command ruby $HOME/.dots/i3/bar.rb
 }
 # vim: set ft=conf:
