@@ -11,6 +11,10 @@ def write(obj)
   STDOUT.flush
 end
 
+def curl(url)
+  `timeout 2 curl -s "#{url}"`.chomp
+end
+
 Color = {
   red:    '#ff0000',
   pink:   '#ffdddd',
@@ -47,7 +51,9 @@ def get_tenki
   #   My account is cympfh:h********
   #   and my API key is cc78d27e7519b67719a1121d90e67426
   #   below url contains "example" API key
-  w = JSON.parse `curl -s "http://api.openweathermap.org/data/2.5/weather?id=1850147&appid=cc78d27e7519b67719a1121d90e67426"`.chomp
+  response = curl "http://api.openweathermap.org/data/2.5/weather?id=1850147&appid=cc78d27e7519b67719a1121d90e67426"
+  return '' if response == ''
+  w = JSON.parse response
   icon = tenki_icon(w['weather'][0]['main'])
   "#{icon} #{k2c(w['main']['temp'])}°C #{w['main']['pressure']}hPa"
 end
