@@ -18,7 +18,8 @@ Color = {
   orange: '#ff9020',
   white:  '#ffffff',
   gray:   '#888888',
-  blue:   '#aaffff'
+  blue:   '#aaffff',
+  background: '#303030',
 }
 
 #
@@ -47,7 +48,8 @@ def get_tenki
   #   and my API key is cc78d27e7519b67719a1121d90e67426
   #   below url contains "example" API key
   w = JSON.parse `curl -s "http://api.openweathermap.org/data/2.5/weather?id=1850147&appid=cc78d27e7519b67719a1121d90e67426"`.chomp
-  "#{tenki_icon(w['weather'][0]['main'])}  #{k2c(w['main']['temp'])}°C #{w['main']['pressure']}hPa"
+  icon = tenki_icon(w['weather'][0]['main'])
+  "#{icon} #{k2c(w['main']['temp'])}°C #{w['main']['pressure']}hPa"
 end
 
 def get_battery
@@ -57,6 +59,12 @@ def get_battery
   icon = battery_icons[ [remain, 99].min / 20 ]
   is_charging = result.match(/Charging/)
   ["#{icon} #{remain}%", is_charging]
+end
+
+def get_core_temp
+  icon = ''
+  temp = `sensors | grep "Core 0" | grep -o '+[0-9\.]*' | head -1 | sed 's/\+//g'`.chomp
+  "#{icon} #{temp}°C"
 end
 
 #
@@ -72,25 +80,32 @@ date = ""
 tenki = ""
 battery = ""
 is_charging = false
+core_temp = ""
+
+separator = {separator: true, separator_block_width: 20}
 
 cx = 0
 loop do
   cx = (cx + 1) % 100000
-
   columns = []
 
   if cx % 300 == 1
     tenki = get_tenki
   end
-  columns << {full_text: tenki, color: Color[:gray], separator: false}
+  columns << {full_text: tenki, color: Color[:gray]}.merge(separator)
 
   if cx % 10 == 2
     battery, is_charging = get_battery
   end
-  columns << {full_text: battery, color: is_charging ? Color[:yellow] : Color[:orange], separator: false}
+  columns << {full_text: battery, color: is_charging ? Color[:yellow] : Color[:orange]}.merge(separator)
+
+  if cx % 10 == 4
+    core_temp = get_core_temp
+  end
+  columns << {full_text: core_temp, color: Color[:red]}.merge(separator)
 
   date = get_date
-  columns << {full_text: date, color: Color[:gray], separator: false}
+  columns << {full_text: date, color: Color[:gray]}.merge(separator)
 
   write columns
   sleep 1
