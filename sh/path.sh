@@ -18,5 +18,5 @@ fi
 if [ -d ~/bin/stuff/language-template ]; then
     export PATH=$PATH:$HOME/bin/stuff/language-template
 elif [ -d ~/git/language-template ]; then
-    export PATH=$PATH:$HOME/bin/stuff/language-template
+    export PATH=$PATH:$HOME/git/language-template
 fi
