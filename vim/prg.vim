@@ -3,7 +3,7 @@
 "Linter
 Plugin 'w0rp/ale'
 let g:ale_linters = {
-            \ 'python': ['flake8'],
+            \ 'python': ['flake8', 'mypy'],
             \ 'cpp': ['gcc']
             \ }
 
@@ -201,31 +201,16 @@ let g:markdown_fenced_languages = [
 \ 'cpp'
 \]
 let g:vim_markdown_math=1
-Bundle 'godlygeek/tabular'
-Bundle 'plasticboy/vim-markdown'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 au FileType markdown so ~/.dots/vim/tex.vim
 
-function! MarkdownPreviewOutputPath()
-    return "/tmp/" . expand('%:s?.*/??:s?\..*??') . ".html"
-endfun
-
-function! MarkdownPreviewCompile()
-    :write
-    let s:out = MarkdownPreviewOutputPath()
-    exec ":! pandoc -s -t html5 --mathjax " . expand('%') . " -o " . s:out
-endfun
-
-function! MarkdownPreviewBrowserOpen()
-    call MarkdownPreviewCompile()
-    let s:out = MarkdownPreviewOutputPath()
-    if has('mac')
-        :silent exec "!open " . s:out
-    else
-        :silent exec "!firefox " . s:out
-    endif
-endfun
-au FileType markdown nn <buffer> <leader>w :call MarkdownPreviewCompile()<cr><cr>
-au FileType markdown nn <buffer> <leader>W :call MarkdownPreviewBrowserOpen()<cr><cr>
+Plugin 'kannokanno/previm'
+if has('mac')
+    let g:previm_open_cmd = 'open'
+else
+    let g:previm_open_cmd = 'firefox'
+endif
 
 " OCaml
 au FileType ocaml nn <buffer> <leader>g :!ocamlopt -o %:r.exe str.cmxa %<cr>
@@ -261,7 +246,6 @@ au FileType ruby nn <buffer> <leader>t :!time ruby % <input<cr>
 au FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " Rust
-" Bundle "wting/rust.vim"
 Plugin 'rust-lang/rust.vim'
 au BufRead,BufNewFile *.rs set filetype=rust
 au FileType rust ino <C-l> ->
@@ -293,6 +277,15 @@ au FileType rust nn <buffer> <leader>g :call CompileRust()<cr>
 au FileType rust nn <buffer> <leader>r :call RunRust(0)<cr>
 au FileType rust nn <buffer> <leader>t :call RunRust(1)<cr>
 au FileType rust nn <buffer> <leader><leader>r :call BothRust()<cr>
+au FileType rust let g:ale_linters = {'rust': ['rustc']}
+
+"" Racer (https://github.com/racer-rust/vim-racer)
+Plugin 'racer-rust/vim-racer'
+set hidden
+let g:racer_cmd = expand('~/.cargo/bin/racer')
+let g:racer_experimental_completer = 1
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap K <Plug>(rust-doc)
 
 " Scala
 Plugin 'derekwyatt/vim-scala'

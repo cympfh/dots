@@ -13,6 +13,7 @@ export HOMEBREW_GITHUB_API_TOKEN=4efa3f332c1477d6688ea95cad951c2cf2128e2c
 
 source ~/.dots/sh/path.sh
 source ~/.dots/sh/prompt.sh
+source ~/.dots/sh/prg.sh
 source ~/.dots/sh/dict.sh
 source ~/.dots/sh/alias.sh
 source ~/.dots/sh/calendar.sh
