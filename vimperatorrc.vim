@@ -1,7 +1,7 @@
 set titlestring=Firefox
 set nohlsearch
 set defsearch=google
-set gui=none,tabs,navigation
+set gui=none,tabs,menu
 set statuslinevisibility=visible  # visible also in fullscreen
 
 source ~/.dots/vimperator/keymap.vim
