@@ -14,6 +14,10 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec /usr/bin/terminator
 
+# Volume Function Keys
+bindsym XF86AudioLowerVolume exec amixer set Master 5%-
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
+
 # kill focused window
 bindsym $mod+Q kill
 
