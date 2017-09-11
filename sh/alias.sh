@@ -23,7 +23,6 @@ alias u='cd ..'
 alias g='git'
 
 alias chmox='chmod +x'
-alias screen='ssh-agent screen'
 
 alias :e='vim'
 alias :q='exit'

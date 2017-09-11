@@ -25,3 +25,7 @@ screen-x() {
         screen -x "${SCREENNAME}"
     fi
 }
+
+screen-s() {
+    screen -S $(basename $(pwd))
+}
