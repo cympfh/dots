@@ -232,6 +232,24 @@ au FileType python command! Isort :!isort %
 au FileType python nn <buffer> <leader>r :!time python %<cr>
 au FileType python nn <buffer> <leader>t :!time python % <input<cr>
 
+" PlantUML
+Plugin 'vim-scripts/plantuml-syntax'
+au BufRead,BufNewFile *.uml set filetype=plantuml
+
+function! CompileUML()
+  :!plantuml %
+endfunction
+
+function! OpenUML()
+  if has('mac')
+    :!open %:r.png
+  else
+    :!feh %:r.png
+  endif
+endfunction
+
+au FileType plantuml nn <buffer> <leader>g :call CompileUML()<cr>
+au FileType plantuml nn <buffer> <leader>r :call OpenUML()<cr>
 
 " R
 au FileType r nn <buffer> <leader>r :!time Rscript ./%<cr>
