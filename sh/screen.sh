@@ -27,5 +27,7 @@ screen-x() {
 }
 
 screen-s() {
-    screen -S $(basename $(pwd))
+    SCREENNAME=$(basename $(pwd))
+    echo -ne "\033]0;${SCREENNAME}\007"
+    screen -S "${SCREENNAME}"
 }
