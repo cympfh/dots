@@ -59,6 +59,7 @@ def get_tenki
 end
 
 def get_battery
+  return ["", false] if `which acpi`.chomp == ""
   battery_icons = ['', '', '', '', '']
   result = `acpi`.chomp
   remain = result.match(/[0-9]*%/)[0].to_i
