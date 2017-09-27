@@ -30,6 +30,7 @@ source ~/.dots/vim/ctags.vim
 source ~/.dots/vim/procon.vim
 source ~/.dots/vim/eng.vim
 source ~/.dots/vim/statusline.vim
+source ~/.dots/vim/filer.vim
 source ~/.dots/vim/misc.vim
 
 call vundle#end()

@@ -6,6 +6,3 @@ Plugin 'renamer.vim'
 Plugin 'tyru/caw.vim'
 nmap <Leader>c <Plug>(caw:hatpos:toggle)
 vmap <Leader>c <Plug>(caw:hatpos:toggle)
-
-" Filer
-Plugin 'justinmk/vim-dirvish'
