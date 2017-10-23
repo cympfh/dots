@@ -3,7 +3,7 @@
 "Linter
 Plugin 'w0rp/ale'
 let g:ale_linters = {
-            \ 'python': ['flake8', 'mypy'],
+            \ 'python': ['flake8'],
             \ 'cpp': ['gcc']
             \ }
 
@@ -311,6 +311,8 @@ au BufRead,BufNewFile *.scala set filetype=scala
 au FileType scala set makeprg=make
 au FileType scala nn <buffer> <leader>r :!scala -feature -deprecation %<cr>
 au FileType scala nn <buffer> <leader>t :!scala -feature -deprecation % <input<cr>
+au FileType scala set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+au FileType sbt set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " Scheme
 au FileType scheme nn <buffer> <leader>r :!rlwrap gosh -l ./%<cr>
