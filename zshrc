@@ -1,8 +1,6 @@
 setopt histignorealldups sharehistory
 bindkey -v
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE=~/.zsh_history
+
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 setopt correct
