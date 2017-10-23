@@ -17,7 +17,7 @@ zshaddhistory() {
             # space-start command line
             return 1
             ;;
-        l | ll | ls | cd | man | tw | pwd | fg | bg | hisotry | rm )
+        cd | man | tw | pwd | fg | bg | hisotry | rm | g | git )
             return 1
             ;;
         * )
