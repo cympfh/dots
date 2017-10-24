@@ -18,7 +18,7 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 ## Rust
 # racer (https://github.com/racer-rust/racer)
 export PATH=$HOME/.cargo/bin:$PATH
-export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
+cd && export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
 
 ## TeX
 case $( uname ) in
