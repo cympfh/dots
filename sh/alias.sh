@@ -70,3 +70,7 @@ function kiru-containers() {
 function kiru-images() {
    docker images | grep '<none>' | awk '{print "docker rmi", $3}'
 }
+
+function keys() {
+     jq -r '[path(..)|map(if type=="number" then "[]" else tostring end)|join(".")|split(".[]")|join("[]")]|unique|map("."+.)|.[]'
+ }
