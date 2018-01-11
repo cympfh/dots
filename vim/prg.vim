@@ -3,7 +3,7 @@
 "Linter
 Plugin 'w0rp/ale'
 let g:ale_linters = {
-            \ 'python': ['flake8'],
+            \ 'python': ['pyflakes', 'pycodestyle', 'isort', 'pydocstyle'],
             \ 'cpp': ['gcc']
             \ }
 
@@ -321,5 +321,7 @@ au FileType scheme nn <buffer> <leader>t :!rlwrap gosh ./% <input<cr>
 " TypeScript
 Plugin 'leafgarland/typescript-vim'
 
-" YAML (yaml, yml)
-au FileType yaml set tabstop=2 shiftwidth=2 softtabstop=2
+" YAML (yaml, yml) for ansible
+au BufRead,BufNewFile *.yml set filetype=ansible
+au FileType ansible set tabstop=2 shiftwidth=2 softtabstop=2
+Plugin 'pearofducks/ansible-vim'
