@@ -10,7 +10,7 @@
     ps = push
     st = status
     df = diff
-    cm = commit -m
+    cm = "!git commit -m \"`commit-message`\""
     ad = add
     br = branch
     ch = checkout
