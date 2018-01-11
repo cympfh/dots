@@ -52,25 +52,25 @@ function clbin-img {
 }
 
 # fuck the ssh
-function fuck {
+function ssh-fuck {
   eval $(ssh-agent)
   ssh-add ~/.ssh/id_rsa
 }
 
-# kill the processes (pgrep)
-function kiru {
-    ps aux | grep "$1" | grep -v grep | awk '{print "kill -9", $2}'
+# fuck the processes with peco
+function fuck {
+    ps aux | grep -v grep | peco | awk '{print "kill -9", $2}' | sh
 }
 
 # kill the docker
-function kiru-containers() {
+function docker-kill-containers() {
     docker ps -f status=exited | awk 'NR>1{print "docker rm",$1 }'
 }
 
-function kiru-images() {
+function docker-kill-images() {
    docker images | grep '<none>' | awk '{print "docker rmi", $3}'
 }
 
-function keys() {
+function json-keys() {
      jq -r '[path(..)|map(if type=="number" then "[]" else tostring end)|join(".")|split(".[]")|join("[]")]|unique|map("."+.)|.[]'
  }
