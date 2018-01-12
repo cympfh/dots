@@ -14,16 +14,16 @@ function git-status {
         return
     fi
 
-    reponame=$(git remote show origin -n | grep Push | sed 's/^.*://g; s/.git$//g')
+    # reponame=$(git remote show origin -n | grep Push | sed 's/^.*://g; s/.git$//g')
     branchname=$(git branch 2>/dev/null | grep '*' | sed 's/\* //')
 
     if [ -z "$(git status --short 2>/dev/null)" ]; then
-        statuscolor="%F{243}"
+        statuscolor="%F{246}"
     else
         statuscolor="%F{red}"
     fi
 
-    echo -e " %F{243}$reponame%F{245}:$statuscolor$branchname%f"
+    echo "%F{245}:$statuscolor$branchname%f"
 }
 
 TMOUT=15
