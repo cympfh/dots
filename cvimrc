@@ -1,0 +1,7 @@
+let barposition = "bottom"
+
+map <C-p> previousTab
+map <C-n> nextTab
+map <C-S-p> moveTabRight
+map <C-S-n> moveTabLeft
+map u lastClosedTab
