@@ -1,5 +1,7 @@
 let barposition = "bottom"
 
+map <C-d> 10j
+map <C-u> 10k
 map <C-p> previousTab
 map <C-n> nextTab
 map <C-S-p> moveTabRight
