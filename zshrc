@@ -1,5 +1,5 @@
 setopt histignorealldups sharehistory
-bindkey -v
+source ~/.dots/sh/bindkey.zsh
 
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
