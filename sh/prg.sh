@@ -11,14 +11,18 @@ export PATH=$HOME/node_modules/.bin:$PATH
 
 ## Python
 # pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$HOME/.pyenv/bin:$PATH"
-[ -d $PYENV_ROOT ] && eval "$(pyenv init -)"
+if [ -d ~/.pyenv ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$HOME/.pyenv/bin:$PATH"
+    [ -d $PYENV_ROOT ] && eval "$(pyenv init -)"
+fi
 
 ## Rust
 # racer (https://github.com/racer-rust/racer)
-export PATH=$HOME/.cargo/bin:$PATH
-export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
+if ( which rustc >/dev/null ); then
+    export PATH=$HOME/.cargo/bin:$PATH
+    export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
+fi
 
 ## TeX
 case $( uname ) in
