@@ -29,7 +29,7 @@ bindkey "^G^H" cd-home
 # history
 #
 call-history() {
-    BUFFER=$(history -n 1 | tac | peco)
+    BUFFER=$(history -n 1 | tac | peco --query "$BUFFER")
     CURSOR=$#BUFFER
     zle reset-prompt
 }
