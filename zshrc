@@ -5,9 +5,8 @@ fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 setopt correct
 setopt nonomatch
-export EDITOR=$( which vim )
-alias vi=$EDITOR
-export HOMEBREW_GITHUB_API_TOKEN=4efa3f332c1477d6688ea95cad951c2cf2128e2c
+export EDITOR='vim'
+alias vi='vim'
 
 source ~/.dots/sh/path.sh
 source ~/.dots/sh/prompt.sh
