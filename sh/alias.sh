@@ -19,11 +19,8 @@ case $( uname -s ) in
 
 esac
 
-alias u='cd ..'
 alias g='git'
-
-alias chmox='chmod +x'
-
+alias vi='vim'
 alias :e='vim'
 alias :q='exit'
 alias :wq='exit'
@@ -38,10 +35,6 @@ function id3pic {
 
 function fehbg {
   feh --bg-fill `find $PWD/* | shuf | tail -1`
-}
-
-function sprunge {
-    curl -F "sprunge=<-" http://sprunge.us
 }
 
 function clbin {
@@ -59,7 +52,7 @@ function ssh-fuck {
 
 # fuck the processes with peco
 function fuck {
-    ps aux | grep -v grep | peco | awk '{print "kill -9", $2}' | sh
+    ps aux | peco | awk '{print "kill -9", $2}' | sh
 }
 
 # kill the docker

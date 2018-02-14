@@ -6,7 +6,6 @@ autoload -Uz compinit && compinit -i
 setopt correct
 setopt nonomatch
 export EDITOR='vim'
-alias vi='vim'
 
 source ~/.dots/sh/path.sh
 source ~/.dots/sh/prompt.sh
