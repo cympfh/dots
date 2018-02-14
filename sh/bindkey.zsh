@@ -25,6 +25,13 @@ cd-home() {
 zle -N cd-home
 bindkey "^G^H" cd-home
 
+cd-recent() {
+    cd $(cat ~/.zsh_pwd_history | peco)
+    zle reset-prompt
+}
+zle -N cd-recent
+bindkey "^G^R" cd-recent
+
 #
 # history
 #
