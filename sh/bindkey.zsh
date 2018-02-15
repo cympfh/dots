@@ -26,7 +26,7 @@ zle -N cd-home
 bindkey "^G^H" cd-home
 
 cd-recent() {
-    cd $(cat ~/.zsh_pwd_history | peco)
+    cd $(cat ~/.zsh_pwd_history | tac | peco)
     zle reset-prompt
 }
 zle -N cd-recent
