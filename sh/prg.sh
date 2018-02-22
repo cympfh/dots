@@ -18,9 +18,9 @@ if [ -d ~/.pyenv ]; then
 fi
 
 ## Rust
+[ -d $HOME/.cargo ] && export PATH=$HOME/.cargo/bin:$PATH
 # racer (https://github.com/racer-rust/racer)
 if ( which rustc >/dev/null ); then
-    export PATH=$HOME/.cargo/bin:$PATH
     export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
 fi
 
