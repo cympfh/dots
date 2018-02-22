@@ -20,7 +20,7 @@ fi
 ## Rust
 [ -d $HOME/.cargo ] && export PATH=$HOME/.cargo/bin:$PATH
 # racer (https://github.com/racer-rust/racer)
-if ( which rustc >/dev/null ); then
+if ( which rustc >/dev/null 2>&1 ); then
     export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
 fi
 
