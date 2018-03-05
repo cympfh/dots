@@ -64,6 +64,11 @@ au FileType coffee nn <buffer> <leader>t :!time coffee % <input<cr>
 " Common Lisp
 au FileType lisp nn <buffer> <leader>r :!time clisp %<cr>
 
+" Coq
+au BufRead,BufNewFile *.v set filetype=coq
+Plugin 'jvoorhis/coq.vim'
+" Plugin 'vim-scripts/CoqIDE'
+
 " Dot
 au FileType dot ino <C-l> ->
 au FileType dot set dictionary+=~/.dots/vim/dict/dot
