@@ -221,6 +221,12 @@ au FileType ocaml nn <buffer> <leader>t :!time ./%:r.exe <input<cr>
 au BufRead,BufNewFile *.m set filetype=octave
 Plugin 'jvirtanen/vim-octave.git'
 
+" Perl6
+Plugin 'vim-perl/vim-perl6'
+au BufRead,BufNewFile *.pl set filetype=perl6
+au FileType perl6 nn <buffer> <leader>r :!time perl6 %<cr>
+au FileType perl6 nn <buffer> <leader>t :!time perl6 % <input<cr>
+
 " Pig (pig)
 au BufRead,BufNewFile *.pig set filetype=pig
 Plugin 'vim-scripts/pig.vim'
