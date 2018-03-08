@@ -17,7 +17,11 @@
     ch = checkout
     lg = log --oneline --graph --decorate --branches
     cp = cherry-pick
+    tree = !bash -c '"                                                                             \
+        while IFS=+ read -r hash time branch message; do                                            \
+            timelength=$(echo \"$time\" | sed -r \"s:[^ ][[]([0-9]{1,2}(;[0-9]{1,2})?)?m::g\");     \
+            timelength=$(echo \"16+${#time}-${#timelength}\" | bc);                                 \
+            printf \"%${timelength}s    %s %s %s\n\" \"$time\" \"$hash\" \"$branch\" \"$message\";  \
+        done < <(git logx && echo);"'
 [color]
     ui = true
-[credential]
-    helper = osxkeychain
