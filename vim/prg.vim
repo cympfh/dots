@@ -65,9 +65,8 @@ au FileType coffee nn <buffer> <leader>t :!time coffee % <input<cr>
 au FileType lisp nn <buffer> <leader>r :!time clisp %<cr>
 
 " Coq
-au BufRead,BufNewFile *.v set filetype=coq
 Plugin 'jvoorhis/coq.vim'
-Plugin 'vim-scripts/CoqIDE'
+au BufRead,BufNewFile *.v set filetype=coq
 
 " Dot
 au FileType dot ino <C-l> ->
