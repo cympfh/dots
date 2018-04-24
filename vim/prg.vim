@@ -3,7 +3,7 @@
 "Linter
 Plugin 'w0rp/ale'
 let g:ale_linters = {
-            \ 'python': ['pyflakes', 'pycodestyle', 'isort', 'pydocstyle'],
+            \ 'python': ['flake8', 'pycodestyle', 'isort', 'pydocstyle'],
             \ 'cpp': ['gcc']
             \ }
 
