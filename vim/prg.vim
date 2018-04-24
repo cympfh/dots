@@ -1,3 +1,6 @@
+" Completion with Dictionary
+set complete+=k
+
 " Lint checker
 "
 "Linter
@@ -67,6 +70,7 @@ au FileType lisp nn <buffer> <leader>r :!time clisp %<cr>
 " Coq
 Plugin 'jvoorhis/coq.vim'
 au BufRead,BufNewFile *.v set filetype=coq
+au FileType coq setlocal dictionary+=~/.dots/vim/dict/coq
 
 " Dot
 au FileType dot ino <C-l> ->
