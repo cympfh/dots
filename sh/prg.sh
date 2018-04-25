@@ -14,7 +14,7 @@ export PATH=$HOME/node_modules/.bin:$PATH
 if [ -d ~/.pyenv ]; then
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$HOME/.pyenv/bin:$PATH"
-    [ -d $PYENV_ROOT ] && eval "$(pyenv init -)"
+    # [ -d $PYENV_ROOT ] && eval "$(pyenv init -)"
 fi
 
 ## Rust
