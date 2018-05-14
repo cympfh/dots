@@ -1,5 +1,6 @@
 # vim: set ft=screen
 
 sorendition '= dd'
-hardstatus alwayslastline '%-w%{=b dR}%n %t%{-}%+w'
+hardstatus alwayslastline '%-w%{=b dR}%n %t%{-}%+w%=%{= R}%1`'
 caption always '%{b dR}%n %{bu dR}%t'
+backtick 1 0 1 bash -c "[ -f /tmp/screen.memo.txt ] && tail -1 /tmp/screen.memo.txt"
