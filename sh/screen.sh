@@ -31,17 +31,3 @@ screen-s() {
     echo -ne "\033]0;${SCREENNAME}\007"
     screen -S "${SCREENNAME}"
 }
-
-toggle-screen-memo() {
-    FILE=/tmp/screen.memo.txt
-    if [ -f $FILE ]; then
-        rm $FILE
-    else
-        if [ -f ~/.twurlrc ]; then
-            TWITTER="@$( cat ~/.twurlrc | grep -A 1 default_profile | tail -1 | sed 's/ *- *//g' )"
-        fi
-        echo "$TWITTER" > /tmp/screen.memo.txt
-    fi
-}
-zle -N toggle-screen-memo
-bindkey "^O" toggle-screen-memo
