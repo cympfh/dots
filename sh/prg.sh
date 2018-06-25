@@ -11,11 +11,25 @@ export PATH=$HOME/node_modules/.bin:$PATH
 
 ## Python
 # pyenv
-if [ -d ~/.pyenv ]; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$HOME/.pyenv/bin:$PATH"
-    [ -d $PYENV_ROOT ] && eval "$(pyenv init -)"
-fi
+pyenv-init() {
+    if [ -d ~/.pyenv ]; then
+        export PYENV_ROOT="$HOME/.pyenv"
+        export PATH="$HOME/.pyenv/bin:$PATH"
+        [ -d $PYENV_ROOT ] && eval "$(pyenv init -)"
+    fi
+}
+python() {
+    unfunction python
+    unfunction pip
+    pyenv-init
+    python "$@"
+}
+pip() {
+    unfunction python
+    unfunction pip
+    pyenv-init
+    pip "$@"
+}
 
 ## Rust
 [ -d $HOME/.cargo ] && export PATH=$HOME/.cargo/bin:$PATH
