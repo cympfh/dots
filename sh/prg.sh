@@ -20,12 +20,21 @@ pyenv-init() {
 }
 python() {
     unfunction python
+    unfunction ipython
+    unfunction pip
+    pyenv-init
+    python "$@"
+}
+ipython() {
+    unfunction python
+    unfunction ipython
     unfunction pip
     pyenv-init
     python "$@"
 }
 pip() {
     unfunction python
+    unfunction ipython
     unfunction pip
     pyenv-init
     pip "$@"
