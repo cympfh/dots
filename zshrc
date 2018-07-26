@@ -15,6 +15,7 @@ source ~/.dots/sh/alias.sh
 source ~/.dots/sh/calendar.sh
 source ~/.dots/sh/history.sh
 source ~/.dots/sh/screen.sh
+source ~/.dots/sh/git.sh
 source ~/.dots/sh/interpreter.sh
 source ~/.dots/sh/syntax-hightlight.sh
 source ~/.dots/sh/mru/hook.zsh
