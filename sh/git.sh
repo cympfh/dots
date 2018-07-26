@@ -1,5 +1,3 @@
-Plugin 'tpope/vim-fugitive'
-
 git-config-user() {
     git config --local user.name "$1"
     git config --local user.email "$2"

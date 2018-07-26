@@ -26,6 +26,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 source ~/.dots/vim/keymap.vim
 source ~/.dots/vim/prg.vim
+source ~/.dots/vim/git.vim
 source ~/.dots/vim/ctags.vim
 source ~/.dots/vim/procon.vim
 source ~/.dots/vim/eng.vim
