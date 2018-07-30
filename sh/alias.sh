@@ -45,9 +45,15 @@ function clbin-img {
 }
 
 # fuck the ssh
+if [ -f ~/.ssh/auth.sock ]; then
+    SSH_AUTH_SOCK=$(cat ~/.ssh/auth.sock)
+else
+    echo NO SSH_AUTH_SOCK FOUND
+fi
 function ssh-fuck {
   eval $(ssh-agent)
   ssh-add ~/.ssh/id_rsa
+  echo $SSH_AUTH_SOCK > ~/.ssh/auth.sock
 }
 
 # fuck the processes with peco
