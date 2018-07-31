@@ -143,9 +143,10 @@ au FileType haskell nn <buffer> <leader><leader>r :!ghc -O3 ./% -o %:r.exe; ./%:
 au FileType haskell nn <buffer> <leader><leader>t :!ghc -O3 ./% -o %:r.exe; ./%:r.exe <input<cr>
 au FileType haskell set dictionary+=~/.dots/vim/dict/haskell
 
-" Hot Cocoa Lisp
-au BufRead,BufNewFile *.hcl set filetype=hcl
-au FileType hcl nn <buffer> <leader>r :!hcl -nu %<cr>
+" HTML
+Plugin 'surround.vim'
+Plugin 'mattn/emmet-vim'
+let g:user_emmet_settings = { 'variables': { 'lang' : 'ja' } }
 
 " Hy
 Plugin 'cympfh/vim-hy'
