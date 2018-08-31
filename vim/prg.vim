@@ -147,6 +147,7 @@ au FileType haskell set dictionary+=~/.dots/vim/dict/haskell
 Plugin 'surround.vim'
 Plugin 'mattn/emmet-vim'
 let g:user_emmet_settings = { 'variables': { 'lang' : 'ja' } }
+au FileType html set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " Hy
 Plugin 'cympfh/vim-hy'
@@ -162,6 +163,7 @@ au FileType javascript ino <c-f> function
 au FileType javascript nn <buffer> <leader>r :!time node %<cr>
 au FileType javascript nn <buffer> <leader>h :!time node --use-strict --harmony %<cr>
 au FileType javascript nn <buffer> <leader>t :!node % <input<cr>
+au FileType javascript set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " Julia
 Plugin 'JuliaLang/julia-vim'
@@ -242,10 +244,25 @@ Plugin 'vim-scripts/pig.vim'
 au FileType pig nn <buffer> <leader>r :!time pig -x local %<cr>
 
 " Python (pyenv is recommended)
-au FileType python ino <C-l> ->
 au FileType python command! Isort :!isort %
 au FileType python nn <buffer> <leader>r :!time python %<cr>
 au FileType python nn <buffer> <leader>t :!time python % <input<cr>
+
+" Python Language Server
+"" pip install python-language-server
+Plugin 'prabirshrestha/async.vim'
+Plugin 'prabirshrestha/vim-lsp'
+if executable('pyls')
+    " pip install python-language-server
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
+Plugin 'prabirshrestha/asyncomplete.vim'
+Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+let g:asyncomplete_auto_popup = 1
 
 " PlantUML
 Plugin 'vim-scripts/plantuml-syntax'
