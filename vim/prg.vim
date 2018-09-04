@@ -263,6 +263,7 @@ endif
 Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 let g:asyncomplete_auto_popup = 1
+set completeopt-=preview
 
 " PlantUML
 Plugin 'vim-scripts/plantuml-syntax'
