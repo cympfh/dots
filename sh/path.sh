@@ -10,11 +10,11 @@ elif [ -d ~/git/twurl ]; then
 fi
 
 if [ -d ~/git/mastodon-cli/ ]; then
-    export PATH=$PATH:$HOME/git/mastodon-cli/
+    export PATH=$PATH:$HOME/git/mastodon-cli/bin
 elif [ -d ~/Tools/mastodon-cli/ ]; then
-    export PATH=$PATH:$HOME/Tools/mastodon-cli/
+    export PATH=$PATH:$HOME/Tools/mastodon-cli/bin
 elif [ -d ~/bin/stuff/mastodon-cli/ ]; then
-    export PATH=$PATH:$HOME/bin/stuff/mastodon-cli/
+    export PATH=$PATH:$HOME/bin/stuff/mastodon-cli/bin
 fi
 
 if [ -d ~/bin/stuff/tw ]; then
