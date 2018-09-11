@@ -30,7 +30,7 @@ ipython() {
     unfunction ipython
     unfunction pip
     pyenv-init
-    python "$@"
+    ipython "$@"
 }
 pip() {
     unfunction python
