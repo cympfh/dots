@@ -355,6 +355,6 @@ au FileType scheme nn <buffer> <leader>t :!rlwrap gosh ./% <input<cr>
 Plugin 'leafgarland/typescript-vim'
 
 " YAML (yaml, yml) for ansible
-au BufRead,BufNewFile *.yml set filetype=ansible
-au FileType ansible set tabstop=2 shiftwidth=2 softtabstop=2
+au BufRead,BufNewFile *.yml set filetype=yaml.ansible
+au FileType yaml.ansible set tabstop=2 shiftwidth=2 softtabstop=2
 Plugin 'pearofducks/ansible-vim'
