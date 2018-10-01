@@ -28,3 +28,7 @@ if [ -d ~/bin/stuff/language-template ]; then
 elif [ -d ~/git/language-template ]; then
     export PATH=$PATH:$HOME/git/language-template
 fi
+
+if [ -d ~/.pyenv/shims ]; then
+    export PATH=$PATH:$HOME/.pyenv/shims
+fi
