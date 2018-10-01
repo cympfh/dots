@@ -3,6 +3,10 @@ export PATH=$HOME/bin/stuff:$PATH
 export PATH=$PATH:/usr/local/sbin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
+if [ -d $HOME/Dropbox/bin ]; then
+    export PATH=$HOME/Dropbox/bin:$PATH
+fi
+
 if [ -d ~/Tools/twurl ]; then
     export PATH=$PATH:$HOME/Tools/twurl/bin
 elif [ -d ~/git/twurl ]; then
