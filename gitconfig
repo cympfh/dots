@@ -8,8 +8,10 @@
     cl = clone
     pl = pull
     ps = push
+    psf = push --force
     st = status
     df = diff
+    dfc = diff --cached
     cm = commit -m
     cmm = "!git commit -m \"`commit-message`\""
     ad = add
