@@ -18,9 +18,12 @@ esac
 
 screen-x() {
     TAB=$(printf '\t')
-    SCREENNAME=$(screen -ls | grep "^${TAB}" | sed 's/^\t//g' | peco)
+    SCREENNAME=$(
+        screen -ls | grep "^${TAB}" |
+            sed 's/^\t[0-9]*\.//g; s/\t.*//g' |
+            peco
+    )
     if [ "${SCREENNAME}" ]; then
-        SCREENNAME=$(echo "${SCREENNAME}" | sed 's/\t.*//g')
         echo -ne "\033]0;${SCREENNAME}\007"
         screen -x "${SCREENNAME}"
     fi
