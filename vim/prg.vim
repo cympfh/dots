@@ -10,6 +10,15 @@ let g:ale_linters = {
             \ 'cpp': ['gcc']
             \ }
 
+" Language Server
+"
+Plugin 'prabirshrestha/async.vim'
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'prabirshrestha/asyncomplete.vim'
+Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+let g:asyncomplete_auto_popup = 1
+set completeopt-=preview
+
 """ Languages
 "
 
@@ -250,8 +259,6 @@ au FileType python nn <buffer> <leader>t :!time python % <input<cr>
 
 " Python Language Server
 "" pip install python-language-server
-Plugin 'prabirshrestha/async.vim'
-Plugin 'prabirshrestha/vim-lsp'
 if executable('pyls')
     " pip install python-language-server
     au User lsp_setup call lsp#register_server({
@@ -260,10 +267,6 @@ if executable('pyls')
         \ 'whitelist': ['python'],
         \ })
 endif
-Plugin 'prabirshrestha/asyncomplete.vim'
-Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-let g:asyncomplete_auto_popup = 1
-set completeopt-=preview
 
 " PlantUML
 Plugin 'vim-scripts/plantuml-syntax'
@@ -330,13 +333,14 @@ au FileType rust nn <buffer> <leader>t :call RunRust(1)<cr>
 au FileType rust nn <buffer> <leader><leader>r :call BothRust()<cr>
 au FileType rust let g:ale_linters = {'rust': ['rustc']}
 
-"" Racer (https://github.com/racer-rust/vim-racer)
-Plugin 'racer-rust/vim-racer'
-set hidden
-let g:racer_cmd = expand('~/.cargo/bin/racer')
-let g:racer_experimental_completer = 1
-au FileType rust nmap gd <Plug>(rust-def)
-au FileType rust nmap K <Plug>(rust-doc)
+" Rust Language Server
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
 
 " Scala
 Plugin 'derekwyatt/vim-scala'
@@ -355,6 +359,6 @@ au FileType scheme nn <buffer> <leader>t :!rlwrap gosh ./% <input<cr>
 Plugin 'leafgarland/typescript-vim'
 
 " YAML (yaml, yml) for ansible
-au BufRead,BufNewFile *.yml set filetype=ansible
-au FileType ansible set tabstop=2 shiftwidth=2 softtabstop=2
+au BufRead,BufNewFile *.yml set filetype=yaml.ansible
+au FileType yaml.ansible set tabstop=2 shiftwidth=2 softtabstop=2
 Plugin 'pearofducks/ansible-vim'

@@ -1,13 +1,26 @@
 # vim: set ft=bash
 
+# Go
+if [ -d /usr/local/go/bin ]; then
+    export PATH=$PATH:/usr/local/go/bin
+fi
+export GOPATH=$HOME/go
+if [ ! -d $GOPATH ]; then
+    mkdir -p $GOPATH
+fi
+
 # CUDA
 export CUDA_PATH=/usr/local/cuda
 export PATH=$CUDA_PATH/bin:$PATH
 
 ## Node (javascript)
 # curl -L git.io/nodebrew | perl - setup
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-export PATH=$HOME/node_modules/.bin:$PATH
+if [ -d $HOME/.nodebrew/current/bin ]; then
+    export PATH=$HOME/.nodebrew/current/bin:$PATH
+fi
+if [ -d $HOME/node_modules/.bin ]; then
+    export PATH=$HOME/node_modules/.bin:$PATH
+fi
 
 ## Python
 # pyenv
@@ -30,7 +43,7 @@ ipython() {
     unfunction ipython
     unfunction pip
     pyenv-init
-    python "$@"
+    ipython "$@"
 }
 pip() {
     unfunction python

@@ -3,6 +3,10 @@ export PATH=$HOME/bin/stuff:$PATH
 export PATH=$PATH:/usr/local/sbin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
+if [ -d $HOME/Dropbox/bin ]; then
+    export PATH=$HOME/Dropbox/bin:$PATH
+fi
+
 if [ -d ~/Tools/twurl ]; then
     export PATH=$PATH:$HOME/Tools/twurl/bin
 elif [ -d ~/git/twurl ]; then
@@ -27,4 +31,8 @@ if [ -d ~/bin/stuff/language-template ]; then
     export PATH=$PATH:$HOME/bin/stuff/language-template
 elif [ -d ~/git/language-template ]; then
     export PATH=$PATH:$HOME/git/language-template
+fi
+
+if [ -d ~/.pyenv/shims ]; then
+    export PATH=$PATH:$HOME/.pyenv/shims
 fi
