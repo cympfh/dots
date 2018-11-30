@@ -256,6 +256,7 @@ au FileType pig nn <buffer> <leader>r :!time pig -x local %<cr>
 au FileType python command! Isort :!isort %
 au FileType python nn <buffer> <leader>r :!time python %<cr>
 au FileType python nn <buffer> <leader>t :!time python % <input<cr>
+au FileType python command! MyPyCheck :let g:ale_linters['python'] += ['mypy']
 
 " Python Language Server
 "" pip install python-language-server
