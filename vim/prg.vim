@@ -225,12 +225,8 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 au FileType markdown so ~/.dots/vim/tex.vim
 
-Plugin 'kannokanno/previm'
-if has('mac')
-    let g:previm_open_cmd = 'open'
-else
-    let g:previm_open_cmd = 'firefox'
-endif
+Plugin 'euclio/vim-markdown-composer'
+let g:markdown_composer_autostart=0
 
 " OCaml
 au FileType ocaml nn <buffer> <leader>g :!ocamlopt -o %:r.exe str.cmxa %<cr>
