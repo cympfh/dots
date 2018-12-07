@@ -304,7 +304,7 @@ function! CompileRust()
   if expand('%') == 'src/main.rs'
     :!cargo build
   else
-    :!rustc -o %:r.exe %
+    :!rustc --edition 2018 -o %:r.exe %
   endif
 endfunction
 function! RunRust(k)
@@ -329,6 +329,7 @@ au FileType rust nn <buffer> <leader>r :call RunRust(0)<cr>
 au FileType rust nn <buffer> <leader>t :call RunRust(1)<cr>
 au FileType rust nn <buffer> <leader><leader>r :call BothRust()<cr>
 au FileType rust let g:ale_linters = {'rust': ['rustc']}
+au FileType rust let g:ale_rust_rustc_options = '--edition 2018 '
 
 " Rust Language Server
 if executable('rls')
