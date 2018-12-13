@@ -263,6 +263,7 @@ if executable('pyls')
         \ 'cmd': {server_info->['pyls']},
         \ 'whitelist': ['python'],
         \ })
+    au FileType python nn K :LspHover<cr>
 endif
 
 " PlantUML
@@ -338,6 +339,7 @@ if executable('rls')
         \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
         \ 'whitelist': ['rust'],
         \ })
+    au FileType rust nn K :LspHover<cr>
 endif
 
 " Scala
