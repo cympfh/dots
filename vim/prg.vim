@@ -10,6 +10,15 @@ let g:ale_linters = {
             \ 'cpp': ['gcc']
             \ }
 
+" Language Server
+"
+Plugin 'prabirshrestha/async.vim'
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'prabirshrestha/asyncomplete.vim'
+Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+let g:asyncomplete_auto_popup = 1
+set completeopt-=preview
+
 """ Languages
 "
 
@@ -216,12 +225,8 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 au FileType markdown so ~/.dots/vim/tex.vim
 
-Plugin 'kannokanno/previm'
-if has('mac')
-    let g:previm_open_cmd = 'open'
-else
-    let g:previm_open_cmd = 'firefox'
-endif
+Plugin 'euclio/vim-markdown-composer'
+let g:markdown_composer_autostart=0
 
 " OCaml
 au FileType ocaml nn <buffer> <leader>g :!ocamlopt -o %:r.exe str.cmxa %<cr>
@@ -247,11 +252,10 @@ au FileType pig nn <buffer> <leader>r :!time pig -x local %<cr>
 au FileType python command! Isort :!isort %
 au FileType python nn <buffer> <leader>r :!time python %<cr>
 au FileType python nn <buffer> <leader>t :!time python % <input<cr>
+au FileType python command! MyPyCheck :let g:ale_linters['python'] += ['mypy']
 
 " Python Language Server
 "" pip install python-language-server
-Plugin 'prabirshrestha/async.vim'
-Plugin 'prabirshrestha/vim-lsp'
 if executable('pyls')
     " pip install python-language-server
     au User lsp_setup call lsp#register_server({
@@ -259,11 +263,8 @@ if executable('pyls')
         \ 'cmd': {server_info->['pyls']},
         \ 'whitelist': ['python'],
         \ })
+    au FileType python nn K :LspHover<cr>
 endif
-Plugin 'prabirshrestha/asyncomplete.vim'
-Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-let g:asyncomplete_auto_popup = 1
-set completeopt-=preview
 
 " PlantUML
 Plugin 'vim-scripts/plantuml-syntax'
@@ -304,7 +305,7 @@ function! CompileRust()
   if expand('%') == 'src/main.rs'
     :!cargo build
   else
-    :!rustc -o %:r.exe %
+    :!rustc --edition 2018 -o %:r.exe %
   endif
 endfunction
 function! RunRust(k)
@@ -329,14 +330,17 @@ au FileType rust nn <buffer> <leader>r :call RunRust(0)<cr>
 au FileType rust nn <buffer> <leader>t :call RunRust(1)<cr>
 au FileType rust nn <buffer> <leader><leader>r :call BothRust()<cr>
 au FileType rust let g:ale_linters = {'rust': ['rustc']}
+au FileType rust let g:ale_rust_rustc_options = '--edition 2018 '
 
-"" Racer (https://github.com/racer-rust/vim-racer)
-Plugin 'racer-rust/vim-racer'
-set hidden
-let g:racer_cmd = expand('~/.cargo/bin/racer')
-let g:racer_experimental_completer = 1
-au FileType rust nmap gd <Plug>(rust-def)
-au FileType rust nmap K <Plug>(rust-doc)
+" Rust Language Server
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+    au FileType rust nn K :LspHover<cr>
+endif
 
 " Scala
 Plugin 'derekwyatt/vim-scala'
