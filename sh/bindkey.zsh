@@ -42,3 +42,12 @@ call-history() {
 }
 zle -N call-history
 bindkey "^R" call-history
+
+#
+# misc
+#
+call-fuck() {
+    fuck
+}
+zle -N call-fuck
+bindkey "^F" call-fuck
