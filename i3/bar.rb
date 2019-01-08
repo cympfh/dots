@@ -30,6 +30,13 @@ Color = {
 # main commands
 #
 
+def get_memo
+  memopath = '/tmp/memo'
+  if File.exists? memopath
+    File.open(memopath).read.chomp.gsub(/[\r\n]/, ' ')
+  end
+end
+
 def get_date
   `LANG=en date "+%Y-%m-%d(%a)%H:%M"`.chomp
 end
@@ -83,6 +90,7 @@ puts <<EOM
 [[],
 EOM
 
+memo = nil
 date = ""
 tenki = ""
 battery = ""
@@ -95,6 +103,13 @@ cx = 0
 loop do
   cx = (cx + 1) % 100000
   columns = []
+
+  if cx % 5 == 3
+    memo = get_memo
+  end
+  if memo != nil
+    columns << {full_text: "[#{memo}]", color: Color[:yellow]}.merge(separator)
+  end
 
   if cx % 300 == 1
     tenki = get_tenki
