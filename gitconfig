@@ -22,3 +22,5 @@
     lg = log
 [color]
     ui = true
+[init]
+    templatedir = ~/.dots/git/template
