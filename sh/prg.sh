@@ -24,34 +24,11 @@ fi
 
 ## Python
 # pyenv
-pyenv-init() {
-    if [ -d ~/.pyenv ]; then
-        export PYENV_ROOT="$HOME/.pyenv"
-        export PATH="$HOME/.pyenv/bin:$PATH"
-        [ -d $PYENV_ROOT ] && eval "$(pyenv init -)"
-    fi
-}
-python() {
-    unfunction python
-    unfunction ipython
-    unfunction pip
-    pyenv-init
-    python "$@"
-}
-ipython() {
-    unfunction python
-    unfunction ipython
-    unfunction pip
-    pyenv-init
-    ipython "$@"
-}
-pip() {
-    unfunction python
-    unfunction ipython
-    unfunction pip
-    pyenv-init
-    pip "$@"
-}
+if [ -d ~/.pyenv ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$HOME/.pyenv/bin:$PATH"
+    [ -d $PYENV_ROOT ] && eval "$(pyenv init - zsh --no-rehash)"
+fi
 
 ## Rust
 [ -d $HOME/.cargo ] && export PATH=$HOME/.cargo/bin:$PATH
