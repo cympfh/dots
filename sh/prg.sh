@@ -27,8 +27,10 @@ fi
 if [ -d ~/.pyenv ]; then
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$HOME/.pyenv/bin:$PATH"
-    [ -d $PYENV_ROOT ] && eval "$(pyenv init - zsh --no-rehash)"
+    eval "$(pyenv init - zsh --no-rehash)"
 fi
+# pip
+eval "$(pip completion --zsh)"
 
 ## Rust
 [ -d $HOME/.cargo ] && export PATH=$HOME/.cargo/bin:$PATH
