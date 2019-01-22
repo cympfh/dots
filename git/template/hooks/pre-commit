@@ -1,0 +1,9 @@
+#!/bin/bash
+
+username=$(git config --local user.name)
+if [ -z "$username" ]; then
+    echo "No name found."
+    echo "git config --local user.name <NAME>"
+    echo "git config --local user.email <NAME>"
+    exit 1
+fi
