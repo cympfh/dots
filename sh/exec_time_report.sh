@@ -23,7 +23,7 @@ sec2htime() {
     fi
 }
 
-function preexec_lastcommand() {
+preexec_lastcommand() {
     last_command=$1
     last_prompt_time=$(date "+%s")
     time_report_waiting=1

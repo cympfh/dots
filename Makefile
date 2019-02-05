@@ -11,6 +11,10 @@ screen:
 	echo source $(PWD_TILDE)/screenrc >> ~/.screenrc
 	echo source $(PWD_TILDE)/screen/novel >> ~/.screenrc
 
+## set .bashrc
+bash:
+	echo source $(PWD_TILDE)/bashrc >> ~/.bashrc
+
 ## set .zshrc
 zsh:
 	echo source $(PWD_TILDE)/zshrc >> ~/.zshrc
@@ -23,6 +27,14 @@ i3:
 ## link .gitconfig
 git:
 	ln -s $(PWD)/gitconfig ~/.gitconfig
+
+## link .inputrc
+input:
+	ln -s $(PWD)/inputrc ~/.inputrc
+
+## link .chunkwmrc
+chunkwm:
+	ln -s $(PWD)/chunkwmrc ~/.chunkwmrc
 
 .DEFAULT_GOAL := help
 
