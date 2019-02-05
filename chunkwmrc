@@ -19,11 +19,11 @@ chunkc core::hotload 1
 #
 
 chunkc set global_desktop_mode           bsp
-chunkc set global_desktop_offset_top     0 # 40
-chunkc set global_desktop_offset_bottom  0 # 40
-chunkc set global_desktop_offset_left    0 # 40
-chunkc set global_desktop_offset_right   0 # 40
-chunkc set global_desktop_offset_gap     0 # 15
+chunkc set global_desktop_offset_top     10
+chunkc set global_desktop_offset_bottom  10
+chunkc set global_desktop_offset_left    10
+chunkc set global_desktop_offset_right   10
+chunkc set global_desktop_offset_gap     10
 
 # chunkc set 1_desktop_offset_top          40
 # chunkc set 1_desktop_offset_bottom       40
