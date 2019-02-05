@@ -1,5 +1,5 @@
-alias l='ls --color=auto'
-alias ll='ls -lh --color=auto'
+alias l='ls -G'
+alias ll='ls -lhG'
 export EDITOR=$( which vim )
 alias vi=$EDITOR
 
