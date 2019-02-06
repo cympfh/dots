@@ -8,7 +8,6 @@ ssh-agent
 kill -9
 docker containers
 docker images
-python
 EOM
 )
     else
@@ -27,9 +26,6 @@ EOM
             ;;
         docker-images | "docker images" )
             fuck-docker-images
-            ;;
-        python )
-            fuck-python
             ;;
         * )
             ;;
@@ -59,9 +55,3 @@ fuck-docker-containers() {
 fuck-docker-images() {
     docker images | awk 'NR>1' | peco | awk '{print "docker rmi",$3 }' | sh
 }
-
-fuck-python() {
-    pyenv-init
-}
-
-alias f=fuck
