@@ -79,6 +79,8 @@ au FileType lisp nn <buffer> <leader>r :!time clisp %<cr>
 " Coq
 Plugin 'jvoorhis/coq.vim'
 au BufRead,BufNewFile *.v set filetype=coq
+au FileType coq nn <buffer> <leader>g :!time coqc %<cr>
+au FileType coq nn <buffer> <leader>r :!time coqtop < % 2>/dev/null<cr>
 au FileType coq setlocal dictionary+=~/.dots/vim/dict/coq
 
 " Dot
