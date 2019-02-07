@@ -60,7 +60,7 @@ _call_fuck() {
     tmp=$DISPLAY
     unset DISPLAY
     fuck
-    DISPLAY=$tmp
+    export DISPLAY=$tmp
     zle reset-prompt
 }
 zle -N _call_fuck
