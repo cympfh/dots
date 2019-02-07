@@ -55,3 +55,13 @@ fuck-docker-containers() {
 fuck-docker-images() {
     docker images | awk 'NR>1' | peco | awk '{print "docker rmi",$3 }' | sh
 }
+
+_call_fuck() {
+    tmp=$DISPLAY
+    unset DISPLAY
+    fuck
+    DISPLAY=$tmp
+    zle reset-prompt
+}
+zle -N _call_fuck
+bindkey "^F" _call_fuck
