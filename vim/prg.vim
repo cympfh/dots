@@ -16,7 +16,8 @@ Plugin 'prabirshrestha/async.vim'
 Plugin 'prabirshrestha/vim-lsp'
 Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_auto_popup = 0
+imap <C-o> <Plug>(asyncomplete_force_refresh)
 set completeopt-=preview
 
 """ Languages
