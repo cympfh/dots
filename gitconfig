@@ -17,6 +17,7 @@
     ad = add
     br = branch
     ch = checkout
+    chb = checkout -b
     cp = cherry-pick
     show-graph = log --graph --abbrev-commit --pretty=oneline
     lg = log
