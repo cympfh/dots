@@ -23,6 +23,9 @@ set completeopt-=preview
 """ Languages
 "
 
+" Default
+nn <buffer> <leader>T :terminal<cr>
+
 " Makefile
 setlocal expandtab
 au FileType make,calendar setlocal noexpandtab
@@ -255,6 +258,7 @@ au FileType pig nn <buffer> <leader>r :!time pig -x local %<cr>
 au FileType python command! Isort :!isort %
 au FileType python nn <buffer> <leader>r :!time python %<cr>
 au FileType python nn <buffer> <leader>t :!time python % <input<cr>
+au FileType python nn <buffer> <leader>T :terminal ipython --no-autoindent<cr>
 au FileType python command! MyPyCheck :let g:ale_linters['python'] += ['mypy']
 
 " Python Language Server
@@ -298,6 +302,7 @@ Plugin 'IN3D/vim-raml'
 " Ruby
 au FileType ruby nn <buffer> <leader>r :!time ruby %<cr>
 au FileType ruby nn <buffer> <leader>t :!time ruby % <input<cr>
+au FileType ruby nn <buffer> <leader>T :terminal irb<cr>
 au FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " Rust
