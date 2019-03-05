@@ -350,6 +350,10 @@ if executable('rls')
     au FileType rust nn K :LspHover<cr>
 endif
 
+" Sed (sed)
+au FileType sed nn <buffer> <leader>r :!sed -f % <cr>
+au FileType sed nn <buffer> <leader>t :!sed -f % <input<cr>
+
 " Scala
 Plugin 'derekwyatt/vim-scala'
 Plugin 'ensime/ensime-vim'
