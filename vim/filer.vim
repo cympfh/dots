@@ -2,7 +2,7 @@
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-nnoremap <Leader>T :NERDTreeTabsToggle<CR>
+nnoremap <Leader>a :NERDTreeTabsToggle<CR>
 
 " file location
 nn <silent> <leader>f :let @f=expand("%:p")<cr>:echo "FILE ".@f<cr>
