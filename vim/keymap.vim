@@ -8,8 +8,8 @@ cnoremap <c-p> <up>
 cnoremap <c-n> <down>
 
 " split tab
-nn ( <C-w><
-nn ) <C-w>>
+nn ( <C-w><<C-w>+
+nn ) <C-w>><C-w>-
 
 " operate tab
 nnoremap <s-t> :tabnew<cr>
@@ -39,7 +39,3 @@ nn mk :!make<cr>
 nn mc :!make clean<cr>
 nn mt :!make test<cr>
 nnoremap ! :!
-
-nn <leader>a :vim /\%1l/ *<cr>:copen<cr>
-nn <left> :cprev<cr>
-nn <right> :cnext<cr>
