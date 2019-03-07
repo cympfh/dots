@@ -1,3 +1,4 @@
+set background=dark
 Plugin 'jeffkreeftmeijer/vim-dim'
 try
     colorscheme dim
