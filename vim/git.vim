@@ -1,2 +1,2 @@
 Plugin 'tpope/vim-fugitive'
-nn <leader>g :exe 'tabedit % \| Ggrep ' . expand('<cword>')<cr>:copen<cr>
+nn <leader>G :exe 'tabedit % \| Ggrep ' . expand('<cword>')<cr>:copen<cr>
