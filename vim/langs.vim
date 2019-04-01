@@ -167,6 +167,7 @@ au FileType html set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 " Hy
 Plugin 'cympfh/vim-hy'
 au FileType hy nn <buffer> <leader>r :!time hy %<cr>
+au FileType hy nn <buffer> <leader>T :terminal hy<cr>
 
 " J
 au BufRead,BufNewFile *.j  set filetype=j
