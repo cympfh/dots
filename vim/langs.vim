@@ -358,7 +358,6 @@ au FileType sed nn <buffer> <leader>t :!sed -f % <input<cr>
 
 " Scala
 Plugin 'derekwyatt/vim-scala'
-Plugin 'ensime/ensime-vim'
 au BufRead,BufNewFile *.scala set filetype=scala
 au FileType scala set makeprg=make
 au FileType scala nn <buffer> <leader>r :!scala -feature -deprecation %<cr>
