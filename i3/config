@@ -107,7 +107,7 @@ bindsym $mod+Escape exec /home/cympfh/bin/lock
 # exec nm-applet
 exec dropbox start
 exec bash ~/.fehbg
-setxkbmap us -option ctrl:nocaps
+exec setxkbmap us -option ctrl:nocaps
 exec fcitx &
 exec bash ~/.xinitrc
 
