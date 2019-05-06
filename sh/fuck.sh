@@ -1,13 +1,13 @@
 #!/bin/bash
 
-fuck() {
-
+fuck() { 
     if [ $# -eq 0 ]; then
         COM=$(cat <<EOM | peco --prompt "fuck "
 ssh-agent
 kill -9
 docker containers
 docker images
+fan
 EOM
 )
     else
@@ -26,6 +26,9 @@ EOM
             ;;
         docker-images | "docker images" )
             fuck-docker-images
+            ;;
+        fan )
+            fuck-fan
             ;;
         * )
             ;;
@@ -54,6 +57,24 @@ fuck-docker-containers() {
 }
 fuck-docker-images() {
     docker images | awk 'NR>1' | peco | awk '{print "docker rmi",$3 }' | sh
+}
+
+fuck-fan() {
+    PERCENT=$(cat <<EOM | peco
+10
+20
+30
+40
+50
+60
+70
+80
+90
+EOM
+)
+    if [ ! -z "$PERCENT" ]; then
+        sudo fancontrol $PERCENT
+    fi
 }
 
 _call_fuck() {
