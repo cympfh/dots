@@ -137,6 +137,7 @@ au FileType go nn <buffer> <leader>r :!./%:r.exe<cr>
 au BufRead,BufNewFile *.gp set filetype=gnuplot
 au BufRead,BufNewFile *.plt set filetype=gnuplot
 au FileType gnuplot nn <buffer> <leader>g :!gnuplot %<cr>
+au FileType gnuplot nn <buffer> <leader>T :terminal gnuplot<cr>
 fun! OpenGPImage()
   let f=system("cat ".expand("%")."|grep output|awk '{print $3}'|tr -d '\"'|tr -d \"'\"")
   if has('mac')
