@@ -267,12 +267,11 @@ au FileType python nn <buffer> gd :LspDefinition<cr>
 " Python Language Server
 "" pip install python-language-server
 if executable('pyls')
-    " pip install python-language-server
     au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
+       \ 'name': 'pyls',
+       \ 'cmd': {server_info->['pyls']},
+       \ 'whitelist': ['python'],
+       \ })
     au FileType python nn K :LspHover<cr>
 endif
 
