@@ -191,6 +191,9 @@ au FileType julia nn <buffer> <leader>t :!time julia % <input<cr>
 " Kotlin
 Plugin 'udalov/kotlin-vim'
 au BufRead,BufNewFile *.kt set filetype=kotlin
+au FileType kotlin nn <buffer> <leader>g :!kotlinc % -include-runtime -d %:r.jar<cr>
+au FileType kotlin nn <buffer> <leader>r :!time java -jar %:r.jar<cr>
+au FileType kotlin nn <buffer> <leader>t :!time java -jar %:r.jar <input<cr>
 
 " LaTeX (latex)
 " Bundle 'vim-latex/vim-latex'
