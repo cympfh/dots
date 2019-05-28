@@ -31,10 +31,7 @@ Color = {
 #
 
 def get_memo
-  memopath = '/tmp/memo'
-  if File.exists? memopath
-    File.open(memopath).read.chomp.gsub(/[\r\n]/, ' ')
-  end
+  `bash ~/.dots/i3/i3-memo.sh cat | sed 's/^.*\t//g; s/.*/[&]/' | tr '\n' ' ' | sed 's/ *$//g'`
 end
 
 def get_date
@@ -72,6 +69,9 @@ def get_battery
   remain = result.match(/[0-9]*%/)[0].to_i
   icon = battery_icons[ [remain, 99].min / 20 ]
   is_charging = result.match(/Charging/)
+  if remain < 20
+    `notify "BATTERY #{remain}%"`
+  end
   ["#{icon} #{remain}%", is_charging]
 end
 
@@ -108,7 +108,7 @@ loop do
     memo = get_memo
   end
   if memo != nil
-    columns << {full_text: "[#{memo}]", color: Color[:yellow]}.merge(separator)
+    columns << {full_text: "#{memo}", color: Color[:yellow]}.merge(separator)
   end
 
   if cx % 300 == 1
