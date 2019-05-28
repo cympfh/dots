@@ -350,7 +350,7 @@ au FileType rust let g:ale_rust_rustc_options = '--edition 2018 '
 if executable('rls')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
         \ 'whitelist': ['rust'],
         \ })
     au FileType rust nn K :LspHover<cr>
