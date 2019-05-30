@@ -161,6 +161,8 @@ au FileType haskell set dictionary+=~/.dots/vim/dict/haskell
 
 " HTML
 Plugin 'surround.vim'
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 Plugin 'mattn/emmet-vim'
 let g:user_emmet_settings = { 'variables': { 'lang' : 'ja' } }
 au FileType html set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
