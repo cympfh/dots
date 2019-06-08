@@ -318,7 +318,7 @@ function! CompileRust()
   if expand('%') == 'src/main.rs'
     :!cargo build
   else
-    :!rustc --edition 2018 -o %:r.exe %
+    :!rustc -O --edition 2018 -o %:r.exe %
   endif
 endfunction
 function! RunRust(k)
