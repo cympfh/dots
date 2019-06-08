@@ -13,6 +13,7 @@ nn ) <C-w>><C-w>-
 
 " operate tab
 nnoremap <s-t> :tabnew<cr>
+nnoremap <c-t> :tabnew<cr>
 nnoremap <c-p> gT
 nnoremap <c-n> gt
 

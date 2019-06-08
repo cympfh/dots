@@ -3,7 +3,7 @@ autoload -U colors; colors
 
 SPROMPT="correct %R to %r? (Yes, No, Abort, Edit) "
 PROMPT="
-%(?.%F{red}.%F{226})%T%f %F{yellow}${HOST}%F{245}:%F{yellow}%~%f\`git-status\`
+%F{227}${HOST}%F{246}:%F{227}%~\`git-status\`
    "
 
 function git-status {
@@ -17,16 +17,13 @@ function git-status {
     # reponame=$(git remote show origin -n | grep Push | sed 's/^.*://g; s/.git$//g')
     branchname=$(git branch 2>/dev/null | grep '*' | sed 's/\* //')
 
-    if [ -z "$(git status --short 2>/dev/null)" ]; then
-        statuscolor="%F{246}"
-    else
+    if [ ! -z "$(git status --short 2>/dev/null)" ]; then  # something to commit
         statuscolor="%F{red}"
+    elif git status 2>/dev/null | grep "branch is ahead" >/dev/null; then  # something to push
+        statuscolor="%F{81}"
+    else
+        statuscolor="%F{246}"
     fi
 
-    echo "%F{245}:$statuscolor$branchname%f"
-}
-
-TMOUT=15
-TRAPALRM() {
-    zle reset-prompt
+    echo -n "%F{245}:$statuscolor$branchname%f"
 }
