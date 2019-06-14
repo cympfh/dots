@@ -3,10 +3,20 @@ autoload -U colors; colors
 
 SPROMPT="correct %R to %r? (Yes, No, Abort, Edit) "
 PROMPT="
-%F{227}${HOST}%F{246}:%F{227}%~\`git-status\`
+%(?.%F{221}.%F{red})${HOST}%f\`prompt-colon\`\`prompt-pwd\`\`prompt-git-status\`
    "
 
-function git-status {
+prompt-colon() {
+    echo -n "%F{246}:%f"
+}
+
+prompt-pwd() {
+    echo -n "%F{221}"
+    echo -n ${PWD/#$HOME/\~} | sed 's#\([^/]\{,3\}\)\([^/]*\)/#\1/#g'
+    echo -n "%f"
+}
+
+prompt-git-status() {
 
     # not in git?
     git branch >/dev/null 2>&1
@@ -25,5 +35,6 @@ function git-status {
         statuscolor="%F{246}"
     fi
 
-    echo -n "%F{245}:$statuscolor$branchname%f"
+    prompt-colon
+    echo -n "$statuscolor$branchname%f"
 }
