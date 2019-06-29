@@ -36,3 +36,7 @@ fi
 if [ -d ~/.pyenv/shims ]; then
     export PATH=$PATH:$HOME/.pyenv/shims
 fi
+
+if [ -d ~/git/imgur ]; then
+    export PATH=$PATH:$HOME/git/imgur
+fi
