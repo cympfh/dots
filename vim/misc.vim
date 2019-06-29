@@ -1,6 +1,7 @@
 Plugin 'h1mesuke/vim-alignta'
 Plugin 'yegappan/mru'
 Plugin 'renamer.vim'
+Plugin 'tpope/vim-sleuth'
 
 " comment out
 Plugin 'tyru/caw.vim'
