@@ -3,11 +3,22 @@ autoload -U colors; colors
 
 SPROMPT="correct %R to %r? (Yes, No, Abort, Edit) "
 PROMPT="
-%(?.%F{221}.%F{red})${HOST}%f\`prompt-colon\`\`prompt-pwd\`\`prompt-git-status\`
+\`prompt-time\` \`prompt-host\`\`prompt-pwd\`\`prompt-git-status\`
    "
 
 prompt-colon() {
     echo -n "%F{246}:%f"
+}
+
+prompt-time() {
+    echo -n "%(?.%F{240}.%F{red})%T%f"
+}
+
+prompt-host() {
+    if [ -z "$LOCALHOST" ]; then
+        echo -n "%F{221}${HOST}%f"
+        prompt-colon
+    fi
 }
 
 prompt-pwd() {
@@ -37,4 +48,9 @@ prompt-git-status() {
 
     prompt-colon
     echo -n "$statuscolor$branchname%f"
+}
+
+TMOUT=10
+TRAPALRM() {
+    zle reset-prompt
 }
