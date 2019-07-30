@@ -14,6 +14,7 @@ i3-remove() {
 i3-add() {
     ID="$1"
     MSG="$2"
+    i3-remove "$ID"
     printf "$ID\t$MSG\n" >> $MEMO
 }
 
