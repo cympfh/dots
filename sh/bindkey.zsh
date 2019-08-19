@@ -26,7 +26,8 @@ zle -N cd-home
 bindkey "^G^H" cd-home
 
 cd-recent() {
-    cd $(cat ~/.zsh_pwd_history | tac | peco)
+    CDPATH=$(cat ~/.zsh_pwd_history | tac | peco)
+    [ ! -z "$CDPATH" ] && cd "$CDPATH"
     zle reset-prompt
 }
 zle -N cd-recent
@@ -36,8 +37,11 @@ bindkey "^G^R" cd-recent
 # history
 #
 call-history() {
-    BUFFER=$(history -n 1 | tac | peco --query "$BUFFER")
-    CURSOR=$#BUFFER
+    TMP_BUFFER=$(history -n 1 | tac | peco --query "$BUFFER")
+    if [ ! -z "$TMP_BUFFER" ]; then
+        BUFFER=$TMP_BUFFER
+        CURSOR=$#BUFFER
+    fi
     zle reset-prompt
 }
 zle -N call-history
