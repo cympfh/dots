@@ -85,7 +85,9 @@ Plugin 'jvoorhis/coq.vim'
 au BufRead,BufNewFile *.v set filetype=coq
 au FileType coq nn <buffer> <leader>g :!time coqc %<cr>
 au FileType coq nn <buffer> <leader>r :!time coqtop < % 2>/dev/null<cr>
+au FileType coq nn <buffer> <leader>T :terminal coqtop<cr>
 au FileType coq setlocal dictionary+=~/.dots/vim/dict/coq
+au FileType coq set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " Dot
 au FileType dot ino <C-l> ->
