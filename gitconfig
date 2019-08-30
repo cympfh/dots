@@ -21,6 +21,7 @@
     cp = cherry-pick
     show-graph = log --graph --abbrev-commit --pretty=oneline
     lg = log
+    g = grep
 [color]
     ui = true
 [init]
