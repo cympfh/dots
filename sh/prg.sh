@@ -1,12 +1,12 @@
 # vim: set ft=bash
 
 # Go
-if [ -d /usr/local/go/bin ]; then
+if [ -d /usr/local/go ]; then
     export PATH=$PATH:/usr/local/go/bin
 fi
-export GOPATH=$HOME/go
-if [ ! -d $GOPATH ]; then
-    mkdir -p $GOPATH
+if [ -d $HOME/go ]; then
+    export GOPATH=$HOME/go
+    export PATH=$HOME/go/bin:$PATH
 fi
 
 # CUDA
