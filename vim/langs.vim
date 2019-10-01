@@ -51,7 +51,7 @@ au FileType c nn <buffer> <leader>t :!time ./%:r.exe < ./input<cr>
 Plugin 'octol/vim-cpp-enhanced-highlight'
 au FileType cpp set cindent
 au FileType cpp set dictionary+=~/.dots/vim/dict/cpp
-au FileType cpp nn <buffer> <leader>g :!g++ -O3 -o %:r.exe -std=c++11 %<cr>
+au FileType cpp nn <buffer> <leader>g :!g++ -O3 -o %:r.exe -std=c++17 %<cr>
 au FileType cpp nn <buffer> <leader>r :!time ./%:r.exe<cr>
 au FileType cpp nn <buffer> <leader>t :!time ./%:r.exe <input<cr>
 au FileType cpp nm <buffer> <leader><leader>r <leader>g<leader>r
