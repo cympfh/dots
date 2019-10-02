@@ -17,20 +17,33 @@ case "$TERM" in
 esac
 
 screen-x() {
-    TAB=$(printf '\t')
-    SCREENNAME=$(
-        screen -ls | grep "^${TAB}" |
-            sed 's/^\t[0-9]*\.//g; s/\t.*//g' |
-            peco
-    )
-    if [ "${SCREENNAME}" ]; then
-        echo -ne "\033]0;${SCREENNAME}\007"
-        screen -x "${SCREENNAME}"
-    fi
+    case "$TERM" in
+        *screen* )
+            echo "You are already in screen"
+            ;;
+        * )
+            SCREENNAME=$(
+                screen -ls | grep "^	" |
+                    sed 's/^\t[0-9]*\.//g; s/\t.*//g' |
+                    peco
+            )
+            if [ "${SCREENNAME}" ]; then
+                echo -ne "\033]0;${SCREENNAME}\007"
+                screen -x "${SCREENNAME}"
+            fi
+            ;;
+    esac
 }
 
 screen-s() {
-    SCREENNAME=${1:-$(basename $(pwd))}
-    echo -ne "\033]0;${SCREENNAME}\007"
-    screen -S "${SCREENNAME}"
+    case "$TERM" in
+        *screen* )
+            echo "You are already in screen"
+            ;;
+        * )
+            SCREENNAME=${1:-$(basename $(pwd))}
+            echo -ne "\033]0;${SCREENNAME}\007"
+            screen -S "${SCREENNAME}"
+            ;;
+    esac
 }

@@ -46,3 +46,22 @@ call-history() {
 }
 zle -N call-history
 bindkey "^R" call-history
+
+#
+# screen
+#
+insert-screen-x() {
+    BUFFER=screen-x
+    CURSOR=$#BUFFER
+    zle .accept-line
+}
+zle -N insert-screen-x
+bindkey "^K^X" insert-screen-x
+
+insert-screen-s() {
+    BUFFER=screen-s
+    CURSOR=$#BUFFER
+    zle .accept-line
+}
+zle -N insert-screen-s
+bindkey "^K^S" insert-screen-s

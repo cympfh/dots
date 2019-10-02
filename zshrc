@@ -7,6 +7,7 @@ autoload -Uz compinit && compinit -i
 setopt correct
 setopt nonomatch
 setopt interactivecomments
+setopt noflowcontrol
 export EDITOR='vim'
 
 source ~/.dots/sh/path.sh
