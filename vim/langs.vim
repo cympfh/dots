@@ -4,7 +4,7 @@ set complete+=k
 " Lint checker
 "
 "Linter
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 let g:ale_linters = {
             \ 'python': ['flake8', 'pycodestyle', 'isort', 'pydocstyle'],
             \ 'cpp': ['gcc']
@@ -17,6 +17,11 @@ Plugin 'prabirshrestha/vim-lsp'
 Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 let g:asyncomplete_auto_popup = 0
+let g:lsp_diagnostics_enabled = 0
+let g:lsp_textprop_enabled = 0
+let g:lsp_preview_float = 0
+let g:lsp_hover_conceal = 0
+let g:lsp_signature_help_enabled = 0
 imap <C-o> <Plug>(asyncomplete_force_refresh)
 set completeopt-=preview
 
@@ -275,10 +280,10 @@ au FileType python nn <buffer> gd :LspDefinition<cr>
 "" pip install python-language-server
 if executable('pyls')
     au User lsp_setup call lsp#register_server({
-       \ 'name': 'pyls',
-       \ 'cmd': {server_info->['pyls']},
-       \ 'whitelist': ['python'],
-       \ })
+      \ 'name': 'pyls',
+      \ 'cmd': {server_info->['pyls']},
+      \ 'whitelist': ['python'],
+      \ })
     au FileType python nn K :LspHover<cr>
 endif
 
