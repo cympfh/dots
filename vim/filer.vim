@@ -1,8 +1,20 @@
 " Filer and keymaps for file operations
 
+" NERDTree
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 nnoremap <space> :NERDTreeTabsToggle<CR>
+autocmd FileType nerdtree nnoremap <buffer> f :NERDTreeFind 
+autocmd FileType nerdtree nnoremap <buffer> p :call NERDTreeLivePreview()<CR>
+
+function! NERDTreeLivePreview()
+    let current_file = g:NERDTreeFileNode.GetSelected()
+    if current_file == {}
+        return
+    else
+        exe 'pedit '.current_file.path.str()
+    endif
+endfunction
 
 " file location
 nn <silent> <leader>f :let @f=expand("%")<cr>:echo "FILE ".@f<cr>
