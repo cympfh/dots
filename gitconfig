@@ -17,11 +17,10 @@
     ad = add
     br = branch
     ch = checkout
-    chb = checkout -b
     cp = cherry-pick
-    show-graph = log --graph --abbrev-commit --pretty=oneline
+    graph = log --graph --abbrev-commit --pretty=oneline
     lg = log
-    g = grep
+    gatto = pull up master --rebase  # ガッとする
 [color]
     ui = true
 [init]
