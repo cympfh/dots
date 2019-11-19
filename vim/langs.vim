@@ -36,6 +36,7 @@ setlocal expandtab
 au FileType make,calendar setlocal noexpandtab
 
 " Awk
+au FileType awk nn <buffer> <leader>r :!awk -f %<cr>
 au FileType awk nn <buffer> <leader>t :!awk -f % ./input<cr>
 
 " Bash (Shell)
