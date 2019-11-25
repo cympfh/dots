@@ -20,7 +20,8 @@
     cp = cherry-pick
     graph = log --graph --abbrev-commit --pretty=oneline
     lg = log
-    gatto = pull up master --rebase  # ガッとする
+    gatto = pull up master --rebase
+    ga = pull up master --rebase
 [color]
     ui = true
 [init]
