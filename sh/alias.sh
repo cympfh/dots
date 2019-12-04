@@ -20,6 +20,7 @@ esac
 
 alias g='git'
 alias vi='vim'
+alias -g @='$( find . -type f | grep -v ".git/" | grep -v "__pycache__" | peco )'
 
 function mkcd {
   mkdir "$1" && cd "$1"
