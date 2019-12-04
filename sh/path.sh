@@ -1,6 +1,7 @@
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/bin/external:$PATH
 export PATH=$HOME/bin/stuff:$PATH
+export PATH=$HOME/.local/bin:$PATH
 export PATH=$PATH:/usr/local/sbin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
