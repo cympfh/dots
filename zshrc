@@ -10,6 +10,7 @@ setopt interactivecomments
 setopt noflowcontrol
 export EDITOR='vim'
 
+source ~/.dots/sh/fzf.sh
 source ~/.dots/sh/path.sh
 source ~/.dots/sh/prompt.sh
 source ~/.dots/sh/exec_time_report.sh
