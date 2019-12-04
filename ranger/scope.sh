@@ -228,7 +228,7 @@ handle_mime() {
         text/* | */xml)
             ## Syntax highlight
             if which bat > /dev/null; then
-                head -n 30 ${FILE_PATH} | bat --color=always --theme=base16 --style=grid,numbers && exit 5
+                head -n 30 ${FILE_PATH} | bat --color=always --theme=base16 --style=numbers && exit 5
             fi
             if [[ "$( stat --printf='%s' -- "${FILE_PATH}" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]]; then
                 exit 2
