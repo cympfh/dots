@@ -31,7 +31,6 @@ source ~/.dots/vim/keymap.vim
 source ~/.dots/vim/langs.vim
 source ~/.dots/vim/procon.vim
 source ~/.dots/vim/terminal.vim
-source ~/.dots/vim/git.vim
 source ~/.dots/vim/eng.vim
 source ~/.dots/vim/statusline.vim
 source ~/.dots/vim/filer.vim

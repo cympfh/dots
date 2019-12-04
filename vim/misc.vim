@@ -26,7 +26,7 @@ function! Ctoggle()
     :copen
   else
     let g:copend = 0
-    :close
+    :cclose
   end
 endfunction
 nn <leader><leader> :call Ctoggle()<cr>
