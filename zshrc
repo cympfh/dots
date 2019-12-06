@@ -4,7 +4,7 @@ source ~/.dots/sh/bindkey.zsh
 fpath=(~/.zsh/completion $fpath)
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 autoload -Uz compinit && compinit -i
-setopt correct
+unsetopt correct_all
 setopt nonomatch
 setopt interactivecomments
 setopt noflowcontrol
