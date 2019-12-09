@@ -21,17 +21,6 @@ esac
 alias g='git'
 alias vi='vim'
 
-atmark() {
-  find "$@" 2>/dev/null |
-    grep -v ".git/" |
-    grep -v "__pycache__" |
-    peco
-}
-alias -g @='$( atmark . )'
-alias -g @~='$( atmark ~ )'
-alias -g @d='$( atmark . -type d )'
-alias -g @f='$( atmark . -type f )'
-
 function mkcd {
   mkdir "$1" && cd "$1"
 }
