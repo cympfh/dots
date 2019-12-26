@@ -42,3 +42,7 @@ fi
 if [ -d ~/git/imgur ]; then
     export PATH=$PATH:$HOME/git/imgur
 fi
+
+if [ -d ~/.cargo/bin ]; then
+    export PATH=$PATH:$HOME/.cargo/bin
+fi
