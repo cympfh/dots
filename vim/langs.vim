@@ -278,6 +278,8 @@ au FileType python nn <buffer> gd :LspDefinition<cr>
 
 " Python Ale
 au FileType python let g:ale_linters = {'python': ['flake8', 'pycodestyle', 'isort', 'pydocstyle']}
+au FileType python let g:ale_python_pydocstyle_options = '--ignore=D100,D104,D203,D213,D4'
+
 
 " Python Language Server
 "" pip install python-language-server
