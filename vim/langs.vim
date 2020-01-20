@@ -1,14 +1,10 @@
 " Completion with Dictionary
 set complete+=k
 
-" Lint checker
+" Linter
 "
-"Linter
 Plugin 'dense-analysis/ale'
-let g:ale_linters = {
-            \ 'python': ['flake8', 'pycodestyle', 'isort', 'pydocstyle'],
-            \ 'cpp': ['gcc']
-            \ }
+command Fmt :ALEFix
 
 " Language Server
 "
@@ -62,6 +58,9 @@ au FileType cpp nn <buffer> <leader>r :!time ./%:r.exe<cr>
 au FileType cpp nn <buffer> <leader>t :!time ./%:r.exe <input<cr>
 au FileType cpp nm <buffer> <leader><leader>r <leader>g<leader>r
 au FileType cpp nm <buffer> <leader><leader>t <leader>g<leader>t
+
+" C++ Ale
+au FileType cpp let g:ale_linters = {'cpp': ['gcc']}
 
 " Calendar
 au BufRead,BufNewFile *.calendar set filetype=calendar
@@ -277,15 +276,20 @@ au FileType python nn <buffer> <leader>T :terminal ipython --no-autoindent<cr>
 au FileType python command! MyPyCheck :let g:ale_linters['python'] += ['mypy']
 au FileType python nn <buffer> gd :LspDefinition<cr>
 
+" Python Ale
+au FileType python let g:ale_linters = {'python': ['flake8', 'pycodestyle', 'isort', 'pydocstyle']}
+au FileType python let g:ale_python_pydocstyle_options = '--ignore=D100,D104,D203,D213,D4'
+
+
 " Python Language Server
 "" pip install python-language-server
 if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-      \ 'name': 'pyls',
-      \ 'cmd': {server_info->['pyls']},
-      \ 'whitelist': ['python'],
-      \ })
-    au FileType python nn K :LspHover<cr>
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'pyls',
+    \ 'cmd': {server_info->['pyls']},
+    \ 'whitelist': ['python'],
+    \ })
+  au FileType python nn K :LspHover<cr>
 endif
 
 " PlantUML
@@ -323,21 +327,25 @@ au FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 " Rust
 Plugin 'rust-lang/rust.vim'
 au BufRead,BufNewFile *.rs set filetype=rust
-au FileType rust ino <C-l> ->
+if filereadable("Cargo.toml")
+  let g:rust_cargo = 1
+else
+  let g:rust_cargo = 0
+endif
 function! CompileRust()
-  if expand('%') == 'src/main.rs'
+  if g:rust_cargo == 1
     :!cargo build
   else
     :!rustc -O --edition 2018 -o %:r.exe %
   endif
 endfunction
 function! RunRust(k)
-  if expand('%') == 'src/main.rs'
-      if a:k == 0
-        :!time cargo run
-      else
-        :!time cargo run < input
-      endif
+  if g:rust_cargo == 1
+    if a:k == 0
+      :!time cargo run
+    else
+      :!time cargo run < input
+    endif
   elseif a:k == 0
     :!time ./%:r.exe
   else
@@ -352,17 +360,25 @@ au FileType rust nn <buffer> <leader>g :call CompileRust()<cr>
 au FileType rust nn <buffer> <leader>r :call RunRust(0)<cr>
 au FileType rust nn <buffer> <leader>t :call RunRust(1)<cr>
 au FileType rust nn <buffer> <leader><leader>r :call BothRust()<cr>
-" au FileType rust let g:ale_linters = {'rust': ['rustc']}
-" au FileType rust let g:ale_rust_rustc_options = '--edition 2018 '
+
+" Rust Ale
+if g:rust_cargo == 1
+  au FileType rust let g:ale_linters = {'rust': ['cargo']}
+else
+  au FileType rust let g:ale_linters = {'rust': ['rustc']}
+  au FileType rust let g:ale_rust_rustc_options = '--edition 2018 '
+endif
+au FileType rust let g:ale_fixers = {'rust': ['rustfmt']}
+au FileType rust let g:ale_rust_rls_toolchain = 'stable'
 
 " Rust Language Server
 if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
-        \ 'whitelist': ['rust'],
-        \ })
-    au FileType rust nn K :LspHover<cr>
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'rls',
+    \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+    \ 'whitelist': ['rust'],
+    \ })
+  au FileType rust nn K :LspHover<cr>
 endif
 
 " Sed (sed)
