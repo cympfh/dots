@@ -29,25 +29,6 @@ endfunction
 command! -nargs=1 GitGrep :call <SID>GitGrepHere(<f-args>)
 
 " Filer by Ranger
-function! Ranger()
-    let temp = tempname()
-    exec 'silent !ranger --choosefiles=' . shellescape(temp)
-    if !filereadable(temp)
-        redraw!
-        " Nothing to read.
-        return
-    endif
-    let names = readfile(temp)
-    if empty(names)
-        redraw!
-        " Nothing to open.
-        return
-    endif
-    exec 'edit ' . fnameescape(names[0])
-    for name in names[1:]
-        exec 'argadd ' . fnameescape(name)
-    endfor
-    redraw!
-endfunction
-
-nnoremap , :call Ranger()<CR>
+let g:ranger_map_keys = 0
+Plugin 'francoiscabrol/ranger.vim'
+nnoremap , :Ranger<CR>
