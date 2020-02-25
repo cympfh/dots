@@ -7,7 +7,7 @@ ssh-agent
 kill -9
 docker containers
 docker images
-fan
+rm pycache
 EOM
 )
     else
@@ -27,8 +27,8 @@ EOM
         docker-images | "docker images" )
             fuck-docker-images
             ;;
-        fan )
-            fuck-fan
+        rm-pycache | "rm pycache" )
+            fuck-pycache
             ;;
         * )
             ;;
@@ -59,22 +59,9 @@ fuck-docker-images() {
     docker images | awk 'NR>1' | peco | awk '{print "docker rmi",$3 }' | sh
 }
 
-fuck-fan() {
-    PERCENT=$(cat <<EOM | peco
-10
-20
-30
-40
-50
-60
-70
-80
-90
-EOM
-)
-    if [ ! -z "$PERCENT" ]; then
-        sudo fancontrol $PERCENT
-    fi
+# remove pycache/ recursively
+fuck-pycache() {
+    find . -type d | grep pycache | sed 's/.*/rm -r &/g' | sh
 }
 
 _call_fuck() {

@@ -17,4 +17,4 @@ fi
 
 export FZF_CTRL_T_OPTS=--reverse
 export FZF_CTRL_R_OPTS=--reverse
-export FZF_COMPLETION_TRIGGER=@
+export FZF_COMPLETION_TRIGGER='@'
