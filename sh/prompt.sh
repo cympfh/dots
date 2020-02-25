@@ -30,8 +30,7 @@ prompt-pwd() {
 prompt-git-status() {
 
     # not in git?
-    git branch >/dev/null 2>&1
-    if [ $? -ne 0 ]; then
+    if ! git branch >/dev/null 2>&1; then
         return
     fi
 
