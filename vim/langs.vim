@@ -362,6 +362,7 @@ au FileType rust nn <buffer> <leader>t :call RunRust(1)<cr>
 au FileType rust nn <buffer> <leader><leader>r :call BothRust()<cr>
 
 " Rust Ale
+" rustup component add rls rust-analysis rust-src
 if g:rust_cargo == 1
   au FileType rust let g:ale_linters = {'rust': ['cargo']}
 else
