@@ -1,6 +1,6 @@
 # vim: set ft=bash
 
-# Go
+## Go
 if [ -d /usr/local/go ]; then
     export PATH=$PATH:/usr/local/go/bin
 fi
@@ -9,7 +9,7 @@ if [ -d $HOME/go ]; then
     export PATH=$HOME/go/bin:$PATH
 fi
 
-# CUDA
+## CUDA
 export CUDA_PATH=/usr/local/cuda
 export PATH=$CUDA_PATH/bin:$PATH
 
@@ -29,6 +29,8 @@ if [ -d ~/.pyenv ]; then
     export PATH="$HOME/.pyenv/bin:$PATH"
     eval "$(pyenv init - zsh --no-rehash)"
 fi
+# venv
+export PATH=./.venv/bin:$PATH
 
 ## Rust
 [ -d $HOME/.cargo ] && export PATH=$HOME/.cargo/bin:$PATH

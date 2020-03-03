@@ -14,7 +14,7 @@ source ~/.dots/sh/fzf.sh
 source ~/.dots/sh/path.sh
 source ~/.dots/sh/prompt.sh
 source ~/.dots/sh/exec_time_report.sh
-source ~/.dots/sh/prg.sh
+source ~/.dots/sh/langs.sh
 source ~/.dots/sh/procon.sh
 source ~/.dots/sh/dict.sh
 source ~/.dots/sh/alias.sh
