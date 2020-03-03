@@ -1,28 +1,32 @@
 setopt prompt_subst
 autoload -U colors; colors
 
-SPROMPT="correct %R to %r? (Yes, No, Abort, Edit) "
 PROMPT="
 \`prompt-time\` \`prompt-host\`\`prompt-pwd\`\`prompt-git-status\`
    "
 
+COLOR_BLUE=81
+COLOR_GRAY=240
+COLOR_RED=red
+COLOR_YELLOW=221
+
 prompt-colon() {
-    echo -n "%F{246}:%f"
+    echo -n "%F{$COLOR_GRAY}:%f"
 }
 
 prompt-time() {
-    echo -n "%(?.%F{240}.%F{red})%T%f"
+    echo -n "%(?.%F{$COLOR_GRAY}.%F{$COLOR_RED})%T%f"
 }
 
 prompt-host() {
-    if [ -z "$LOCALHOST" ]; then
-        echo -n "%F{221}${HOST}%f"
+    if [ "$LOCALHOST" -eq 0 ]; then
+        echo -n "%F{$COLOR_YELLOW}${HOST}%f"
         prompt-colon
     fi
 }
 
 prompt-pwd() {
-    echo -n "%F{221}"
+    echo -n "%F{$COLOR_YELLOW}"
     echo -n ${PWD/#$HOME/\~} | sed 's#\([^/]\{,3\}\)\([^/]*\)/#\1/#g'
     echo -n "%f"
 }
@@ -37,11 +41,11 @@ prompt-git-status() {
     local branchname=$(git branch 2>/dev/null | grep '*' | sed 's/\* //')
 
     if [ ! -z "$(git status --short 2>/dev/null)" ]; then  # something to commit
-        local statuscolor="%F{red}"
+        local statuscolor="%F{$COLOR_RED}"
     elif git status 2>/dev/null | grep "branch is ahead" >/dev/null; then  # something to push
-        local statuscolor="%F{81}"
+        local statuscolor="%F{$COLOR_BLUE}"
     else
-        local statuscolor="%F{246}"
+        local statuscolor="%F{$COLOR_GRAY}"
     fi
 
     prompt-colon
