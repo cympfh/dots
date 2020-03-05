@@ -8,6 +8,7 @@ unsetopt correct_all
 setopt nonomatch
 setopt interactivecomments
 setopt noflowcontrol
+setopt vi
 export EDITOR='vim'
 
 source ~/.dots/sh/fzf.sh
