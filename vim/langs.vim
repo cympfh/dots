@@ -192,10 +192,11 @@ au FileType javascript nn <buffer> <leader>t :!node % <input<cr>
 au FileType javascript set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " Julia
-Plugin 'JuliaLang/julia-vim'
+Plugin 'JuliaEditorSupport/julia-vim'
 au BufRead,BufNewFile *.jl set filetype=julia
 au FileType julia nn <buffer> <leader>r :!time julia %<cr>
 au FileType julia nn <buffer> <leader>t :!time julia % <input<cr>
+au FileType julia nn <buffer> <leader>T :terminal julia<cr>
 
 " Kotlin
 Plugin 'udalov/kotlin-vim'

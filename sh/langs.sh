@@ -1,5 +1,9 @@
 # vim: set ft=bash
 
+## CUDA
+export CUDA_PATH=/usr/local/cuda
+export PATH=$CUDA_PATH/bin:$PATH
+
 ## Go
 if [ -d /usr/local/go ]; then
     export PATH=$PATH:/usr/local/go/bin
@@ -9,9 +13,10 @@ if [ -d $HOME/go ]; then
     export PATH=$HOME/go/bin:$PATH
 fi
 
-## CUDA
-export CUDA_PATH=/usr/local/cuda
-export PATH=$CUDA_PATH/bin:$PATH
+## Julia
+if [ -d /opt/julia ]; then
+    export PATH=/opt/julia/bin/:$PATH
+fi
 
 ## Node (javascript)
 # curl -L git.io/nodebrew | perl - setup
