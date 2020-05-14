@@ -197,6 +197,14 @@ au BufRead,BufNewFile *.jl set filetype=julia
 au FileType julia nn <buffer> <leader>r :!time julia %<cr>
 au FileType julia nn <buffer> <leader>t :!time julia % <input<cr>
 au FileType julia nn <buffer> <leader>T :terminal julia<cr>
+let s:julia_lsp_startscript = $HOME . '/.dots/vim/julia/startlanguageserver.jl'
+if executable('julia')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'julia',
+    \ 'cmd': {server_info->['julia', '--history-file=no', s:julia_lsp_startscript]},
+    \ 'whitelist': ['julia'],
+    \ })
+endif
 
 " Kotlin
 Plugin 'udalov/kotlin-vim'
