@@ -198,6 +198,9 @@ au FileType julia nn <buffer> <leader>r :!time julia %<cr>
 au FileType julia nn <buffer> <leader>t :!time julia % <input<cr>
 au FileType julia nn <buffer> <leader>T :terminal julia<cr>
 
+" Jsonnet
+Plugin 'google/vim-jsonnet'
+
 " Kotlin
 Plugin 'udalov/kotlin-vim'
 au BufRead,BufNewFile *.kt set filetype=kotlin
@@ -248,6 +251,12 @@ au FileType markdown so ~/.dots/vim/tex.vim
 
 Plugin 'euclio/vim-markdown-composer'
 let g:markdown_composer_autostart=0
+
+" MAO
+au BufRead,BufNewFile *.mao set filetype=mao
+au FileType mao nn <buffer><silent> <leader>r :!mao %<cr>
+au FileType mao nn <buffer><silent> <leader>e :!mao --debug %<cr>
+au FileType mao nn <buffer><silent> <leader>t :!mao % <input<cr>
 
 " OCaml
 au FileType ocaml nn <buffer> <leader>g :!ocamlopt -o %:r.exe str.cmxa %<cr>
