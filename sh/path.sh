@@ -1,48 +1,50 @@
-export PATH=$HOME/bin:$PATH
-export PATH=$HOME/bin/external:$PATH
-export PATH=$HOME/bin/stuff:$PATH
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$PATH:/usr/local/sbin
+path-initial() {
+    echo $PATH | sed 's/:/\n/g' |
+        while read p; do
+            echo 1 $p
+        done | sort | uniq > ~/.paths
+}
+
+addpath() {
+    pathdir="$1"
+    priority=${2:-1}
+    case "$1" in
+        "/*" )
+            if [ -d "$pathdir" ]; then
+                echo "$priority" "$pathdir" >> ~/.paths
+            fi
+            ;;
+        * )
+            echo "$priority" "$pathdir" >> ~/.paths
+            ;;
+    esac
+    export PATH=$(
+        cat ~/.paths |
+            sort -nr |
+            uniq |
+            awk '{print $2}' |
+            tr '\n' ':' |
+            sed 's/:$//'
+        )
+}
+
+path-initial
+
+# system bin
+addpath /usr/local/bin 1
+
+# user bin
+addpath $HOME/bin 10
+addpath $HOME/bin/stuff 10
+addpath $HOME/.local/bin 10
+addpath $HOME/Dropbox/bin 10
+addpath $HOME/Dropbox/bin 10
+addpath $HOME/Tools/twurl/bin 10
+addpath $HOME/git/twurl/bin 10
+addpath $HOME/git/mastodon-cli/bin 10
+addpath $HOME/git/tw/bin 10
+addpath $HOME/git/mdc/ 10
+addpath $HOME/git/language-template 10
+addpath $HOME/git/imgur 10
+
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-
-if [ -d $HOME/Dropbox/bin ]; then
-    export PATH=$HOME/Dropbox/bin:$PATH
-fi
-
-if [ -d ~/Tools/twurl ]; then
-    export PATH=$PATH:$HOME/Tools/twurl/bin
-elif [ -d ~/git/twurl ]; then
-    export PATH=$PATH:$HOME/git/twurl/bin
-fi
-
-if [ -d ~/git/mastodon-cli/ ]; then
-    export PATH=$PATH:$HOME/git/mastodon-cli/bin
-elif [ -d ~/Tools/mastodon-cli/ ]; then
-    export PATH=$PATH:$HOME/Tools/mastodon-cli/bin
-elif [ -d ~/bin/stuff/mastodon-cli/ ]; then
-    export PATH=$PATH:$HOME/bin/stuff/mastodon-cli/bin
-fi
-
-if [ -d ~/bin/stuff/tw ]; then
-    export PATH=$PATH:$HOME/bin/stuff/tw/bin
-elif [ -d ~/git/tw ] ; then
-    export PATH=$PATH:$HOME/git/tw/bin
-fi
-
-if [ -d ~/bin/stuff/language-template ]; then
-    export PATH=$PATH:$HOME/bin/stuff/language-template
-elif [ -d ~/git/language-template ]; then
-    export PATH=$PATH:$HOME/git/language-template
-fi
-
-if [ -d ~/.pyenv/shims ]; then
-    export PATH=$PATH:$HOME/.pyenv/shims
-fi
-
-if [ -d ~/git/imgur ]; then
-    export PATH=$PATH:$HOME/git/imgur
-fi
-
-if [ -d ~/.cargo/bin ]; then
-    export PATH=$PATH:$HOME/.cargo/bin
-fi
