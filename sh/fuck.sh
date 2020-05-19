@@ -37,7 +37,7 @@ EOM
 
 # fuck the ssh
 if [ -f ~/.ssh/auth.sock ]; then
-    SSH_AUTH_SOCK=$(cat ~/.ssh/auth.sock)
+    export SSH_AUTH_SOCK=$(cat ~/.ssh/auth.sock)
 else
     echo NO SSH_AUTH_SOCK FOUND
 fi
