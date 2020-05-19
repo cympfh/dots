@@ -21,7 +21,7 @@ fi
 # ~/.fzf
 if [ -d ~/.fzf/bin ]; then
   FZF=1
-  export PATH="${PATH:+${PATH}:}$HOME/.fzf/bin"
+  addpath "$HOME/.fzf/bin" 10
   source "$HOME/.fzf/shell/completion.zsh"
   source "$HOME/.fzf/shell/key-bindings.zsh"
 fi

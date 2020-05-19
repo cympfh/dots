@@ -21,8 +21,8 @@ setopt noflowcontrol
 setopt vi
 export EDITOR='vim'
 
+source ~/.dots/sh/path.sh  # initial path
 source ~/.dots/sh/fzf.sh
-source ~/.dots/sh/path.sh
 source ~/.dots/sh/prompt.sh
 source ~/.dots/sh/exec_time_report.sh
 source ~/.dots/sh/langs.sh

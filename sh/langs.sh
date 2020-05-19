@@ -2,43 +2,36 @@
 
 ## CUDA
 export CUDA_PATH=/usr/local/cuda
-export PATH=$CUDA_PATH/bin:$PATH
+addpath "$CUDA_PATH/bin" 1
 
 ## Go
-if [ -d /usr/local/go ]; then
-    export PATH=$PATH:/usr/local/go/bin
-fi
+addpath "/usr/local/go/bin" 1
 if [ -d $HOME/go ]; then
     export GOPATH=$HOME/go
-    export PATH=$HOME/go/bin:$PATH
+    addpath "$HOME/go/bin" 10
 fi
 
 ## Julia
-if [ -d /opt/julia ]; then
-    export PATH=/opt/julia/bin/:$PATH
-fi
+addpath "/opt/julia/bin/" 1
 
 ## Node (javascript)
 # curl -L git.io/nodebrew | perl - setup
-if [ -d $HOME/.nodebrew/current/bin ]; then
-    export PATH=$HOME/.nodebrew/current/bin:$PATH
-fi
-if [ -d $HOME/node_modules/.bin ]; then
-    export PATH=$HOME/node_modules/.bin:$PATH
-fi
+addpath "$HOME/.nodebrew/current/bin" 10
+addpath "$HOME/node_modules/.bin" 10
 
 ## Python
 # pyenv
 if [ -d ~/.pyenv ]; then
     export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$HOME/.pyenv/bin:$PATH"
+    addpath "$HOME/.pyenv/bin" 10
+    addpath "$HOME/.pyenv/shims" 10
     eval "$(pyenv init - zsh --no-rehash)"
 fi
 # venv
-export PATH=./.venv/bin:$PATH
+addpath ./.venv/bin 100
 
 ## Rust
-[ -d $HOME/.cargo ] && export PATH=$HOME/.cargo/bin:$PATH
+addpath $HOME/.cargo/bin 20
 # racer (https://github.com/racer-rust/racer)
 if ( which rustc >/dev/null 2>&1 ); then
     export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
@@ -47,7 +40,7 @@ fi
 ## TeX
 case $( uname ) in
   Darwin )
-    export PATH=/usr/local/git/bin:$PATH
-    export PATH=$PATH:/Library/TeX/texbin
+    addpath /usr/local/git/bin 1
+    addpath /Library/TeX/texbin 1
     ;;
 esac
