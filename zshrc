@@ -20,6 +20,7 @@ setopt interactivecomments
 setopt noflowcontrol
 setopt vi
 export EDITOR='vim'
+export ANSIBLE_NOCOWS=1
 
 source ~/.dots/sh/path.sh  # initial path
 source ~/.dots/sh/fzf.sh
@@ -40,4 +41,4 @@ source ~/.dots/sh/mru/hook.zsh
 source ~/.dots/sh/mac.sh
 source ~/.dots/sh/locale.sh
 
-export ANSIBLE_NOCOWS=1
+path-refresh

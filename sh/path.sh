@@ -2,7 +2,7 @@ path-initial() {
     echo $PATH | sed 's/:/\n/g' |
         while read p; do
             echo 1 $p
-        done | sort | uniq > ~/.paths
+        done | sort | uniq > /tmp/zsh-paths
 }
 
 addpath() {
@@ -11,15 +11,18 @@ addpath() {
     case "$1" in
         "/*" )
             if [ -d "$pathdir" ]; then
-                echo "$priority" "$pathdir" >> ~/.paths
+                echo "$priority" "$pathdir" >> /tmp/zsh-paths
             fi
             ;;
         * )
-            echo "$priority" "$pathdir" >> ~/.paths
+            echo "$priority" "$pathdir" >> /tmp/zsh-paths
             ;;
     esac
+}
+
+path-refresh() {
     export PATH=$(
-        cat ~/.paths |
+        cat /tmp/zsh-paths |
             sort -nr |
             uniq |
             awk '{print $2}' |
@@ -46,5 +49,9 @@ addpath $HOME/git/tw/bin 10
 addpath $HOME/git/mdc/ 10
 addpath $HOME/git/language-template 10
 addpath $HOME/git/imgur 10
+addpath $HOME/dw/bin 10
+addpath $HOME/Dropbox/mls 10
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+
+path-refresh
