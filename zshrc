@@ -3,21 +3,18 @@ source ~/.dots/sh/bindkey.zsh
 
 # completion
 fpath=(~/.zsh/completion $fpath)
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-autoload -Uz compinit && compinit -u
 autoload -U colors
-zstyle ':completion:*' list-colors "${LS_COLORS}"
-setopt complete_in_word
-zstyle ':completion:*:default' menu select=1
-zstyle ':completion::complete:*' use-cache true
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 setopt list_packed
-
 setopt complete_in_word
 unsetopt correct_all
-setopt nonomatch
+zstyle ':completion:*' list-colors "${LS_COLORS}"
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*:default' menu select=1
+zstyle ':completion::complete:*' use-cache true
+
 setopt interactivecomments
 setopt noflowcontrol
+setopt nonomatch
 setopt vi
 export EDITOR='vim'
 export ANSIBLE_NOCOWS=1
