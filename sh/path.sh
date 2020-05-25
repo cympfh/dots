@@ -1,4 +1,5 @@
 path-initial() {
+    [ -f /tmp/zsh-paths-lock ] && return
     echo $PATH | sed 's/:/\n/g' |
         while read p; do
             echo 1 $p
@@ -6,6 +7,7 @@ path-initial() {
 }
 
 addpath() {
+    [ -f /tmp/zsh-paths-lock ] && return
     pathdir="$1"
     priority=${2:-1}
     case "$1" in
@@ -23,12 +25,20 @@ addpath() {
 path-refresh() {
     export PATH=$(
         cat /tmp/zsh-paths |
+            sort -u -k 2,2 |
             sort -nr |
-            uniq |
             awk '{print $2}' |
             tr '\n' ':' |
             sed 's/:$//'
         )
+}
+
+path-lock() {
+    touch /tmp/zsh-paths-lock
+}
+
+path-unlock() {
+    rm /tmp/zsh-paths-lock
 }
 
 path-initial
@@ -53,5 +63,3 @@ addpath $HOME/dw/bin 10
 addpath $HOME/Dropbox/mls 10
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-
-path-refresh

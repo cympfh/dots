@@ -3,6 +3,7 @@ source ~/.dots/sh/bindkey.zsh
 
 # completion
 fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit
 autoload -U colors
 setopt list_packed
 setopt complete_in_word
@@ -39,3 +40,4 @@ source ~/.dots/sh/mac.sh
 source ~/.dots/sh/locale.sh
 
 path-refresh
+path-lock
