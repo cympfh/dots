@@ -44,6 +44,8 @@ path-unlock() {
 path-initial
 
 # system bin
+addpath /bin 1
+addpath /usr/bin 1
 addpath /usr/local/bin 1
 
 # user bin
