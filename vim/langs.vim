@@ -372,7 +372,7 @@ au FileType rust nn <buffer> <leader>t :call RunRust(1)<cr>
 au FileType rust nn <buffer> <leader><leader>r :call BothRust()<cr>
 
 " Rust Ale
-" rustup component add rls rust-analysis rust-src
+" rustup component add rls rust-analysis rust-src rustfmt
 if g:rust_cargo == 1
   au FileType rust let g:ale_linters = {'rust': ['cargo']}
 else
@@ -380,6 +380,7 @@ else
   au FileType rust let g:ale_rust_rustc_options = '--edition 2018 '
 endif
 au FileType rust let g:ale_fixers = {'rust': ['rustfmt']}
+au FileType rust let g:rustfmt_autosave = 1
 au FileType rust let g:ale_rust_rls_toolchain = 'stable'
 
 " Rust Language Server
