@@ -94,6 +94,12 @@ au FileType coq nn <buffer> <leader>T :terminal coqtop<cr>
 au FileType coq setlocal dictionary+=~/.dots/vim/dict/coq
 au FileType coq set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
+" dc
+au BufRead,BufNewFile *.dc set filetype=dc
+Plugin 'dc.vim'
+au FileType dc nn <buffer> <leader>r :!dc %<cr>
+au FileType dc nn <buffer> <leader>t :!dc % < input<cr>
+
 " Dot
 au FileType dot ino <C-l> ->
 au FileType dot set dictionary+=~/.dots/vim/dict/dot
@@ -255,7 +261,7 @@ let g:markdown_composer_autostart=0
 " MAO
 au BufRead,BufNewFile *.mao set filetype=mao
 au FileType mao nn <buffer><silent> <leader>r :!mao %<cr>
-au FileType mao nn <buffer><silent> <leader>e :!mao --debug %<cr>
+au FileType mao nn <buffer><silent> <leader>e :!mao --debug % --max-steps 50<cr>
 au FileType mao nn <buffer><silent> <leader>t :!mao % <input<cr>
 
 " OCaml
@@ -412,6 +418,7 @@ au FileType scheme nn <buffer> <leader>t :!rlwrap gosh ./% <input<cr>
 
 " TypeScript
 Plugin 'leafgarland/typescript-vim'
+au FileType typescript nn <buffer> <leader>r :!deno run -A %<cr>
 
 " YAML (yaml, yml) for ansible
 au BufRead,BufNewFile *.yml set filetype=yaml.ansible
