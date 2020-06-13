@@ -15,18 +15,18 @@ vmap <Leader>c <Plug>(caw:hatpos:toggle)
 Plugin 'sjl/gundo.vim'
 let g:gundo_prefer_python3 = 1
 
-" copen
+" Quickfix: copen
 nn <left> :cprev<cr>
 nn <right> :cnext<cr>
 
-let g:copend=0
+let g:copend =0
 function! Ctoggle()
   if g:copend == 0
     let g:copend = 1
-    :copen
+    copen
   else
     let g:copend = 0
-    :cclose
+    cclose
   end
 endfunction
-nn <leader><leader> :call Ctoggle()<cr>
+nn <down> :call Ctoggle()<cr>
