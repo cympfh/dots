@@ -296,6 +296,12 @@ au FileType python nn <buffer> gd :LspDefinition<cr>
 au FileType python let g:ale_linters = {'python': ['flake8', 'pycodestyle', 'isort', 'pydocstyle']}
 au FileType python let g:ale_python_pydocstyle_options = '--ignore=D100,D104,D203,D213,D4'
 
+" Python Black
+Plugin 'psf/black'
+function! s:BlackAuto()
+    autocmd BufWritePre *.py execute ':Black'
+endfunction
+au FileType python command! BlackAuto :call <SID>BlackAuto()
 
 " Python Language Server
 "" pip install python-language-server
