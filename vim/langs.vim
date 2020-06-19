@@ -345,6 +345,18 @@ au FileType ruby nn <buffer> <leader>r :!time ruby %<cr>
 au FileType ruby nn <buffer> <leader>t :!time ruby % <input<cr>
 au FileType ruby nn <buffer> <leader>T :terminal irb<cr>
 au FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+au FileType ruby let g:ale_enabled = 0
+
+" Ruby solargraph
+if executable('solargraph')
+    " gem install solargraph
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'solargraph',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+        \ 'initialization_options': {"diagnostics": "true"},
+        \ 'whitelist': ['ruby'],
+        \ })
+endif
 
 " Rust
 Plugin 'rust-lang/rust.vim'
