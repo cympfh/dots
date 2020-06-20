@@ -398,7 +398,7 @@ au FileType rust nn <buffer> <leader><leader>r :call BothRust()<cr>
 " Rust Ale
 " rustup component add rls rust-analysis rust-src rustfmt
 if g:rust_cargo == 1
-  au FileType rust let g:ale_linters = {'rust': ['cargo']}
+  au FileType rust let g:ale_linters = {'rust': ['rls', 'cargo']}
 else
   au FileType rust let g:ale_linters = {'rust': ['rustc']}
   au FileType rust let g:ale_rust_rustc_options = '--edition 2018 '
