@@ -1,75 +1,72 @@
 #!/bin/bash
 
-fuck() { 
-    if [ $# -eq 0 ]; then
-        COM=$(cat <<EOM | peco --prompt "fuck "
-ssh-agent
-kill -9
-docker containers
-docker images
-rm pycache
-EOM
-)
-    else
-        COM=$1
-    fi
+FUCK_FILE_PATH=$0
 
-    case "$COM" in
-        ssh | "ssh-agent" )
-            fuck-ssh
-            ;;
-        kill | "kill -9" )
-            fuck-kill
-            ;;
-        docker-containers | "docker containers" )
-            fuck-docker-containers
-            ;;
-        docker-images | "docker images" )
-            fuck-docker-images
-            ;;
-        rm-pycache | "rm pycache" )
-            fuck-pycache
-            ;;
-        * )
-            ;;
-    esac
+fuck() {
+  COM=$(
+    cat $FUCK_FILE_PATH | awk '
+      function padding(n) {
+        if (n<1) return "";
+        return " " padding(n-1);
+      }
+      /^fuck-.*()/{print $1, padding(32 - length($1)), LAST}
+      {LAST=$0}
+    ' |
+      sed 's/^fuck-//; s/()//' |
+      peco --prompt "fuck"
+  )
+  COM=$(echo $COM | sed 's/ .*//g')
+  if ( type "fuck-$COM" > /dev/null ); then
+    fuck-$COM
+  else
+    :
+  fi
 }
 
-# fuck the ssh
 if [ -f ~/.ssh/auth.sock ]; then
-    export SSH_AUTH_SOCK=$(cat ~/.ssh/auth.sock)
+  export SSH_AUTH_SOCK=$(cat ~/.ssh/auth.sock)
 else
-    echo NO SSH_AUTH_SOCK FOUND
+  echo NO SSH_AUTH_SOCK FOUND
 fi
-function fuck-ssh() {
+
+# ssh-agent
+fuck-ssh() {
   eval $(ssh-agent)
   ssh-add ~/.ssh/id_rsa
   echo $SSH_AUTH_SOCK > ~/.ssh/auth.sock
 }
 
+# kill -9
 fuck-kill() {
-    ps aux | peco | awk '{print "kill -9", $2}' | sh
+  ps aux | peco | awk '{print "kill -9", $2}' | sh
 }
 
-# fuck the docker
+# fire docker containers
 fuck-docker-containers() {
-    docker ps -a | awk 'NR>1' | peco | awk '{print "docker stop",$1,"&& docker rm",$1 }' | sh
+  docker ps -a | awk 'NR>1' | peco | awk '{print "docker stop",$1,"&& docker rm",$1 }' | sh
 }
+
+# fire docker images
 fuck-docker-images() {
-    docker images | awk 'NR>1' | peco | awk '{print "docker rmi",$3 }' | sh
+  docker images | awk 'NR>1' | peco | awk '{print "docker rmi",$3 }' | sh
 }
 
 # remove pycache/ recursively
 fuck-pycache() {
-    find . -type d | grep pycache | sed 's/.*/rm -r &/g' | sh
+  find . -type d | grep pycache | sed 's/.*/rm -r &/g' | sh
+}
+
+# set by hwclock
+fuck-hwclock() {
+  sudo hwclock -s
 }
 
 _call_fuck() {
-    tmp=$DISPLAY
-    unset DISPLAY
-    fuck
-    export DISPLAY=$tmp
-    zle reset-prompt
+  tmp=$DISPLAY
+  unset DISPLAY
+  fuck
+  export DISPLAY=$tmp
+  zle reset-prompt
 }
 zle -N _call_fuck
 bindkey "^F" _call_fuck
