@@ -25,7 +25,7 @@ if [ -d ~/.pyenv ]; then
     export PYENV_ROOT="$HOME/.pyenv"
     addpath "$HOME/.pyenv/bin" 10
     addpath "$HOME/.pyenv/shims" 10
-    eval "$(pyenv init - zsh --no-rehash)"
+    eval "$($HOME/.pyenv/bin/pyenv init - zsh --no-rehash)"
 fi
 # venv
 addpath ./.venv/bin 100
