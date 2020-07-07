@@ -5,6 +5,8 @@ set complete+=k
 "
 Plugin 'dense-analysis/ale'
 command Fmt :ALEFix
+nn [ :ALEPrevious<CR>
+nn ] :ALENext<CR>
 
 " Language Server
 "
