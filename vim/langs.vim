@@ -287,7 +287,6 @@ Plugin 'vim-scripts/pig.vim'
 au FileType pig nn <buffer> <leader>r :!time pig -x local %<cr>
 
 " Python (pyenv is recommended)
-au FileType python command! Isort :!isort %
 au FileType python nn <buffer> <leader>r :!time python %<cr>
 au FileType python nn <buffer> <leader>t :!time python % <input<cr>
 au FileType python nn <buffer> <leader>T :terminal ipython --no-autoindent<cr>
@@ -301,9 +300,16 @@ au FileType python let g:ale_python_pydocstyle_options = '--ignore=D100,D104,D20
 " Python Black
 Plugin 'psf/black'
 function! s:BlackAuto()
-    autocmd BufWritePre *.py execute ':Black'
+    autocmd BufWritePre *.py silent execute ':Black'
 endfunction
 au FileType python command! BlackAuto :call <SID>BlackAuto()
+
+" Python Isort
+Plugin 'fisadev/vim-isort'
+function! s:IsortAuto()
+    autocmd BufWritePre *.py silent execute ':Isort'
+endfunction
+au FileType python command! IsortAuto :call <SID>IsortAuto()
 
 " Python Language Server
 "" pip install python-language-server
