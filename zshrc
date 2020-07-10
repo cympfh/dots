@@ -6,7 +6,7 @@ shpath init
 
 # completion
 fpath=(~/.zsh/completion $fpath)
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit &
 autoload -U colors
 setopt list_packed
 setopt complete_in_word
