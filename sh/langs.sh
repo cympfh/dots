@@ -30,15 +30,3 @@ shpath add user-prior ./.venv/bin
 
 ## Rust
 shpath add user $HOME/.cargo/bin
-# racer (https://github.com/racer-rust/racer)
-if ( which rustc >/dev/null 2>&1 ); then
-    export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
-fi
-
-## TeX
-case $( uname ) in
-  Darwin )
-    shpath add system /usr/local/git/bin
-    shpath add system /Library/TeX/texbin
-    ;;
-esac

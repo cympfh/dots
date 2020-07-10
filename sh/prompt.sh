@@ -32,7 +32,6 @@ prompt-pwd() {
 }
 
 prompt-git-status() {
-
     # not in git?
     if ! git branch >/dev/null 2>&1; then
         return
