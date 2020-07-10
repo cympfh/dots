@@ -1,5 +1,8 @@
 setopt histignorealldups sharehistory
 source ~/.dots/sh/bindkey.zsh
+source ~/.dots/sh/shell-path-manager.zsh
+
+shpath-init
 
 # completion
 fpath=(~/.zsh/completion $fpath)
@@ -20,7 +23,7 @@ setopt vi
 export EDITOR='vim'
 export ANSIBLE_NOCOWS=1
 
-source ~/.dots/sh/path.sh  # initial path
+source ~/.dots/sh/path.sh
 source ~/.dots/sh/fzf.sh
 source ~/.dots/sh/prompt.sh
 source ~/.dots/sh/exec_time_report.sh
@@ -39,5 +42,4 @@ source ~/.dots/sh/mru/hook.zsh
 source ~/.dots/sh/mac.sh
 source ~/.dots/sh/locale.sh
 
-path-refresh
-path-lock
+shpath-refresh

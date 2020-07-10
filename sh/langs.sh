@@ -2,36 +2,34 @@
 
 ## CUDA
 export CUDA_PATH=/usr/local/cuda
-addpath "$CUDA_PATH/bin" 1
+shpath-add system "$CUDA_PATH/bin"
 
 ## Go
-addpath "/usr/local/go/bin" 1
-if [ -d $HOME/go ]; then
-    export GOPATH=$HOME/go
-    addpath "$HOME/go/bin" 10
-fi
+export GOPATH=$HOME/go
+shpath-add system "/usr/local/go/bin"
+shpath-add user "$HOME/go/bin"
 
 ## Julia
-addpath "/opt/julia/bin/" 1
+shpath-add system "/opt/julia/bin/"
 
 ## Node (javascript)
 # curl -L git.io/nodebrew | perl - setup
-addpath "$HOME/.nodebrew/current/bin" 10
-addpath "$HOME/node_modules/.bin" 10
+shpath-add user "$HOME/.nodebrew/current/bin"
+shpath-add user "$HOME/node_modules/.bin"
 
 ## Python
 # pyenv
 if [ -d ~/.pyenv ]; then
     export PYENV_ROOT="$HOME/.pyenv"
-    addpath "$HOME/.pyenv/bin" 10
-    addpath "$HOME/.pyenv/shims" 10
+    shpath-add user "$HOME/.pyenv/bin"
+    shpath-add user "$HOME/.pyenv/shims"
     eval "$($HOME/.pyenv/bin/pyenv init - zsh --no-rehash)"
 fi
 # venv
-addpath ./.venv/bin 100
+shpath-add user-prior ./.venv/bin
 
 ## Rust
-addpath $HOME/.cargo/bin 20
+shpath-add user $HOME/.cargo/bin
 # racer (https://github.com/racer-rust/racer)
 if ( which rustc >/dev/null 2>&1 ); then
     export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
@@ -40,7 +38,7 @@ fi
 ## TeX
 case $( uname ) in
   Darwin )
-    addpath /usr/local/git/bin 1
-    addpath /Library/TeX/texbin 1
+    shpath-add system /usr/local/git/bin
+    shpath-add system /Library/TeX/texbin
     ;;
 esac
