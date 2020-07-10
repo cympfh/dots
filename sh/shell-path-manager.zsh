@@ -18,7 +18,7 @@ shpath() {
 shpath-help() {
     cat <<EOM
 NAME
-    shpath - Shell Path Manager
+    shpath - Shell PATH Manager
 
 SYNOPSIS
     shpath [subcommand] [args...]
