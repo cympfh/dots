@@ -1,5 +1,3 @@
-#!/bin/bash
-
 case $( uname -s ) in
 
   Linux )
@@ -21,14 +19,14 @@ esac
 alias g='git'
 alias vi='vim'
 
-function mkcd {
-  mkdir "$1" && cd "$1"
+mkcd() {
+    mkdir "$1" && cd "$1"
 }
 
-function fehbg {
-  feh --bg-fill `find $PWD/* | shuf | tail -1`
+fehbg() {
+    feh --bg-fill `find $PWD/* | shuf | tail -1`
 }
 
-function json-keys() {
-     jq -r '[path(..)|map(if type=="number" then "[]" else tostring end)|join(".")|split(".[]")|join("[]")]|unique|map("."+.)|.[]'
- }
+json-keys() {
+    jq -r '[path(..)|map(if type=="number" then "[]" else tostring end)|join(".")|split(".[]")|join("[]")]|unique|map("."+.)|.[]'
+}

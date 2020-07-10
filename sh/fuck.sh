@@ -1,5 +1,3 @@
-#!/bin/bash
-
 FUCK_FILE_PATH=$0
 
 fuck() {

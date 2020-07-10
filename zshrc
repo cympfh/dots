@@ -1,4 +1,3 @@
-setopt histignorealldups sharehistory
 source ~/.dots/sh/bindkey.zsh
 source ~/.dots/sh/shell-path-manager.zsh
 
@@ -7,7 +6,6 @@ shpath init
 # completion
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit
-autoload -U colors
 setopt list_packed
 setopt complete_in_word
 unsetopt correct_all
