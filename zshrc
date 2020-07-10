@@ -2,7 +2,7 @@ setopt histignorealldups sharehistory
 source ~/.dots/sh/bindkey.zsh
 source ~/.dots/sh/shell-path-manager.zsh
 
-shpath-init
+shpath init
 
 # completion
 fpath=(~/.zsh/completion $fpath)
@@ -42,4 +42,4 @@ source ~/.dots/sh/mru/hook.zsh
 source ~/.dots/sh/mac.sh
 source ~/.dots/sh/locale.sh
 
-shpath-refresh
+shpath refresh

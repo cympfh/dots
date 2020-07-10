@@ -21,7 +21,7 @@ fi
 # ~/.fzf
 if [ -d ~/.fzf/bin ]; then
   FZF=1
-  shpath-add user "$HOME/.fzf/bin"
+  shpath add user "$HOME/.fzf/bin"
   source "$HOME/.fzf/shell/completion.zsh"
   source "$HOME/.fzf/shell/key-bindings.zsh"
 fi
