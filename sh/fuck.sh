@@ -59,11 +59,21 @@ fuck-hwclock() {
   sudo hwclock -s
 }
 
+# Left-Ctrl -> Caps
+fuck-caps() {
+  DISPLAY=:0.0 setxkbmap -layout us -option ctrl:nocaps
+}
+
+# Caps is Caps
+fuck-caps-caps() {
+  DISPLAY=:0.0 setxkbmap -layout us -option
+}
+
 _call_fuck() {
-  tmp=$DISPLAY
+  TMP_DISPLAY=$DISPLAY
   unset DISPLAY
   fuck
-  export DISPLAY=$tmp
+  export DISPLAY=$TMP_DISPLAY
   zle reset-prompt
 }
 zle -N _call_fuck
