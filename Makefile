@@ -8,6 +8,8 @@ feh:
 
 ## set .vimrc
 vim:
+	mkdir -p ~/.vim/undo/
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	echo source $(PWD_TILDE)/vimrc >> ~/.vimrc
 	echo source $(PWD_TILDE)/vim/appearance.novel.vim >> ~/.vimrc
 
