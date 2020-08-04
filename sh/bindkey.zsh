@@ -65,3 +65,30 @@ insert-screen-s() {
 }
 zle -N insert-screen-s
 bindkey "^K^S" insert-screen-s
+
+#
+# git
+#
+checkout-branch() {
+    TARGET=$(
+        (
+          echo "* new *"
+          git branch --verbose
+        ) | peco
+    )
+    if [ -z "$TARGET" ]; then
+        ;
+    elif [ "$TARGET" = "* new *" ]; then
+        BUFFER="git checkout -b "
+        CURSOR=$#BUFFER
+    else
+        branch=$(echo "$TARGET" | awk '{print $1}')
+        if [ "$branch" != "*" ]; then
+            echo git checkout "$branch"
+            git checkout "$branch"
+        fi
+    fi
+    zle reset-prompt
+}
+zle -N checkout-branch
+bindkey "^G^G" checkout-branch
