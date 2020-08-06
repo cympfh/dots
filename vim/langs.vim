@@ -300,14 +300,14 @@ au FileType python let g:ale_python_pydocstyle_options = '--ignore=D100,D104,D20
 " Python Black
 Plugin 'psf/black'
 function! s:BlackAuto()
-    autocmd BufWritePre *.py silent execute ':Black'
+    autocmd BufWritePre <buffer> silent execute ':Black'
 endfunction
 au FileType python command! BlackAuto :call <SID>BlackAuto()
 
 " Python Isort
 Plugin 'fisadev/vim-isort'
 function! s:IsortAuto()
-    autocmd BufWritePre *.py silent execute ':Isort'
+    autocmd BufWritePre <buffer> silent execute ':Isort'
 endfunction
 au FileType python command! IsortAuto :call <SID>IsortAuto()
 
