@@ -69,6 +69,21 @@ fuck-caps-caps() {
   DISPLAY=:0.0 setxkbmap -layout us -option
 }
 
+# delete branch (from local and origin)
+fuck-git-branch() {
+  BRANCH=$(
+    git branch --verbose |
+      peco |
+      awk '{print $1}'
+  )
+  if [ -z "$BRANCH" ]; then
+    ;
+  else
+    git branch -D $BRANCH
+    git push origin :$BRANCH
+  fi
+}
+
 _call_fuck() {
   TMP_DISPLAY=$DISPLAY
   unset DISPLAY
