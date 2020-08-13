@@ -5,6 +5,8 @@ set complete+=k
 "
 Plugin 'dense-analysis/ale'
 command Fmt :ALEFix
+nn [ :ALEPrevious<CR>
+nn ] :ALENext<CR>
 
 " Language Server
 "
@@ -93,6 +95,12 @@ au FileType coq nn <buffer> <leader>r :!time coqtop < % 2>/dev/null<cr>
 au FileType coq nn <buffer> <leader>T :terminal coqtop<cr>
 au FileType coq setlocal dictionary+=~/.dots/vim/dict/coq
 au FileType coq set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+
+" dc
+au BufRead,BufNewFile *.dc set filetype=dc
+Plugin 'dc.vim'
+au FileType dc nn <buffer> <leader>r :!dc %<cr>
+au FileType dc nn <buffer> <leader>t :!dc % < input<cr>
 
 " Dot
 au FileType dot ino <C-l> ->
@@ -255,7 +263,7 @@ let g:markdown_composer_autostart=0
 " MAO
 au BufRead,BufNewFile *.mao set filetype=mao
 au FileType mao nn <buffer><silent> <leader>r :!mao %<cr>
-au FileType mao nn <buffer><silent> <leader>e :!mao --debug %<cr>
+au FileType mao nn <buffer><silent> <leader>e :!mao --debug % --max-steps 50<cr>
 au FileType mao nn <buffer><silent> <leader>t :!mao % <input<cr>
 
 " OCaml
@@ -279,7 +287,6 @@ Plugin 'vim-scripts/pig.vim'
 au FileType pig nn <buffer> <leader>r :!time pig -x local %<cr>
 
 " Python (pyenv is recommended)
-au FileType python command! Isort :!isort %
 au FileType python nn <buffer> <leader>r :!time python %<cr>
 au FileType python nn <buffer> <leader>t :!time python % <input<cr>
 au FileType python nn <buffer> <leader>T :terminal ipython --no-autoindent<cr>
@@ -290,6 +297,19 @@ au FileType python nn <buffer> gd :LspDefinition<cr>
 au FileType python let g:ale_linters = {'python': ['flake8', 'pycodestyle', 'isort', 'pydocstyle']}
 au FileType python let g:ale_python_pydocstyle_options = '--ignore=D100,D104,D203,D213,D4'
 
+" Python Black
+Plugin 'psf/black'
+function! s:BlackAuto()
+    autocmd BufWritePre <buffer> silent execute ':Black'
+endfunction
+au FileType python command! BlackAuto :call <SID>BlackAuto()
+
+" Python Isort
+Plugin 'fisadev/vim-isort'
+function! s:IsortAuto()
+    autocmd BufWritePre <buffer> silent execute ':Isort'
+endfunction
+au FileType python command! IsortAuto :call <SID>IsortAuto()
 
 " Python Language Server
 "" pip install python-language-server
@@ -333,6 +353,18 @@ au FileType ruby nn <buffer> <leader>r :!time ruby %<cr>
 au FileType ruby nn <buffer> <leader>t :!time ruby % <input<cr>
 au FileType ruby nn <buffer> <leader>T :terminal irb<cr>
 au FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+au FileType ruby let g:ale_enabled = 0
+
+" Ruby solargraph
+if executable('solargraph')
+    " gem install solargraph
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'solargraph',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+        \ 'initialization_options': {"diagnostics": "true"},
+        \ 'whitelist': ['ruby'],
+        \ })
+endif
 
 " Rust
 Plugin 'rust-lang/rust.vim'
@@ -370,17 +402,19 @@ au FileType rust nn <buffer> <leader>g :call CompileRust()<cr>
 au FileType rust nn <buffer> <leader>r :call RunRust(0)<cr>
 au FileType rust nn <buffer> <leader>t :call RunRust(1)<cr>
 au FileType rust nn <buffer> <leader><leader>r :call BothRust()<cr>
+let g:rustfmt_autosave = 1
 
 " Rust Ale
-" rustup component add rls rust-analysis rust-src
+" rustup component add rls rust-analysis rust-src rustfmt
 if g:rust_cargo == 1
-  au FileType rust let g:ale_linters = {'rust': ['cargo']}
+  au FileType rust let g:ale_linters = {'rust': ['rls', 'cargo']}
 else
   au FileType rust let g:ale_linters = {'rust': ['rustc']}
   au FileType rust let g:ale_rust_rustc_options = '--edition 2018 '
 endif
 au FileType rust let g:ale_fixers = {'rust': ['rustfmt']}
-au FileType rust let g:ale_rust_rls_toolchain = 'stable'
+let g:ale_rust_rls_toolchain = 'stable'
+let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
 
 " Rust Language Server
 if executable('rls')
@@ -411,6 +445,7 @@ au FileType scheme nn <buffer> <leader>t :!rlwrap gosh ./% <input<cr>
 
 " TypeScript
 Plugin 'leafgarland/typescript-vim'
+au FileType typescript nn <buffer> <leader>r :!deno run -A %<cr>
 
 " YAML (yaml, yml) for ansible
 au BufRead,BufNewFile *.yml set filetype=yaml.ansible

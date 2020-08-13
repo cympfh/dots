@@ -1,4 +1,6 @@
 # dot dot dot
 
-## ~/.dots/
+```bash
+git clone git@github.com:cympfh/dots.git ~/.dots/
+```
 

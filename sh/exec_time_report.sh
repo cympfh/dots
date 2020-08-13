@@ -40,7 +40,7 @@ precmd_timereport() {
                 :
                 ;;
             * )
-                notify --title "Finished [$duration_human]" "$last_command" --sound
+                timeout 1 notify --title "Finished [$duration_human]" "$last_command" --sound
                 ;;
         esac
     fi

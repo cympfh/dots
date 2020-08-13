@@ -1,8 +1,15 @@
 .PHONY: vim screen zsh i3 git
 PWD_TILDE=$(shell pwd | sed "s,^${HOME},\\\\~,g")
 
+## feh config
+feh:
+	[ -d ~/.config/feh ] || mkdir -p ~/.config/feh/
+	ln -s ~/.dots/feh_keys ~/.config/feh/keys
+
 ## set .vimrc
 vim:
+	[ -d ~/.vim/undo ] || mkdir -p ~/.vim/undo/
+	[ -d ~/.vim/bundle ] || git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	echo source $(PWD_TILDE)/vimrc >> ~/.vimrc
 	echo source $(PWD_TILDE)/vim/appearance.novel.vim >> ~/.vimrc
 

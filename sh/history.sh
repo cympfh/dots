@@ -1,4 +1,6 @@
-export HISTCONTROL=ignoreboth
+setopt sharehistory
+setopt hist_ignorealldups
+setopt hist_ignorespace
 
 HISTSIZE=10000
 SAVEHIST=10000
@@ -17,7 +19,7 @@ zshaddhistory() {
             # space-start command line
             return 1
             ;;
-        pwd | fg | bg | hisotry | cd | mkcd )
+        pwd | fg | bg | hisotry | cd | mkcd | tw* )
             return 1
             ;;
         * )

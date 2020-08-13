@@ -15,9 +15,10 @@ nn <silent> gn :tabedit <c-r>=expand('<cfile>')<cr><cr>
 
 " file searching
 function s:FileGrepHere(keyword)
-    cexpr system('grep -n ' . a:keyword . ' **/* 2>/dev/null \| grep -v "^Binary file "')
+    cexpr system('grep -n ' . a:keyword . ' **/* 2>/dev/null | grep -v "^Binary file "')
     call setqflist([], 'a', {'title' : 'grep ' . a:keyword})
     copen
+    let g:copend = 1
 endfunction
 command! -nargs=1 Grep :call <SID>FileGrepHere(<f-args>)
 
