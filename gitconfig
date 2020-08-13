@@ -2,6 +2,12 @@
     ui = color
     name = whoami
     email = whose@mail.ai
+[user.cympfh]
+    name = cympfh
+    email = cympfh@gmail.com
+[user.khattori]
+    name = khattori
+    email = kazuhiro_hattori@dwango.co.jp
 [push]
     default = current
 [alias]
