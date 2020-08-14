@@ -7,7 +7,7 @@ fuck() {
         if (n<1) return "";
         return " " padding(n-1);
       }
-      /^fuck-.*()/{print $1, padding(32 - length($1)), LAST}
+      /^fuck-.*/{print $1, padding(32 - length($1)), LAST}
       {LAST=$0}
     ' |
       sed 's/^fuck-//; s/()//' |
