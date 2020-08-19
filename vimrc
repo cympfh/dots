@@ -15,8 +15,7 @@ let mapleader="-"
 set colorcolumn=100 synmaxcol=200
 set undodir=~/.vim/undo undofile
 set scrolloff=4
-" set autoread
-" autocmd InsertEnter,WinEnter * checktime
+set completeopt=popup,menu
 
 "
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
