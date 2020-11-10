@@ -297,19 +297,14 @@ au FileType python nn <buffer> gd :LspDefinition<cr>
 au FileType python let g:ale_linters = {'python': ['flake8', 'pycodestyle', 'isort', 'pydocstyle']}
 au FileType python let g:ale_python_pydocstyle_options = '--ignore=D100,D104,D203,D213,D4'
 
-" Python Black
+" Python Black, Isort
 Plugin 'psf/black'
-function! s:BlackAuto()
-    autocmd BufWritePre <buffer> silent execute ':Black'
-endfunction
-au FileType python command! BlackAuto :call <SID>BlackAuto()
-
-" Python Isort
 Plugin 'fisadev/vim-isort'
-function! s:IsortAuto()
-    autocmd BufWritePre <buffer> silent execute ':Isort'
+function! s:PythonFormatten()
+    execute ':Isort'
+    execute ':Black'
 endfunction
-au FileType python command! IsortAuto :call <SID>IsortAuto()
+au FileType python nn <C-i> :call <SID>PythonFormatten()<CR>
 
 " Python Language Server
 "" pip install python-language-server
@@ -378,7 +373,7 @@ function! CompileRust()
   if g:rust_cargo == 1
     :!cargo build
   else
-    :!rustc -O --edition 2018 -o %:r.exe %
+    :!rustc --edition 2018 -o %:r.exe %
   endif
 endfunction
 function! RunRust(k)
