@@ -84,6 +84,14 @@ fuck-git-branch() {
   fi
 }
 
+# Append Dropbox/share/etc_hosts (for WSL)
+fuck-etc-hosts() {
+  cat /etc/hosts ~/Dropbox/share/etc_hosts |
+    sort |
+    uniq |
+    sudo tee /etc/hosts
+}
+
 _call_fuck() {
   TMP_DISPLAY=$DISPLAY
   unset DISPLAY
