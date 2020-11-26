@@ -13,6 +13,7 @@ shpath add user $HOME/git/mastodon-cli/bin
 shpath add user $HOME/git/mdc/
 shpath add user $HOME/git/tw/bin
 shpath add user $HOME/git/twurl/bin
+shpath add user $HOME/git/mline/bin
 shpath add user $HOME/test/bin
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
