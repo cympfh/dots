@@ -314,6 +314,10 @@ if executable('pyls')
     \ 'cmd': {server_info->['pyls']},
     \ 'whitelist': ['python'],
     \ })
+  function! Hover(float)
+      let g:lsp_preview_float = a:float
+      LspHover
+  endfunction
   au FileType python nn K :LspHover<cr>
 endif
 
