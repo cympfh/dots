@@ -11,7 +11,7 @@ set timeout ttimeoutlen=100
 set mouse=
 set list listchars=tab:__,trail:-
 set fillchars=vert:\ 
-let mapleader="-"
+let mapleader=" "
 set colorcolumn=100 synmaxcol=200
 set undodir=~/.vim/undo undofile
 set scrolloff=4

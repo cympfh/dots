@@ -3,7 +3,7 @@
 " NERDTree
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-nnoremap <space> :NERDTreeTabsToggle<CR>
+nnoremap <leader><space> :NERDTreeTabsToggle<CR>
 autocmd FileType nerdtree nnoremap <buffer> f :NERDTreeFind 
 
 " file location
@@ -32,4 +32,4 @@ command! -nargs=1 GitGrep :call <SID>GitGrepHere(<f-args>)
 " Filer by Ranger
 let g:ranger_map_keys = 0
 Plugin 'francoiscabrol/ranger.vim'
-nnoremap , :Ranger<CR>
+nnoremap <leader>, :Ranger<CR>
