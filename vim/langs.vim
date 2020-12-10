@@ -286,7 +286,10 @@ au BufRead,BufNewFile *.pig set filetype=pig
 Plugin 'vim-scripts/pig.vim'
 au FileType pig nn <buffer> <leader>r :!time pig -x local %<cr>
 
-" Python (pyenv is recommended)
+" Python
+" NOTE: DONT USE pyenv
+Plugin 'vim-python/python-syntax'
+let g:python_highlight_all = 1
 au FileType python nn <buffer> <leader>r :!time python %<cr>
 au FileType python nn <buffer> <leader>t :!time python % <input<cr>
 au FileType python nn <buffer> <leader>T :terminal ipython --no-autoindent<cr>
