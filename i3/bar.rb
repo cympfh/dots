@@ -30,10 +30,6 @@ Color = {
 # main commands
 #
 
-def get_memo
-  `bash ~/.dots/i3/i3-memo.sh cat | sed 's/^.*\t//g; s/.*/[&]/' | tr '\n' ' ' | sed 's/ *$//g'`
-end
-
 def get_date
   `LANG=en date "+%Y-%m-%d(%a)%H:%M"`.chomp
 end
@@ -103,13 +99,6 @@ cx = 0
 loop do
   cx = (cx + 1) % 100000
   columns = []
-
-  if cx % 5 == 3
-    memo = get_memo
-  end
-  if memo != nil
-    columns << {full_text: "#{memo}", color: Color[:yellow]}.merge(separator)
-  end
 
   if cx % 300 == 1
     tenki = get_tenki
