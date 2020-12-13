@@ -14,9 +14,6 @@ if [ -f /usr/share/zsh/vendor-completions/_fzf ]; then
   FZF=1
   source /usr/share/zsh/vendor-completions/_fzf
 fi
-if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
-  source /usr/share/doc/fzf/examples/key-bindings.zsh
-fi
 
 # ~/.fzf
 if [ -d ~/.fzf/bin ]; then
