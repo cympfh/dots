@@ -99,6 +99,7 @@ au FileType coq set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 " cumin
 " Plugin 'rust-lang/rust.vim'
 au BufRead,BufNewFile *.cumin set filetype=cumin
+au BufRead,BufNewFile *.cumin set syntax=rust
 au FileType cumin set syntax=rust
 au FileType cumin nn <leader>r :!cuminc %<cr>
 au FileType cumin let b:caw_oneline_comment = '//'
