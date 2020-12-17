@@ -96,6 +96,13 @@ au FileType coq nn <buffer> <leader>T :terminal coqtop<cr>
 au FileType coq setlocal dictionary+=~/.dots/vim/dict/coq
 au FileType coq set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
+" cumin
+" Plugin 'rust-lang/rust.vim'
+au BufRead,BufNewFile *.cumin set filetype=cumin
+au FileType cumin set syntax=rust
+au FileType cumin nn <leader>r :!cuminc %<cr>
+au FileType cumin let b:caw_oneline_comment = '//'
+
 " dc
 au BufRead,BufNewFile *.dc set filetype=dc
 Plugin 'dc.vim'
@@ -173,6 +180,11 @@ au FileType haskell nn <buffer> <leader>t :!./%:r.exe <input<cr>
 au FileType haskell nn <buffer> <leader><leader>r :!ghc -O3 ./% -o %:r.exe; ./%:r.exe<cr>
 au FileType haskell nn <buffer> <leader><leader>t :!ghc -O3 ./% -o %:r.exe; ./%:r.exe <input<cr>
 au FileType haskell set dictionary+=~/.dots/vim/dict/haskell
+
+" Hive
+Plugin 'autowitch/hive.vim'
+au BufRead,BufNewFile *.hive set filetype=hive
+au FileType hive nn <buffer> <leader>r :!time hive %<cr>
 
 " HTML
 Plugin 'surround.vim'
