@@ -7,6 +7,7 @@ shpath add user $HOME/Dropbox/bin
 shpath add user $HOME/Dropbox/mls
 shpath add user $HOME/Tools/twurl/bin
 shpath add user $HOME/dw/bin
+shpath add user $HOME/dw/git/amadeus/bin
 shpath add user $HOME/git/imgur
 shpath add user $HOME/git/language-template
 shpath add user $HOME/git/mastodon-cli/bin
