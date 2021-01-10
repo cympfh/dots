@@ -384,6 +384,7 @@ endif
 " Rust
 Plugin 'rust-lang/rust.vim'
 au BufRead,BufNewFile *.rs set filetype=rust
+au FileType rust normal zM
 if filereadable("Cargo.toml")
   let g:rust_cargo = 1
 else
