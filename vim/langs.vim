@@ -390,11 +390,19 @@ if filereadable("Cargo.toml")
 else
   let g:rust_cargo = 0
 endif
-function! CompileRust()
+function! CompileRust(optimize)
   if g:rust_cargo == 1
-    :!cargo build
+    if a:optimize == 0
+      :!cargo build
+    else
+      :!cargo build --release
+    endif
   else
-    :!rustc --edition 2018 -o %:r.exe %
+    if a:optimize == 0
+      :!rustc --edition 2018 -o %:r.exe %
+    else
+      :!rustc --edition 2018 -o %:r.exe -O %
+    endif
   endif
 endfunction
 function! RunRust(k)
@@ -414,7 +422,8 @@ function! BothRust()
   call CompileRust()
   call RunRust()
 endfunction
-au FileType rust nn <buffer> <leader>g :call CompileRust()<cr>
+au FileType rust nn <buffer> <leader>g :call CompileRust(0)<cr>
+au FileType rust nn <buffer> <leader>G :call CompileRust(1)<cr>
 au FileType rust nn <buffer> <leader>r :call RunRust(0)<cr>
 au FileType rust nn <buffer> <leader>t :call RunRust(1)<cr>
 au FileType rust nn <buffer> <leader><leader>r :call BothRust()<cr>
