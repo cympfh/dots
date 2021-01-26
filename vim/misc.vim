@@ -30,3 +30,9 @@ function! Ctoggle()
   end
 endfunction
 nn <down> :call Ctoggle()<cr>
+
+" inc/dec datetime
+Plugin 'speeddating.vim'
+
+" .todo.md
+Plugin 'aserebryakov/vim-todo-lists'
