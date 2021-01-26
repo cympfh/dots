@@ -16,6 +16,7 @@ set colorcolumn=100 synmaxcol=200
 set undodir=~/.vim/undo undofile
 set scrolloff=4
 set completeopt=popup,menu
+set clipboard=
 
 "
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
