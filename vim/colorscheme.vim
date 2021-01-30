@@ -1,6 +1,4 @@
-Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
-Plug 'jnurmine/Zenburn', {'rtp': 'vim/'}
 
 function s:LoadColorSchemeSafely(name)
   try
