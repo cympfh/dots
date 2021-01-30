@@ -1,6 +1,5 @@
+set background=dark
 colorscheme slate
-syntax on
-
 hi ColorColumn   ctermbg=8
 hi Comment       ctermfg=220
 hi Constant      ctermfg=3
