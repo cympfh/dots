@@ -17,27 +17,27 @@ set undodir=~/.vim/undo undofile
 set scrolloff=4
 set completeopt=popup,menu
 set clipboard=
+set belloff=all
 
 "
-" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" https://github.com/junegunn/vim-plug
 "
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 source ~/.dots/vim/keymap.vim
+source ~/.dots/vim/clipboard.vim
 source ~/.dots/vim/langs.vim
-source ~/.dots/vim/procon.vim
+source ~/.dots/vim/snippet.vim
 source ~/.dots/vim/terminal.vim
 source ~/.dots/vim/eng.vim
 source ~/.dots/vim/statusline.vim
 source ~/.dots/vim/filer.vim
 source ~/.dots/vim/misc.vim
+source ~/.dots/vim/colorscheme.vim
 
-call vundle#end()
-filetype plugin indent on
-
+call plug#end()
 set cryptmethod=blowfish2
-set fencs=utf8,euc-jp,sjis,cp932,default,latin1
+set fileencodings=utf8,euc-jp,sjis,cp932,default,latin1
+set encoding=utf-8
+set fileformats=unix
+syntax on

@@ -1,13 +1,11 @@
 colorscheme slate
-syntax on
-
 hi ColorColumn   ctermfg=0 ctermbg=white
 hi Comment       ctermfg=210
 hi CursorLineNr  cterm=bold ctermfg=198
 hi Define        cterm=bold ctermfg=3
 hi LineNr        cterm=NONE ctermfg=239
 hi Number        cterm=NONE ctermfg=4
-hi Operator      cterm=bold ctermfg=196                             
+hi Operator      cterm=bold ctermfg=196
 hi SpellBad      cterm=underline ctermbg=black ctermfg=red
 hi Statement     cterm=bold ctermfg=127
 hi StatusLine    cterm=reverse ctermfg=88

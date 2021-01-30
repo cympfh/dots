@@ -3,17 +3,17 @@ set complete+=k
 
 " Linter
 "
-Plugin 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 command Fmt :ALEFix
 nn [ :ALEPrevious<CR>
 nn ] :ALENext<CR>
 
 " Language Server
 "
-Plugin 'prabirshrestha/async.vim'
-Plugin 'prabirshrestha/vim-lsp'
-Plugin 'prabirshrestha/asyncomplete.vim'
-Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 let g:asyncomplete_auto_popup = 0
 let g:lsp_diagnostics_enabled = 0
 let g:lsp_textprop_enabled = 0
@@ -52,14 +52,12 @@ au FileType c nn <buffer> <leader>r :!time ./%:r.exe<cr>
 au FileType c nn <buffer> <leader>t :!time ./%:r.exe < ./input<cr>
 
 " C++
-Plugin 'octol/vim-cpp-enhanced-highlight'
+Plug 'octol/vim-cpp-enhanced-highlight'
 au FileType cpp set cindent
 au FileType cpp set dictionary+=~/.dots/vim/dict/cpp
 au FileType cpp nn <buffer> <leader>g :!g++ -O3 -o %:r.exe -std=c++17 %<cr>
 au FileType cpp nn <buffer> <leader>r :!time ./%:r.exe<cr>
 au FileType cpp nn <buffer> <leader>t :!time ./%:r.exe <input<cr>
-au FileType cpp nm <buffer> <leader><leader>r <leader>g<leader>r
-au FileType cpp nm <buffer> <leader><leader>t <leader>g<leader>t
 
 " C++ Ale
 au FileType cpp let g:ale_linters = {'cpp': ['gcc']}
@@ -69,26 +67,18 @@ au BufRead,BufNewFile *.calendar set filetype=calendar
 au FileType calendar set noexpandtab
 
 " Clojure
-Plugin 'tpope/vim-fireplace'
-Plugin 'guns/vim-clojure-static'
-Plugin 'guns/vim-clojure-highlight'
+Plug 'tpope/vim-fireplace'
+Plug 'guns/vim-clojure-static'
+Plug 'guns/vim-clojure-highlight'
 au BufRead,BufNewFile *.clj set filetype=clojure
 au FileType clojure nn <buffer> <leader>r :!time clojure %<cr>
 au FileType clojure nn <buffer> <leader>t :!time clojure % < ./input<cr>
-
-" Coffee
-Plugin 'kchmck/vim-coffee-script'
-au BufRead,BufNewFile *.coffee set filetype=coffee
-au FileType coffee set makeprg=make
-au FileType coffee ino <C-l> ->
-au FileType coffee nn <buffer> <leader>r :!time coffee %<cr>
-au FileType coffee nn <buffer> <leader>t :!time coffee % <input<cr>
 
 " Common Lisp
 au FileType lisp nn <buffer> <leader>r :!time clisp %<cr>
 
 " Coq
-Plugin 'jvoorhis/coq.vim'
+Plug 'jvoorhis/coq.vim'
 au BufRead,BufNewFile *.v set filetype=coq
 au FileType coq nn <buffer> <leader>g :!time coqc %<cr>
 au FileType coq nn <buffer> <leader>r :!time coqtop < % 2>/dev/null<cr>
@@ -97,7 +87,7 @@ au FileType coq setlocal dictionary+=~/.dots/vim/dict/coq
 au FileType coq set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " cumin
-" Plugin 'rust-lang/rust.vim'
+" Plug 'rust-lang/rust.vim'
 au BufRead,BufNewFile *.cumin set filetype=cumin
 au BufRead,BufNewFile *.cumin set syntax=rust
 au FileType cumin set syntax=rust
@@ -106,7 +96,7 @@ au FileType cumin let b:caw_oneline_comment = '//'
 
 " dc
 au BufRead,BufNewFile *.dc set filetype=dc
-Plugin 'dc.vim'
+Plug 'vim-scripts/dc.vim'
 au FileType dc nn <buffer> <leader>r :!dc %<cr>
 au FileType dc nn <buffer> <leader>t :!dc % < input<cr>
 
@@ -145,7 +135,7 @@ au FileType dot nn <buffer> <leader>r :call OpenDot()<cr>
 au BufRead,BufNewFile *.fs set filetype=fsharp
 
 " Go
-Plugin 'jnwhiteh/vim-golang'
+Plug 'jnwhiteh/vim-golang'
 let g:gofmt_command = "gofmt -tabs=false -tabwidth=2"
 set runtimepath+=$GOROOT/misc/vim
 exe "set rtp+=" . globpath($GOPATH, "src/github.com/nsf/gocode/vim")
@@ -173,30 +163,28 @@ au FileType gnuplot nn <buffer> <leader>r :call OpenGPImage()<cr>
 
 
 " Haskell
-Plugin 'kana/vim-filetype-haskell'
+Plug 'kana/vim-filetype-haskell'
 au FileType haskell ino <C-l> ->
 au FileType haskell nn <buffer> <leader>g :!ghc -O3 ./% -o %:r.exe<cr>
 au FileType haskell nn <buffer> <leader>r :!./%:r.exe<cr>
 au FileType haskell nn <buffer> <leader>t :!./%:r.exe <input<cr>
-au FileType haskell nn <buffer> <leader><leader>r :!ghc -O3 ./% -o %:r.exe; ./%:r.exe<cr>
-au FileType haskell nn <buffer> <leader><leader>t :!ghc -O3 ./% -o %:r.exe; ./%:r.exe <input<cr>
 au FileType haskell set dictionary+=~/.dots/vim/dict/haskell
 
 " Hive
-Plugin 'autowitch/hive.vim'
+Plug 'autowitch/hive.vim'
 au BufRead,BufNewFile *.hive set filetype=hive
 au FileType hive nn <buffer> <leader>r :!time hive %<cr>
 
 " HTML
-Plugin 'surround.vim'
+let g:user_emmet_leader_key='<C-g>'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 let g:user_emmet_settings = { 'variables': { 'lang' : 'ja' } }
 au FileType html set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " Hy
-Plugin 'cympfh/vim-hy'
+Plug 'cympfh/vim-hy'
 au FileType hy nn <buffer> <leader>r :!time hy %<cr>
 au FileType hy nn <buffer> <leader>T :terminal hy<cr>
 
@@ -205,25 +193,23 @@ au BufRead,BufNewFile *.j  set filetype=j
 au FileType j   nn <buffer> <leader>r :!j %<cr>
 
 " JavaScript (Node.js) (ECMAScript)
-Plugin 'pangloss/vim-javascript'
-au FileType javascript ino <c-f> function
+Plug 'pangloss/vim-javascript'
 au FileType javascript nn <buffer> <leader>r :!time node %<cr>
-au FileType javascript nn <buffer> <leader>h :!time node --use-strict --harmony %<cr>
 au FileType javascript nn <buffer> <leader>t :!node % <input<cr>
 au FileType javascript set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " Julia
-Plugin 'JuliaEditorSupport/julia-vim'
+Plug 'JuliaEditorSupport/julia-vim'
 au BufRead,BufNewFile *.jl set filetype=julia
 au FileType julia nn <buffer> <leader>r :!time julia %<cr>
 au FileType julia nn <buffer> <leader>t :!time julia % <input<cr>
 au FileType julia nn <buffer> <leader>T :terminal julia<cr>
 
 " Jsonnet
-Plugin 'google/vim-jsonnet'
+Plug 'google/vim-jsonnet'
 
 " Kotlin
-Plugin 'udalov/kotlin-vim'
+Plug 'udalov/kotlin-vim'
 au BufRead,BufNewFile *.kt set filetype=kotlin
 au FileType kotlin nn <buffer> <leader>g :!kotlinc % -include-runtime -d %:r.jar<cr>
 au FileType kotlin nn <buffer> <leader>r :!time java -jar %:r.jar<cr>
@@ -266,42 +252,26 @@ let g:markdown_fenced_languages = [
 \ 'cpp'
 \]
 let g:vim_markdown_math=1
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 au FileType markdown so ~/.dots/vim/tex.vim
-
-Plugin 'euclio/vim-markdown-composer'
-let g:markdown_composer_autostart=0
-
-" MAO
-au BufRead,BufNewFile *.mao set filetype=mao
-au FileType mao nn <buffer><silent> <leader>r :!mao %<cr>
-au FileType mao nn <buffer><silent> <leader>e :!mao --debug % --max-steps 50<cr>
-au FileType mao nn <buffer><silent> <leader>t :!mao % <input<cr>
+let g:table_mode_map_prefix = 'invalid'
+au FileType markdown nn <buffer> <leader>t :TableModeToggle<cr>
+Plug 'dhruvasagar/vim-table-mode'
 
 " OCaml
 au FileType ocaml nn <buffer> <leader>g :!ocamlopt -o %:r.exe str.cmxa %<cr>
 au FileType ocaml nn <buffer> <leader>r :!time ./%:r.exe<cr>
 au FileType ocaml nn <buffer> <leader>t :!time ./%:r.exe <input<cr>
 
-" Octave
-au BufRead,BufNewFile *.m set filetype=octave
-Plugin 'jvirtanen/vim-octave.git'
-
 " Perl6
-Plugin 'vim-perl/vim-perl6'
+Plug 'vim-perl/vim-perl6'
 au BufRead,BufNewFile *.pl set filetype=perl6
 au FileType perl6 nn <buffer> <leader>r :!time perl6 %<cr>
 au FileType perl6 nn <buffer> <leader>t :!time perl6 % <input<cr>
 
-" Pig (pig)
-au BufRead,BufNewFile *.pig set filetype=pig
-Plugin 'vim-scripts/pig.vim'
-au FileType pig nn <buffer> <leader>r :!time pig -x local %<cr>
-
 " Python
 " NOTE: DONT USE pyenv
-Plugin 'vim-python/python-syntax'
+Plug 'vim-python/python-syntax'
 let g:python_highlight_all = 1
 au FileType python nn <buffer> <leader>r :!time python %<cr>
 au FileType python nn <buffer> <leader>t :!time python % <input<cr>
@@ -314,8 +284,8 @@ au FileType python let g:ale_linters = {'python': ['flake8', 'pycodestyle', 'iso
 au FileType python let g:ale_python_pydocstyle_options = '--ignore=D100,D104,D203,D213,D4'
 
 " Python Black, Isort
-Plugin 'psf/black'
-Plugin 'fisadev/vim-isort'
+Plug 'psf/black', { 'tag': '19.10b0' }
+Plug 'fisadev/vim-isort'
 function! s:PythonFormatten()
     execute ':Isort'
     execute ':Black'
@@ -330,15 +300,10 @@ if executable('pyls')
     \ 'cmd': {server_info->['pyls']},
     \ 'whitelist': ['python'],
     \ })
-  function! Hover(float)
-      let g:lsp_preview_float = a:float
-      LspHover
-  endfunction
-  au FileType python nn K :LspHover<cr>
 endif
 
 " PlantUML
-Plugin 'vim-scripts/plantuml-syntax'
+Plug 'vim-scripts/plantuml-syntax'
 au BufRead,BufNewFile *.uml set filetype=plantuml
 
 function! CompileUML()
@@ -359,10 +324,6 @@ au FileType plantuml nn <buffer> <leader>r :call OpenUML()<cr>
 " R
 au FileType r nn <buffer> <leader>r :!time Rscript ./%<cr>
 
-" Raml
-au BufRead,BufNewFile *.raml set filetype=raml
-Plugin 'IN3D/vim-raml'
-
 " Ruby
 au FileType ruby nn <buffer> <leader>r :!time ruby %<cr>
 au FileType ruby nn <buffer> <leader>t :!time ruby % <input<cr>
@@ -382,7 +343,7 @@ if executable('solargraph')
 endif
 
 " Rust
-Plugin 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim'
 au BufRead,BufNewFile *.rs set filetype=rust
 au FileType rust normal zM
 if filereadable("Cargo.toml")
@@ -418,15 +379,10 @@ function! RunRust(k)
     :!time ./%:r.exe < input
   endif
 endfunction
-function! BothRust()
-  call CompileRust()
-  call RunRust()
-endfunction
 au FileType rust nn <buffer> <leader>g :call CompileRust(0)<cr>
 au FileType rust nn <buffer> <leader>G :call CompileRust(1)<cr>
 au FileType rust nn <buffer> <leader>r :call RunRust(0)<cr>
 au FileType rust nn <buffer> <leader>t :call RunRust(1)<cr>
-au FileType rust nn <buffer> <leader><leader>r :call BothRust()<cr>
 let g:rustfmt_autosave = 1
 
 " Rust Ale
@@ -456,7 +412,7 @@ au FileType sed nn <buffer> <leader>r :!sed -f % <cr>
 au FileType sed nn <buffer> <leader>t :!sed -f % <input<cr>
 
 " Scala
-Plugin 'derekwyatt/vim-scala'
+Plug 'derekwyatt/vim-scala'
 au BufRead,BufNewFile *.scala set filetype=scala
 au FileType scala set makeprg=make
 au FileType scala nn <buffer> <leader>r :!scala -feature -deprecation %<cr>
@@ -465,14 +421,14 @@ au FileType scala set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 au FileType sbt set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " Scheme
-au FileType scheme nn <buffer> <leader>r :!rlwrap gosh -l ./%<cr>
-au FileType scheme nn <buffer> <leader>t :!rlwrap gosh ./% <input<cr>
+au FileType scheme nn <buffer> <leader>r :!gosh -l ./%<cr>
+au FileType scheme nn <buffer> <leader>t :!time gosh ./% <input<cr>
 
 " TypeScript
-Plugin 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 au FileType typescript nn <buffer> <leader>r :!deno run -A %<cr>
 
 " YAML (yaml, yml) for ansible
 au BufRead,BufNewFile *.yml set filetype=yaml.ansible
 au FileType yaml.ansible set tabstop=2 shiftwidth=2 softtabstop=2
-Plugin 'pearofducks/ansible-vim'
+Plug 'pearofducks/ansible-vim'

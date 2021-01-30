@@ -1,10 +1,9 @@
 " Filer and keymaps for file operations
 
 " NERDTree
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-nnoremap <leader><space> :NERDTreeTabsToggle<CR>
-autocmd FileType nerdtree nnoremap <buffer> f :NERDTreeFind 
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+nnoremap <tab> :NERDTreeTabsToggle<cr>
 
 " file location
 nn <silent> <leader>f :let @f=expand("%")<cr>:echo "FILE ".@f<cr>
@@ -26,10 +25,11 @@ function s:GitGrepHere(keyword)
     cexpr system('git grep -n ' . a:keyword . ' **/* 2>/dev/null')
     call setqflist([], 'a', {'title' : 'git grep ' . a:keyword})
     copen
+    let g:copend = 1
 endfunction
 command! -nargs=1 GitGrep :call <SID>GitGrepHere(<f-args>)
 
 " Filer by Ranger
 let g:ranger_map_keys = 0
-Plugin 'francoiscabrol/ranger.vim'
-nnoremap <leader>, :Ranger<CR>
+Plug 'francoiscabrol/ranger.vim'
+nnoremap <S-tab> :Ranger<cr>

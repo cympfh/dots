@@ -1,25 +1,19 @@
-Plugin 'h1mesuke/vim-alignta'
-Plugin 'renamer.vim'
-Plugin 'tpope/vim-sleuth'
+Plug 'cympfh/space.vim'
+Plug 'vim-scripts/renamer.vim'
+Plug 'tpope/vim-sleuth'
+Plug 'vim-scripts/speeddating.vim'
 
+" MRU
 let MRU_Max_Entries = 1000
 let MRU_Use_Current_Window = 1
-Plugin 'yegappan/mru'
+Plug 'yegappan/mru'
 
 " comment out
-Plugin 'tyru/caw.vim'
-nmap <Leader>c <Plug>(caw:hatpos:toggle)
-vmap <Leader>c <Plug>(caw:hatpos:toggle)
+Plug 'tyru/caw.vim'
+nmap <leader>c <Plug>(caw:hatpos:toggle)
+vmap <leader>c <Plug>(caw:hatpos:toggle)
 
-" undo tree
-Plugin 'sjl/gundo.vim'
-let g:gundo_prefer_python3 = 1
-
-" Quickfix: copen
-nn <left> :cprev<cr>
-nn <right> :cnext<cr>
-
-let g:copend =0
+let g:copend = 0
 function! Ctoggle()
   if g:copend == 0
     let g:copend = 1
@@ -29,10 +23,4 @@ function! Ctoggle()
     cclose
   end
 endfunction
-nn <down> :call Ctoggle()<cr>
-
-" inc/dec datetime
-Plugin 'speeddating.vim'
-
-" .todo.md
-Plugin 'aserebryakov/vim-todo-lists'
+nn <cr> :call Ctoggle()<cr>

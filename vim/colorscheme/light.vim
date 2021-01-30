@@ -1,6 +1,5 @@
+set background=light
 colorscheme slate
-syntax on
-
 hi ColorColumn   ctermbg=8
 hi Comment       ctermfg=210
 hi CursorLineNr  cterm=NONE ctermfg=red
