@@ -23,4 +23,4 @@ function! Ctoggle()
     cclose
   end
 endfunction
-nn <cr> :call Ctoggle()<cr>
+nn <bs> :call Ctoggle()<cr>
