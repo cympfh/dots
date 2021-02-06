@@ -20,7 +20,7 @@ function s:FileGrepHere(keyword)
     let g:copend = 1
 endfunction
 command! -nargs=1 Grep :call <SID>FileGrepHere(<f-args>)
-nnoremap <C-g><C-f> :GitGrep 
+nnoremap <C-g><C-f> :FileGrepHere 
 
 function s:GitGrepHere(keyword)
     cexpr system('git grep -n ' . a:keyword . ' **/* 2>/dev/null')
