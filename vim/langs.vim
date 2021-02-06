@@ -208,6 +208,10 @@ au FileType julia nn <buffer> <leader>T :terminal julia<cr>
 " Jsonnet
 Plug 'google/vim-jsonnet'
 
+" Json5
+Plug 'GutenYe/json5.vim'
+au FileType json5 set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+
 " Kotlin
 Plug 'udalov/kotlin-vim'
 au BufRead,BufNewFile *.kt set filetype=kotlin
