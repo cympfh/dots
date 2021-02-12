@@ -1,15 +1,18 @@
 " Completion with Dictionary
 set complete+=k
 
-" Linter
+" Support Tools
 "
+
+" Linter
 Plug 'dense-analysis/ale'
-command Fmt :ALEFix
-nn [ :ALEPrevious<CR>
-nn ] :ALENext<CR>
+nn [ :ALEPrevious<cr>
+nn ] :ALENext<cr>
+
+" <c-g> Alias
+nmap <c-g><c-t> <leader>T
 
 " Language Server
-"
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
@@ -21,7 +24,14 @@ let g:lsp_preview_float = 1
 let g:lsp_documentation_float = 0
 let g:lsp_hover_conceal = 0
 let g:lsp_signature_help_enabled = 0
-imap <C-o> <Plug>(asyncomplete_force_refresh)
+imap <c-o> <Plug>(asyncomplete_force_refresh)
+
+" Emmet
+let g:user_emmet_leader_key = '<c-g>'
+let g:user_emmet_install_global = 0
+let g:user_emmet_settings = { 'variables': { 'lang' : 'ja' } }
+autocmd FileType html,css,markdown EmmetInstall
+Plug 'mattn/emmet-vim'
 
 """ Languages
 "
@@ -101,7 +111,7 @@ au FileType dc nn <buffer> <leader>r :!dc %<cr>
 au FileType dc nn <buffer> <leader>t :!dc % < input<cr>
 
 " Dot
-au FileType dot ino <C-l> ->
+au FileType dot ino <c-l> ->
 au FileType dot set dictionary+=~/.dots/vim/dict/dot
 
 function! CompileDot()
@@ -164,7 +174,7 @@ au FileType gnuplot nn <buffer> <leader>r :call OpenGPImage()<cr>
 
 " Haskell
 Plug 'kana/vim-filetype-haskell'
-au FileType haskell ino <C-l> ->
+au FileType haskell ino <c-l> ->
 au FileType haskell nn <buffer> <leader>g :!ghc -O3 ./% -o %:r.exe<cr>
 au FileType haskell nn <buffer> <leader>r :!./%:r.exe<cr>
 au FileType haskell nn <buffer> <leader>t :!./%:r.exe <input<cr>
@@ -176,11 +186,6 @@ au BufRead,BufNewFile *.hive set filetype=hive
 au FileType hive nn <buffer> <leader>r :!time hive %<cr>
 
 " HTML
-let g:user_emmet_leader_key='<C-g>'
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
-Plug 'mattn/emmet-vim'
-let g:user_emmet_settings = { 'variables': { 'lang' : 'ja' } }
 au FileType html set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " Hy
@@ -234,7 +239,7 @@ fun! s:open_pdf(name)
   endif
   exe "!" . opener . ' ' . a:name . ' &'
 endfun
-au FileType tex nn <buffer> <leader>r :call <SID>open_pdf(expand('%:r') . '.pdf')<cr>
+au FileType tex nn <buffer> <leader>r :call <sid>open_pdf(expand('%:r') . '.pdf')<cr>
 
 " Lua
 au FileType lua nn <buffer> <leader>r :!time luajit %<cr>
@@ -294,7 +299,7 @@ function! s:PythonFormatten()
     execute ':Isort'
     execute ':Black'
 endfunction
-au FileType python nn <C-i> :call <SID>PythonFormatten()<CR>
+au FileType python nn <c-g><c-i> :call <sid>PythonFormatten()<cr>
 
 " Python Language Server
 "" pip install python-language-server

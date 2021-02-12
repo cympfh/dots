@@ -1,6 +1,4 @@
-"
 " Clipboard
-"
 if has('mac')
   nnoremap <leader>y :w !pbcopy<cr>
   vnoremap <leader>y :w !pbcopy<cr>

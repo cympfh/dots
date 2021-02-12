@@ -1,9 +1,11 @@
 " make invalid
-nn <F1> <nop>
-nn <c-space> <nop>
+nnoremap <F1> <nop>
+nnoremap <c-space> <nop>
 
+" Command Mode
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
+nnoremap <leader>q q:
 
 " operate tab
 nnoremap <c-t> :tabnew<cr>

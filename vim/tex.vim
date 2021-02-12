@@ -15,6 +15,6 @@ fun! s:frame()
   put b
 endfun
 
-command! -nargs=1 -complete=file IncludeGraphics call <SID>includegraphics("<args>")
-command! -nargs=0 Columns call <SID>columns()
-command! -nargs=0 Frame call <SID>frame()
+command! -nargs=1 -complete=file IncludeGraphics call <sid>includegraphics("<args>")
+command! -nargs=0 Columns call <sid>columns()
+command! -nargs=0 Frame call <sid>frame()

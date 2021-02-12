@@ -19,9 +19,7 @@ set completeopt=popup,menu
 set clipboard=
 set belloff=all
 
-"
 " https://github.com/junegunn/vim-plug
-"
 call plug#begin('~/.vim/plugged')
 
 source ~/.dots/vim/keymap.vim

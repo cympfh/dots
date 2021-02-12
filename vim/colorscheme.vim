@@ -7,4 +7,4 @@ function s:LoadColorSchemeSafely(name)
     echo 'E185: Cannot find color scheme ' . a:name
   endtry
 endfunction
-command! -nargs=1 ColorScheme :call <SID>LoadColorSchemeSafely(<f-args>)
+command! -nargs=1 ColorScheme :call <sid>LoadColorSchemeSafely(<f-args>)

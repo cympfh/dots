@@ -19,8 +19,8 @@ function s:FileGrepHere(keyword)
     copen
     let g:copend = 1
 endfunction
-command! -nargs=1 Grep :call <SID>FileGrepHere(<f-args>)
-nnoremap <C-g><C-f> :FileGrepHere 
+command! -nargs=1 Grep :call <sid>FileGrepHere(<f-args>)
+nnoremap <c-g><c-f> :Grep 
 
 function s:GitGrepHere(keyword)
     cexpr system('git grep -n ' . a:keyword . ' **/* 2>/dev/null')
@@ -28,10 +28,10 @@ function s:GitGrepHere(keyword)
     copen
     let g:copend = 1
 endfunction
-command! -nargs=1 GitGrep :call <SID>GitGrepHere(<f-args>)
-nnoremap <C-g><C-g> :GitGrep 
+command! -nargs=1 GitGrep :call <sid>GitGrepHere(<f-args>)
+nnoremap <c-g><c-g> :GitGrep 
 
 " Filer by Ranger
 let g:ranger_map_keys = 0
 Plug 'francoiscabrol/ranger.vim'
-nnoremap <S-tab> :Ranger<cr>
+nnoremap <s-tab> :Ranger<cr>
