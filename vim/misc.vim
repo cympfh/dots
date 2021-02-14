@@ -1,4 +1,4 @@
-Plug 'cympfh/space.vim'
+Plug 'cympfh/journal.vim'
 Plug 'vim-scripts/renamer.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'vim-scripts/speeddating.vim'

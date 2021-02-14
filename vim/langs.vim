@@ -247,21 +247,8 @@ au FileType lua nn <buffer> <leader>t :!time luajit % <input<cr>
 
 " Markdown
 au BufRead,BufNewFile *.md set filetype=markdown
-let g:markdown_fenced_languages = [
-\ 'css',
-\ 'javascript',
-\ 'js=javascript',
-\ 'json=javascript',
-\ 'coffee',
-\ 'haskell',
-\ 'ocaml',
-\ 'sh',
-\ 'bash=sh',
-\ 'python',
-\ 'cpp'
-\]
-let g:vim_markdown_math=1
-Plug 'plasticboy/vim-markdown'
+let g:vim_markdown_math = 1
+Plug 'sheerun/vim-polyglot'
 au FileType markdown so ~/.dots/vim/tex.vim
 let g:table_mode_map_prefix = 'invalid'
 au FileType markdown nn <buffer> <leader>t :TableModeToggle<cr>
@@ -280,7 +267,6 @@ au FileType perl6 nn <buffer> <leader>t :!time perl6 % <input<cr>
 
 " Python
 " NOTE: DONT USE pyenv
-Plug 'vim-python/python-syntax'
 let g:python_highlight_all = 1
 au FileType python nn <buffer> <leader>r :!time python %<cr>
 au FileType python nn <buffer> <leader>t :!time python % <input<cr>
@@ -312,7 +298,6 @@ if executable('pyls')
 endif
 
 " PlantUML
-Plug 'vim-scripts/plantuml-syntax'
 au BufRead,BufNewFile *.uml set filetype=plantuml
 
 function! CompileUML()
@@ -392,6 +377,7 @@ au FileType rust nn <buffer> <leader>g :call CompileRust(0)<cr>
 au FileType rust nn <buffer> <leader>G :call CompileRust(1)<cr>
 au FileType rust nn <buffer> <leader>r :call RunRust(0)<cr>
 au FileType rust nn <buffer> <leader>t :call RunRust(1)<cr>
+au FileType rust nn <buffer> gd :LspDefinition<cr>
 let g:rustfmt_autosave = 1
 
 " Rust Ale
@@ -421,7 +407,6 @@ au FileType sed nn <buffer> <leader>r :!sed -f % <cr>
 au FileType sed nn <buffer> <leader>t :!sed -f % <input<cr>
 
 " Scala
-Plug 'derekwyatt/vim-scala'
 au BufRead,BufNewFile *.scala set filetype=scala
 au FileType scala set makeprg=make
 au FileType scala nn <buffer> <leader>r :!scala -feature -deprecation %<cr>
@@ -434,10 +419,8 @@ au FileType scheme nn <buffer> <leader>r :!gosh -l ./%<cr>
 au FileType scheme nn <buffer> <leader>t :!time gosh ./% <input<cr>
 
 " TypeScript
-Plug 'leafgarland/typescript-vim'
 au FileType typescript nn <buffer> <leader>r :!deno run -A %<cr>
 
 " YAML (yaml, yml) for ansible
 au BufRead,BufNewFile *.yml set filetype=yaml.ansible
 au FileType yaml.ansible set tabstop=2 shiftwidth=2 softtabstop=2
-Plug 'pearofducks/ansible-vim'
