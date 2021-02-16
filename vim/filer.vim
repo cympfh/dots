@@ -12,24 +12,24 @@ nn <silent> <leader>d :let @d=expand("%:h")<cr>:echo "DIR ".@d<cr>
 nn <silent> <leader>D :let @d=expand("%:p:h")<cr>:echo "DIR ".@d<cr>
 nn <silent> gn :tabedit <c-r>=expand('<cfile>')<cr><cr>
 
-" file searching
-function s:FileGrepHere(keyword)
-    cexpr system('grep -n ' . a:keyword . ' **/* 2>/dev/null | grep -v "^Binary file "')
-    call setqflist([], 'a', {'title' : 'grep ' . a:keyword})
+" grep
+function s:Grep(keyword)
+    let _git_status = system("git status")
+    if v:shell_error == 0
+        cexpr system('git grep -n ' . a:keyword . ' **/* 2>/dev/null')
+        call setqflist([], 'a', {'title' : 'git grep ' . a:keyword})
+    elseif executable("rg")
+        cexpr system('rg --vimgrep ' . a:keyword . ' 2>/dev/null | grep -v "^Binary file "')
+        call setqflist([], 'a', {'title' : 'ripgrep ' . a:keyword})
+    else
+        cexpr system('grep -n ' . a:keyword . ' **/* 2>/dev/null | grep -v "^Binary file "')
+        call setqflist([], 'a', {'title' : 'grep ' . a:keyword})
+    endif
     copen
     let g:copend = 1
 endfunction
-command! -nargs=1 Grep :call <sid>FileGrepHere(<f-args>)
-nnoremap <c-g><c-f> :Grep 
-
-function s:GitGrepHere(keyword)
-    cexpr system('git grep -n ' . a:keyword . ' **/* 2>/dev/null')
-    call setqflist([], 'a', {'title' : 'git grep ' . a:keyword})
-    copen
-    let g:copend = 1
-endfunction
-command! -nargs=1 GitGrep :call <sid>GitGrepHere(<f-args>)
-nnoremap <c-g><c-g> :GitGrep 
+command! -nargs=1 Grep :call <sid>Grep(<f-args>)
+nnoremap <c-g><c-g> :Grep 
 
 " Filer by Ranger
 let g:ranger_map_keys = 0
