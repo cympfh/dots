@@ -379,6 +379,7 @@ au FileType rust nn <buffer> <leader>r :call RunRust(0)<cr>
 au FileType rust nn <buffer> <leader>t :call RunRust(1)<cr>
 au FileType rust nn <buffer> gd :LspDefinition<cr>
 let g:rustfmt_autosave = 1
+au FileType rust nn <buffer> <c-g><c-i> :RustFmt<cr>
 
 " Rust Ale
 " rustup component add rls rust-analysis rust-src rustfmt
