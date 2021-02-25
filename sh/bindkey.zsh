@@ -1,5 +1,6 @@
 bindkey -d
 bindkey -v
+bindkey '^[[Z' reverse-menu-complete
 
 #
 # cd
