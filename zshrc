@@ -20,6 +20,7 @@ setopt nonomatch
 setopt vi
 export EDITOR='vim'
 export ANSIBLE_NOCOWS=1
+export HF_DIR=$HOME/Dropbox/hf/
 
 source ~/.dots/sh/path.sh
 source ~/.dots/sh/fzf.sh
