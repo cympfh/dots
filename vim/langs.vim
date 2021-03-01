@@ -419,6 +419,14 @@ au FileType sbt set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 au FileType scheme nn <buffer> <leader>r :!gosh -l ./%<cr>
 au FileType scheme nn <buffer> <leader>t :!time gosh ./% <input<cr>
 
+" SQL
+function! s:SQLFmt()
+  let pos = getpos('.')
+  :%!sqlformat --reindent --keywords upper --identifiers lower -
+  call setpos('.', pos)
+endfunction
+au FileType sql nn <buffer> <c-g><c-i> :call <sid>SQLFmt()<cr>
+
 " TypeScript
 au FileType typescript nn <buffer> <leader>r :!deno run -A %<cr>
 
