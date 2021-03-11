@@ -93,3 +93,26 @@ checkout-branch() {
 }
 zle -N checkout-branch
 bindkey "^G^G" checkout-branch
+
+#
+# k8s
+#
+checkout-k8s-context() {
+  SELECTED=$(kubectl config get-contexts | peco | awk '{print $1}')
+  case "$SELECTED" in
+    CURRENT )
+      echo "???"
+      ;;
+    "*" )
+      echo "Hmm"
+      ;;
+    "" )
+      echo "Canceled"
+      ;;
+    * )
+      kubectl config use-context "$SELECTED"
+      ;;
+  esac
+}
+zle -N checkout-k8s-context
+bindkey "^Gk" checkout-k8s-context
