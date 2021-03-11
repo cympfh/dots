@@ -25,6 +25,7 @@ let g:lsp_documentation_float = 0
 let g:lsp_hover_conceal = 0
 let g:lsp_signature_help_enabled = 0
 imap <c-o> <Plug>(asyncomplete_force_refresh)
+nmap <buffer> K <plug>(lsp-hover)
 
 " Emmet
 let g:user_emmet_leader_key = '<c-g>'
