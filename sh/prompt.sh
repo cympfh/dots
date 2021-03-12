@@ -2,7 +2,7 @@ setopt prompt_subst
 autoload -U colors; colors
 
 PROMPT="
-\`prompt-time\` \`prompt-host\`\`prompt-pwd\`\`prompt-git-status\`
+\`prompt-time\` \`prompt-host\`\`prompt-pwd\`\`prompt-git-status\`\`prompt-k8s-context\`
    "
 
 COLOR_BLUE=81
@@ -49,6 +49,15 @@ prompt-git-status() {
 
     prompt-colon
     echo -n "$statuscolor$branchname%f"
+}
+
+prompt-k8s-context() {
+    if [ ${PWD} == ${HOME} ] && ( which kubectl >/dev/null ); then
+        prompt-colon
+        echo -n "%F{$COLOR_GRAY}"
+        kubectl config current-context | tr -d '\n'
+        echo -n "%f"
+    fi
 }
 
 TMOUT=10
