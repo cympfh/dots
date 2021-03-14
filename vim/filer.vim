@@ -1,3 +1,5 @@
+nn <silent> gn :tabedit <c-r>=expand('<cfile>')<cr><cr>
+
 " Filer
 let g:ranger_map_keys = 0
 let g:ranger_replace_netrw = 1
