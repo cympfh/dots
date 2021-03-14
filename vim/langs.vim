@@ -364,7 +364,12 @@ endfunction
 function! RunRust(k)
   if g:rust_cargo == 1
     if a:k == 0
-      :!time cargo run
+      if expand("%") =~ "src/bin/.*.rs"
+        let binname = matchlist(expand("%"), 'src/bin/\(.*\).rs')[1]
+        exe ':!time cargo run --bin ' . binname
+      else
+        :!time cargo run
+      endif
     else
       :!time cargo run < input
     endif
