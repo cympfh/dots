@@ -9,9 +9,6 @@ Plug 'dense-analysis/ale'
 nn [ :ALEPrevious<cr>
 nn ] :ALENext<cr>
 
-" <c-g> Alias
-nmap <c-g><c-t> <leader>T
-
 " Language Server
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
@@ -37,8 +34,9 @@ Plug 'mattn/emmet-vim'
 """ Languages
 "
 
-" Default
-nn <buffer> <leader>T :terminal<cr>
+" Default Terminal
+nn <leader>T :terminal<cr>
+nn <c-g><c-t> :terminal<cr>
 
 " Makefile
 setlocal expandtab
