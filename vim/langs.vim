@@ -183,6 +183,7 @@ au FileType haskell set dictionary+=~/.dots/vim/dict/haskell
 Plug 'autowitch/hive.vim'
 au BufRead,BufNewFile *.hive set filetype=hive
 au FileType hive nn <buffer> <leader>r :!time hive %<cr>
+au FileType hive nn <buffer> <c-g><c-i> :call <sid>SQLFmt()<cr>
 
 " HTML
 au FileType html set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
