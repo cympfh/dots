@@ -24,3 +24,5 @@ function! Ctoggle()
   end
 endfunction
 nn <bs> :call Ctoggle()<cr>
+nmap <c-g><c-n> :cnext<cr>
+nmap <c-g><c-p> :cprevious<cr>
