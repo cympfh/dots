@@ -18,5 +18,6 @@ shpath add user $HOME/git/mline/bin
 shpath add user $HOME/test/bin
 shpath add user $HOME/git/morph/bin
 shpath add user $HOME/git/hf/bin
+shpath add user $HOME/git/ac/bin
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
