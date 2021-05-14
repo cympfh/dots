@@ -1,11 +1,18 @@
 nn <silent> gn :tabedit <c-r>=expand('<cfile>')<cr><cr>
 
+" File Operations
+nn <silent> <c-f>f :let @f=expand("%")<cr>:echo "COPIED FILE ".@f<cr>
+nn <silent> <c-f>d :let @f=expand("%:h")<cr>:echo "COPIED DIR ".@f<cr>
+nn <silent> <c-f>t :tabedit <c-r>=expand("%")<cr><cr>
+nmap <silent> <c-f><c-f> <c-f>f
+nmap <silent> <c-f><c-d> <c-f>d
+nmap <silent> <c-f><c-t> <c-f>t
+
 " Filer
 let g:ranger_map_keys = 0
 let g:ranger_replace_netrw = 1
 Plug 'francoiscabrol/ranger.vim'
-nnoremap <tab> :RangerCurrentFile<cr>
-nnoremap <s-tab> :RangerCurrentFileNewTab<cr>
+nnoremap <c-f>. :RangerCurrentFile<cr>
 
 " grep
 function s:Grep(keyword)
