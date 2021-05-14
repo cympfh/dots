@@ -40,5 +40,6 @@ source ~/.dots/sh/syntax-hightlight.sh
 source ~/.dots/sh/mru/hook.zsh
 source ~/.dots/sh/mac.sh
 source ~/.dots/sh/locale.sh
+source ~/.dots/sh/linuxbrew.sh
 
 shpath refresh
