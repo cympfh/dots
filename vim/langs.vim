@@ -6,8 +6,6 @@ set complete+=k
 
 " Linter
 Plug 'dense-analysis/ale'
-nn [ :ALEPrevious<cr>
-nn ] :ALENext<cr>
 
 " Language Server
 Plug 'prabirshrestha/async.vim'
