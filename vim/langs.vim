@@ -35,7 +35,6 @@ Plug 'mattn/emmet-vim'
 "
 
 " Default Terminal
-nn <leader>T :terminal<cr>
 nn <c-g><c-t> :terminal<cr>
 
 " Makefile
@@ -91,7 +90,7 @@ Plug 'jvoorhis/coq.vim'
 au BufRead,BufNewFile *.v set filetype=coq
 au FileType coq nn <buffer> <leader>g :!time coqc %<cr>
 au FileType coq nn <buffer> <leader>r :!time coqtop < % 2>/dev/null<cr>
-au FileType coq nn <buffer> <leader>T :terminal coqtop<cr>
+au FileType coq nn <buffer> <c-g><c-t> :terminal coqtop<cr>
 au FileType coq setlocal dictionary+=~/.dots/vim/dict/coq
 au FileType coq set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
@@ -159,7 +158,7 @@ au FileType go nn <buffer> <leader>r :!./%:r.exe<cr>
 au BufRead,BufNewFile *.gp set filetype=gnuplot
 au BufRead,BufNewFile *.plt set filetype=gnuplot
 au FileType gnuplot nn <buffer> <leader>g :!gnuplot %<cr>
-au FileType gnuplot nn <buffer> <leader>T :terminal gnuplot<cr>
+au FileType gnuplot nn <buffer> <c-g><c-t> :terminal gnuplot<cr>
 fun! OpenGPImage()
   let f=system("cat ".expand("%")."|grep output|awk '{print $3}'|tr -d '\"'|tr -d \"'\"")
   if has('mac')
@@ -191,7 +190,7 @@ au FileType html set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 " Hy
 Plug 'cympfh/vim-hy'
 au FileType hy nn <buffer> <leader>r :!time hy %<cr>
-au FileType hy nn <buffer> <leader>T :terminal hy<cr>
+au FileType hy nn <buffer> <c-g><c-t> :terminal hy<cr>
 
 " J
 au BufRead,BufNewFile *.j  set filetype=j
@@ -208,7 +207,7 @@ Plug 'JuliaEditorSupport/julia-vim'
 au BufRead,BufNewFile *.jl set filetype=julia
 au FileType julia nn <buffer> <leader>r :!time julia %<cr>
 au FileType julia nn <buffer> <leader>t :!time julia % <input<cr>
-au FileType julia nn <buffer> <leader>T :terminal julia<cr>
+au FileType julia nn <buffer> <c-g><c-t> :terminal julia<cr>
 
 " Jsonnet
 Plug 'google/vim-jsonnet'
@@ -270,7 +269,7 @@ au FileType perl6 nn <buffer> <leader>t :!time perl6 % <input<cr>
 let g:python_highlight_all = 1
 au FileType python nn <buffer> <leader>r :!time python %<cr>
 au FileType python nn <buffer> <leader>t :!time python % <input<cr>
-au FileType python nn <buffer> <leader>T :terminal ipython --no-autoindent<cr>
+au FileType python nn <buffer> <c-g><c-t> :terminal ipython --no-autoindent<cr>
 au FileType python command! MyPyCheck :let g:ale_linters['python'] += ['mypy']
 au FileType python nn <buffer> gd :LspDefinition<cr>
 
@@ -321,7 +320,7 @@ au FileType r nn <buffer> <leader>r :!time Rscript ./%<cr>
 " Ruby
 au FileType ruby nn <buffer> <leader>r :!time ruby %<cr>
 au FileType ruby nn <buffer> <leader>t :!time ruby % <input<cr>
-au FileType ruby nn <buffer> <leader>T :terminal irb<cr>
+au FileType ruby nn <buffer> <c-g><c-t> :terminal irb<cr>
 au FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 au FileType ruby let g:ale_enabled = 0
 
