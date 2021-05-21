@@ -5,4 +5,4 @@ function! s:evalexpr()
   call setline(line("."), res)
 endfunction
 
-nnoremap E :call <sid>evalexpr()<cr>
+nnoremap <silent> E :call <sid>evalexpr()<cr>
