@@ -17,3 +17,6 @@ nnoremap <c-n> gt
 nn mk :!make<cr>
 nn mc :!make clean<cr>
 nnoremap ! :!
+
+" Open current-file-path in new tab
+nn <silent> gn :tabedit <c-r>=expand('<cfile>')<cr><cr>
