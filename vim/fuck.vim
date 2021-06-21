@@ -16,5 +16,9 @@ nn <silent> <c-f>t :tabedit <c-r>=expand("%")<cr><cr>
 " Ranger
 nn <silent> <c-f>. :RangerCurrentFile<cr>
 
+" fzf
+nn <silent> <c-f>, :tabnew<cr>:Files<cr>
+nn <silent> <c-f>m :tabnew<cr>:History<cr>
+
 " MRU
-nn <silent> <c-f>m :MRU<cr>
+" nn <silent> <c-f>m :MRU<cr>
