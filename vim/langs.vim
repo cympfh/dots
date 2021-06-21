@@ -3,6 +3,7 @@ set complete+=k
 
 " Support Tools
 "
+Plug 'sheerun/vim-polyglot'
 
 " Linter
 Plug 'dense-analysis/ale'
@@ -245,7 +246,6 @@ au FileType lua nn <buffer> <leader>t :!time luajit % <input<cr>
 " Markdown
 au BufRead,BufNewFile *.md set filetype=markdown
 let g:vim_markdown_math = 1
-Plug 'sheerun/vim-polyglot'
 au FileType markdown so ~/.dots/vim/tex.vim
 let g:table_mode_map_prefix = 'invalid'
 au FileType markdown nn <buffer> <leader>t :TableModeToggle<cr>
@@ -261,6 +261,10 @@ Plug 'vim-perl/vim-perl6'
 au BufRead,BufNewFile *.pl set filetype=perl6
 au FileType perl6 nn <buffer> <leader>r :!time perl6 %<cr>
 au FileType perl6 nn <buffer> <leader>t :!time perl6 % <input<cr>
+
+" Prolog
+au FileType prolog nn <buffer> <leader>r :!time swipl -q -O -g main -s %<cr>
+au FileType prolog nn <buffer> <leader>t :!time swipl -q -O -g main -s % <input<cr>
 
 " Python
 " NOTE: DONT USE pyenv
