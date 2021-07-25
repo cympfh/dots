@@ -13,6 +13,7 @@ Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'mattn/vim-lsp-settings'
 let g:asyncomplete_auto_popup = 0
 let g:lsp_diagnostics_enabled = 0
 let g:lsp_textprop_enabled = 0
@@ -435,7 +436,13 @@ au FileType sql nn <buffer> <c-g><c-i> :call <sid>SQLFmt()<cr>
 
 " TypeScript
 au FileType typescript nn <buffer> <leader>r :!deno run -A %<cr>
+au FileType typescript nn <buffer> <c-g><c-i> :Prettier<cr>
 
 " YAML (yaml, yml) for ansible
 au BufRead,BufNewFile *.yml set filetype=yaml.ansible
 au FileType yaml.ansible set tabstop=2 shiftwidth=2 softtabstop=2
+
+" Frontend Misc (svelte)
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
+au FileType svelte nn <buffer> <c-g><c-i> :Prettier<cr>
