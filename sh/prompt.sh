@@ -37,7 +37,7 @@ prompt-git-status() {
         return
     fi
 
-    local branchname=$(git branch 2>/dev/null | grep '*' | sed 's/\* //')
+    local branchname=$(git symbolic-ref --short HEAD)
 
     if [ ! -z "$(git status --short 2>/dev/null)" ]; then  # something to commit
         local statuscolor="%F{$COLOR_RED}"

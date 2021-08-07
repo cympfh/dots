@@ -12,9 +12,9 @@
     default = current
 [alias]
     cl = clone
-    pl = pull
-    ps = push
-    psf = push --force
+    pl = "!echo \\# Pull from origin; git pull origin `git current-branch`"
+    ps = "!echo \\# Push to origin; git push origin `git current-branch`"
+    ameno = commit --amend --no-edit
     st = status
     df = diff
     dfc = diff --cached
@@ -26,8 +26,11 @@
     cp = cherry-pick
     graph = log --graph --abbrev-commit --pretty=oneline
     lg = log
-    gatto = pull up master --rebase
-    ga = pull up master --rebase
+    hash = log --pretty="format:%H" -1
+    current-branch = symbolic-ref --short HEAD
+    pull-origin-rebase = "!echo \\# Pull from origin; git pull origin `git current-branch` --rebase"
+    pull-upstream-rebase = "!echo \\# Pull from upstream; git pull up `git current-branch` --rebase"
+    ga = "!git pull-origin-rebase; git pull-upstream-rebase"
 [color]
     ui = true
 [init]
