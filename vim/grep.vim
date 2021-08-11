@@ -15,4 +15,13 @@ function s:Grep(keyword)
     let g:copend = 1
 endfunction
 command! -nargs=1 Grep :call <sid>Grep(<f-args>)
+command! -nargs=0 Grep :call <sid>Grep(expand("<cword>"))
 nnoremap <c-g><c-g> :Grep 
+
+function s:GrepClear()
+    cexpr system('true')
+    call setqflist([], 'a', {'title' : 'nothing'})
+    cclose
+    let g:copend = 0
+endfunction
+command! -nargs=0 GrepClear :call <sid>GrepClear()
