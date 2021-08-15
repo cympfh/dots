@@ -12,8 +12,8 @@
     default = current
 [alias]
     cl = clone
-    pl = "!echo \\# Pull from origin; git pull origin `git current-branch`"
-    ps = "!echo \\# Push to origin; git push origin `git current-branch`"
+    pl = "!echo \\# Pull from origin/`git current-branch`; git pull origin `git current-branch`"
+    ps = "!echo \\# Push to origin/`git current-branch`; git push origin `git current-branch`"
     ameno = commit --amend --no-edit
     st = status
     df = diff
