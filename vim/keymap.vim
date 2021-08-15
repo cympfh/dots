@@ -1,6 +1,7 @@
 " make invalid
 nnoremap <F1> <nop>
 nnoremap <c-space> <nop>
+map Q <nop>
 
 " Command Mode
 cnoremap <c-p> <up>

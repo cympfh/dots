@@ -1,21 +1,25 @@
 " grep
-function s:Grep(keyword)
+function s:Grep(...)
+    if a:0 >= 1
+        let keyword = a:1
+    else
+        let keyword = expand("<cword>")
+    end
     let _git_status = system("git status")
     if v:shell_error == 0
-        cexpr system('git grep -n ' . a:keyword . ' **/* 2>/dev/null')
-        call setqflist([], 'a', {'title' : 'git grep ' . a:keyword})
+        cexpr system('git grep -n ' . keyword . ' **/* 2>/dev/null')
+        call setqflist([], 'a', {'title' : 'git grep ' . keyword})
     elseif executable("rg")
-        cexpr system('rg --vimgrep ' . a:keyword . ' 2>/dev/null | grep -v "^Binary file "')
-        call setqflist([], 'a', {'title' : 'ripgrep ' . a:keyword})
+        cexpr system('rg --vimgrep ' . keyword . ' 2>/dev/null | grep -v "^Binary file "')
+        call setqflist([], 'a', {'title' : 'ripgrep ' . keyword})
     else
-        cexpr system('grep -n ' . a:keyword . ' **/* 2>/dev/null | grep -v "^Binary file "')
-        call setqflist([], 'a', {'title' : 'grep ' . a:keyword})
+        cexpr system('grep -n ' . keyword . ' **/* 2>/dev/null | grep -v "^Binary file "')
+        call setqflist([], 'a', {'title' : 'grep ' . keyword})
     endif
     copen
     let g:copend = 1
 endfunction
-command! -nargs=1 Grep :call <sid>Grep(<f-args>)
-command! -nargs=0 Grep :call <sid>Grep(expand("<cword>"))
+command! -nargs=? Grep :call <sid>Grep(<f-args>)
 nnoremap <c-g><c-g> :Grep 
 
 function s:GrepClear()
