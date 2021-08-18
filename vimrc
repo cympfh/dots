@@ -39,7 +39,6 @@ source ~/.dots/vim/jump.vim
 
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'codechips/coc-svelte', {'do': 'npm install'}
-Plug 'osyo-manga/vim-brightest'
 
 call plug#end()
 set cryptmethod=blowfish2

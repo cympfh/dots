@@ -24,3 +24,6 @@ function! Ctoggle()
   end
 endfunction
 nn <bs> :call Ctoggle()<cr>
+
+" https://github.com/osyo-manga/vim-brightest
+Plug 'osyo-manga/vim-brightest'
