@@ -28,8 +28,8 @@
     lg = log
     hash = log --pretty="format:%H" -1
     current-branch = symbolic-ref --short HEAD
-    pull-origin-rebase = "!echo \\# Pull from origin; git pull origin `git current-branch` --rebase"
-    pull-upstream-rebase = "!echo \\# Pull from upstream; git pull up `git current-branch` --rebase"
+    pull-origin-rebase = "!echo \\# Pull from origin/`git current-branch`; git pull origin `git current-branch` --rebase"
+    pull-upstream-rebase = "!echo \\# Pull from upstream/`git current-branch`; git pull up `git current-branch` --rebase"
     ga = "!git pull-origin-rebase; git pull-upstream-rebase"
 [color]
     ui = true
