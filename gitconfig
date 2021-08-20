@@ -12,6 +12,7 @@
     default = current
 [alias]
     cl = clone
+    current-branch = symbolic-ref --short HEAD
     pl = "!echo \\# Pull from origin/`git current-branch`; git pull origin `git current-branch`"
     ps = "!echo \\# Push to origin/`git current-branch`; git push origin `git current-branch`"
     ameno = commit --amend --no-edit
@@ -27,9 +28,9 @@
     graph = log --graph --abbrev-commit --pretty=oneline
     lg = log
     hash = log --pretty="format:%H" -1
-    current-branch = symbolic-ref --short HEAD
-    pull-origin-rebase = "!echo \\# Pull from origin/`git current-branch`; git pull origin `git current-branch` --rebase"
-    pull-upstream-rebase = "!echo \\# Pull from upstream/`git current-branch`; git pull up `git current-branch` --rebase"
+    main-branch = "!git branch | grep main >/dev/null && echo main || echo master"
+    pull-origin-rebase = "!echo \\# Pull from origin/`git main-branch`; git pull origin `git main-branch` --rebase"
+    pull-upstream-rebase = "!echo \\# Pull from upstream/`git main-branch`; git pull up `git main-branch` --rebase"
     ga = "!git pull-origin-rebase; git pull-upstream-rebase"
 [color]
     ui = true
