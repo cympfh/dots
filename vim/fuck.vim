@@ -14,11 +14,11 @@ nn <silent> <c-f>d :let @d=expand("%:h")."/"<cr>:echo "COPIED DIR: ".@d<cr>
 nn <silent> <c-f>t :tabedit <c-r>=expand("%")<cr><cr>
 
 " Ranger
-nn <silent> <c-f>. :tabedit <c-r>=expand("%")<cr><cr>:RangerCurrentFile<cr>
+nn <silent> <c-f>. :RangerCurrentFile<cr>
 
 " fzf
-nn <silent> <c-f>, :tabnew<cr>:Files<cr>
-nn <silent> <c-f>m :tabnew<cr>:History<cr>
+nn <silent> <c-f>, :Files<cr>
+nn <silent> <c-f>m :History<cr>
 
 " MRU
 " nn <silent> <c-f>m :MRU<cr>
