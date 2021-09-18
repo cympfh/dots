@@ -391,24 +391,24 @@ au FileType rust nn <buffer> <c-g><c-i> :RustFmt<cr>
 " Rust Ale
 " rustup component add rls rust-analysis rust-src rustfmt
 if g:rust_cargo == 1
-  au FileType rust let g:ale_linters = {'rust': ['rls', 'cargo']}
+  au FileType rust let g:ale_linters = {'rust': ['analyzer']}
 else
   au FileType rust let g:ale_linters = {'rust': ['rustc']}
-  au FileType rust let g:ale_rust_rustc_options = '--edition 2018 '
 endif
+au FileType rust let g:ale_rust_rustc_options = '--edition 2018 '
 au FileType rust let g:ale_fixers = {'rust': ['rustfmt']}
 let g:ale_rust_rls_toolchain = 'stable'
 let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
 
 " Rust Language Server
-if executable('rls')
+if g:rust_cargo == 0 && executable('rls')
   au User lsp_setup call lsp#register_server({
     \ 'name': 'rls',
     \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
     \ 'whitelist': ['rust'],
     \ })
-  au FileType rust nn K :LspHover<cr>
 endif
+au FileType rust nn K :LspHover<cr>
 
 " Sed (sed)
 au FileType sed nn <buffer> <leader>r :!sed -f % <cr>
