@@ -297,6 +297,7 @@ if executable('pyls')
     \ 'cmd': {server_info->['pyls']},
     \ 'whitelist': ['python'],
     \ })
+  au FileType python nn <buffer> K :LspHover<cr>
 endif
 
 " PlantUML
