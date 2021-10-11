@@ -1,3 +1,5 @@
+" Plugins for colorscheme
+
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 
 function s:LoadColorSchemeSafely(name)
@@ -8,3 +10,9 @@ function s:LoadColorSchemeSafely(name)
   endtry
 endfunction
 command! -nargs=1 ColorScheme :call <sid>LoadColorSchemeSafely(<f-args>)
+
+Plug 'tiagovla/tokyodark.nvim'
+
+Plug 'ghifarit53/tokyonight-vim'
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
