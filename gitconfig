@@ -29,7 +29,7 @@
     lg = log
     hash = log --pretty="format:%H" -1
     h = hist
-    main-branch = "!git branch | grep main >/dev/null && echo main || echo master"
+    main-branch = "!git branch | grep gh-pages > /dev/null && echo gh-pages || (git branch | grep main >/dev/null && echo main || echo master)"
     pull-origin-rebase = "!echo \\# Pull from origin/`git main-branch`; git pull origin `git main-branch` --rebase"
     pull-upstream-rebase = "!echo \\# Pull from upstream/`git main-branch`; git pull up `git main-branch` --rebase"
     ga = "!git pull-origin-rebase; git pull-upstream-rebase"
