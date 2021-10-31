@@ -4,6 +4,7 @@ bind " " eval meta "echo 'operating the inner screen...'"
 
 defencoding utf8
 encoding utf8 utf8
+cjkwidth off
 
 # to use 256 colors
 defbce on
