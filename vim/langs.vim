@@ -288,6 +288,8 @@ function! s:PythonFormatten()
     execute ':Black'
 endfunction
 au FileType python nn <c-g><c-i> :call <sid>PythonFormatten()<cr>
+let g:black_linelength = 100
+let g:lsp_document_highlight_enabled = 0
 
 " Python Language Server
 "" pip install python-language-server
@@ -429,9 +431,14 @@ au FileType scheme nn <buffer> <leader>t :!time gosh ./% <input<cr>
 
 " SQL
 function! s:SQLFmt()
-  let pos = getpos('.')
-  :%!sqlformat --reindent --keywords upper --identifiers lower -
-  call setpos('.', pos)
+  if executable('sqlfluff')
+    let pos = getpos('.')
+    :%!sqlfluff fix -f -p 2 - 2>/dev/null; true
+    " :%!sqlformat --reindent --keywords upper --identifiers lower -
+    call setpos('.', pos)
+  else
+    echo "Install sqlfluff"
+  endif
 endfunction
 au FileType sql nn <buffer> <c-g><c-i> :call <sid>SQLFmt()<cr>
 
