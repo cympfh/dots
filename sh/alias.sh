@@ -18,7 +18,7 @@ esac
 
 alias g='git'
 alias vi='vim'
-alias j='vim -c JournalNew'
+alias j='LC_ALL=C vim -c JournalNew'
 alias csvi="vim - -c 'set ft=csv'"
 
 mkcd() {

@@ -35,14 +35,14 @@ precmd_timereport() {
     if (( time_report_waiting == 1 && duration > time_report_threshold_sec )); then
         duration_human=$(sec2htime $duration)
         echo "\`$last_command\` finished [$duration_human]"
-        case $last_command in
-            vi* | less* | more* | man* | zsh* | bash* )
-                :
-                ;;
-            * )
-                timeout 1 notify --title "Finished [$duration_human]" "$last_command" --sound
-                ;;
-        esac
+        # case $last_command in
+        #     vi* | less* | more* | man* | zsh* | bash* )
+        #         :
+        #         ;;
+        #     * )
+        #         timeout 1 notify --title "Finished [$duration_human]" "$last_command" --sound
+        #         ;;
+        # esac
     fi
     time_report_waiting=0
 }
