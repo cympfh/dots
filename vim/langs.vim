@@ -70,6 +70,8 @@ au FileType cpp nn <buffer> <leader>t :!time ./%:r.exe <input<cr>
 " C++ Ale
 au FileType cpp let g:ale_linters = {'cpp': ['gcc']}
 
+" C#
+
 " Calendar
 au BufRead,BufNewFile *.calendar set filetype=calendar
 au FileType calendar set noexpandtab
@@ -412,6 +414,10 @@ if g:rust_cargo == 0 && executable('rls')
     \ })
 endif
 au FileType rust nn K :LspHover<cr>
+
+" Sage
+au BufRead,BufNewFile *.sage set filetype=sage
+Plug 'petRUShka/vim-sage'
 
 " Sed (sed)
 au FileType sed nn <buffer> <leader>r :!sed -f % <cr>
