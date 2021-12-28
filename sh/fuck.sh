@@ -34,11 +34,6 @@ fuck-ssh() {
   echo $SSH_AUTH_SOCK > ~/.ssh/auth.sock
 }
 
-# kill -9
-fuck-kill() {
-  ps aux | peco | awk '{print "kill -9", $2}' | sh
-}
-
 # fire docker containers
 fuck-docker-containers() {
   docker ps -a | awk 'NR>1' | peco | awk '{print "docker stop",$1,"&& docker rm",$1 }' | sh
