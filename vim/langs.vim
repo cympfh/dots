@@ -41,6 +41,9 @@ nn <c-g><c-t> :terminal<cr>
 setlocal expandtab
 au FileType make,calendar setlocal noexpandtab
 
+" Mermaid
+Plug 'chazmcgarvey/vim-mermaid'
+
 " Awk
 au FileType awk nn <buffer> <leader>r :!awk -f %<cr>
 au FileType awk nn <buffer> <leader>t :!awk -f % ./input<cr>
