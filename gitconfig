@@ -21,6 +21,7 @@
     dfc = diff --cached
     cm = commit -m
     cmm = "!git commit -m \"`commit-message`\""
+    A = add .
     ad = add
     br = branch
     ch = checkout
