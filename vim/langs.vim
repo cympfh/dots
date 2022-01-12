@@ -186,8 +186,9 @@ au FileType haskell set dictionary+=~/.dots/vim/dict/haskell
 " Hive
 Plug 'autowitch/hive.vim'
 au BufRead,BufNewFile *.hive set filetype=hive
+au BufRead,BufNewFile *.hive.sql set filetype=hive
 au FileType hive nn <buffer> <leader>r :!time hive %<cr>
-au FileType hive nn <buffer> <c-g><c-i> :call <sid>SQLFmt()<cr>
+au FileType hive nn <buffer> <c-g><c-i> :call <sid>SQLFmt('hive')<cr>
 
 " HTML
 au FileType html set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
@@ -438,18 +439,22 @@ au FileType sbt set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 au FileType scheme nn <buffer> <leader>r :!gosh -l ./%<cr>
 au FileType scheme nn <buffer> <leader>t :!time gosh ./% <input<cr>
 
+" Snowflake
+au BufRead,BufNewFile *.snowsql set filetype=sql.snowflake
+au BufRead,BufNewFile *.snow.sql set filetype=sql.snowflake
+au FileType sql.snowflake nn <buffer> <c-g><c-i> :call <sid>SQLFmt('snowflake')<cr>
+
 " SQL
-function! s:SQLFmt()
+function! s:SQLFmt(dialect)
   if executable('sqlfluff')
     let pos = getpos('.')
-    :%!sqlfluff fix -f -p 2 - 2>/dev/null; true
-    " :%!sqlformat --reindent --keywords upper --identifiers lower -
+    exe ':%! sqlfluff fix --dialect ' . a:dialect . ' -f --disable_progress_bar - 2>/dev/null; true'
     call setpos('.', pos)
   else
     echo "Install sqlfluff"
   endif
 endfunction
-au FileType sql nn <buffer> <c-g><c-i> :call <sid>SQLFmt()<cr>
+au FileType sql nn <buffer> <c-g><c-i> :call <sid>SQLFmt('ansi')<cr>
 
 " TypeScript
 au FileType typescript nn <buffer> <leader>r :!deno run -A %<cr>
