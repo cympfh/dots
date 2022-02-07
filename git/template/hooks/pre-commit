@@ -1,9 +1,12 @@
 #!/bin/bash
 
-username=$(git config --local user.name)
-if [ -z "$username" ]; then
-    echo "No name found."
-    echo "git config --local user.name <NAME>"
-    echo "git config --local user.email <NAME>"
+if [ ! "$(git config --local user.name)" ] && [ "$(git config user.name)" = whoami ]; then
+    cat <<EOM >&2
+*** Who are you?
+
+Hint:
+    git config --local user.name <NAME>
+    git config --local user.email <EMAIL>
+EOM
     exit 1
 fi

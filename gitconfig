@@ -1,15 +1,16 @@
 [user]
-    ui = color
     name = whoami
-    email = whose@mail.ai
-[user.cympfh]
-    name = cympfh
-    email = cympfh@gmail.com
-[user.khattori]
-    name = khattori
-    email = kazuhiro_hattori@dwango.co.jp
+    email = none@example.com
+
+[includeIf "gitdir:~/git/"]
+    path = ~/.dots/git/users/cympfh.git
+
+[includeIf "gitdir:~/dw/"]
+    path = ~/.dots/git/users/khattori.git
+
 [push]
     default = current
+
 [alias]
     cl = clone
     current-branch = symbolic-ref --short HEAD
@@ -34,14 +35,18 @@
     pull-origin-rebase = "!echo \\# Pull from origin/`git main-branch`; git pull origin `git main-branch` --rebase"
     pull-upstream-rebase = "!echo \\# Pull from upstream/`git main-branch`; git pull up `git main-branch` --rebase"
     ga = "!git pull-origin-rebase; git pull-upstream-rebase"
+
 [color]
     ui = true
+
 [init]
     templatedir = ~/.dots/git/template
+
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
+
 [core]
     excludesfile = ~/.gitignore
