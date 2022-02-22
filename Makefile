@@ -1,4 +1,4 @@
-.PHONY: vim screen zsh i3 git tmux
+.PHONY: feh vim screen bash zsh i3 git input tmux help
 PWD_TILDE=$(shell pwd | sed "s,^${HOME},\\\\~,g")
 
 ## feh config
@@ -39,10 +39,6 @@ git:
 ## link .inputrc
 input:
 	ln -s $(PWD)/inputrc ~/.inputrc
-
-## link .chunkwmrc
-chunkwm:
-	ln -s $(PWD)/chunkwmrc ~/.chunkwmrc
 
 ## link .tmux.conf
 tmux:
