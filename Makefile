@@ -1,4 +1,4 @@
-.PHONY: vim screen zsh i3 git
+.PHONY: vim screen zsh i3 git tmux
 PWD_TILDE=$(shell pwd | sed "s,^${HOME},\\\\~,g")
 
 ## feh config
@@ -43,6 +43,10 @@ input:
 ## link .chunkwmrc
 chunkwm:
 	ln -s $(PWD)/chunkwmrc ~/.chunkwmrc
+
+## link .tmux.conf
+tmux:
+	ln -s $(PWD)/tmux/conf ~/.tmux.conf
 
 .DEFAULT_GOAL := help
 
