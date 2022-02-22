@@ -26,9 +26,13 @@ set -g window-status-current-format $window_status_current_format
 
 # pane
 bind-key 'S' split-window -c "#{pane_current_path}"
-bind-key '|'   split-window -h -c "#{pane_current_path}"
-bind-key t   new-window -c "#{pane_current_path}"
+bind-key '|' split-window -h -c "#{pane_current_path}"
+bind-key c new-window -c "#{pane_current_path}"
 bind-key Q resize-pane -Z
+bind-key C-h select-pane -L
+bind-key C-j select-pane -D
+bind-key C-k select-pane -U
+bind-key C-l select-pane -R
 
 # status bar
 set -g status-left-length 20
