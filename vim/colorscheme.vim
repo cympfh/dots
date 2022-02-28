@@ -2,6 +2,10 @@
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'tiagovla/tokyodark.nvim'
 Plug 'ghifarit53/tokyonight-vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'jacoborus/tender.vim'
+Plug 'yasukotelin/shirotelin'
+Plug 'sainnhe/edge'
 
 function s:LoadColorSchemeSafely(name)
   try
