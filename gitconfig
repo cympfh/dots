@@ -19,7 +19,7 @@
     ameno = commit --amend --no-edit
     st = status
     df = diff
-    dfc = diff --cached
+    vimdiff = difftool --tool=vimdiff --no-prompt
     cm = commit -m
     cmm = "!git commit -m \"`commit-message`\""
     A = add .
