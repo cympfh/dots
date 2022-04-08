@@ -207,6 +207,14 @@ Plug 'pangloss/vim-javascript'
 au FileType javascript nn <buffer> <leader>r :!time node %<cr>
 au FileType javascript nn <buffer> <leader>t :!node % <input<cr>
 au FileType javascript set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+function! s:JavaScriptFormatten()
+  if executable('rome')
+    :! rome format % --indent-style space
+  else
+    echo "Not found any formatter!!"
+  endif
+endfunction
+au FileType javascript nn <c-g><c-i> :call <sid>JavaScriptFormatten()<cr>
 
 " Julia
 Plug 'JuliaEditorSupport/julia-vim'
