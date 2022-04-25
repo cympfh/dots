@@ -11,9 +11,6 @@ git-config-khattori() {
   git-config-user khattori kazuhiro_hattori@dwango.co.jp
 }
 
-fuck-git-branches() {
-}
-
 checkout-branch() {
     COMMAND=$(
         (
