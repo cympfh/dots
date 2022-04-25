@@ -469,8 +469,8 @@ au FileType typescript nn <buffer> <leader>r :!deno run -A %<cr>
 au FileType typescript nn <buffer> <c-g><c-i> :Prettier<cr>
 
 " YAML (yaml, yml) for ansible
-au BufRead,BufNewFile *.yml set filetype=yaml.ansible
-au FileType yaml.ansible set tabstop=2 shiftwidth=2 softtabstop=2
+au BufRead,BufNewFile *.yml set filetype=yaml.jinja2
+au FileType yaml.jinja2 set tabstop=2 shiftwidth=2 softtabstop=2
 
 " Frontend Misc (svelte)
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
