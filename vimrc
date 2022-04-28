@@ -31,7 +31,6 @@ source ~/.dots/vim/eng.vim
 source ~/.dots/vim/statusline.vim
 source ~/.dots/vim/filer.vim
 source ~/.dots/vim/grep.vim
-source ~/.dots/vim/fuck.vim
 source ~/.dots/vim/misc.vim
 source ~/.dots/vim/colorscheme.vim
 source ~/.dots/vim/calc.vim
