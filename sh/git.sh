@@ -12,6 +12,11 @@ git-config-khattori() {
 }
 
 checkout-branch() {
+    if ! ( git status 2>/dev/null 1>&2 ); then
+        echo "You are not on Git"
+        zle reset-prompt
+        return
+    fi
     COMMAND=$(
         (
           echo "🌳 newbranch"
@@ -36,4 +41,3 @@ checkout-branch() {
 }
 zle -N checkout-branch
 bindkey "^G^G" checkout-branch
-
