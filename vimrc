@@ -33,7 +33,6 @@ source ~/.dots/vim/filer.vim
 source ~/.dots/vim/grep.vim
 source ~/.dots/vim/misc.vim
 source ~/.dots/vim/colorscheme.vim
-source ~/.dots/vim/calc.vim
 source ~/.dots/vim/jump.vim
 
 call plug#end()
