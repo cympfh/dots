@@ -42,6 +42,6 @@ source $ZPLUGDIR/mru/hook.zsh
 source $ZPLUGDIR/windows.sh
 source $ZPLUGDIR/locale.sh
 source $ZPLUGDIR/linuxbrew.sh
+source $HOME/Dropbox/share/kirara
 
 shpath refresh
-[ -f ~/Dropbox/share/kirara ] && source ~/Dropbox/share/kirara
