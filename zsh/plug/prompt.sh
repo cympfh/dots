@@ -1,5 +1,4 @@
 setopt prompt_subst
-autoload -U colors; colors
 
 PROMPT="
 \`prompt-time\` \`prompt-host\`\`prompt-pwd\`\`prompt-git-status\`\`prompt-k8s-context\`

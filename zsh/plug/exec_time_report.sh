@@ -47,6 +47,5 @@ precmd_timereport() {
     time_report_waiting=0
 }
 
-autoload -Uz add-zsh-hook
 add-zsh-hook precmd precmd_timereport
 add-zsh-hook preexec preexec_lastcommand

@@ -30,3 +30,7 @@ shpath add user-prior ./.venv/bin
 
 ## Rust
 shpath add user $HOME/.cargo/bin
+
+# Wasmer
+export WASMER_DIR="$HOME/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"

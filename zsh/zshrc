@@ -1,0 +1,47 @@
+source $ZPLUGDIR/autoload.zsh
+source $ZPLUGDIR/bindkey.zsh
+source $ZPLUGDIR/shell-path-manager.zsh
+
+shpath init
+
+# completion
+fpath=($ZDOTDIR/completion $fpath)
+compinit  # This is slow but need.
+setopt list_packed
+setopt complete_in_word
+unsetopt correct_all
+zstyle ':completion:*' list-colors "${LS_COLORS}"
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*:default' menu select=1
+zstyle ':completion::complete:*' use-cache true
+
+setopt interactivecomments
+setopt noflowcontrol
+setopt nonomatch
+setopt vi
+export EDITOR='vim'
+export ANSIBLE_NOCOWS=1
+export HF_DIR=$HOME/Dropbox/hf/
+
+source $ZPLUGDIR/path.sh
+source $ZPLUGDIR/fzf.sh
+source $ZPLUGDIR/prompt.sh
+source $ZPLUGDIR/exec_time_report.sh
+source $ZPLUGDIR/langs.sh
+source $ZPLUGDIR/procon.sh
+source $ZPLUGDIR/dict.sh
+source $ZPLUGDIR/alias.sh
+source $ZPLUGDIR/fuck.sh
+source $ZPLUGDIR/calendar.sh
+source $ZPLUGDIR/history.sh
+source $ZPLUGDIR/screen.sh
+source $ZPLUGDIR/git.sh
+source $ZPLUGDIR/interpreter.sh
+source $ZPLUGDIR/syntax-hightlight.sh
+source $ZPLUGDIR/mru/hook.zsh
+source $ZPLUGDIR/windows.sh
+source $ZPLUGDIR/locale.sh
+source $ZPLUGDIR/linuxbrew.sh
+
+shpath refresh
+[ -f ~/Dropbox/share/kirara ] && source ~/Dropbox/share/kirara
