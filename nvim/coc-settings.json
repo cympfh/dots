@@ -1,4 +1,6 @@
 {
   "python.formatting.provider": "black",
+  "python.formatting.blackPath": "~/.local/bin/black",
   "python.analysis.diagnosticMode": "workspace",
+  "coc.preferences.formatOnSaveFiletypes": ["python", "rust"]
 }

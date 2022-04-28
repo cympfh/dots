@@ -21,12 +21,12 @@ let g:airline_section_z = 'L%l:%c'
 
 "" coc
 let g:coc_global_extensions = ['coc-pyright', 'coc-rust-analyzer']
-nnoremap <silent> <c-g><c-i> <Plug>(coc-format)
-nnoremap <silent> gd :call CocAction('jumpDefinition', 'tabe')<CR>
-nnoremap <silent> gD <Plug>(coc-references)
-nnoremap <silent> K :call CocAction('doHover')<CR>
-nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+nnoremap <silent> <c-g><c-i> :call CocAction('format')<cr>
+nnoremap <silent> gd :call CocAction('jumpDefinition', 'tabe')<cr>
+nnoremap <silent> gD :call CocAction('jumpReferences')<cr>
+nnoremap <silent> K :call CocAction('doHover')<cr>
+nnoremap <nowait><expr> <c-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<c-f>"
+nnoremap <nowait><expr> <c-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<c-b>"
 
 "" colortheme
 set background=dark
