@@ -1,3 +1,5 @@
+export SCREENDIR=$HOME/.screen
+
 if [ "$STY" ]; then
     preexec() {
       echo -ne "\ek$1\e\\"

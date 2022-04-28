@@ -24,8 +24,10 @@ bash:
 
 ## set .zshrc
 zsh:
-	[ -f ~/.zshrc ] || echo source $(PWD_TILDE)/zshrc >> ~/.zshrc
-	ln -s ~/.dots/zlogout ~/.zlogout
+	mkdir -p ~/.config/zsh
+	ln -sf ~/.dots/zsh/zshenv ~/.zshenv
+	ln -sf ~/.dots/zsh/zlogout ~/.config/zsh/.zlogout
+	echo source $(PWD_TILDE)/zsh/zshrc >> ~/.config/zsh/.zshrc
 
 ## cp .i3/config
 i3:
