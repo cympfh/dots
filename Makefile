@@ -1,4 +1,4 @@
-.PHONY: feh vim screen bash zsh i3 git input tmux help
+.PHONY: feh vim screen bash zsh i3 git input tmux help nvim
 PWD_TILDE=$(shell pwd | sed "s,^${HOME},\\\\~,g")
 
 ## feh config
@@ -43,6 +43,14 @@ input:
 ## link .tmux.conf
 tmux:
 	ln -s $(PWD)/tmux/conf ~/.tmux.conf
+
+## link ~/.config/nvim, coc, vim-plug
+nvim:
+	ln -s $(PWD)/nvim ~/.config/nvim
+	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	nvim -u ~/.config/nvim/init.vim +PlugInstall +qall
+	nvim -u ~/.config/nvim/init.vim +CocUpdateSync +qall
 
 .DEFAULT_GOAL := help
 
