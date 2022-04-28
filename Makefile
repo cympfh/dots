@@ -27,7 +27,7 @@ zsh:
 	mkdir -p ~/.config/zsh
 	ln -sf ~/.dots/zsh/zshenv ~/.zshenv
 	ln -sf ~/.dots/zsh/zlogout ~/.config/zsh/.zlogout
-	echo source \~/.dots/zsh/zshrc >> ~/.config/zsh/.zshrc
+	echo source $(PWD_TILDE)/zsh/zshrc >> ~/.config/zsh/.zshrc
 
 ## cp .i3/config
 i3:
