@@ -1,7 +1,6 @@
 Plug 'cympfh/journal.vim'
 Plug 'vim-scripts/renamer.vim'
 Plug 'tpope/vim-sleuth'
-" Plug 'vim-scripts/speeddating.vim'
 
 " MRU
 let MRU_Max_Entries = 1000

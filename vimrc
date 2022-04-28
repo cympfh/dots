@@ -36,8 +36,6 @@ source ~/.dots/vim/misc.vim
 source ~/.dots/vim/colorscheme.vim
 source ~/.dots/vim/calc.vim
 source ~/.dots/vim/jump.vim
-source ~/.dots/vim/jump.vim
-source ~/.dots/vim/slack_memo.vim
 
 call plug#end()
 set cryptmethod=blowfish2
