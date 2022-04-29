@@ -2,5 +2,6 @@
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "~/.local/bin/black",
   "python.analysis.diagnosticMode": "workspace",
+  "signature.target": "echo",
   "coc.preferences.formatOnSaveFiletypes": ["python", "rust"]
 }

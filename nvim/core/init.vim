@@ -1,5 +1,4 @@
-set number
-set nohlsearch
+set number nohlsearch nowrap expandtab autoindent smartindent smarttab
 set foldlevel=0 foldmethod=marker
 set undodir=~/.cache/neovim/undo undofile
 let mapleader="-"
@@ -25,7 +24,7 @@ let g:airline_section_y = ''
 let g:airline_section_z = 'L%l:%c'
 
 " coc
-let g:coc_global_extensions = ['coc-pyright', 'coc-rust-analyzer']
+let g:coc_global_extensions = ['coc-pyright', 'coc-rust-analyzer', 'coc-markdownlint']
 nnoremap <silent> <c-g><c-i> :call CocAction('format')<cr>
 nnoremap <silent> gd :call CocAction('jumpDefinition', 'tabe')<cr>
 nnoremap <silent> gD :call CocAction('jumpReferences')<cr>
