@@ -49,4 +49,7 @@ nnoremap <silent> <c-g>p :r !clip -o<cr>
 " Vim Compatible Plugins
 source ~/.dots/vim/grep.vim
 source ~/.dots/vim/keymap.vim
-source ~/.dots/nvim/core/filer.vim
+
+" NVim Plugins
+source ~/.dots/nvim/core/filer.nvim
+source ~/.dots/nvim/core/snippet_rs.nvim
