@@ -1,6 +1,7 @@
 fun! s:SnippetRs()
   let s:cmd = '~/git/cympfh.github.io/procon/procon-rs/bin/snippet-rs'
   let s:tmp = '/tmp/snippet-rs-out'
+  let s:currentfile = expand('%:p')
   let buf = nvim_create_buf(v:false, v:true)
   call nvim_open_win(buf, v:true, {
         \ 'relative': 'cursor',
@@ -22,7 +23,7 @@ fun! s:SnippetRs()
     exe ':read ' . s:tmp
     write
   endfunction
-  call termopen(s:cmd . ' > ' . s:tmp, term)
+  call termopen(s:cmd . ' --ref ' . s:currentfile . ' > ' . s:tmp, term)
   setlocal nospell bufhidden=wipe nobuflisted nonumber
   startinsert
   return []
