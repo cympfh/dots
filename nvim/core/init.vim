@@ -54,5 +54,5 @@ source ~/.dots/vim/grep.vim
 source ~/.dots/vim/keymap.vim
 
 " NVim Plugins
-source ~/.dots/nvim/core/filer.nvim
-source ~/.dots/nvim/core/snippet_rs.nvim
+source ~/.dots/nvim/core/filer.vim
+source ~/.dots/nvim/core/snippet_rs.vim
