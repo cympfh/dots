@@ -1,7 +1,17 @@
 {
-  "python.formatting.provider": "black",
-  "python.formatting.blackPath": "~/.local/bin/black",
-  "python.analysis.diagnosticMode": "workspace",
+  "coc.preferences.formatOnSaveFiletypes": ["python", "rust"],
   "signature.target": "echo",
-  "coc.preferences.formatOnSaveFiletypes": ["python", "rust"]
+  "diagnostic": {
+    "warningSign": "❓",
+    "messageTarget": "echo",
+  },
+  "python": {
+    "formatting.provider": "black",
+    "formatting.blackPath": "~/.local/bin/black",
+    "analysis.diagnosticMode": "workspace",
+  },
+  "translator": {
+    "toLang": "ja",
+    "engines": ["google"],
+  },
 }
