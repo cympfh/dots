@@ -14,13 +14,6 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'mattn/vim-lsp-settings'
-let g:asyncomplete_auto_popup = 0
-let g:lsp_diagnostics_enabled = 0
-let g:lsp_textprop_enabled = 0
-let g:lsp_preview_float = 1
-let g:lsp_documentation_float = 0
-let g:lsp_hover_conceal = 0
-let g:lsp_signature_help_enabled = 0
 imap <c-o> <Plug>(asyncomplete_force_refresh)
 nmap <buffer> K <plug>(lsp-hover)
 
@@ -358,7 +351,6 @@ endif
 " Rust
 Plug 'rust-lang/rust.vim'
 au BufRead,BufNewFile *.rs set filetype=rust
-au FileType rust normal zM
 if filereadable("Cargo.toml")
   let g:rust_cargo = 1
 else
@@ -397,11 +389,11 @@ function! RunRust(k)
     :!time ./%:r.exe < input
   endif
 endfunction
-au FileType rust nn <buffer> <leader>g :call CompileRust(0)<cr>
-au FileType rust nn <buffer> <leader>G :call CompileRust(1)<cr>
-au FileType rust nn <buffer> <leader>r :call RunRust(0)<cr>
-au FileType rust nn <buffer> <leader>t :call RunRust(1)<cr>
-au FileType rust nn <buffer> gd :LspDefinition<cr>
+au FileType rust nn <buffer><nowait> <leader>g :call CompileRust(0)<cr>
+au FileType rust nn <buffer><nowait> <leader>G :call CompileRust(1)<cr>
+au FileType rust nn <buffer><nowait> <leader>r :call RunRust(0)<cr>
+au FileType rust nn <buffer><nowait> <leader>t :call RunRust(1)<cr>
+au FileType rust nn <buffer><nowait> gd :LspDefinition<cr>
 let g:rustfmt_autosave = 1
 au FileType rust nn <buffer> <c-g><c-i> :RustFmt<cr>
 

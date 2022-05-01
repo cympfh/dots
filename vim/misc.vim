@@ -4,8 +4,8 @@ Plug 'tpope/vim-sleuth'
 
 " comment out
 Plug 'tyru/caw.vim'
-nmap <leader>c <Plug>(caw:hatpos:toggle)
-vmap <leader>c <Plug>(caw:hatpos:toggle)
+nmap <c-g>c <Plug>(caw:hatpos:toggle)
+vmap <c-g>c <Plug>(caw:hatpos:toggle)
 
 let g:copend = 0
 function! Ctoggle()

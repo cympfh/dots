@@ -1,18 +1,18 @@
 " Clipboard
 if executable('clip')
-  nnoremap <leader>y :w !clip<cr>
-  vnoremap <leader>y :w !clip<cr>
-  nnoremap <leader>p :r !clip -o<cr>
+  nnoremap <c-g>y :w !clip<cr>
+  vnoremap <c-g>y :w !clip<cr>
+  nnoremap <c-g>p :r !clip -o<cr>
 elseif has('mac')
-  nnoremap <leader>y :w !pbcopy<cr>
-  vnoremap <leader>y :w !pbcopy<cr>
-  nnoremap <leader>p :r !pbpaste<cr>
+  nnoremap <c-g>y :w !pbcopy<cr>
+  vnoremap <c-g>y :w !pbcopy<cr>
+  nnoremap <c-g>p :r !pbpaste<cr>
 elseif executable('xsel')
-  nnoremap <leader>y :w !xsel -bi<cr>
-  vnoremap <leader>y :w !xsel -bi<cr>
-  nnoremap <leader>p :r !xsel -bo<cr>
+  nnoremap <c-g>y :w !xsel -bi<cr>
+  vnoremap <c-g>y :w !xsel -bi<cr>
+  nnoremap <c-g>p :r !xsel -bo<cr>
 else
-  nnoremap <leader>y :w! /tmp/vim.clipboard<cr>
-  vnoremap <leader>y :w! /tmp/vim.clipboard<cr>
-  nnoremap <leader>p :r /tmp/vim.clipboard<cr>
+  nnoremap <c-g>y :w! /tmp/vim.clipboard<cr>
+  vnoremap <c-g>y :w! /tmp/vim.clipboard<cr>
+  nnoremap <c-g>p :r /tmp/vim.clipboard<cr>
 endif
