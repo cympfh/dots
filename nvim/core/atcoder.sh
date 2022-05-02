@@ -2,6 +2,7 @@
 
 action=
 problem_id=
+sample_id=
 width=
 
 # args
@@ -17,6 +18,10 @@ while [ $# -gt 0 ]; do
       ;;
     --problem-id )
       problem_id=$2
+      shift 2
+      ;;
+    --sample-id )
+      sample_id=$2
       shift 2
       ;;
     * )
@@ -43,11 +48,11 @@ frame_mid() {
 frame_bot() {
   echo -n "┗"
   yes | head -n $width_inner | tr -d '\n' | sed 's/./─/g'
-  echo "┛"
+  echo -n "┛"
 }
 
 atcoder_test() {
-  cargo atcoder test $problem_id | sed 's/^/│ /g'
+  cargo atcoder test $problem_id $sample_id | sed 's/^/│ /g'
 }
 
 atcoder_submit() {
@@ -78,6 +83,4 @@ case "$action" in
     ;;
 esac
 
-echo
-echo -n "OK? > "
 read

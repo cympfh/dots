@@ -27,5 +27,8 @@ fun! s:CargoAtCoder(action) abort
 endfun
 
 au FileType rust nnoremap <buffer><silent> <c-g>0 :call <sid>CargoAtCoder('test')<cr>
+au FileType rust nnoremap <buffer><silent> <c-g>1 :call <sid>CargoAtCoder('test --sample-id 1')<cr>
+au FileType rust nnoremap <buffer><silent> <c-g>2 :call <sid>CargoAtCoder('test --sample-id 2')<cr>
+au FileType rust nnoremap <buffer><silent> <c-g>3 :call <sid>CargoAtCoder('test --sample-id 3')<cr>
 au FileType rust nnoremap <buffer><silent> <c-g>- :call <sid>CargoAtCoder('status')<cr>
 au FileType rust nnoremap <buffer><silent> <c-g>= :call <sid>CargoAtCoder('submit')<cr>
