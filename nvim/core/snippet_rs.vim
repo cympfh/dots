@@ -7,7 +7,7 @@ fun! s:SnippetRs()
         \ 'relative': 'cursor',
         \ 'row': 1,
         \ 'col': 0,
-        \ 'width': winwidth('%') - 10,
+        \ 'width': winwidth('%'),
         \ 'height': winheight('%') / 2
         \ })
   let term = { 'buf': bufnr(''),

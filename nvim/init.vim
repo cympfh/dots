@@ -23,3 +23,4 @@ source ~/.dots/vim/keymap.vim
 source ~/.dots/nvim/core/snippet_rs.vim
 source ~/.dots/nvim/core/colortheme.vim
 source ~/.dots/nvim/core/comment.lua
+source ~/.dots/nvim/core/atcoder.vim
