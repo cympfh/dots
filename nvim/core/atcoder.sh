@@ -3,7 +3,6 @@
 action=
 problem_id=
 sample_id=
-width=
 
 # args
 while [ $# -gt 0 ]; do
@@ -11,10 +10,6 @@ while [ $# -gt 0 ]; do
     test | submit | status )
       action=$1
       shift
-      ;;
-    --width )
-      width=$2
-      shift 2
       ;;
     --problem-id )
       problem_id=$2
@@ -31,32 +26,12 @@ while [ $# -gt 0 ]; do
   esac
 done
 
-width_inner=$(( width - 2 ))
-
-frame_top() {
-  echo -n "╭"
-  yes | head -n $width_inner | tr -d '\n' | sed 's/./─/g'
-  echo "╮"
-}
-
-frame_mid() {
-  echo -n "┣"
-  yes | head -n $width_inner | tr -d '\n' | sed 's/./─/g'
-  echo "┫"
-}
-
-frame_bot() {
-  echo -n "┗"
-  yes | head -n $width_inner | tr -d '\n' | sed 's/./─/g'
-  echo -n "┛"
-}
-
 atcoder_test() {
-  cargo atcoder test $problem_id $sample_id | sed 's/^/│ /g'
+  cargo atcoder test $problem_id $sample_id
 }
 
 atcoder_submit() {
-  cargo atcoder submit $problem_id | sed 's/^/│ /g'
+  cargo atcoder submit $problem_id
 }
 
 atcoder_status() {
@@ -65,21 +40,14 @@ atcoder_status() {
 
 case "$action" in
   status )
-    frame_top
     atcoder_status
-    frame_bot
     ;;
   test )
-    frame_top
     atcoder_test
-    frame_bot
     ;;
   submit )
-    frame_top
     atcoder_submit
-    frame_mid
     atcoder_status
-    frame_bot
     ;;
 esac
 
