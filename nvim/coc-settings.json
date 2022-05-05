@@ -4,6 +4,7 @@
   "diagnostic": {
     "warningSign": "❓",
     "messageTarget": "echo",
+    "checkCurrentLine": true,
   },
   "python": {
     "formatting.provider": "black",
