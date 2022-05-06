@@ -11,6 +11,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'sheerun/vim-polyglot'
   Plug 'terrortylor/nvim-comment'
   Plug 'osyo-manga/vim-brightest'
+  Plug 'cympfh/journal.vim'
   source ~/.dots/vim/statusline.vim
   source ~/.dots/vim/clipboard.vim
   source ~/.dots/nvim/core/coc.vim
