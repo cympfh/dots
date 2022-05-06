@@ -1,8 +1,10 @@
 let s:atcoder_script = expand('<sfile>:h').'/atcoder.sh'
 let s:terminal_windows = []
 
-function! s:border_window(width, height) abort
-  let top = "╭" . repeat("─", a:width - 2) . "╮"
+function! s:border_window(width, height, title) abort
+  let width_left = (a:width - 4 - len(a:title)) / 2
+  let width_right = (a:width - 4 - len(a:title) + 1) / 2
+  let top = "╭" . repeat("─", width_left) . " " . a:title . " " . repeat("─", width_right) . "╮"
   let mid = "│" . repeat(" ", a:width - 2) . "│"
   let bot = "╰" . repeat("─", a:width - 2) . "╯"
   let lines = [top] + repeat([mid], a:height - 2) + [bot]
@@ -50,7 +52,7 @@ endfunction
 
 fun! s:cargo_atcoder(action) abort
   let problem_id = expand('%:t:r')
-  let w0 = s:border_window(winwidth('%') - 2, winheight('%') - 4)
+  let w0 = s:border_window(winwidth('%') - 2, winheight('%') - 4, a:action)
   let w1 = s:terminal_window(winwidth('%') - 4, winheight('%') - 2, a:action, problem_id)
   let s:terminal_windows = [w0, w1]
   return []
