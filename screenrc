@@ -1,5 +1,5 @@
 # Escape Key
-escape ^kk
+escape ^k.
 bind " " eval meta "echo 'operating the inner screen...'"
 
 defencoding utf8
