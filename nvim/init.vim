@@ -17,6 +17,7 @@ call plug#begin('~/.config/nvim/plugged')
   source ~/.dots/vim/clipboard.vim
   source ~/.dots/nvim/core/coc.vim
   source ~/.dots/nvim/core/filer.vim
+  source ~/.dots/nvim/core/floaterm.vim
 call plug#end()
 
 " My Plugins

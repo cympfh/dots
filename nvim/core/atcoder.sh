@@ -49,6 +49,11 @@ case "$action" in
     atcoder_submit
     atcoder_status
     ;;
+  * )
+    echo "Choose Action" >&2
+    exit 1
+    ;;
 esac
 
+echo -n "> bye"
 read
