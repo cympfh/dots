@@ -1,18 +1,9 @@
 {
   "coc.preferences.formatOnSaveFiletypes": ["python", "rust"],
   "signature.target": "echo",
-  "diagnostic": {
-    "warningSign": "❓",
-    "messageTarget": "echo",
-    "checkCurrentLine": true,
-  },
-  "python": {
-    "formatting.provider": "black",
-    "formatting.blackPath": "~/.local/bin/black",
-    "analysis.diagnosticMode": "workspace",
-  },
-  "translator": {
-    "toLang": "ja",
-    "engines": ["google"],
-  },
+  "diagnostic.warningSign": "❓",
+  "diagnostic.messageTarget": "echo",
+  "diagnostic.checkCurrentLine": true,
+  "python.formatting.provider": "black",
+  "python.analysis.diagnosticMode": "workspace",
 }
