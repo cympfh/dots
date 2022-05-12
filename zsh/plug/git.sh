@@ -19,10 +19,10 @@ checkout-branch() {
     fi
     COMMAND=$(
         (
-          echo "🌳 newbranch"
+          echo "💧 newbranch"
           git branch --verbose | sed 's/^[ *]*/🌿 checkout - /'
-          git branch --verbose | sed 's/^[ *]*/🔥 remove - /'
-        ) | peco
+          git branch --verbose | grep -v main | grep -v master | sed 's/^[ *]*/🔥 remove - /'
+        ) | fzf --reverse --no-sort
     )
     OP="$( echo "$COMMAND" | awk '{print $2}' )"
     BR="$( echo "$COMMAND" | awk '{print $4}' )"
