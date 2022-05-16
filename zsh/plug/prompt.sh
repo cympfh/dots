@@ -1,7 +1,7 @@
 setopt prompt_subst
 
 PROMPT="
-\`prompt-time\` \`prompt-host\`\`prompt-pwd\`\`prompt-git-status\`\`prompt-k8s-context\`
+\`prompt-time\` \`prompt-host\`\`prompt-pwd\`\`prompt-git-status\`
    "
 
 COLOR_BLUE=81
