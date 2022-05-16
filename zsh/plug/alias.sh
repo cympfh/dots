@@ -20,14 +20,10 @@ alias g='git'
 alias vi='vim'
 alias nv='nvim'
 alias j='LC_ALL=C $EDITOR -c JournalNew'
-alias csvi="vim - -c 'set ft=csv'"
+alias e='exa'
 
 mkcd() {
     mkdir "$1" && cd "$1"
-}
-
-fehbg() {
-    feh --bg-fill `find $PWD/* | shuf | tail -1`
 }
 
 json-keys() {
