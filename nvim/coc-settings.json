@@ -1,5 +1,5 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["python", "rust"],
+  "coc.preferences.formatOnSaveFiletypes": ["python", "rust", "go"],
   "signature.target": "echo",
   "diagnostic.warningSign": "❓",
   "diagnostic.messageTarget": "echo",

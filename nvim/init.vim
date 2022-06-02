@@ -2,7 +2,7 @@ set number nohlsearch wrap expandtab autoindent smartindent smarttab
 set mouse=a
 set backspace=start,indent,eol
 set wildmode=list:longest
-set list listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
+set list listchars=tab:»\ ,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 set foldlevel=0 foldmethod=marker
 set undodir=~/.cache/neovim/undo undofile
 let mapleader="-"
