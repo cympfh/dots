@@ -2,7 +2,7 @@
   "coc.preferences.formatOnSaveFiletypes": ["python", "rust", "go"],
   "signature.target": "echo",
   "diagnostic.warningSign": "❓",
-  "diagnostic.messageTarget": "echo",
+  "diagnostic.messageDelay": 500,
   "diagnostic.checkCurrentLine": true,
   "python.formatting.provider": "black",
   "python.analysis.diagnosticMode": "workspace",
