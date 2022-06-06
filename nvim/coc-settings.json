@@ -6,4 +6,9 @@
   "diagnostic.checkCurrentLine": true,
   "python.formatting.provider": "black",
   "python.analysis.diagnosticMode": "workspace",
+  "markdownlint.config": {
+    "MD007": false,
+    "MD034": false,
+    "MD041": false,
+  },
 }
