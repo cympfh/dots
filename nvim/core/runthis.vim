@@ -4,7 +4,7 @@ let g:run_config = {
       \ 'javascript': 'node %',
       \ 'python': 'python %',
       \ 'ruby': 'ruby %',
-      \ 'rust': 'rustc % -o /tmp/out && /tmp/out',
+      \ 'rust': 'if [ -f Cargo.toml ]; then cargo run; else rustc % -o /tmp/out && /tmp/out; fi',
       \ 'sh': 'bash %',
       \ }
 
