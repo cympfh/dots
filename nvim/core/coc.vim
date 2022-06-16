@@ -3,9 +3,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
       \'coc-pyright',
       \'coc-rust-analyzer',
-      \'coc-markdownlint',
       \'coc-translator',
-      \'coc-go'
+      \'coc-go',
+      \'@yaegassy/coc-nginx',
       \]
 
 nnoremap <silent> <c-g><c-i> :call CocAction('format')<cr>
