@@ -1,3 +1,6 @@
 [user]
     name = cympfh
     email = cympfh@gmail.com
+
+[core]
+    sshCommand = ssh -i ~/.ssh/priv/id_rsa

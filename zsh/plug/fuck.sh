@@ -30,7 +30,8 @@ fi
 # ssh-agent
 fuck-ssh() {
   eval $(ssh-agent)
-  ssh-add ~/.ssh/id_rsa
+  ssh-add ~/.ssh/dw/id_rsa
+  ssh-add ~/.ssh/priv/id_rsa
   echo $SSH_AUTH_SOCK > ~/.ssh/auth.sock
 }
 
