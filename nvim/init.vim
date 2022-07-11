@@ -9,11 +9,11 @@ let mapleader="-"
 
 " load packages
 call plug#begin('~/.config/nvim/plugged')
-  Plug 'sheerun/vim-polyglot'
   Plug 'terrortylor/nvim-comment'
   Plug 'osyo-manga/vim-brightest'
   let g:brightest#highlight = {"group" : "BrightestUnderline"}
   Plug 'cympfh/journal.vim'
+  source ~/.dots/nvim/core/lang.vim
   source ~/.dots/vim/statusline.vim
   source ~/.dots/vim/clipboard.vim
   source ~/.dots/nvim/core/coc.vim

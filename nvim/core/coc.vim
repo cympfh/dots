@@ -6,6 +6,8 @@ let g:coc_global_extensions = [
       \'coc-translator',
       \'coc-go',
       \'coc-sqlfluff',
+      \'@yaegassy/coc-nginx',
+      \'coc-svelte',
       \]
 
 nnoremap <silent> <c-g><c-i> :call CocAction('format')<cr>
@@ -14,4 +16,3 @@ nnoremap <silent> gD :call CocAction('jumpReferences')<cr>
 nnoremap <silent> K :call CocAction('doHover')<cr>
 
 autocmd BufWritePre *.py :silent call CocAction('runCommand', 'python.sortImports')
-
