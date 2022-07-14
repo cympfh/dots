@@ -8,6 +8,9 @@
 [includeIf "gitdir:~/dw/"]
     path = ~/.dots/git/users/khattori.git
 
+[includeIf "gitdir:~/dw/ii-*"]
+    path = ~/.dots/git/users/khattori-dw.git
+
 [push]
     default = current
 

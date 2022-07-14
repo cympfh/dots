@@ -3,4 +3,4 @@
     email = cympfh@gmail.com
 
 [core]
-    sshCommand = ssh -i ~/.ssh/priv/id_rsa
+    sshCommand = ssh -i ~/.ssh/id_rsa

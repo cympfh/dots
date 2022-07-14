@@ -1,0 +1,7 @@
+[user]
+    name = khattori-dw
+    email = kazuhiro_hattori@dwango.co.jp
+
+[core]
+    sshCommand = ssh -i ~/.ssh/dw/id_rsa
+
