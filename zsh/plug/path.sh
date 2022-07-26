@@ -1,6 +1,7 @@
 shpath add system /bin
 shpath add system /usr/bin
 shpath add system-prior /usr/local/bin
+shpath add system-prior /usr/local/go/bin/
 shpath add user $HOME/bin
 shpath add user $HOME/.local/bin
 shpath add user $HOME/Dropbox/bin

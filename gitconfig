@@ -38,6 +38,7 @@
     pull-origin-rebase = "!echo \\# Pull from origin/`git main-branch`; git pull origin `git main-branch` --rebase"
     pull-upstream-rebase = "!echo \\# Pull from upstream/`git main-branch`; git pull up `git main-branch` --rebase"
     ga = "!git pull-origin-rebase; git pull-upstream-rebase"
+    patch = "!patch -p1"
 
 [color]
     ui = true

@@ -1,6 +1,7 @@
 let g:run_config = {
       \ 'awk': 'awk -f %',
       \ 'cpp': 'g++ % -o /tmp/out && /tmp/out',
+      \ 'go': 'go run %',
       \ 'javascript': 'node %',
       \ 'python': 'python %',
       \ 'ruby': 'ruby %',
