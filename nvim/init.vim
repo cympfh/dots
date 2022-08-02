@@ -19,7 +19,13 @@ call plug#begin('~/.config/nvim/plugged')
   source ~/.dots/nvim/core/coc.vim
   source ~/.dots/nvim/core/filer.vim
   source ~/.dots/nvim/core/floaterm.vim
+  Plug 'vim-denops/denops.vim'
+  Plug 'vim-skk/skkeleton'
 call plug#end()
+
+" SKK
+call skkeleton#config({ 'globalJisyo': '~/.skk/SKK-JISYO.L' })
+imap <C-j> <Plug>(skkeleton-toggle)
 
 " My Plugins
 source ~/.dots/vim/grep.vim
