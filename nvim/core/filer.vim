@@ -17,4 +17,6 @@ Plug 'kevinhwang91/rnvimr'
 let g:rnvimr_hide_gitignore = 1
 let g:rnvimr_enable_ex = 1
 let g:rnvimr_enable_picker = 1
+let g:rnvimr_ranger_cmd = ['ranger', '--cmd=set draw_borders both']
+let g:rnvimr_border_attr = {'fg': 69, 'bg': -1}
 nnoremap <silent><nowait> <c-f>. :RnvimrToggle<cr>
