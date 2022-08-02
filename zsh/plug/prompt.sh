@@ -8,6 +8,7 @@ COLOR_BLUE=81
 COLOR_GRAY=240
 COLOR_RED=red
 COLOR_YELLOW=221
+COLOR_WARN=196
 
 prompt-colon() {
     echo -n "%F{$COLOR_GRAY}:%f"
@@ -31,14 +32,17 @@ prompt-pwd() {
 }
 
 prompt-git-status() {
-    # not in git?
-    if ! git branch >/dev/null 2>&1; then
+
+    local branchname=$(git symbolic-ref --short HEAD 2>/dev/null)
+
+    # not in git
+    if [ $? -ne 0 ] || [ -z "$branchname" ]; then
         return
     fi
 
-    local branchname=$(git symbolic-ref --short HEAD)
-
-    if [ ! -z "$(git status --short 2>/dev/null)" ]; then  # something to commit
+    if ! ( timeout 0.1 git status >/dev/null 2>&1 ); then  # too heavy
+        local statuscolor="%F{$COLOR_WARN}"
+    elif [ ! -z "$(git status --short 2>/dev/null)" ]; then  # something to commit
         local statuscolor="%F{$COLOR_RED}"
     elif git status 2>/dev/null | grep "branch is ahead" >/dev/null; then  # something to push
         local statuscolor="%F{$COLOR_BLUE}"
