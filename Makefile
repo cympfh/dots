@@ -54,6 +54,11 @@ nvim:
 	nvim --headless -u ~/.config/nvim/init.vim +PlugInstall +qall
 	nvim --headless -u ~/.config/nvim/init.vim +CocUpdateSync +qall
 
+## Set up SKK dictionary
+skk:
+	mkdir -p ~/.skk
+	curl -sL https://skk-dev.github.io/dict/SKK-JISYO.L.gz | gunzip -d - > ~/.skk/SKK-JISYO.L
+
 .DEFAULT_GOAL := help
 
 help:
