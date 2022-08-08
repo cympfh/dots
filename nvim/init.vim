@@ -9,7 +9,6 @@ let mapleader="-"
 
 " load packages
 call plug#begin('~/.config/nvim/plugged')
-  Plug 'terrortylor/nvim-comment'
   Plug 'osyo-manga/vim-brightest'
   let g:brightest#highlight = {"group" : "BrightestUnderline"}
   Plug 'cympfh/journal.vim'
