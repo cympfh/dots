@@ -12,19 +12,15 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'osyo-manga/vim-brightest'
   let g:brightest#highlight = {"group" : "BrightestUnderline"}
   Plug 'cympfh/journal.vim'
+  Plug 'vim-denops/denops.vim'
   source ~/.dots/nvim/core/lang.vim
   source ~/.dots/vim/statusline.vim
   source ~/.dots/vim/clipboard.vim
   source ~/.dots/nvim/core/coc.vim
   source ~/.dots/nvim/core/filer.vim
   source ~/.dots/nvim/core/floaterm.vim
-  Plug 'vim-denops/denops.vim'
-  Plug 'vim-skk/skkeleton'
+  source ~/.dots/nvim/core/skk.vim
 call plug#end()
-
-" SKK
-call skkeleton#config({ 'globalJisyo': '~/.skk/SKK-JISYO.L' })
-imap <C-j> <Plug>(skkeleton-toggle)
 
 " My Plugins
 source ~/.dots/vim/grep.vim
