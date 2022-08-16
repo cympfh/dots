@@ -19,7 +19,10 @@ call plug#begin('~/.config/nvim/plugged')
   source ~/.dots/nvim/core/coc.vim
   source ~/.dots/nvim/core/filer.vim
   source ~/.dots/nvim/core/floaterm.vim
+<<<<<<< HEAD
   source ~/.dots/nvim/core/skk.vim
+=======
+>>>>>>> 07837176f3fa45a004dc264d2d30cc858af5e8ed
 call plug#end()
 
 " My Plugins
