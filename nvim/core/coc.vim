@@ -12,6 +12,5 @@ nnoremap <silent> gd :call CocAction('jumpDefinition', 'tabe')<cr>
 nnoremap <silent> gD :call CocAction('jumpReferences')<cr>
 nnoremap <silent> K :call CocAction('doHover')<cr>
 inoremap <silent><expr> <c-l> coc#refresh()
-inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
 
 autocmd BufWritePre *.py :silent call CocAction('runCommand', 'python.sortImports')
