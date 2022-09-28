@@ -1,4 +1,5 @@
 set background=dark
+colorscheme gruvbox
 hi Pmenu        ctermfg=255 ctermbg=237
 hi TabLine      ctermfg=246 ctermbg=238 cterm=none
 hi TabLineSel   ctermfg=185 cterm=bold
