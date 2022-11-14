@@ -10,7 +10,3 @@ alias mozc-tool='/usr/lib/mozc/mozc_tool --mode=config_dialog'
 mkcd() {
     mkdir "$1" && cd "$1"
 }
-
-json-keys() {
-    jq -r '[path(..)|map(if type=="number" then "[]" else tostring end)|join(".")|split(".[]")|join("[]")]|unique|map("."+.)|.[]'
-}
