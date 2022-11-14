@@ -30,7 +30,7 @@ fi
 # ssh-agent
 fuck-ssh() {
   eval $(ssh-agent)
-  # for f in $(find ~/.ssh -name id_rsa); do ssh-add $f; done
+  for f in $(find ~/.ssh -name id_rsa); do ssh-add $f; done
   for f in $(find ~/.ssh -name id_ed25519); do ssh-add $f; done
   echo $SSH_AUTH_SOCK > ~/.ssh/auth.sock
 }
