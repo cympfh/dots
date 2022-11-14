@@ -7,6 +7,7 @@ let g:run_config = {
       \ 'python': 'python %',
       \ 'ruby': 'ruby %',
       \ 'rust': 'if [ -f Cargo.toml ]; then cargo run; else rustc % -o /tmp/out && /tmp/out; fi',
+      \ 'sage.python': 'sage %',
       \ 'sh': 'bash %',
       \ }
 
