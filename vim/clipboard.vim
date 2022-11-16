@@ -2,7 +2,7 @@
 if executable('clip')
   nnoremap <c-g>y :w !clip<cr>
   vnoremap <c-g>y :w !clip<cr>
-  nnoremap <c-g>p :r !clip -o <bar> nkf<cr>
+  " nnoremap <c-g>p :r !clip -o <bar> nkf<cr>  " 壊れてる!!
 elseif has('mac')
   nnoremap <c-g>y :w !pbcopy<cr>
   vnoremap <c-g>y :w !pbcopy<cr>
