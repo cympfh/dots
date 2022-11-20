@@ -54,6 +54,7 @@ shpath-init() {
     PATH_SYSTEM_PRIOR=
     PATH_USER=
     PATH_USER_PRIOR=
+    PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 }
 
 shpath-add() {
