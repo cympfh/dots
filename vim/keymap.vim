@@ -31,3 +31,4 @@ fun! s:toggle_paste() abort
   endif
 endfun
 nnoremap <silent> <c-g><c-p> :call <sid>toggle_paste()<cr>
+inoremap <silent> <c-g><c-p> <esc>:call <sid>toggle_paste()<cr>i
