@@ -1,7 +1,7 @@
 {
   "coc.preferences.formatOnSaveFiletypes": ["python", "rust", "go"],
   "signature.target": "echo",
-  "diagnostic.warningSign": "❓",
+  "diagnostic.warningSign": "??",
   "diagnostic.messageDelay": 500,
   "diagnostic.checkCurrentLine": true,
   "python.formatting.provider": "black",
