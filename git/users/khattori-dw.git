@@ -3,5 +3,6 @@
     email = kazuhiro_hattori@dwango.co.jp
 
 [core]
-    sshCommand = ssh -i ~/.ssh/dw/id_rsa
+    sshCommand = ssh -i ~/.ssh/dw/id_ed25519
+    # sshCommand = ssh -i ~/.ssh/dw/id_rsa
 
