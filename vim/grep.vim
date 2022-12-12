@@ -6,7 +6,7 @@ function s:Grep(...)
         let keyword = expand("<cword>")
     end
     let _git_status = system("git status")
-    if v:shell_error == 0
+    if v:shell_error == 0  " if git
         cexpr system('git grep -n ' . keyword . ' **/* 2>/dev/null')
         call setqflist([], 'a', {'title' : 'git grep ' . keyword})
     elseif executable("rg")
@@ -16,9 +16,16 @@ function s:Grep(...)
         cexpr system('grep -n ' . keyword . ' **/* 2>/dev/null | grep -v "^Binary file "')
         call setqflist([], 'a', {'title' : 'grep ' . keyword})
     endif
-    copen
-    let g:copend = 1
+    " Check any matched
+    if len(getqflist()) > 0
+        let g:copend = 1
+        copen
+    else
+        let g:copend = 0
+        cclose
+    end
 endfunction
+
 command! -nargs=? Grep :call <sid>Grep(<f-args>)
 nnoremap <c-g><c-g> :Grep 
 

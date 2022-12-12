@@ -16,3 +16,16 @@ else
   vnoremap <c-g>y :w! /tmp/vim.clipboard<cr>
   nnoremap <c-g>p :r /tmp/vim.clipboard<cr>
 endif
+
+" toggle :set paste
+fun! s:toggle_paste() abort
+  if &paste == 0
+    set paste
+    echo "(paste)"
+  else
+    set nopaste
+    echo "(nopaste)"
+  endif
+endfun
+nnoremap <silent> <c-g><c-o> :call <sid>toggle_paste()<cr>
+inoremap <silent> <c-g><c-o> <esc>:call <sid>toggle_paste()<cr>i
