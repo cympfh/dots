@@ -91,7 +91,7 @@ fuck-etc-hosts() {
 # Set git user.name locally
 fuck-git-username() {
   GITF=$( ls -1 ~/.dots/git/users/*.git | sed 's#.*/##' | peco --prompt "Who are you? >" )
-  eval $( cat ~/.dots/git/users/$GITF | grep '=' | sed 's/^ */FUCK_GIT_/; s/ *= */=/' )
+  eval $( cat ~/.dots/git/users/$GITF | grep '=' | awk '/name/ || /email/' | sed 's/^ */FUCK_GIT_/; s/ *= */=/' )
   git config --local user.name "$FUCK_GIT_name"
   git config --local user.email "$FUCK_GIT_email"
 }
