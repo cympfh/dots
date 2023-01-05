@@ -9,3 +9,6 @@ au FileType cumin set commentstring=//\ %s
 
 " sage math
 au BufRead,BufNewFile *.sage set filetype=sage.python
+
+" dc
+au BufRead,BufNewFile *.dc set filetype=dc
