@@ -6,6 +6,7 @@ set list listchars=tab:»\ ,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 set foldlevel=0 foldmethod=marker
 set undodir=~/.cache/neovim/undo undofile
 let mapleader="-"
+let g:denops_disable_version_check = 1
 
 " load packages
 call plug#begin('~/.config/nvim/plugged')
