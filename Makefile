@@ -1,4 +1,4 @@
-.PHONY: feh vim screen bash zsh i3 git input tmux help nvim
+.PHONY: feh vim screen bash zsh i3 git input tmux help nvim starship
 PWD_TILDE=$(shell pwd | sed "s,^${HOME},\\\\~,g")
 
 ## feh config
@@ -58,6 +58,11 @@ nvim:
 skk:
 	mkdir -p ~/.skk
 	curl -sL https://skk-dev.github.io/dict/SKK-JISYO.L.gz | gunzip -d - > ~/.skk/SKK-JISYO.L
+
+## https://starship.rs
+starship:
+	mkdir -p ~/.config
+	ln -s ~/.dots/starship/starship.toml ~/.config/starship.toml
 
 .DEFAULT_GOAL := help
 
