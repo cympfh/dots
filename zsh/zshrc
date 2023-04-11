@@ -43,7 +43,7 @@ source $ZPLUGDIR/syntax-hightlight.sh
 source $ZPLUGDIR/mru/hook.zsh
 source $ZPLUGDIR/windows.sh
 source $ZPLUGDIR/locale.sh
-source $ZPLUGDIR/linuxbrew.sh
+source $ZPLUGDIR/aws.sh
 source $HOME/Dropbox/share/kirara
 
 shpath refresh
