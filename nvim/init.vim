@@ -32,3 +32,4 @@ source ~/.dots/nvim/core/colortheme.vim
 source ~/.dots/nvim/core/comment.lua
 source ~/.dots/nvim/core/atcoder.vim
 source ~/.dots/nvim/core/runthis.vim
+source ~/.dots/nvim/core/capitalize.vim
