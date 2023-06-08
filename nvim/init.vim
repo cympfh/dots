@@ -1,4 +1,5 @@
 set number nohlsearch wrap expandtab autoindent smartindent smarttab
+set nobackup nowritebackup noswapfile
 set mouse=a
 set backspace=start,indent,eol
 set wildmode=list:longest
