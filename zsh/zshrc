@@ -4,6 +4,10 @@ source $ZPLUGDIR/shell-path-manager.zsh
 
 shpath init
 
+load() {
+  [ -f $1 ] && source $1
+}
+
 # completion
 fpath=($ZDOTDIR/completion $fpath)
 compinit  # This is slow but need.
@@ -44,6 +48,6 @@ source $ZPLUGDIR/mru/hook.zsh
 source $ZPLUGDIR/windows.sh
 source $ZPLUGDIR/locale.sh
 source $ZPLUGDIR/aws.sh
-source $HOME/Dropbox/share/kirara
+load $HOME/Dropbox/share/kirara
 
 shpath refresh
