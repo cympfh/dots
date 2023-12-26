@@ -21,6 +21,7 @@ call plug#begin('~/.config/nvim/plugged')
   source ~/.dots/nvim/core/coc.vim
   source ~/.dots/nvim/core/filer.vim
   source ~/.dots/nvim/core/floaterm.vim
+  source ~/.dots/nvim/core/git.vim
   Plug 'morhetz/gruvbox'
 call plug#end()
 
