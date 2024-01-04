@@ -5,6 +5,7 @@
   "diagnostic.messageDelay": 500,
   "diagnostic.checkCurrentLine": true,
   "pyright.completion.snippetSupport": false,
+  "pyright.organizeimports.provider": "isort",
   "python.analysis.diagnosticMode": "workspace",
   "python.formatting.provider": "black",
   "markdownlint.config": {
