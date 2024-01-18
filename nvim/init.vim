@@ -1,4 +1,5 @@
 set number nohlsearch wrap expandtab autoindent smartindent smarttab
+set nobackup nowritebackup noswapfile
 set mouse=a
 set backspace=start,indent,eol
 set wildmode=list:longest
@@ -20,6 +21,7 @@ call plug#begin('~/.config/nvim/plugged')
   source ~/.dots/nvim/core/coc.vim
   source ~/.dots/nvim/core/filer.vim
   source ~/.dots/nvim/core/floaterm.vim
+  source ~/.dots/nvim/core/git.vim
   Plug 'morhetz/gruvbox'
 call plug#end()
 
@@ -33,3 +35,4 @@ source ~/.dots/nvim/core/comment.lua
 source ~/.dots/nvim/core/atcoder.vim
 source ~/.dots/nvim/core/codegpt.vim
 source ~/.dots/nvim/core/runthis.vim
+source ~/.dots/nvim/core/capitalize.vim

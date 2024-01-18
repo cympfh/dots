@@ -1,4 +1,4 @@
-.PHONY: feh vim screen bash zsh i3 git input tmux help nvim starship
+.PHONY: feh vim screen bash zsh i3 git input tmux help nvim starship ranger
 PWD_TILDE=$(shell pwd | sed "s,^${HOME},\\\\~,g")
 
 ## feh config
@@ -63,6 +63,11 @@ skk:
 starship:
 	mkdir -p ~/.config
 	ln -s ~/.dots/starship/starship.toml ~/.config/starship.toml
+
+ranger:
+	mkdir -p ~/.config/ranger/
+	ln -s ~/.dots/ranger/rc.conf ~/.config/ranger/rc.conf
+	ln -s ~/.dots/ranger/scope.sh ~/.config/ranger/scope.sh
 
 .DEFAULT_GOAL := help
 
