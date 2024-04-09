@@ -8,9 +8,9 @@ nnoremap <silent><nowait> <c-f>d :let @d=expand("%:h")."/"<cr>:echo "COPIED DIR:
 " Open the current file/dir in new Tab
 nnoremap <silent><nowait> <c-f><c-f> :exe ":tabedit " . expand("%")<cr>
 nnoremap <silent><nowait> <c-f><c-d> :exe ":tabedit " . expand("%:h")."/"<cr>
+nnoremap <silent><nowait> <c-f>, :exe ":edit " . expand("%:h") . "/"<cr>
 
 " fzf
-nnoremap <silent><nowait> <c-f>, :Files<cr>
 nnoremap <silent><nowait> <c-f>m :History<cr>
 
 Plug 'kevinhwang91/rnvimr'
