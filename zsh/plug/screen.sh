@@ -14,6 +14,7 @@ screen-x() {
     if [ "$STY" ]; then
         echo "You are already in screen"
     else
+        screen -wipe
         SCREENNAME=$(
             screen -ls | grep "^	" |
                 sed 's/^\t[0-9]*\.//g; s/\t.*//g' |
@@ -30,6 +31,7 @@ screen-s() {
     if [ "$STY" ]; then
         echo "You are already in screen"
     else
+        screen -wipe
         SCREENNAME=${1:-$(basename $(pwd))}
         echo -ne "\033]0;${SCREENNAME}\007"
         screen -S "${SCREENNAME}"
