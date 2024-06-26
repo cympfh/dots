@@ -1,6 +1,0 @@
-[user]
-    name = khattori
-    email = kazuhiro_hattori@dwango.co.jp
-
-[core]
-    sshCommand = ssh -i ~/.ssh/dw/id_ed25519

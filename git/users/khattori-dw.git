@@ -4,5 +4,4 @@
 
 [core]
     sshCommand = ssh -i ~/.ssh/dw/id_ed25519
-    # sshCommand = ssh -i ~/.ssh/dw/id_rsa
 
