@@ -28,6 +28,10 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export HF_DIR=$HOME/Dropbox/hf/
 export HF_PIXIV_DIR=/mnt/f/Pictures/pixiv/
 
+if [ $MAC -eq 1 ];then
+  source $ZPLUGDIR/mac.sh
+fi
+
 source $ZPLUGDIR/editor.sh
 source $ZPLUGDIR/path.sh
 source $ZPLUGDIR/fzf.sh
@@ -47,7 +51,8 @@ source $ZPLUGDIR/syntax-hightlight.sh
 source $ZPLUGDIR/mru/hook.zsh
 source $ZPLUGDIR/windows.sh
 source $ZPLUGDIR/locale.sh
-source $ZPLUGDIR/aws.sh
+# source $ZPLUGDIR/aws.sh
 load $HOME/Dropbox/share/kirara
+load $HOME/Dropbox/share/dw/aws.zsh
 
 shpath refresh
