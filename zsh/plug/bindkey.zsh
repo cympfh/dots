@@ -49,6 +49,15 @@ zle -N call-history
 bindkey "^R" call-history
 
 #
+# buffer operations (experimental)
+#
+bindkey '^Y' push-line
+
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^E' edit-command-line
+
+#
 # screen
 #
 insert-screen-x() {
