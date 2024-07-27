@@ -27,6 +27,10 @@ if [ -d ~/.pyenv ]; then
 fi
 # venv
 shpath add user-prior ./.venv/bin
+# Mac pip
+if [ $MAC -eq 1 ]; then
+    shpath add system-prior "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
+fi
 
 ## Rust
 shpath add user $HOME/.cargo/bin
