@@ -51,7 +51,26 @@ bindkey "^R" call-history
 #
 # buffer operations (experimental)
 #
-bindkey '^Y' push-line
+function custom-push-line {
+    if [ -n "$BUFFER" ]; then
+        LAST_BUFFER="$BUFFER"
+        zle kill-whole-line
+        BUFFER=""
+    fi
+    zle reset-prompt
+}
+zle -N custom-push-line
+bindkey '^U' custom-push-line
+
+function custom-pop-line {
+    if [ -n "$LAST_BUFFER" ]; then
+        BUFFER="$LAST_BUFFER"
+        CURSOR=$#BUFFER
+    fi
+    zle reset-prompt
+}
+zle -N custom-pop-line
+bindkey '^Y' custom-pop-line
 
 autoload -Uz edit-command-line
 zle -N edit-command-line
