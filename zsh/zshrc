@@ -28,7 +28,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export HF_DIR=$HOME/Dropbox/hf/
 export HF_PIXIV_DIR=/mnt/f/Pictures/pixiv/
 
-if [ $MAC -eq 1 ];then
+if [ ${MAC:-0} -eq 1 ];then
   source $ZPLUGDIR/mac.sh
 fi
 

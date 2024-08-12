@@ -28,7 +28,7 @@ fi
 # venv
 shpath add user-prior ./.venv/bin
 # Mac pip
-if [ $MAC -eq 1 ]; then
+if [ ${MAC:-0} -eq 1 ]; then
     shpath add system-prior "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
 fi
 
