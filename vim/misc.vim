@@ -21,3 +21,6 @@ nn <bs> :call Ctoggle()<cr>
 
 " https://github.com/osyo-manga/vim-brightest
 Plug 'osyo-manga/vim-brightest'
+
+" markdown/latex
+vnoremap $ s$<C-r>"$<esc>
