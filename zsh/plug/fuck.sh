@@ -1,6 +1,7 @@
 FUCK_FILE_PATH=$0
 
 fuck() {
+  QUERY="$1"
   COM=$(
     cat $FUCK_FILE_PATH | awk '
       function padding(n) {
@@ -11,7 +12,8 @@ fuck() {
       {LAST=$0}
     ' |
       sed 's/^fuck-//; s/()//' |
-      peco --prompt "fuck"
+      sort |
+      peco --prompt "fuck" --query "$QUERY" --select-1
   )
   COM=$(echo $COM | sed 's/ .*//g')
   if ( type "fuck-$COM" > /dev/null ); then
@@ -50,50 +52,57 @@ fuck-pycache() {
   find . -type d | grep pycache | sed 's/.*/rm -r &/g' | sh
 }
 
-# set by hwclock
-fuck-hwclock() {
-  sudo hwclock -s
-}
-
-# Left-Ctrl -> Caps
-fuck-caps() {
-  DISPLAY=:0.0 setxkbmap -layout us -option ctrl:nocaps
-}
-
-# Caps is Caps
-fuck-caps-caps() {
-  DISPLAY=:0.0 setxkbmap -layout us -option
-}
-
-# delete branch (from local and origin)
-fuck-git-branch() {
-  BRANCH=$(
-    git branch --verbose |
-      peco |
-      awk '{print $1}'
-  )
-  if [ -z "$BRANCH" ]; then
-    ;
-  else
-    git branch -D $BRANCH
-    git push origin :$BRANCH
-  fi
-}
-
-# Append Dropbox/share/etc_hosts (for WSL)
-fuck-etc-hosts() {
-  cat /etc/hosts ~/Dropbox/share/etc_hosts |
-    sort |
-    uniq |
-    sudo tee /etc/hosts
-}
-
-# Set git user.name locally
+# Set git config --local user.name and user.email
 fuck-git-username() {
   GITF=$( ls -1 ~/.dots/git/users/*.git | sed 's#.*/##' | peco --prompt "Who are you? >" )
   eval $( cat ~/.dots/git/users/$GITF | grep '=' | awk '/name/ || /email/' | sed 's/^ */FUCK_GIT_/; s/ *= */=/' )
   git config --local user.name "$FUCK_GIT_name"
   git config --local user.email "$FUCK_GIT_email"
+}
+
+# delete a branch (from local and origin)
+fuck-git-branch-delete() {
+  BRANCH=$(
+    git branch --verbose |
+      peco --select-1 |
+      awk '{print $1}'
+  )
+  if [ -z "$BRANCH" ]; then
+    echo cancel
+  else
+    git branch -D "$BRANCH"
+    git push origin ":$BRANCH"
+  fi
+}
+
+# create & checkout new branch
+fuck-git-branch-new() {
+  BUFFER="git checkout -b "
+  CURSOR=$#BUFFER
+}
+
+# checkout a branch
+fuck-git-branch-checkout() {
+  BRANCH=$(
+    git branch --verbose |
+      peco --select-1 |
+      awk '{print $1}'
+  )
+  if [ -z "$BRANCH" ]; then
+    echo cancel
+  else
+    git checkout "$BRANCH"
+  fi
+}
+
+# aws-screen DEV
+fuck-aws-screen-dev() {
+  aws-screen-dev
+}
+
+# aws-screen PROD
+fuck-aws-screen-prod() {
+  aws-screen-prod
 }
 
 _call_fuck() {
