@@ -60,7 +60,7 @@ fuck-git-username() {
   git config --local user.email "$FUCK_GIT_email"
 }
 
-# delete a branch (from local and origin)
+# remove a branch (from local and origin)
 fuck-git-branch-delete() {
   BRANCH=$(
     git branch --verbose |
@@ -75,7 +75,7 @@ fuck-git-branch-delete() {
   fi
 }
 
-# create & checkout new branch
+# create a new branch
 fuck-git-branch-new() {
   BUFFER="git checkout -b "
   CURSOR=$#BUFFER
