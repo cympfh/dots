@@ -13,7 +13,7 @@ fuck() {
     ' |
       sed 's/^fuck-//; s/()//' |
       sort |
-      peco --prompt "fuck" --query "$QUERY" --select-1
+      peco --prompt "fuck" --query "$QUERY"
   )
   COM=$(echo $COM | sed 's/ .*//g')
   if ( type "fuck-$COM" > /dev/null ); then
@@ -64,7 +64,7 @@ fuck-git-username() {
 fuck-git-branch-delete() {
   BRANCH=$(
     git branch --verbose |
-      peco --select-1 |
+      peco |
       awk '{print $1}'
   )
   if [ -z "$BRANCH" ]; then
@@ -94,10 +94,12 @@ fuck-git-branch-main() {
 fuck-git-branch-checkout() {
   BRANCH=$(
     git branch --verbose |
-      peco --select-1 |
+      peco |
       awk '{print $1}'
   )
-  if [ -z "$BRANCH" ]; then
+  if [ "_$BRANCH" = "_*" ]; then
+    echo you are on there
+  elif [ -z "$BRANCH" ]; then
     echo cancel
   else
     git checkout "$BRANCH"
