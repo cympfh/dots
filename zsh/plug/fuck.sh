@@ -81,6 +81,15 @@ fuck-git-branch-new() {
   CURSOR=$#BUFFER
 }
 
+# goto main (master) branch
+fuck-git-branch-main() {
+  if ( git branch | grep ' main$' >/dev/null 2>&1 ); then
+    git checkout main
+  else
+    git checkout master
+  fi
+}
+
 # checkout a branch
 fuck-git-branch-checkout() {
   BRANCH=$(
