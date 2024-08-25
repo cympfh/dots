@@ -3,6 +3,7 @@ let g:run_config = {
       \ 'cpp': 'g++ % -o /tmp/out && /tmp/out',
       \ 'cumin': 'cuminc %',
       \ 'dc': 'dc -f %',
+      \ 'gnuplot': 'gnuplot %',
       \ 'go': 'go run %',
       \ 'javascript': 'node %',
       \ 'python': 'python %',

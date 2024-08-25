@@ -12,3 +12,6 @@ au BufRead,BufNewFile *.sage set filetype=sage.python
 
 " dc
 au BufRead,BufNewFile *.dc set filetype=dc
+
+" gnuplot
+au BufRead,BufNewFile *.gp set filetype=gnuplot
