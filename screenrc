@@ -45,6 +45,7 @@ bind l focus right
 
 # command!
 bind t screen
+bind ^t screen
 
 # layout
 layout new 0
