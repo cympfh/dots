@@ -35,6 +35,7 @@ call plug#end()
 source ~/.dots/vim/keymap.vim
 source ~/.dots/vim/clipboard.vim
 source ~/.dots/vim/snippet.vim
+source ~/.dots/vim/sandwich.vim
 
 set cryptmethod=blowfish2
 set fileencodings=utf8,euc-jp,sjis,cp932,default,latin1

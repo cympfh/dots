@@ -28,6 +28,7 @@ call plug#end()
 source ~/.dots/vim/grep.vim
 source ~/.dots/vim/keymap.vim
 source ~/.dots/vim/eng.vim
+source ~/.dots/vim/sandwich.vim
 source ~/.dots/nvim/core/snippet_rs.vim
 source ~/.dots/nvim/core/colortheme.vim
 source ~/.dots/nvim/core/comment.lua
