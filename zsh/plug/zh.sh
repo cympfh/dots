@@ -23,3 +23,11 @@ function jz() {
         jq -r .text |
         clip
 }
+function zv() {
+    : zh-vrchat
+    T="$@"
+    zhcomp "$T" |
+        tee >(cat) |
+        jq -r .completed.text |
+        vrchatbox
+}
