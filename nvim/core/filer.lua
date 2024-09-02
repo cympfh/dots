@@ -6,6 +6,12 @@ require("oil").setup({
   view_options = {
     show_hidden = true,
     natural_order = true,
+    is_always_hidden = function(name, bufnr)
+      if name == '..' or name == '.git' then
+        return true
+      end
+      return false
+    end,
   },
   columns = { "icon" },
   keymaps = {
