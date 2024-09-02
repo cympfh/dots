@@ -22,7 +22,6 @@ call plug#begin('~/.vim/plugged')
   let g:brightest#highlight = {"group" : "BrightestUnderline"}
   Plug 'cympfh/journal.vim'
   source ~/.dots/vim/langs.vim
-  source ~/.dots/vim/terminal.vim
   source ~/.dots/vim/eng.vim
   source ~/.dots/vim/statusline.vim
   source ~/.dots/vim/filer.vim
