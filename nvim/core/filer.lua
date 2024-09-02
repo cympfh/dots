@@ -7,7 +7,7 @@ require("oil").setup({
     show_hidden = true,
     natural_order = true,
   },
-  columns = {},
+  columns = { "icon" },
   keymaps = {
     -- Use C-v to preview instead of C-p
     ["<C-v>"] = "actions.preview",
@@ -20,7 +20,7 @@ require("oil").setup({
         if detail then
           require("oil").set_columns({ "icon", "permissions", "size", "mtime" })
         else
-          require("oil").set_columns({ })
+          require("oil").set_columns({ "icon" })
         end
       end,
     },
