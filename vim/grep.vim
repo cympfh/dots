@@ -9,9 +9,6 @@ function s:Grep(...)
     if v:shell_error == 0  " if git
         cexpr system('git grep -n ' . keyword . ' **/* 2>/dev/null')
         call setqflist([], 'a', {'title' : 'git grep ' . keyword})
-    elseif executable("rg")
-        cexpr system('rg --vimgrep ' . keyword . ' 2>/dev/null | grep -v "^Binary file "')
-        call setqflist([], 'a', {'title' : 'ripgrep ' . keyword})
     else
         cexpr system('grep -n ' . keyword . ' **/* 2>/dev/null | grep -v "^Binary file "')
         call setqflist([], 'a', {'title' : 'grep ' . keyword})
