@@ -1,4 +1,3 @@
-Plug 'cympfh/journal.vim'
 Plug 'vim-scripts/renamer.vim'
 Plug 'tpope/vim-sleuth'
 
@@ -18,9 +17,3 @@ function! Ctoggle()
   end
 endfunction
 nn <bs> :call Ctoggle()<cr>
-
-" https://github.com/osyo-manga/vim-brightest
-Plug 'osyo-manga/vim-brightest'
-
-" markdown/latex
-vnoremap $ s$<C-r>"$<esc>

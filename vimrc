@@ -1,16 +1,15 @@
-set nobackup noswapfile
-set ambiwidth=single
-set number ruler showcmd incsearch nohlsearch showmatch
-set autoindent smartindent
-set modeline modelines=2 history=50
-set foldlevel=0 foldmethod=marker
-set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+set number nohlsearch wrap expandtab autoindent smartindent smarttab
+set tabstop=4 shiftwidth=4 softtabstop=4
+set nobackup nowritebackup noswapfile
+set mouse=a
 set backspace=start,indent,eol
 set wildmode=list:longest
+set list listchars=tab:»\ ,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
+set foldlevel=0 foldmethod=marker
+set ambiwidth=single
+set ruler showcmd incsearch showmatch
+set modeline modelines=2 history=50
 set timeout ttimeoutlen=100
-set mouse=a
-set list listchars=tab:__,trail:-
-set fillchars=vert:\ 
 let mapleader="-"
 set colorcolumn=100 synmaxcol=200
 set undodir=~/.vim/undo undofile
@@ -19,6 +18,9 @@ set completeopt=popup,menu
 
 " https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
+  Plug 'osyo-manga/vim-brightest'
+  let g:brightest#highlight = {"group" : "BrightestUnderline"}
+  Plug 'cympfh/journal.vim'
   source ~/.dots/vim/langs.vim
   source ~/.dots/vim/terminal.vim
   source ~/.dots/vim/eng.vim
