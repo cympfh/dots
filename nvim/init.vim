@@ -36,3 +36,4 @@ source ~/.dots/nvim/core/atcoder.vim
 source ~/.dots/nvim/core/codegpt.vim
 source ~/.dots/nvim/core/runthis.vim
 source ~/.dots/nvim/core/capitalize.vim
+source ~/.dots/nvim/core/filer.lua
