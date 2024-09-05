@@ -17,7 +17,7 @@ screen-x() {
         screen -wipe
         SCREENNAME=$(
             screen -ls |
-                grep '^\s' |
+                grep '\s\s*[0-9]' |
                 sed 's/\s\s*\([0-9]*\)\.\([^\t]*\)\t(\(.*\))/\1\t\2\t\3/' |
                 sort -k 2,2 |
                 awk '{print $1"."$2, "("$3")"}' |
