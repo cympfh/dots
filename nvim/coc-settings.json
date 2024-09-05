@@ -5,6 +5,8 @@
   "diagnostic.messageDelay": 500,
   "diagnostic.checkCurrentLine": true,
   "pyright.completion.snippetSupport": false,
+  "pyright.inlayHints.parameterTypes": false,
+  "pyright.inlayHints.variableTypes": false,
   "pyright.organizeimports.provider": "isort",
   "python.analysis.diagnosticMode": "workspace",
   "python.formatting.provider": "black",
@@ -15,5 +17,5 @@
   },
   "svelte.enable-ts-plugin": true,
   "rust-analyzer.completion.autoimport.enable": false,
-  "rust-analyzer.completion.callable.snippets": "none",
+  "rust-analyzer.completion.callable.snippets": "none"
 }
