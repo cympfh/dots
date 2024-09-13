@@ -15,8 +15,8 @@ require("oil").setup({
   },
   columns = { "icon" },
   keymaps = {
-    -- Use C-v to preview instead of C-p
-    ["<C-v>"] = "actions.preview",
+    -- Use C-c to preview instead of C-p
+    ["<C-c>"] = "actions.preview",
     ["<C-p>"] = false,
     -- toggle file details
     ["gd"] = {
