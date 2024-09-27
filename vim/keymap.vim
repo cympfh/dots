@@ -15,3 +15,7 @@ nnoremap <silent><nowait> <c-n> :tabnext<cr>
 
 " Open current-file-path in new tab
 nnoremap <silent><nowait> gn :tabedit <c-r>=expand('<cfile>')<cr><cr>
+
+" Escape & Insert a new line
+nnoremap <silent><nowait> <c-j><c-o> :call append(line("."), "")<cr>j
+inoremap <silent><nowait> <c-j><c-o> <esc>:call append(line("."), "")<cr>j
