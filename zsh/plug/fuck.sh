@@ -60,7 +60,7 @@ fuck-git-username() {
   git config --local user.email "$FUCK_GIT_email"
 }
 
-# remove a branch (from local and origin)
+# remove a branch (from LOCAL)
 fuck-git-branch-delete() {
   BRANCH=$(
     git branch --verbose |
@@ -71,7 +71,7 @@ fuck-git-branch-delete() {
     echo cancel
   else
     git branch -D "$BRANCH"
-    git push origin ":$BRANCH"
+    # git push origin ":$BRANCH"
   fi
 }
 
