@@ -12,3 +12,6 @@ alias v='vrchatbox'
 mkcd() {
     mkdir "$1" && cd "$1"
 }
+
+alias @='withcache'
+alias @curl='withcache -- curl'
