@@ -7,9 +7,9 @@
   "pyright.completion.snippetSupport": false,
   "pyright.inlayHints.parameterTypes": false,
   "pyright.inlayHints.variableTypes": false,
-  "pyright.organizeimports.provider": "isort",
   "python.analysis.diagnosticMode": "workspace",
-  "python.formatting.provider": "black",
+  "python.formatting.provider": "ruff",
+  "python.linting.ruffEnabled": true,
   "markdownlint.config": {
     "MD007": false,
     "MD034": false,
