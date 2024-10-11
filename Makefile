@@ -1,4 +1,4 @@
-.PHONY: feh vim screen bash zsh i3 git input tmux help nvim starship ranger
+.PHONY: help feh vim screen bash zsh i3 git input tmux nvim
 PWD_TILDE=$(shell pwd | sed "s,^${HOME},\\\\~,g")
 
 ## feh config
