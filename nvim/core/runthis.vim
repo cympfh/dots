@@ -6,6 +6,7 @@ let g:run_config = {
       \ 'gnuplot': 'gnuplot %',
       \ 'go': 'go run %',
       \ 'javascript': 'node %',
+      \ 'mermaid': 'mmdc -i % -o %:r.png && open %:r.png',
       \ 'python': 'python %',
       \ 'ruby': 'ruby %',
       \ 'rust': 'if [ -f Cargo.toml ]; then cargo run; else rustc % -o /tmp/out && /tmp/out; fi',
