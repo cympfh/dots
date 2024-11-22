@@ -21,6 +21,7 @@ call plug#begin('~/.config/nvim/plugged')
   source ~/.dots/nvim/core/coc.vim
   source ~/.dots/nvim/core/filer.vim
   source ~/.dots/nvim/core/floaterm.vim
+  source ~/.dots/nvim/core/chatgpt.vim
   Plug 'morhetz/gruvbox'
 call plug#end()
 
@@ -37,3 +38,4 @@ source ~/.dots/nvim/core/codegpt.vim
 source ~/.dots/nvim/core/runthis.vim
 source ~/.dots/nvim/core/capitalize.vim
 source ~/.dots/nvim/core/filer.lua
+source ~/.dots/nvim/core/chatgpt.lua
