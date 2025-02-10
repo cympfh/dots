@@ -47,6 +47,11 @@ fuck-docker-images() {
   docker images | awk 'NR>1' | peco | awk '{print "docker rmi",$3 }' | sh
 }
 
+# fire docker images
+fuck-docker-none-images() {
+  docker images | awk 'NR>1' | grep none | awk '{print "docker rmi",$3 }' | sh
+}
+
 # remove pycache/ recursively
 fuck-pycache() {
   find . -type d | grep pycache | sed 's/.*/rm -r &/g' | sh
