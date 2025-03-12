@@ -3,8 +3,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
       \'coc-pyright',
       \'coc-rust-analyzer',
-      \'coc-go',
-      \'coc-sqlfluff',
       \]
 
 nnoremap <silent> gd :call CocAction('jumpDefinition', 'tabe')<cr>
