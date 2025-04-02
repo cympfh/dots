@@ -9,6 +9,7 @@ nnoremap <silent> gd :call CocAction('jumpDefinition', 'tabe')<cr>
 nnoremap <silent> K :call CocAction('doHover')<cr>
 inoremap <silent><expr> <c-l> coc#refresh()
 autocmd BufWritePre *.py :silent call CocAction('runCommand', 'python.sortImports')
+autocmd BufWritePre *.rs :silent RustFmt
 
 " jump.vim
 function! s:jump_context()
