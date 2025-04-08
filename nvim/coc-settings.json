@@ -18,5 +18,8 @@
   },
   "svelte.enable-ts-plugin": true,
   "rust-analyzer.completion.autoimport.enable": false,
-  "rust-analyzer.completion.callable.snippets": "none"
+  "rust-analyzer.completion.callable.snippets": "none",
+  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "rust-analyzer.inlayHints.typeHints.hideClosureParameter": false,
+  "rust-analyzer.inlayHints.parameterHints": false
 }

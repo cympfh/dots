@@ -48,3 +48,34 @@ endfunction
 
 nmap <silent> <c-g><c-n> :call <sid>jump_next()<cr>
 nmap <silent> <c-g><c-p> :call <sid>jump_prev()<cr>
+
+" inlayHints のトグル
+if !exists('g:inlay_hints')
+  let g:inlay_hints = 0  " 初期値は off
+endif
+
+let s:inlay_keys = [
+      \ 'pyright.inlayHints.parameterTypes',
+      \ 'pyright.inlayHints.variableTypes',
+      \ 'rust-analyzer.inlayHints.typeHints.enable',
+      \ 'rust-analyzer.inlayHints.typeHints.hideClosureParameter',
+      \ 'rust-analyzer.inlayHints.parameterHints',
+      \ ]
+
+function! ToggleRustInlayHints() abort
+  if g:inlay_hints
+    for key in s:inlay_keys
+      call coc#config(key, v:false)
+    endfor
+    let g:inlay_hints = 0
+    echo "Inlay hints disabled"
+  else
+    for key in s:inlay_keys
+      call coc#config(key, v:true)
+    endfor
+    let g:inlay_hints = 1
+    echo "Inlay hints enabled"
+  endif
+endfunction
+
+nnoremap <silent> <c-g>i :call ToggleRustInlayHints()<cr>
