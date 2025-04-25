@@ -4,7 +4,7 @@ PWD_TILDE=$(shell pwd | sed "s,^${HOME},\\\\~,g")
 ## feh config
 feh:
 	[ -d ~/.config/feh ] || mkdir -p ~/.config/feh/
-	ln -s ~/.dots/feh_keys ~/.config/feh/keys
+	ln -s ~/.dots/feh/keys ~/.config/feh/keys
 
 ## set .vimrc
 vim:
