@@ -52,7 +52,6 @@ source $ZPLUGDIR/mru/hook.zsh
 source $ZPLUGDIR/windows.sh
 source $ZPLUGDIR/locale.sh
 source $ZPLUGDIR/zh.sh
-# source $ZPLUGDIR/aws.sh
 load $HOME/Dropbox/share/kirara
 load $HOME/Dropbox/share/dw/aws.zsh
 
