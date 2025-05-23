@@ -22,7 +22,7 @@ msgminwait 1
 defscrollback 30000
 mousetrack off
 
-# appearance (default)
+# appearance (default setting maybe overwritten)
 sorendition '= dd'
 hardstatus alwayslastline '%-w%{=b dY}%n %t%{-}%+w'
 caption always '%{b dy}%n %{bu dy}%t'
