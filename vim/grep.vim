@@ -10,8 +10,15 @@ function s:Grep(...)
         cexpr system('git grep -n ' . keyword . ' **/* 2>/dev/null')
         call setqflist([], 'a', {'title' : 'git grep ' . keyword})
     else
-        cexpr system('grep -n ' . keyword . ' **/* 2>/dev/null | grep -v "^Binary file "')
-        call setqflist([], 'a', {'title' : 'grep ' . keyword})
+        " Check if ripgrep is available
+        let _rg_check = system("command -v rg")
+        if v:shell_error == 0
+            cexpr system('rg --vimgrep ' . keyword . ' 2>/dev/null')
+            call setqflist([], 'a', {'title' : 'rg ' . keyword})
+        else
+            cexpr system('grep -n ' . keyword . ' **/* 2>/dev/null | grep -v "^Binary file "')
+            call setqflist([], 'a', {'title' : 'grep ' . keyword})
+        endif
     endif
     " Check any matched
     if len(getqflist()) > 0
