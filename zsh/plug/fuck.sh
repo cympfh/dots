@@ -121,6 +121,11 @@ fuck-aws-screen-prod() {
   aws-screen-prod
 }
 
+# activate uv.venv
+fuck-activate-uv-venv() {
+  source ~/test/uv-env/.venv/bin/activate
+}
+
 _call_fuck() {
   TMP_DISPLAY=$DISPLAY
   unset DISPLAY
