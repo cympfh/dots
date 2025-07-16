@@ -1,4 +1,4 @@
-.PHONY: help feh vim screen bash zsh i3 git input tmux nvim
+.PHONY: help feh vim screen bash zsh i3 git input tmux nvim uv
 PWD_TILDE=$(shell pwd | sed "s,^${HOME},\\\\~,g")
 
 ## feh config
@@ -53,6 +53,13 @@ nvim:
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	nvim --headless -u ~/.config/nvim/init.vim +PlugInstall +qall
 	nvim --headless -u ~/.config/nvim/init.vim +CocUpdateSync +qall
+
+## uv - https://docs.astral.sh/uv/getting-started/installation/
+uv:
+	curl -LsSf https://astral.sh/uv/install.sh | sh
+	mkdir -p ~/test/uv-env
+	cd ~/test/uv-env && uv init && uv add requests
+	echo "source ~/test/uv-env/.venv/bin/activate"
 
 .DEFAULT_GOAL := help
 
