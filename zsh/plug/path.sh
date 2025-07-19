@@ -9,6 +9,7 @@ shpath add system-prior /usr/local/go/bin/
 shpath add system-prior /opt/homebrew/bin
 shpath add user $HOME/bin
 shpath add user $HOME/.local/bin
+shpath add user $HOME/.local/opt/node/bin
 shpath add user $HOME/Dropbox/bin
 shpath add user $HOME/Dropbox/mls
 shpath add user $HOME/dw/bin
