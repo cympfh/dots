@@ -66,7 +66,7 @@ fuck-git-username() {
 }
 
 # remove a branch (from LOCAL)
-fuck-git-branch-delete() {
+fuck-git-branch-delete-local() {
   BRANCH=$(
     git branch --verbose |
       peco |
@@ -77,6 +77,24 @@ fuck-git-branch-delete() {
   else
     git branch -D "$BRANCH"
     # git push origin ":$BRANCH"
+  fi
+}
+
+# remove a branch (from REMOTE)
+fuck-git-branch-delete-remote() {
+  BRANCH=$(
+    git branch --remote |
+      grep -o 'origin/[^ ]*' |
+      sed 's/^origin.//' |
+      grep -v HEAD |
+      sort -u |
+      peco |
+      awk '{print $1}'
+  )
+  if [ -z "$BRANCH" ]; then
+    echo cancel
+  else
+    git push origin --delete "$BRANCH"
   fi
 }
 
