@@ -129,6 +129,11 @@ fuck-git-branch-checkout() {
   fi
 }
 
+# empty commit for test-this-please
+fuck-git-commit-empty-test-this-please() {
+   git commit -m test_this_please --allow-empty
+}
+
 # aws-screen DEV
 fuck-aws-screen-dev() {
   aws-screen-dev
