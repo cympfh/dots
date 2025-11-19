@@ -117,3 +117,18 @@ checkout-k8s-context() {
 }
 zle -N checkout-k8s-context
 bindkey "^Gk" checkout-k8s-context
+
+#
+# Python (uv) virtualenv
+#
+toggle-uv-activate() {
+  if ( type python | grep 'test/uv-env' > /dev/null ); then
+    deactivate
+  else
+    # activate
+    source ~/test/uv-env/.venv/bin/activate
+  fi
+  zle reset-prompt
+}
+zle -N toggle-uv-activate
+bindkey "^Gu" toggle-uv-activate
