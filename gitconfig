@@ -19,10 +19,8 @@
     ameno = commit --amend --no-edit
     st = status
     df = diff
-    vimdiff = difftool --tool=vimdiff --no-prompt
     cm = commit -m
     cmm = "!git commit -m \"`commit-message`\""
-    A = add .
     ad = add
     br = branch
     ch = checkout
