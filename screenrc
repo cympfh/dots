@@ -9,8 +9,8 @@ cjkwidth off
 # to use 256 colors
 truecolor on
 defbce on
+term screen
 # term screen-256color
-term "xterm-256color"
 shell zsh
 termcapinfo xterm*|screen* Co#256:pa#32767:AB=\E[48;5;%dm:AF=\E[38;5;%dm
 
