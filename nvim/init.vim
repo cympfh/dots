@@ -34,7 +34,7 @@ source ~/.dots/nvim/core/snippet_rs.vim
 source ~/.dots/nvim/core/colortheme.vim
 source ~/.dots/nvim/core/comment.lua
 source ~/.dots/nvim/core/atcoder.vim
-source ~/.dots/nvim/core/codegpt.vim
+source ~/.dots/nvim/core/codex.vim
 source ~/.dots/nvim/core/runthis.vim
 source ~/.dots/nvim/core/capitalize.vim
 source ~/.dots/nvim/core/filer.lua
