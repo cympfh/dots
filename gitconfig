@@ -1,6 +1,8 @@
-[user]
-    name = whoami
-    email = none@example.com
+[includeIf "gitdir:~/.dots/"]
+    path = ~/.dots/git/users/cympfh.git
+
+[includeIf "gitdir:~/bin/"]
+    path = ~/.dots/git/users/cympfh.git
 
 [includeIf "gitdir:~/git/"]
     path = ~/.dots/git/users/cympfh.git

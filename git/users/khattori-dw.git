@@ -1,7 +1,16 @@
 [user]
     name = khattori-dw
     email = kazuhiro_hattori@dwango.co.jp
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMepvQ1Oqdn5ifMp/0StFrCJB8gJ3JsOGei27oTRD6/h
 
 [core]
     sshCommand = ssh -i ~/.ssh/dw/id_ed25519
 
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/mnt/c/Users/kazuhiro_hattori/AppData/Local/Microsoft/WindowsApps/op-ssh-sign-wsl.exe"
+
+[commit]
+  gpgsign = true
