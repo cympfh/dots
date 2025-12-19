@@ -36,6 +36,7 @@
     pull-upstream-rebase = "!echo \\# Pull from upstream/`git main-branch`; git pull up `git main-branch` --rebase"
     ga = "!git pull-origin-rebase; git pull-upstream-rebase"
     patch = "!patch -p1"
+    sync = "!f() { BR=\"$1\"; [ -z \"$BR\" ] && echo \"Which remote branch?\" && exit 2; git fetch origin \"$BR\" && git checkout origin/\"$BR\" && git checkout -b \"$BR\"; }; f"
 
 [color]
     ui = true
