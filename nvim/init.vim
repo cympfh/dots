@@ -5,6 +5,7 @@ set backspace=start,indent,eol
 set wildmode=list:longest
 set list listchars=tab:»\ ,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 set foldlevel=0 foldmethod=marker
+set splitright splitbelow
 set undodir=~/.cache/neovim/undo undofile
 let mapleader="-"
 let g:denops_disable_version_check = 1
