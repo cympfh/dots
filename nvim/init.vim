@@ -19,7 +19,6 @@ call plug#begin('~/.config/nvim/plugged')
   source ~/.dots/nvim/core/lang.vim
   source ~/.dots/vim/statusline.vim
   source ~/.dots/vim/clipboard.vim
-  " source ~/.dots/nvim/core/coc.vim
   source ~/.dots/nvim/core/filer.vim
   source ~/.dots/nvim/core/floaterm.vim
   source ~/.dots/nvim/core/llm.vim
