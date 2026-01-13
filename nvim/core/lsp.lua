@@ -70,11 +70,13 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("DiagnosticChanged", {
   callback = function()
-    vim.diagnostic.setqflist({ open = false })
-    local diagnostics = vim.diagnostic.get()
-    if #diagnostics == 0 then
-      vim.cmd.cclose()
-    end
+    vim.schedule(function()
+      vim.diagnostic.setqflist({ open = false })
+      local diagnostics = vim.diagnostic.get()
+      if #diagnostics == 0 then
+        vim.cmd.cclose()
+      end
+    end)
   end,
 })
 
