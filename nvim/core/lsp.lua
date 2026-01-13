@@ -4,7 +4,7 @@ local function on_attach(client, bufnr)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-  vim.keymap.set('n', '<c-g>q', vim.diagnostic.setqflist, opts)
+  vim.keymap.set('n', '<c-g>q', vim.diagnostic.setqflist, opts) -- manually set quickfix
   -- vim.keymap.set('n', '<C-g><C-p>', vim.diagnostic.goto_prev, opts)
   -- vim.keymap.set('n', '<C-g><C-n>', vim.diagnostic.goto_next, opts)
   -- Auto-format on save
@@ -75,9 +75,9 @@ vim.api.nvim_create_autocmd("DiagnosticChanged", {
     if #diagnostics == 0 then
       vim.cmd.cclose()
     end
-
   end,
 })
+
 vim.diagnostic.config({
   virtual_text = true,
   virtual_lines = true,
