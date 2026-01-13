@@ -46,7 +46,7 @@ input:
 tmux:
 	ln -s $(PWD)/tmux/conf ~/.tmux.conf
 
-## link ~/.config/nvim, coc, vim-plug
+## link ~/.config/nvim, vim-plug
 nvim:
 	ln -s $(PWD)/nvim ~/.config/nvim
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
