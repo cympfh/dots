@@ -8,7 +8,18 @@ local function on_attach(client, bufnr)
   -- vim.keymap.set('n', '<C-g><C-p>', vim.diagnostic.goto_prev, opts)
   -- vim.keymap.set('n', '<C-g><C-n>', vim.diagnostic.goto_next, opts)
   -- Auto-format on save
-  if client.name == 'ruff' or client.name == 'rust-analyzer' then
+  if client.name == 'ruff' then
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.code_action({
+          context = { only = { 'source.organizeImports' }, diagnostics = {} },
+          apply = true,
+        })
+        vim.lsp.buf.format({ async = false, id = client.id })
+      end,
+    })
+  elseif client.name == 'rust-analyzer' then
     vim.api.nvim_create_autocmd("BufWritePre", {
       buffer = bufnr,
       callback = function()
@@ -29,7 +40,7 @@ vim.api.nvim_create_autocmd("FileType", {
       root_dir = root_dir,
       single_file_support = true,
       settings = {
-        -- Ruff config here
+        organizeImports = true,
       },
       on_attach = on_attach,
     })
