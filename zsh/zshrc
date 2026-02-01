@@ -56,3 +56,6 @@ load $HOME/Dropbox/share/kirara
 load $HOME/Dropbox/share/dw/aws.zsh
 
 shpath refresh
+
+# activate uv-env
+source ~/test/uv-env/.venv/bin/activate
