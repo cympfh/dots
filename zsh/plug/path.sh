@@ -5,7 +5,6 @@ shpath add system /bin
 shpath add system /usr/bin
 shpath add system-prior /usr/local/bin
 shpath add system-prior /usr/local/go/bin/
-shpath add system-prior /usr/local/go/bin/
 shpath add system-prior /opt/homebrew/bin
 shpath add user $HOME/bin
 shpath add user $HOME/.local/bin
@@ -23,5 +22,6 @@ shpath add user $HOME/git/hf/bin
 shpath add user $HOME/git/ac/bin
 shpath add user $HOME/git/grow.md.fasthtml/bin
 shpath add user $HOME/.deno/bin
+shpath add user $HOME/.bun/bin
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
