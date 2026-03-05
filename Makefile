@@ -61,6 +61,15 @@ uv:
 	cd ~/test/uv-env && uv init && uv add requests
 	echo "source ~/test/uv-env/.venv/bin/activate"
 
+## Claude Code Skills
+claude-skills:
+	mkdir -p ~/.claude/skills/
+	[ -d ~/.claude/skills/arxiv-memo ] || ln -s $(PWD)/claude/skills/arxiv-memo ~/.claude/skills/arxiv-memo
+	[ -d ~/.claude/skills/todo ] || ln -s $(PWD)/claude/skills/todo ~/.claude/skills/todo
+	[ -d ~/.claude/skills/mybin ] || ( mkdir -p ~/.claude/skills/mybin && ln -s ~/bin/SKILL.md ~/.claude/skills/mybin/SKILL.md )
+	mkdir -p ~/.claude/skills/frontend-design && wget -O ~/.claude/skills/frontend-design/SKILL.md https://raw.githubusercontent.com/anthropics/skills/refs/heads/main/skills/frontend-design/SKILL.md
+
+
 .DEFAULT_GOAL := help
 
 help:
