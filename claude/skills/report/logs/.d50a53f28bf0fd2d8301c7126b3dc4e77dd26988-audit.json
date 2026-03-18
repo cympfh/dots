@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/kazuhiro_hattori/.dots/claude/skills/report/logs/.d50a53f28bf0fd2d8301c7126b3dc4e77dd26988-audit.json",
+    "files": [
+        {
+            "date": 1773740763805,
+            "name": "/home/kazuhiro_hattori/.dots/claude/skills/report/logs/mcp-puppeteer-2026-03-17.log",
+            "hash": "389fd2a0c68d1c06f3c6181e060822c65a7869d1081631cfc8ed49847f274341"
+        },
+        {
+            "date": 1773806098004,
+            "name": "/home/kazuhiro_hattori/.dots/claude/skills/report/logs/mcp-puppeteer-2026-03-18.log",
+            "hash": "644b1636d625665409b08b5c3e3e66ddc68ba4d44603f2c6c10fd93d3ab6c423"
+        }
+    ],
+    "hashType": "sha256"
+}
