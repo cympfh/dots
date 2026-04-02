@@ -95,6 +95,14 @@ insert-screen-s() {
 zle -N insert-screen-s
 bindkey "^K^S" insert-screen-s
 
+insert-screen-kill() {
+    BUFFER=screen-kill
+    CURSOR=$#BUFFER
+    zle .accept-line
+}
+zle -N insert-screen-kill
+bindkey "^K^K" insert-screen-kill
+
 #
 # k8s
 #

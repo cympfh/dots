@@ -41,3 +41,35 @@ screen-s() {
         screen -S "${SCREENNAME}"
     fi
 }
+
+screen-kill() {
+    if [ "$STY" ]; then
+        echo "You are already in screen"
+    else
+        screen -wipe
+        SCREENNAME=$(
+            screen -ls |
+                grep '\s\s*[0-9]' |
+                sed 's/\s\s*\([0-9]*\)\.\([^\t]*\)\t(\(.*\))/\1\t\2\t\3/' |
+                sort -k 2,2 |
+                awk '{print $1"."$2, "("$3")"}' |
+                peco --prompt "Select a screen to kill" |
+                awk '{print $1}'
+        )
+        if [ -n "${SCREENNAME}" ]; then
+            echo -n "Are you sure you want to kill ${SCREENNAME}? (y/N) "
+        else
+            echo "No screen selected"
+            return
+        fi
+        read -r ANSWER
+        if [ "${ANSWER}" != "y" ]; then
+            echo "Aborted"
+            return
+        fi
+        SCREEN_PID=$(echo "${SCREENNAME}" | cut -d. -f1)
+        kill -9 "${SCREEN_PID}"
+        screen -wipe
+    fi
+
+}
