@@ -11,3 +11,6 @@ au BufRead,BufNewFile *.dc set filetype=dc
 
 " gnuplot
 au BufRead,BufNewFile *.gp set filetype=gnuplot
+
+" lean
+au BufRead,BufNewFile *.lean set filetype=lean

@@ -1,0 +1,8 @@
+{
+  "plugins": {
+    "lean.nvim": {
+      "rev": "75b7822d565054606af84fa61771eb0030e2ceec",
+      "src": "https://github.com/Julian/lean.nvim"
+    }
+  }
+}

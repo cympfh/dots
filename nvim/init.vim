@@ -17,6 +17,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'cympfh/journal.vim'
   Plug 'vim-denops/denops.vim'
   source ~/.dots/nvim/core/lang.vim
+  source ~/.dots/nvim/core/lang.lua
   source ~/.dots/vim/statusline.vim
   source ~/.dots/vim/clipboard.vim
   source ~/.dots/nvim/core/filer.vim
