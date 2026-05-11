@@ -3,7 +3,7 @@ set nobackup nowritebackup noswapfile
 set mouse=a
 set backspace=start,indent,eol
 set wildmode=list:longest
-set list listchars=tab:»\ ,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
+set list listchars=tab:»\ ,trail:-,extends:»,precedes:«,nbsp:%
 set foldlevel=0 foldmethod=marker
 set splitright splitbelow
 set undodir=~/.cache/neovim/undo undofile
