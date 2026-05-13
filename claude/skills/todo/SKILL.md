@@ -1,6 +1,6 @@
 ---
 name: todo
-version: 0.1.3
+version: 0.1.4
 description: Manage your todo list on TODO.md
 ---
 
@@ -99,12 +99,10 @@ JWT を使った認証を実装する。
 タスクの説明をここに書く。
 ```
 
-その後の推奨アクション
+その後の推奨アクションとして次を提案すること:
 
-- .gitignore に TODO.md を追加する
-    - ユーザーに許可を貰った上で行うこと
-- タスクを追加する
-    - auto-add の使用を提案する
+- [ ] .gitignore に TODO.md を追加しますか？
+- [ ] auto-add を用いて自動でタスクを追加しますか？
 
 ---
 
