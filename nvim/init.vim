@@ -10,6 +10,8 @@ set undodir=~/.cache/neovim/undo undofile
 let mapleader="-"
 let g:denops_disable_version_check = 1
 
+source ~/.dots/nvim/core/osc52.lua
+
 " load packages
 call plug#begin('~/.config/nvim/plugged')
   Plug 'osyo-manga/vim-brightest'
