@@ -69,6 +69,7 @@ claude-skills:
 	[ -d ~/.claude/skills/git ] || ln -s $(PWD)/claude/skills/git ~/.claude/skills/git
 	[ -d ~/.claude/skills/report ] || ln -s $(PWD)/claude/skills/report ~/.claude/skills/report
 	[ -d ~/.claude/skills/todo ] || ln -s $(PWD)/claude/skills/todo ~/.claude/skills/todo
+	[ -d ~/.claude/skills/skill-creator ] || ln -s $(PWD)/claude/skills/skill-creator ~/.claude/skills/skill-creator
 	[ -d ~/.claude/skills/mybin ] || ( mkdir -p ~/.claude/skills/mybin && ln -s ~/bin/SKILL.md ~/.claude/skills/mybin/SKILL.md )
 	mkdir -p ~/.claude/skills/frontend-design && wget -O ~/.claude/skills/frontend-design/SKILL.md https://raw.githubusercontent.com/anthropics/skills/refs/heads/main/skills/frontend-design/SKILL.md
 	mkdir -p ~/.claude/skills/grill-me && wget -O ~/.claude/skills/grill-me/SKILL.md https://raw.githubusercontent.com/mattpocock/skills/refs/heads/main/skills/productivity/grill-me/SKILL.md 
