@@ -98,3 +98,8 @@ description: |
 
 これで基本的なスキル作成は十分にカバーできます。  
 より高度な評価（大規模テスト、自動gradingなど）が必要になったら、そのときに拡張してください。
+
+## 最新情報
+
+Skills の仕様・最新情報は公式ドキュメントを参照：  
+https://code.claude.com/docs/en/skills.md
