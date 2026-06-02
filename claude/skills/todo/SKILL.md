@@ -2,6 +2,8 @@
 name: todo
 version: 0.3.0
 description: Manage your todo list on TODO.md
+allowed-tools: Read Write Edit Bash(git diff *) Bash(git add *) Bash(git commit *) Bash(ls *) Bash(find *)
+disallowed-tools: Bash(git push *)
 ---
 
 # Todo スキル
