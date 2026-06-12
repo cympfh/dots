@@ -67,6 +67,7 @@ claude-skills:
 	[ -d ~/.claude/skills/arxiv-memo ] || ln -s $(PWD)/claude/skills/arxiv-memo ~/.claude/skills/arxiv-memo
 	[ -d ~/.claude/skills/bump ] || ln -s $(PWD)/claude/skills/bump ~/.claude/skills/bump
 	[ -d ~/.claude/skills/git ] || ln -s $(PWD)/claude/skills/git ~/.claude/skills/git
+	[ -d ~/.claude/skills/notify ] || ln -s $(PWD)/claude/skills/notify ~/.claude/skills/notify
 	[ -d ~/.claude/skills/report ] || ln -s $(PWD)/claude/skills/report ~/.claude/skills/report
 	[ -d ~/.claude/skills/todo ] || ln -s $(PWD)/claude/skills/todo ~/.claude/skills/todo
 	[ -d ~/.claude/skills/skill-creator ] || ln -s $(PWD)/claude/skills/skill-creator ~/.claude/skills/skill-creator
