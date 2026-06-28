@@ -52,3 +52,6 @@
 
 [core]
     excludesFile = ~/.gitignore
+[user]
+	email = cympfh@gmail.com
+	name = cympfh
