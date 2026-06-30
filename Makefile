@@ -66,14 +66,16 @@ claude-skills:
 	mkdir -p ~/.claude/skills/
 	[ -d ~/.claude/skills/arxiv-memo ] || ln -s $(PWD)/claude/skills/arxiv-memo ~/.claude/skills/arxiv-memo
 	[ -d ~/.claude/skills/bump ] || ln -s $(PWD)/claude/skills/bump ~/.claude/skills/bump
+	[ -d ~/.claude/skills/check ] || ln -s $(PWD)/claude/skills/check ~/.claude/skills/check
 	[ -d ~/.claude/skills/git ] || ln -s $(PWD)/claude/skills/git ~/.claude/skills/git
 	[ -d ~/.claude/skills/notify ] || ln -s $(PWD)/claude/skills/notify ~/.claude/skills/notify
+	[ -d ~/.claude/skills/private ] || ln -s $(PWD)/claude/skills/private ~/.claude/skills/private
 	[ -d ~/.claude/skills/report ] || ln -s $(PWD)/claude/skills/report ~/.claude/skills/report
 	[ -d ~/.claude/skills/todo ] || ln -s $(PWD)/claude/skills/todo ~/.claude/skills/todo
 	[ -d ~/.claude/skills/skill-creator ] || ln -s $(PWD)/claude/skills/skill-creator ~/.claude/skills/skill-creator
 	[ -d ~/.claude/skills/mybin ] || ( mkdir -p ~/.claude/skills/mybin && ln -s ~/bin/SKILL.md ~/.claude/skills/mybin/SKILL.md )
-	mkdir -p ~/.claude/skills/frontend-design && wget -O ~/.claude/skills/frontend-design/SKILL.md https://raw.githubusercontent.com/anthropics/skills/refs/heads/main/skills/frontend-design/SKILL.md
-	mkdir -p ~/.claude/skills/grill-me && wget -O ~/.claude/skills/grill-me/SKILL.md https://raw.githubusercontent.com/mattpocock/skills/refs/heads/main/skills/productivity/grill-me/SKILL.md 
+	[ -d ~/.claude/skills/frontend-design ] || ( mkdir -p ~/.claude/skills/frontend-design && wget -O ~/.claude/skills/frontend-design/SKILL.md https://raw.githubusercontent.com/anthropics/skills/refs/heads/main/skills/frontend-design/SKILL.md )
+	[ -d ~/.claude/skills/grill-me ] || ( mkdir -p ~/.claude/skills/grill-me && wget -O ~/.claude/skills/grill-me/SKILL.md https://raw.githubusercontent.com/mattpocock/skills/refs/heads/main/skills/productivity/grill-me/SKILL.md  )
 
 .DEFAULT_GOAL := help
 
