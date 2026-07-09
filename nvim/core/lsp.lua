@@ -1,4 +1,8 @@
 local function on_attach(client, bufnr)
+  if client:supports_method('textDocument/completion') then
+    vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
+  end
+
   -- Key mappings for LSP features
   local opts = { buffer = bufnr, noremap = true, silent = true }
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
