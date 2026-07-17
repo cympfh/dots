@@ -42,3 +42,5 @@ source ~/.dots/nvim/core/capitalize.vim
 source ~/.dots/nvim/core/filer.lua
 source ~/.dots/nvim/core/lsp.lua
 source ~/.dots/nvim/core/quickfix.vim
+
+inoremap jj <Esc>
