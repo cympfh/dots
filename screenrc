@@ -20,9 +20,9 @@ startup_message off
 msgwait 5
 msgminwait 1
 defscrollback 30000
-mousetrack off
+mousetrack on
 
-# appearance (default setting maybe overwritten)
+# default appearance (NOTE: setting maybe overwritten)
 sorendition '= dd'
 hardstatus alwayslastline '%-w%{=b dY}%n %t%{-}%+w'
 caption always '%{b dy}%n %{bu dy}%t'

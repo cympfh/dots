@@ -1,5 +1,10 @@
 # vim: set ft=screen
 
 sorendition '= dd'
-hardstatus alwayslastline '%-w%{=b dR}%n %t%{-}%+w%=%{dR}%m/%d,%c'
-caption always '%{b dR}%n %{bu dR}%t'
+# hardstatus alwayslastline '%-w%{=b dR}%n %t%{-}%+w%=%{dR}%m/%d,%c'
+# caption always '%{b dR}%n %{bu dR}%t'
+
+# GNU Screen >=5.0.0
+rendition so =dd
+hardstatus alwayslastline '%-w%{+b 196}%n %t%{-b 245}%+w%=%{124}%m/%d,%c'
+caption always '%?%F%{+b 196}%:%{+b 245}%?%n %?%F%{+bu 196}%:%{+bu 245}%?%t'
