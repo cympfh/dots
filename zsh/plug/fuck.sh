@@ -134,14 +134,14 @@ fuck-git-commit-empty-test-this-please() {
    git commit -m test_this_please --allow-empty
 }
 
-# aws-screen DEV
-fuck-aws-screen-dev() {
-  aws-screen-dev
+# open nayuta-dev in herdr
+fuck-aws-herdr-dev() {
+  aws-herdr-dev
 }
 
-# aws-screen PROD
-fuck-aws-screen-prod() {
-  aws-screen-prod
+# open nayuta-prod in herdr
+fuck-aws-herdr-prod() {
+  aws-herdr-prod
 }
 
 _call_fuck() {
