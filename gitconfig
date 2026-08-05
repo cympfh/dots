@@ -1,3 +1,7 @@
+[user]
+    email = cympfh@gmail.com
+    name = cympfh
+
 [includeIf "gitdir:~/.dots/"]
     path = ~/.dots/git/users/cympfh.git
 
@@ -52,6 +56,3 @@
 
 [core]
     excludesFile = ~/.gitignore
-[user]
-	email = cympfh@gmail.com
-	name = cympfh
