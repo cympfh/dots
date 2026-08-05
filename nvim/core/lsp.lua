@@ -1,85 +1,44 @@
-local function on_attach(client, bufnr)
-  if client:supports_method('textDocument/completion') then
-    vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
-  end
+-- サーバー定義は ~/.dots/nvim/lsp/<name>.lua （runtimepath 自動検出）
+vim.lsp.enable({ 'ruff', 'ty', 'rust-analyzer' })
 
-  -- Key mappings for LSP features
-  local opts = { buffer = bufnr, noremap = true, silent = true }
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-  vim.keymap.set('n', '<c-g>q', vim.diagnostic.setqflist, opts) -- manually set quickfix
-  -- vim.keymap.set('n', '<C-g><C-p>', vim.diagnostic.goto_prev, opts)
-  -- vim.keymap.set('n', '<C-g><C-n>', vim.diagnostic.goto_next, opts)
-  -- Auto-format on save
-  if client.name == 'ruff' then
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
-      callback = function()
-        vim.lsp.buf.code_action({
-          context = { only = { 'source.organizeImports' }, diagnostics = {} },
-          apply = true,
-        })
-        vim.lsp.buf.format({ async = false, id = client.id })
-      end,
-    })
-  elseif client.name == 'rust-analyzer' then
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
-      callback = function()
-        vim.lsp.buf.format({ async = false, id = client.id })
-      end,
-    })
-  end
-end
-
--- Python (ruff, ty)
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "python",
+vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
-    local root_dir = vim.fs.root(args.buf, {".git", "pyproject.toml", "setup.py"}) or vim.loop.cwd()
-    vim.lsp.start({
-      name = 'ruff',
-      cmd = { 'ruff', 'server' },
-      root_dir = root_dir,
-      single_file_support = true,
-      settings = {
-        organizeImports = true,
-      },
-      on_attach = on_attach,
-    })
-    vim.lsp.start({
-      name = 'ty',
-      cmd = { 'ty', 'server' },
-      root_dir = root_dir,
-      settings = {
-        ty = {
-          -- Ty config here
-        }
-      },
-      on_attach = on_attach,
-    })
-  end,
-})
+    local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+    local bufnr = args.buf
 
--- Rust (rust-analyzer)
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "rust",
-  callback = function(args)
-    local root_dir = vim.fs.root(args.buf, {"Cargo.toml", ".git"}) or vim.loop.cwd()
-    vim.lsp.start({
-      name = 'rust-analyzer',
-      cmd = { 'rust-analyzer' },
-      root_dir = root_dir,
-      settings = {
-        ['rust-analyzer'] = {
-          check = {
-            command = "clippy",
-          },
-        },
-      },
-      on_attach = on_attach,
-    })
+    if client:supports_method('textDocument/completion') then
+      vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
+    end
+
+    -- Key mappings for LSP features
+    local opts = { buffer = bufnr, noremap = true, silent = true }
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<c-g>q', vim.diagnostic.setqflist, opts) -- manually set quickfix
+    -- vim.keymap.set('n', '<C-g><C-p>', function() vim.diagnostic.jump({ count = -1 }) end, opts)
+    -- vim.keymap.set('n', '<C-g><C-n>', function() vim.diagnostic.jump({ count = 1 }) end, opts)
+
+    -- Auto-format on save
+    if client.name == 'ruff' then
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.code_action({
+            context = { only = { 'source.organizeImports' }, diagnostics = {} },
+            apply = true,
+          })
+          vim.lsp.buf.format({ async = false, id = client.id })
+        end,
+      })
+    elseif client.name == 'rust-analyzer' then
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.format({ async = false, id = client.id })
+        end,
+      })
+    end
   end,
 })
 
