@@ -72,6 +72,7 @@ claude-skills:
 	[ -d ~/.claude/skills/private ] || ln -s $(PWD)/claude/skills/private ~/.claude/skills/private
 	[ -d ~/.claude/skills/report ] || ln -s $(PWD)/claude/skills/report ~/.claude/skills/report
 	[ -d ~/.claude/skills/todo ] || ln -s $(PWD)/claude/skills/todo ~/.claude/skills/todo
+	[ -d ~/.claude/skills/issue ] || ln -s $(PWD)/claude/skills/issue ~/.claude/skills/issue
 	[ -d ~/.claude/skills/grill-me ] || ln -s $(PWD)/claude/skills/grill-me ~/.claude/skills/grill-me
 	[ -d ~/.claude/skills/skill-creator ] || ln -s $(PWD)/claude/skills/skill-creator ~/.claude/skills/skill-creator
 	[ -d ~/.claude/skills/mybin ] || ( mkdir -p ~/.claude/skills/mybin && ln -s ~/bin/SKILL.md ~/.claude/skills/mybin/SKILL.md )
