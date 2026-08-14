@@ -1,4 +1,4 @@
-.PHONY: help feh vim screen bash zsh i3 git input tmux nvim uv
+.PHONY: help feh vim screen bash zsh i3 git input tmux nvim uv claude-skills agents-skills codex-skills
 PWD_TILDE=$(shell pwd | sed "s,^${HOME},\\\\~,g")
 
 ## feh config
@@ -61,22 +61,33 @@ uv:
 	cd ~/test/uv-env && uv init && uv add requests
 	echo "source ~/test/uv-env/.venv/bin/activate"
 
+# Shared skill list for claude-skills / agents-skills / codex-skills
+SKILLS = arxiv-memo bump check git notify private report todo issue grill-me skill-creator
+FRONTEND_DESIGN_SKILL_URL = https://raw.githubusercontent.com/anthropics/skills/refs/heads/main/skills/frontend-design/SKILL.md
+
 ## Claude Code Skills
 claude-skills:
 	mkdir -p ~/.claude/skills/
-	[ -d ~/.claude/skills/arxiv-memo ] || ln -s $(PWD)/claude/skills/arxiv-memo ~/.claude/skills/arxiv-memo
-	[ -d ~/.claude/skills/bump ] || ln -s $(PWD)/claude/skills/bump ~/.claude/skills/bump
-	[ -d ~/.claude/skills/check ] || ln -s $(PWD)/claude/skills/check ~/.claude/skills/check
-	[ -d ~/.claude/skills/git ] || ln -s $(PWD)/claude/skills/git ~/.claude/skills/git
-	[ -d ~/.claude/skills/notify ] || ln -s $(PWD)/claude/skills/notify ~/.claude/skills/notify
-	[ -d ~/.claude/skills/private ] || ln -s $(PWD)/claude/skills/private ~/.claude/skills/private
-	[ -d ~/.claude/skills/report ] || ln -s $(PWD)/claude/skills/report ~/.claude/skills/report
-	[ -d ~/.claude/skills/todo ] || ln -s $(PWD)/claude/skills/todo ~/.claude/skills/todo
-	[ -d ~/.claude/skills/issue ] || ln -s $(PWD)/claude/skills/issue ~/.claude/skills/issue
-	[ -d ~/.claude/skills/grill-me ] || ln -s $(PWD)/claude/skills/grill-me ~/.claude/skills/grill-me
-	[ -d ~/.claude/skills/skill-creator ] || ln -s $(PWD)/claude/skills/skill-creator ~/.claude/skills/skill-creator
-	[ -d ~/.claude/skills/mybin ] || ( mkdir -p ~/.claude/skills/mybin && ln -s ~/bin/SKILL.md ~/.claude/skills/mybin/SKILL.md )
-	[ -d ~/.claude/skills/frontend-design ] || ( mkdir -p ~/.claude/skills/frontend-design && wget -O ~/.claude/skills/frontend-design/SKILL.md https://raw.githubusercontent.com/anthropics/skills/refs/heads/main/skills/frontend-design/SKILL.md )
+	for s in $(SKILLS); do \
+		[ -d ~/.claude/skills/$$s ] || ln -s $(PWD)/agents/skills/$$s ~/.claude/skills/$$s; \
+	done
+	[ -d ~/.claude/skills/frontend-design ] || ( mkdir -p ~/.claude/skills/frontend-design && wget -O ~/.claude/skills/frontend-design/SKILL.md $(FRONTEND_DESIGN_SKILL_URL) )
+
+## Agents Skills
+agents-skills:
+	mkdir -p ~/.agents/skills/
+	for s in $(SKILLS); do \
+		[ -d ~/.agents/skills/$$s ] || ln -s $(PWD)/agents/skills/$$s ~/.agents/skills/$$s; \
+	done
+	[ -d ~/.agents/skills/frontend-design ] || ( mkdir -p ~/.agents/skills/frontend-design && wget -O ~/.agents/skills/frontend-design/SKILL.md $(FRONTEND_DESIGN_SKILL_URL) )
+
+## Codex Skills
+codex-skills:
+	mkdir -p ~/.codex/skills/
+	for s in $(SKILLS); do \
+		[ -d ~/.codex/skills/$$s ] || ln -s $(PWD)/agents/skills/$$s ~/.codex/skills/$$s; \
+	done
+	[ -d ~/.codex/skills/frontend-design ] || ( mkdir -p ~/.codex/skills/frontend-design && wget -O ~/.codex/skills/frontend-design/SKILL.md $(FRONTEND_DESIGN_SKILL_URL) )
 
 .DEFAULT_GOAL := help
 
