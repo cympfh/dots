@@ -25,7 +25,6 @@ make i3            # i3ウィンドウマネージャ設定
 make bash          # Bashシェル設定
 make input         # Readline入力設定
 make uv            # uv (Python パッケージマネージャ) のインストールとサンプル環境作成
-make claude-skills # ~/.claude/skills/ に claude/skills/ 以下の各スキルをシンボリックリンク
 
 # 利用可能な全てのターゲットを説明付きで表示
 make help
@@ -35,7 +34,7 @@ make help
 
 ### 主要なインストール動作
 
-- ほとんどの設定でシンボリックリンクを使用（git、tmux、nvim、feh、claude-skills）
+- ほとんどの設定でシンボリックリンクを使用（git、tmux、nvim、feh）
 - 既存のdotfilesにsourceコマンドを追記（vim、zsh、bash、screen）
 - プラグインマネージャーを自動ダウンロード（vim/nvim用のvim-plug）
 - 必要なディレクトリを作成し、依存関係を処理
@@ -61,11 +60,6 @@ make help
 - 各サーバーの実体設定（`cmd`、`filetypes`、`root_markers`、`settings`）は `nvim/lsp/<name>.lua` に1ファイルずつ定義する（例: `ruff.lua`、`rust-analyzer.lua`、`ty.lua`）。`nvim/` が runtimepath に含まれているため、`vim.lsp.enable` はここを自動検出する
 - 新しいLSPサーバーを追加する場合は、`nvim/lsp/<name>.lua` を追加し、`nvim/core/lsp.lua` の `vim.lsp.enable({...})` にサーバー名を加える
 - 保存時フォーマット（`BufWritePre`）はサーバーごとに `LspAttach` autocmd 内で `client.name` によって分岐している。Python(`ruff`)は import 整理 + format、Rust(`rust-analyzer`)はformatのみ
-
-### Claude Code スキル（`claude/skills/`）
-
-- 各スキルは `claude/skills/<name>/SKILL.md`（YAMLフロントマター + Markdown本文）として定義され、`make claude-skills` で `~/.claude/skills/<name>` にシンボリックリンクされる
-- スキル追加時は `claude/skills/` にディレクトリを作り、`Makefile` の `claude-skills` ターゲットにリンク行を追加すること
 
 ## 開発ノート
 

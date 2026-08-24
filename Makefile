@@ -1,4 +1,4 @@
-.PHONY: help feh vim screen bash zsh i3 git input tmux nvim uv claude-skills agents-skills codex-skills
+.PHONY: help feh vim screen bash zsh i3 git input tmux nvim uv
 PWD_TILDE=$(shell pwd | sed "s,^${HOME},\\\\~,g")
 
 ## feh config
@@ -60,34 +60,6 @@ uv:
 	mkdir -p ~/test/uv-env
 	cd ~/test/uv-env && uv init && uv add requests
 	echo "source ~/test/uv-env/.venv/bin/activate"
-
-# Shared skill list for claude-skills / agents-skills / codex-skills
-SKILLS = arxiv-memo bump check git notify private report todo issue grill-me skill-creator
-FRONTEND_DESIGN_SKILL_URL = https://raw.githubusercontent.com/anthropics/skills/refs/heads/main/skills/frontend-design/SKILL.md
-
-## Claude Code Skills
-claude-skills:
-	mkdir -p ~/.claude/skills/
-	for s in $(SKILLS); do \
-		[ -d ~/.claude/skills/$$s ] || ln -s $(PWD)/agents/skills/$$s ~/.claude/skills/$$s; \
-	done
-	[ -d ~/.claude/skills/frontend-design ] || ( mkdir -p ~/.claude/skills/frontend-design && wget -O ~/.claude/skills/frontend-design/SKILL.md $(FRONTEND_DESIGN_SKILL_URL) )
-
-## Agents Skills
-agents-skills:
-	mkdir -p ~/.agents/skills/
-	for s in $(SKILLS); do \
-		[ -d ~/.agents/skills/$$s ] || ln -s $(PWD)/agents/skills/$$s ~/.agents/skills/$$s; \
-	done
-	[ -d ~/.agents/skills/frontend-design ] || ( mkdir -p ~/.agents/skills/frontend-design && wget -O ~/.agents/skills/frontend-design/SKILL.md $(FRONTEND_DESIGN_SKILL_URL) )
-
-## Codex Skills
-codex-skills:
-	mkdir -p ~/.codex/skills/
-	for s in $(SKILLS); do \
-		[ -d ~/.codex/skills/$$s ] || ln -s $(PWD)/agents/skills/$$s ~/.codex/skills/$$s; \
-	done
-	[ -d ~/.codex/skills/frontend-design ] || ( mkdir -p ~/.codex/skills/frontend-design && wget -O ~/.codex/skills/frontend-design/SKILL.md $(FRONTEND_DESIGN_SKILL_URL) )
 
 .DEFAULT_GOAL := help
 
