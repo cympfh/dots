@@ -31,7 +31,7 @@ load-kirara() {
     fi
     eval $(
         cat $CACHEFILE |
-        aws '/./' |
+        awk '/./' |
         sed '/^#/d' |
         sed 's/^\(.\)$/export \1/'
     )
