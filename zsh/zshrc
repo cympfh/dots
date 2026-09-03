@@ -52,7 +52,8 @@ source $ZPLUGDIR/mru/hook.zsh
 source $ZPLUGDIR/windows.sh
 source $ZPLUGDIR/locale.sh
 source $ZPLUGDIR/zh.sh
-load $HOME/Dropbox/share/kirara
+# load $HOME/Dropbox/share/kirara
+source $ZPLUGDIR/kirara.sh
 load $HOME/Dropbox/share/dw/aws.zsh
 
 shpath refresh
