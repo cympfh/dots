@@ -33,7 +33,7 @@ load-kirara() {
         cat $CACHEFILE |
         awk '/./' |
         sed '/^#/d' |
-        sed 's/^\(.\)$/export \1/'
+        sed 's/^\(.\)/export \1/'
     )
 }
 
