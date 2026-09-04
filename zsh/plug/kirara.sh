@@ -1,5 +1,5 @@
 CACHEFILE=/dev/shm/kirara
-TTL=3600
+TTL=28800  # 8 hours
 
 refresh-kirara() {
     : > $CACHEFILE
