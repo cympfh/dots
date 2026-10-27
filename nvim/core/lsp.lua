@@ -1,5 +1,5 @@
 -- サーバー定義は ~/.dots/nvim/lsp/<name>.lua （runtimepath 自動検出）
-vim.lsp.enable({ 'ruff', 'ty', 'rust-analyzer' })
+vim.lsp.enable({ 'ruff', 'ty', 'rust-analyzer', 'taplo' })
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
@@ -36,6 +36,33 @@ vim.api.nvim_create_autocmd('LspAttach', {
         buffer = bufnr,
         callback = function()
           vim.lsp.buf.format({ async = false, id = client.id })
+        end,
+      })
+    elseif client.name == 'taplo' then
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        buffer = bufnr,
+        callback = function()
+          -- 除外された文書は LSP が編集を返さない。そのときは taplo format に渡す
+          local before = table.concat(vim.api.nvim_buf_get_lines(bufnr, 0, -1, false), '\n')
+          vim.lsp.buf.format({
+            async = false,
+            id = client.id,
+            timeout_ms = 2000,
+            bufnr = bufnr,
+          })
+          local after = table.concat(vim.api.nvim_buf_get_lines(bufnr, 0, -1, false), '\n')
+          if after ~= before then
+            return
+          end
+          local text = table.concat(vim.api.nvim_buf_get_lines(bufnr, 0, -1, false), '\n') .. '\n'
+          local result = vim.system({ 'taplo', 'format', '-' }, { text = true, stdin = text }):wait()
+          if result.code == 0 and result.stdout and result.stdout ~= '' then
+            local lines = vim.split(result.stdout, '\n', { plain = true })
+            if lines[#lines] == '' then
+              table.remove(lines)
+            end
+            vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
+          end
         end,
       })
     end

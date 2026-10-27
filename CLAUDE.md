@@ -57,9 +57,9 @@ make help
 ### Neovim LSP設定（`nvim/core/lsp.lua` / `nvim/lsp/`）
 
 - Neovim組み込みの `vim.lsp.enable({...})` を使い、有効化するサーバー名のリストを `nvim/core/lsp.lua` で宣言する
-- 各サーバーの実体設定（`cmd`、`filetypes`、`root_markers`、`settings`）は `nvim/lsp/<name>.lua` に1ファイルずつ定義する（例: `ruff.lua`、`rust-analyzer.lua`、`ty.lua`）。`nvim/` が runtimepath に含まれているため、`vim.lsp.enable` はここを自動検出する
+- 各サーバーの実体設定（`cmd`、`filetypes`、`root_markers`、`settings`）は `nvim/lsp/<name>.lua` に1ファイルずつ定義する（例: `ruff.lua`、`rust-analyzer.lua`、`ty.lua`、`taplo.lua`）。`nvim/` が runtimepath に含まれているため、`vim.lsp.enable` はここを自動検出する
 - 新しいLSPサーバーを追加する場合は、`nvim/lsp/<name>.lua` を追加し、`nvim/core/lsp.lua` の `vim.lsp.enable({...})` にサーバー名を加える
-- 保存時フォーマット（`BufWritePre`）はサーバーごとに `LspAttach` autocmd 内で `client.name` によって分岐している。Python(`ruff`)は import 整理 + format、Rust(`rust-analyzer`)はformatのみ
+- 保存時フォーマット（`BufWritePre`）はサーバーごとに `LspAttach` autocmd 内で `client.name` によって分岐している。Python(`ruff`)は import 整理 + format、Rust(`rust-analyzer`)は format のみ。TOML(`taplo`)は LSP の format を試し、バッファが変わらなければ `taplo format -` に渡す（除外文書は LSP が編集を返さない）
 
 ## 開発ノート
 
