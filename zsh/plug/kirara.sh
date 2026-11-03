@@ -1,5 +1,5 @@
 CACHEFILE=/dev/shm/kirara
-TTL=28800  # 8 hours
+TTL=259200  # 3 days
 
 _refresh-kirara-cache() (
     local cache_tmp
